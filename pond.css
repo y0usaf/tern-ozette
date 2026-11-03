@@ -14,6 +14,19 @@
 	--pd-syn-string: oklch(from var(--pd-lime) 0.907 calc(c * 0.85) h);
 	--pd-syn-function: oklch(from var(--pd-mustard) 0.886 calc(c * 0.82) h);
 	--pd-syn-type: oklch(from var(--pd-pink) 0.864 calc(c * 0.63) h);
+	--pd-code-bg: light-dark(color-mix(in oklab, var(--card) 93%, var(--pd-lav)), var(--pd-plum));
+	--pd-code-head: light-dark(color-mix(in oklab, var(--card) 84%, var(--pd-lav)), var(--pd-plum-2));
+	--pd-code-ink: light-dark(oklch(from var(--pd-plum) 0.24 calc(c * 0.8) h), var(--pd-on-plum));
+	--pd-code-ink-2: light-dark(oklch(from var(--pd-plum) 0.38 calc(c * 0.8) h), var(--pd-on-plum-2));
+	--pd-code-ink-3: light-dark(oklch(from var(--pd-plum) 0.5 calc(c * 0.7) h), var(--pd-on-plum-3));
+	--pd-code-ink-4: light-dark(oklch(from var(--pd-plum) 0.64 calc(c * 0.6) h), var(--pd-on-plum-4));
+	--pd-code-keyword: light-dark(oklch(from var(--pd-lav) 0.45 calc(c * 1.6) h), var(--pd-syn-keyword));
+	--pd-code-string: light-dark(oklch(from var(--pd-lime) 0.46 calc(c * 0.9) h), var(--pd-syn-string));
+	--pd-code-function: light-dark(oklch(from var(--pd-mustard) 0.5 calc(c * 0.9) h), var(--pd-syn-function));
+	--pd-code-type: light-dark(oklch(from var(--pd-pink) 0.48 calc(c * 1.2) h), var(--pd-syn-type));
+	--pd-code-lime: light-dark(oklch(from var(--pd-lime) 0.46 calc(c * 0.9) h), var(--pd-lime));
+	--pd-code-pink: light-dark(oklch(from var(--pd-pink) 0.48 calc(c * 1.2) h), var(--pd-pink));
+	--pd-code-mustard: light-dark(oklch(from var(--pd-mustard) 0.5 calc(c * 0.9) h), var(--pd-mustard));
 	--pd-hair: var(--l4);
 	--pd-sel: light-dark(rgb(from var(--pd-lav) r g b / 42%), rgb(from var(--pd-lav) r g b / 22%));
 	--pd-shade: light-dark(rgb(from var(--pd-lav) r g b / 55%), rgb(0 0 0 / 45%));
@@ -266,60 +279,61 @@
 	margin-top: 0;
 }
 :root:not(#pd) .md :not(pre) > code {
-	background: light-dark(rgb(from var(--pd-lav) r g b / 26%), rgb(from var(--pd-lav) r g b / 16%));
-	box-shadow: none;
-	color: var(--t1);
+	background: light-dark(color-mix(in oklab, var(--card) 88%, var(--pd-lav)), rgb(from var(--pd-lav) r g b / 16%));
+	box-shadow: light-dark(inset 0 0 0 1px var(--pd-hair), none);
+	color: light-dark(oklch(from var(--pd-plum) 0.3 calc(c * 0.9) h), var(--t1));
 	font-size: 13px;
 }
 :root:not(#pd) .md .code,
 :root:not(#pd) .sf-region .sf-tool .sf-tool-body {
 	border: 0;
-	--code-bg: var(--pd-plum);
-	--t1: var(--pd-on-plum);
-	--t2: var(--pd-on-plum-2);
-	--t3: var(--pd-on-plum-3);
-	--t4: var(--pd-on-plum-4);
-	--ink: var(--pd-on-plum);
-	--tv-fg: var(--pd-on-plum);
-	--omp-toolOutput: var(--pd-on-plum-2);
-	--omp-mdCodeBlock: var(--pd-on-plum);
-	--omp-dim: var(--pd-on-plum-3);
-	--omp-muted: var(--pd-on-plum-3);
-	--omp-success: var(--pd-lime);
-	--omp-error: var(--pd-pink);
-	--ok: var(--pd-lime);
-	--bad: var(--pd-pink);
-	--warn: var(--pd-mustard);
-	--l1: rgb(from var(--pd-on-plum) r g b / 8%);
-	--l2: rgb(from var(--pd-on-plum) r g b / 12%);
-	--tk-keyword: var(--pd-syn-keyword);
-	--tk-string: var(--pd-syn-string);
-	--tk-function: var(--pd-syn-function);
-	--tk-type: var(--pd-syn-type);
-	--tk-number: var(--pd-syn-function);
-	--tk-variable: var(--pd-on-plum);
-	--tk-punct: var(--pd-on-plum-3);
-	--tk-operator: var(--pd-syn-type);
-	--tk-macro: var(--pd-pink);
-	--tk-comment: var(--pd-on-plum-3);
-	--tk-property: var(--pd-on-plum-2);
-	--tk-constant: var(--pd-syn-function);
-	--omp-syntaxKeyword: var(--pd-syn-keyword);
-	--omp-syntaxString: var(--pd-syn-string);
-	--omp-syntaxFunction: var(--pd-syn-function);
-	--omp-syntaxType: var(--pd-syn-type);
-	--omp-syntaxNumber: var(--pd-syn-function);
-	--omp-syntaxVariable: var(--pd-on-plum);
-	--omp-syntaxPunctuation: var(--pd-on-plum-3);
-	--omp-syntaxOperator: var(--pd-syn-type);
-	--omp-syntaxComment: var(--pd-on-plum-3);
-	color: var(--pd-on-plum);
+	--code-bg: var(--pd-code-bg);
+	--t1: var(--pd-code-ink);
+	--t2: var(--pd-code-ink-2);
+	--t3: var(--pd-code-ink-3);
+	--t4: var(--pd-code-ink-4);
+	--ink: var(--pd-code-ink);
+	--tv-fg: var(--pd-code-ink);
+	--omp-toolOutput: var(--pd-code-ink-2);
+	--omp-mdCodeBlock: var(--pd-code-ink);
+	--omp-dim: var(--pd-code-ink-3);
+	--omp-muted: var(--pd-code-ink-3);
+	--omp-success: var(--pd-code-lime);
+	--omp-error: var(--pd-code-pink);
+	--ok: var(--pd-code-lime);
+	--bad: var(--pd-code-pink);
+	--warn: var(--pd-code-mustard);
+	--l1: rgb(from var(--pd-code-ink) r g b / 8%);
+	--l2: rgb(from var(--pd-code-ink) r g b / 12%);
+	--tk-keyword: var(--pd-code-keyword);
+	--tk-string: var(--pd-code-string);
+	--tk-function: var(--pd-code-function);
+	--tk-type: var(--pd-code-type);
+	--tk-number: var(--pd-code-function);
+	--tk-variable: var(--pd-code-ink);
+	--tk-punct: var(--pd-code-ink-3);
+	--tk-operator: var(--pd-code-type);
+	--tk-macro: var(--pd-code-pink);
+	--tk-comment: var(--pd-code-ink-3);
+	--tk-property: var(--pd-code-ink-2);
+	--tk-constant: var(--pd-code-function);
+	--omp-syntaxKeyword: var(--pd-code-keyword);
+	--omp-syntaxString: var(--pd-code-string);
+	--omp-syntaxFunction: var(--pd-code-function);
+	--omp-syntaxType: var(--pd-code-type);
+	--omp-syntaxNumber: var(--pd-code-function);
+	--omp-syntaxVariable: var(--pd-code-ink);
+	--omp-syntaxPunctuation: var(--pd-code-ink-3);
+	--omp-syntaxOperator: var(--pd-code-type);
+	--omp-syntaxComment: var(--pd-code-ink-3);
+	color: var(--pd-code-ink);
 }
 :root:not(#pd) .md .code {
-	background: var(--pd-plum);
+	background: var(--pd-code-bg);
+	box-shadow: light-dark(0 0 0 1px var(--pd-hair), none);
 }
 :root:not(#pd) .md .code-head {
-	background: var(--pd-plum-2);
+	background: var(--pd-code-head);
 	border: 0;
 	font: 500 11px/1.4 var(--pd-mono);
 	letter-spacing: 0.12em;
@@ -386,7 +400,7 @@
 	opacity: 1;
 }
 :root:not(#pd) .md .code-head {
-	color: var(--pd-on-plum-3);
+	color: var(--pd-code-ink-3);
 }
 :root:not(#pd) .md :is(h1, h2, h3) {
 	border: 0;
