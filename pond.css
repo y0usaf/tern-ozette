@@ -141,8 +141,12 @@
 	font: 400 16px/1.2 var(--pd-serif);
 	color: var(--t1);
 }
+:root:not(#pd) {
+	background: radial-gradient(circle, var(--pd-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, var(--pd-rail-bg);
+}
+:root:not(#pd) body,
 :root:not(#pd) #tabbar {
-	background: radial-gradient(circle, var(--pd-dot) 1.5px, transparent 1.6px) 0 0 / 22px 22px, var(--pd-rail-bg);
+	background: transparent;
 }
 :root:not(#pd) #tabbar .tn-session-tab {
 	align-self: flex-start;
@@ -233,8 +237,13 @@
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--t4);
 }
-:root:not(#pd) .tn-stage .tn-pane.on.multi {
-	box-shadow: inset 0 0 0 1px light-dark(var(--pd-plum), var(--pd-lav)), inset 0 4px 0 var(--pd-lime);
+:root:not(#pd) section.tn-pane,
+:root:not(#pd) section.tn-pane.on {
+	border: 0;
+	box-shadow: none;
+}
+:root:not(#pd) .tn-stage section.tn-pane.on.multi {
+	box-shadow: inset 0 3px 0 var(--pd-lime);
 }
 :root:not(#pd) .md {
 	font-family: var(--pd-serif);
@@ -503,7 +512,7 @@
 	font-family: var(--pd-mono);
 }
 :root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline {
-	background: radial-gradient(circle, var(--pd-dot) 1.5px, transparent 1.6px) 0 0 / 22px 22px, var(--pd-rail-bg) !important;
+	background: transparent !important;
 	color: var(--t3) !important;
 	font-family: var(--pd-mono) !important;
 }
@@ -699,4 +708,11 @@
 	:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
 		display: none !important;
 	}
+}
+:root:not(#pd).glass {
+	background: radial-gradient(circle, var(--pd-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, light-dark(rgb(from var(--page) r g b / 22%), rgb(from var(--page) r g b / 62%));
+}
+:root:not(#pd).glass :is(body, #panel, .tn-stage, .tn-pane, .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
+	background: transparent;
+	--tv-bg: transparent;
 }
