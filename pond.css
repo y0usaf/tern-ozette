@@ -1,0 +1,584 @@
+:root:not(#pd) {
+	--pd-lav: oklch(from var(--accent) 0.78 0.11 h);
+	--pd-pink: oklch(from var(--bad) 0.79 0.12 h);
+	--pd-mustard: oklch(from var(--warn) 0.83 0.15 h);
+	--pd-lime: oklch(from var(--ok) 0.87 0.15 h);
+	--pd-plum: oklch(from var(--accent) 0.28 0.06 h);
+	--pd-forest: oklch(from var(--pd-lime) 0.3 0.035 h);
+	--pd-plum-2: color-mix(in oklab, var(--pd-lav) 10%, var(--pd-plum));
+	--pd-on-plum: oklch(from var(--pd-plum) 0.934 calc(c * 0.37) h);
+	--pd-on-plum-2: oklch(from var(--pd-plum) 0.803 calc(c * 0.74) h);
+	--pd-on-plum-3: oklch(from var(--pd-plum) 0.718 calc(c * 1.03) h);
+	--pd-on-plum-4: oklch(from var(--pd-plum) 0.564 calc(c * 1.09) h);
+	--pd-syn-keyword: oklch(from var(--pd-lav) 0.813 calc(c * 1.24) h);
+	--pd-syn-string: oklch(from var(--pd-lime) 0.907 calc(c * 0.85) h);
+	--pd-syn-function: oklch(from var(--pd-mustard) 0.886 calc(c * 0.82) h);
+	--pd-syn-type: oklch(from var(--pd-pink) 0.864 calc(c * 0.63) h);
+	--pd-hair: var(--l4);
+	--pd-sel: light-dark(rgb(from var(--pd-lav) r g b / 42%), rgb(from var(--pd-lav) r g b / 22%));
+	--pd-shade: light-dark(rgb(from var(--pd-lav) r g b / 55%), rgb(0 0 0 / 45%));
+	--pd-dot: light-dark(rgb(from var(--pd-forest) r g b / 16%), rgb(from var(--pd-lime) r g b / 14%));
+	--pd-rail-bg: var(--page);
+	--pd-tint: light-dark(rgb(from var(--pd-plum) r g b / 4%), rgb(255 255 255 / 4%));
+	--pd-serif: "Crimson Pro", "EB Garamond", serif;
+	--pd-mono: "IBM Plex Mono", ui-monospace, monospace;
+	--mono: var(--pd-mono);
+	--r-chip: 0px;
+	--r-ctl: 0px;
+	--r-card: 0px;
+	--r-panel: 0px;
+}
+:root:not(#pd) *,
+:root:not(#pd) *::before,
+:root:not(#pd) *::after {
+	border-radius: 0;
+}
+:root:not(#pd) .tn-cmdk,
+:root:not(#pd) .cmdk,
+:root:not(#pd) .pk-sheet,
+:root:not(#pd) .tn-hd,
+:root:not(#pd) .pop,
+:root:not(#pd) .pp-pop,
+:root:not(#pd) .sq-pop,
+:root:not(#pd) .sf-ck-pop,
+:root:not(#pd) .sf-ov-card,
+:root:not(#pd) .sf-col[data-role^='omp.overlay.'],
+:root:not(#pd) .tn-pq-card,
+:root:not(#pd) .sf-toast,
+:root:not(#pd) .toast,
+:root:not(#pd) .tn-ib,
+:root:not(#pd) .tn-find,
+:root:not(#pd) .pf.sheet,
+:root:not(#pd) .tn-bn-card,
+:root:not(#pd) #carly .cy-card,
+:root:not(#pd) #carly .cy-pill,
+:root:not(#pd) body > :is(.toast, .tooltip) {
+	border: 0;
+	background: var(--pop-bg);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	box-shadow: 0 0 0 1px var(--pd-hair), 6px 6px 0 var(--pd-shade);
+	color: var(--t1);
+}
+:root:not(#pd) .sf-prefs :is(.pf-menu, .pf-editor) {
+	border: 0;
+	background: var(--pop-bg);
+	box-shadow: 0 0 0 1px var(--pd-hair), 6px 6px 0 var(--pd-shade);
+}
+:root:not(#pd) :is(.pk-head, .pk-bar, .pk-pv, .ck-head, .ck-top, .ck-foot, .tn-ib-head, .tn-ib-foot, .pf-head) {
+	border-color: var(--pd-hair);
+	box-shadow: none;
+}
+:root:not(#pd) :is(.ck-top, .tn-ib-head, .pk-head) {
+	border-bottom: 1px solid var(--pd-hair);
+}
+:root:not(#pd) :is(.ck-foot, .tn-ib-foot) {
+	border-top: 1px solid var(--pd-hair);
+}
+:root:not(#pd) .pk-selbar,
+:root:not(#pd) .ck-item[aria-selected='true'],
+:root:not(#pd) .tn-thm-row[aria-selected='true'],
+:root:not(#pd) .sf-ov-card .sf-item.sel,
+:root:not(#pd) .sf-ov-card .sf-list .sf-item.sel:hover,
+:root:not(#pd) .pk-scope.nav-row.on,
+:root:not(#pd) .pk-tabs .pk-tab.on,
+:root:not(#pd) .pop .mi:hover,
+:root:not(#pd) .sf-prefs .pf-row.focus,
+:root:not(#pd) .tn-ib-row[aria-selected='true'],
+:root:not(#pd) .tn-pl-scopes .on {
+	background-color: var(--pd-sel);
+	background-image: none;
+	box-shadow: none;
+	color: var(--t1);
+}
+:root:not(#pd) .tn-ib-row[aria-selected='true']::before {
+	background: var(--t1);
+}
+:root:not(#pd) .pk-btn,
+:root:not(#pd) .tn-hd button,
+:root:not(#pd) .sf-ov-card button,
+:root:not(#pd) .tn-ib-clear,
+:root:not(#pd) .toast-act,
+:root:not(#pd) .pf.sheet .btn {
+	box-shadow: none;
+	font-family: var(--pd-mono);
+	font-size: 11.5px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+:root:not(#pd) :is(.pk-btn.primary, .btn.accent, .toast-act) {
+	background: light-dark(var(--pd-plum), var(--pd-lime));
+	color: light-dark(#ffffff, var(--pd-forest));
+	box-shadow: none;
+}
+:root:not(#pd) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .sf-ov-card, .tn-ib, .pf.sheet) :is(.kbd, .sf-badge) {
+	background: none;
+	box-shadow: inset 0 0 0 1px var(--pd-hair);
+}
+:root:not(#pd) .pk-dim {
+	background: light-dark(rgb(from var(--pd-plum) r g b / 18%), rgb(0 0 0 / 40%));
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+}
+:root:not(#pd) .pk-sheet::after {
+	background: none;
+}
+:root:not(#pd) .tn-ib-t,
+:root:not(#pd) .pf-head .pf-t,
+:root:not(#pd) .ck-group,
+:root:not(#pd) .tn-ib-gh {
+	font-family: var(--pd-mono);
+	font-size: 11px;
+	font-weight: 500;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+:root:not(#pd) .tn-ib-ic {
+	background: none;
+	box-shadow: inset 0 0 0 1px currentColor;
+}
+:root:not(#pd) .tn-ib-lbl {
+	font: 400 16px/1.2 var(--pd-serif);
+	color: var(--t1);
+}
+:root:not(#pd) #tabbar {
+	background: radial-gradient(circle, var(--pd-dot) 1.5px, transparent 1.6px) 0 0 / 22px 22px, var(--pd-rail-bg);
+}
+:root:not(#pd) #tabbar .tn-session-tab {
+	align-self: flex-start;
+	width: max-content;
+	margin: 16px 12px 22px;
+	padding: 3px 10px;
+	background: var(--pd-lav);
+	color: var(--pd-plum);
+	font: 600 11px/1.4 var(--pd-mono);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+:root:not(#pd) #tabbar .tt {
+	height: 48px;
+	min-height: 48px;
+	margin: 0 10px 6px 12px;
+	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	box-shadow: none;
+	overflow: visible;
+}
+:root:not(#pd) #tabbar .tt .nm {
+	font: 400 18px/1.1 var(--pd-serif);
+	color: var(--t1);
+}
+:root:not(#pd) #tabbar .tt .sub {
+	font: 400 10px/1.3 var(--pd-mono);
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--t3);
+}
+:root:not(#pd) #tabbar .tt :is(.kbd.tn-num, .mk.keys) {
+	flex: none;
+	margin-left: auto;
+}
+:root:not(#pd).tn-nums #tabbar .tt .mk.keys {
+	display: none;
+}
+:root:not(#pd) #tabbar .tt .mk.keys {
+	min-width: 0;
+	height: auto;
+	overflow: visible;
+}
+:root:not(#pd) #tabbar .tt .mk.keys .hint {
+	margin: 0;
+	font: 400 10px/1 var(--pd-mono);
+	color: var(--t3);
+}
+:root:not(#pd) #tabbar .tt .kbd.tn-num {
+	justify-content: center;
+	min-width: 18px;
+	font: 400 10px/17px var(--pd-mono);
+	color: var(--t3);
+}
+:root:not(#pd) #tabbar .tt.on {
+	background: var(--pd-lime);
+	box-shadow: none;
+}
+:root:not(#pd) #tabbar .tt.on .nm {
+	color: var(--pd-forest);
+}
+:root:not(#pd) #tabbar .tt.on .sub,
+:root:not(#pd) #tabbar .tt.on .kbd.tn-num,
+:root:not(#pd) #tabbar .tt.on .mk.keys .hint {
+	color: rgb(from var(--pd-forest) r g b / 70%);
+}
+:root:not(#pd) #tabbar .tt.on .kbd {
+	box-shadow: inset 0 0 0 1px rgb(from var(--pd-forest) r g b / 40%);
+}
+:root:not(#pd) #tabbar .tt.on::after {
+	content: "→";
+	position: absolute;
+	right: -8px;
+	top: -8px;
+	width: 22px;
+	height: 22px;
+	background: var(--pd-forest);
+	color: var(--pd-lime);
+	font: 500 13px/22px var(--pd-mono);
+	text-align: center;
+}
+:root:not(#pd) #tabbar .tb-row {
+	font: 500 11px/1 var(--pd-mono);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--t2);
+}
+:root:not(#pd) #tabbar .kbd {
+	background: none;
+	box-shadow: inset 0 0 0 1px var(--t4);
+}
+:root:not(#pd) .tn-stage .tn-pane.on.multi {
+	box-shadow: inset 0 0 0 1px light-dark(var(--pd-plum), var(--pd-lav)), inset 0 4px 0 var(--pd-lime);
+}
+:root:not(#pd) .md {
+	font-family: var(--pd-serif);
+}
+:root:not(#pd) .sf-region .md {
+	font: 400 17.5px/1.5 var(--pd-serif);
+	color: var(--t1);
+}
+:root:not(#pd) .md :is(h1, h2, h3) {
+	align-self: flex-start;
+	width: max-content;
+	margin: 18px 0 8px -12px;
+	padding: 2px 12px 3px;
+	background: var(--pd-lav);
+	--omp-mdHeading: var(--pd-plum);
+	color: var(--pd-plum);
+	font: 500 22px/1.2 var(--pd-serif);
+}
+:root:not(#pd) .md :is(h2, h3) + p {
+	margin-top: 0;
+}
+:root:not(#pd) .md ul {
+	list-style-type: square;
+}
+:root:not(#pd) .md li::marker {
+	color: var(--pd-mustard);
+}
+:root:not(#pd) .md :not(pre) > code {
+	background: light-dark(rgb(from var(--pd-lav) r g b / 26%), rgb(from var(--pd-lav) r g b / 16%));
+	box-shadow: none;
+	color: var(--t1);
+	font-size: 13px;
+}
+:root:not(#pd) .md .code,
+:root:not(#pd) .sf-region .sf-tool .sf-tool-body {
+	border: 0;
+	--code-bg: var(--pd-plum);
+	--t1: var(--pd-on-plum);
+	--t2: var(--pd-on-plum-2);
+	--t3: var(--pd-on-plum-3);
+	--t4: var(--pd-on-plum-4);
+	--ink: var(--pd-on-plum);
+	--tv-fg: var(--pd-on-plum);
+	--omp-toolOutput: var(--pd-on-plum-2);
+	--omp-mdCodeBlock: var(--pd-on-plum);
+	--omp-dim: var(--pd-on-plum-3);
+	--omp-muted: var(--pd-on-plum-3);
+	--omp-success: var(--pd-lime);
+	--omp-error: var(--pd-pink);
+	--ok: var(--pd-lime);
+	--bad: var(--pd-pink);
+	--warn: var(--pd-mustard);
+	--l1: rgb(from var(--pd-on-plum) r g b / 8%);
+	--l2: rgb(from var(--pd-on-plum) r g b / 12%);
+	--tk-keyword: var(--pd-syn-keyword);
+	--tk-string: var(--pd-syn-string);
+	--tk-function: var(--pd-syn-function);
+	--tk-type: var(--pd-syn-type);
+	--tk-number: var(--pd-syn-function);
+	--tk-variable: var(--pd-on-plum);
+	--tk-punct: var(--pd-on-plum-3);
+	--tk-operator: var(--pd-syn-type);
+	--tk-macro: var(--pd-pink);
+	--tk-comment: var(--pd-on-plum-3);
+	--tk-property: var(--pd-on-plum-2);
+	--tk-constant: var(--pd-syn-function);
+	--omp-syntaxKeyword: var(--pd-syn-keyword);
+	--omp-syntaxString: var(--pd-syn-string);
+	--omp-syntaxFunction: var(--pd-syn-function);
+	--omp-syntaxType: var(--pd-syn-type);
+	--omp-syntaxNumber: var(--pd-syn-function);
+	--omp-syntaxVariable: var(--pd-on-plum);
+	--omp-syntaxPunctuation: var(--pd-on-plum-3);
+	--omp-syntaxOperator: var(--pd-syn-type);
+	--omp-syntaxComment: var(--pd-on-plum-3);
+	color: var(--pd-on-plum);
+}
+:root:not(#pd) .md .code {
+	background: var(--pd-plum);
+}
+:root:not(#pd) .md .code-head {
+	background: var(--pd-plum-2);
+	border: 0;
+	font: 500 11px/1.4 var(--pd-mono);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+:root:not(#pd) .sf-region .sf-tool.card {
+	border: 0;
+	background: none;
+	box-shadow: none;
+}
+:root:not(#pd) .sf-region .sf-tool > .sf-tool-head {
+	border: 0;
+	background: var(--pd-tint);
+	box-shadow: none;
+	color: var(--t3);
+	font: 400 12px/1.4 var(--pd-mono);
+}
+:root:not(#pd) .sf-region .sf-tool-title {
+	padding: 0;
+	background: none;
+	color: var(--t1);
+	font: 500 13.5px/1.4 var(--sans);
+	letter-spacing: normal;
+	text-transform: none;
+}
+:root:not(#pd) .sf-region .sf-tool-ic {
+	color: var(--t3);
+}
+:root:not(#pd) .sf-region .sf-tool.st-error > .sf-tool-head,
+:root:not(#pd) .sf-region .sf-tool.st-error > .sf-tool-head:hover {
+	box-shadow: inset 2px 0 0 var(--bad);
+}
+:root:not(#pd) .sf-region .sf-tool.st-error .sf-tool-ic {
+	color: var(--bad);
+}
+:root:not(#pd) .sf-card[data-role^='omp.user'] > .sf-card-body {
+	--tv-fg: var(--pd-plum);
+	--t1: var(--pd-plum);
+	--t3: rgb(from var(--pd-plum) r g b / 60%);
+	background: var(--pd-pink);
+	color: var(--pd-plum);
+	font: 400 17px/1.4 var(--pd-serif);
+	box-shadow: none;
+}
+:root:not(#pd) .sf-card[data-role^='omp.user'] > .sf-card-body .md {
+	color: var(--pd-plum);
+}
+:root:not(#pd) .sf-col[data-role^='omp.editor'] {
+	border: 0;
+	background: var(--raise);
+	box-shadow: 0 0 0 1px var(--pd-hair), 6px 6px 0 var(--pd-lime);
+	color: var(--t1);
+}
+:root:not(#pd) [data-role='omp.composer.model'] {
+	background: var(--pd-lav);
+	color: var(--pd-plum);
+	font: 600 11px/1.4 var(--pd-mono);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+:root:not(#pd) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'],
+:root:not(#pd) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] * {
+	color: var(--pd-plum) !important;
+	opacity: 1;
+}
+:root:not(#pd) .md .code-head {
+	color: var(--pd-on-plum-3);
+}
+:root:not(#pd) .md :is(h1, h2, h3) {
+	border: 0;
+}
+:root:not(#pd) .tn-bn-card::before,
+:root:not(#pd) #carly .cy-pill::before,
+:root:not(#pd) #carly .cy-pill::after,
+:root:not(#pd) #carly .cy-glow {
+	display: none;
+}
+:root:not(#pd) .tn-bn-t {
+	font: 400 16px/1.2 var(--pd-serif);
+	letter-spacing: normal;
+}
+:root:not(#pd) .tn-bn-k {
+	box-shadow: none;
+}
+:root:not(#pd) #carly .cy-input {
+	font: 400 18px/1.2 var(--pd-serif);
+}
+:root:not(#pd) #carly .cy-card .md,
+:root:not(#pd) #carly .cy-turn {
+	font-family: var(--pd-serif);
+	font-size: 16px;
+}
+:root:not(#pd) #carly .cy-close {
+	background: var(--pop-bg);
+	box-shadow: 0 0 0 1px var(--pd-hair);
+}
+:root:not(#pd) .pf.sheet {
+	background: var(--panel);
+}
+:root:not(#pd) .pf-title {
+	font: 400 26px/1.15 var(--pd-serif);
+	letter-spacing: normal;
+}
+:root:not(#pd) :is(.pf-eyebrow, .pf-sec-t, .nav-head) {
+	font: 500 11px/1.4 var(--pd-mono);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+:root:not(#pd) .pf-rows {
+	background: var(--card);
+	box-shadow: 0 0 0 1px var(--pd-hair);
+}
+:root:not(#pd) .pf-sw.on {
+	background: light-dark(var(--pd-plum), var(--pd-lime));
+}
+:root:not(#pd) .pf-sw.on .knob {
+	background: light-dark(var(--pd-lime), var(--pd-forest));
+}
+:root:not(#pd) :is(.pf-search, .pf-in, .pp-field) {
+	background: var(--card);
+	box-shadow: inset 0 0 0 1px var(--pd-hair);
+}
+:root:not(#pd) .pf-items .nav-row.on {
+	background: var(--pd-sel);
+	color: var(--t1);
+}
+:root:not(#pd) .ft {
+	background: var(--panel);
+	box-shadow: inset -1px 0 0 var(--pd-hair);
+}
+:root:not(#pd) .ft-name,
+:root:not(#pd) .ed-bar .ed-name,
+:root:not(#pd) .bd-name,
+:root:not(#pd) .bd-lt {
+	font: 500 11px/1.4 var(--pd-mono);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+:root:not(#pd) .ft-row.cur {
+	background: var(--pd-sel);
+	color: var(--t1);
+}
+:root:not(#pd) .ed-bar {
+	background: var(--panel);
+	box-shadow: inset 0 -1px 0 var(--pd-hair);
+}
+:root:not(#pd) .tv-thumb {
+	background: rgb(from var(--pd-lav) r g b / 70%);
+}
+:root:not(#pd) :is(.tn-empty-t, .bd-empty-t, .tn-ib-empty-t, .nv-empty) {
+	font: 400 22px/1.2 var(--pd-serif);
+	color: var(--t1);
+}
+:root:not(#pd) :is(.tn-ring, .bd-ring, .tn-ib-empty-ic) {
+	background: var(--pd-lav);
+	color: var(--pd-plum);
+	box-shadow: 6px 6px 0 var(--pd-lime);
+}
+:root:not(#pd) .bd-lane {
+	background: var(--pd-tint);
+	box-shadow: inset 0 3px 0 var(--pd-lav);
+}
+:root:not(#pd) .bd-lane.cur {
+	box-shadow: inset 0 3px 0 var(--pd-lime);
+}
+:root:not(#pd) .bd-card {
+	background: var(--card);
+	box-shadow: 0 0 0 1px var(--pd-hair), 3px 3px 0 var(--pd-shade);
+	font-family: var(--pd-serif);
+	font-size: 15px;
+}
+:root:not(#pd) :is(.seg, .pf-seg) {
+	background: var(--pd-tint);
+}
+:root:not(#pd) .seg .mthumb,
+:root:not(#pd) .pf-seg button.on {
+	background: var(--card);
+	box-shadow: 0 0 0 1px var(--pd-hair);
+}
+:root:not(#pd) .pop .mi {
+	font-size: 13px;
+}
+:root:not(#pd) .pop .mi .kbd {
+	font-family: var(--pd-mono);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline {
+	background: radial-gradient(circle, var(--pd-dot) 1.5px, transparent 1.6px) 0 0 / 22px 22px, var(--pd-rail-bg);
+	color: var(--t3);
+	font-family: var(--pd-mono);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
+	align-self: center;
+	width: max-content;
+	padding: 6px 14px 4px;
+	background: var(--pd-lime);
+	color: var(--pd-forest);
+	font: 400 40px/1 var(--pd-serif);
+	letter-spacing: 0;
+	box-shadow: 6px 6px 0 var(--pd-forest);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
+	align-self: center;
+	width: max-content;
+	margin: 18px 0 26px;
+	padding: 3px 10px;
+	background: var(--pd-lav);
+	color: var(--pd-plum);
+	font: 600 11px/1.4 var(--pd-mono);
+	letter-spacing: 0.12em;
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='arc-sidebar'] {
+	font: 500 11px/1.7 var(--pd-mono);
+	letter-spacing: 0.12em;
+	color: var(--t2);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
+	padding: 10px 12px 2px;
+	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	color: var(--t1);
+	font: 400 24px/1.2 var(--pd-serif);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
+	font: 400 10px/1.3 var(--pd-mono);
+	letter-spacing: 0.12em;
+	color: var(--t3);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
+	border-top: 0;
+	padding-top: 10px;
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
+	color: var(--warn);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
+	color: var(--bad);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
+	--spark-c: light-dark(var(--pd-plum), var(--pd-lime));
+	--spark-track: var(--pd-hair);
+	width: auto;
+	margin: 4px 12px 14px;
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
+	margin-top: 8px;
+	border-top: 0;
+	background: none;
+	color: var(--t2);
+	font: 400 11px/1.5 var(--pd-mono);
+	letter-spacing: 0.06em;
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
+	background: var(--pd-lav);
+	color: var(--pd-plum);
+	box-shadow: none;
+	font: 600 10px/1.4 var(--pd-mono);
+	letter-spacing: 0.12em;
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
+	background: var(--pd-mustard);
+}
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.tn-git {
+	font: 500 10.5px/1.7 var(--pd-mono);
+	letter-spacing: 0.12em;
+	color: var(--t3);
+}
