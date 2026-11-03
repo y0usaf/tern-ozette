@@ -912,3 +912,13 @@
 :root:not(#pd) .md ol > li:nth-child(n+31)::before {
 	content: none;
 }
+:root:not(#pd):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
+	align-self: center !important;
+	margin: 0 0 14px !important;
+	padding: 4px 12px 3px !important;
+	border-radius: 0 !important;
+	box-shadow: 4px 4px 0 var(--pd-forest) !important;
+	font: 600 11px/1.4 var(--pd-mono) !important;
+	letter-spacing: 0.12em !important;
+	text-transform: uppercase !important;
+}
