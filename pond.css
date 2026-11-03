@@ -716,3 +716,61 @@
 	background: transparent;
 	--tv-bg: transparent;
 }
+
+:root:not(#pd) .sf-chat-reader > [data-role^='omp.assistant'],
+:root:not(#pd) .sf-chat-reader > [data-role='omp.chat.msg'] > [data-role^='omp.assistant'] {
+	margin-bottom: 14px;
+	padding: 14px 18px 16px;
+	background: var(--card);
+	box-shadow: 0 0 0 1px var(--pd-hair);
+}
+:root:not(#pd) #tabbar .tb-tabs {
+	scroll-snap-type: y mandatory;
+}
+:root:not(#pd) #tabbar .tb-tabs > .tt {
+	scroll-snap-align: start;
+}
+@media (max-width: 1000px) {
+	:root:not(#pd).lay-rail.tabs-h #tabbar .tb-in {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-rows: auto auto minmax(0, 1fr) auto auto;
+	}
+	:root:not(#pd).lay-rail.tabs-h #tabbar .tb-in > * {
+		grid-column: 1 / -1;
+	}
+	:root:not(#pd).lay-rail.tabs-h #tabbar .tb-in > .tn-session-tab {
+		justify-self: start;
+	}
+	:root:not(#pd).lay-rail.tabs-h #tabbar .tb-in > .tb-tabs {
+		grid-row: 3;
+		min-height: 0;
+	}
+	:root:not(#pd).lay-rail.tabs-h #tabbar .tb-in > .tb-row {
+		grid-column: auto;
+		grid-row: 4;
+		justify-content: center;
+		margin: 6px 0 0;
+		padding: 0;
+	}
+	:root:not(#pd).lay-rail.tabs-h #tabbar .tb-in > .tb-blocks {
+		grid-row: 5;
+	}
+}
+:root:not(#pd) #tabbar .tt[data-tc] {
+	border-radius: 0 !important;
+}
+:root:not(#pd) #tabbar .tt[data-tc].on {
+	background: var(--pd-lime) !important;
+}
+:root:not(#pd) #tabbar .tt[data-tc] .nm {
+	color: var(--t1) !important;
+	font-weight: 400 !important;
+}
+:root:not(#pd) #tabbar .tt[data-tc].on .nm {
+	color: var(--pd-forest) !important;
+}
+:root:not(#pd) #tabbar .tt[data-tc].on .sub {
+	color: rgb(from var(--pd-forest) r g b / 70%);
+	opacity: 1;
+}
