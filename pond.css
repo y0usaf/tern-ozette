@@ -1003,3 +1003,6 @@
 		margin-bottom: 6px !important;
 	}
 }
+:root:not(#pd) .tv-bar .tv-mark {
+	display: none;
+}
