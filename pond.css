@@ -708,7 +708,6 @@
 }
 :root:not(#pd).glass :is(body, #panel, .tn-stage, .tn-pane, .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
 	background: transparent;
-	--tv-bg: transparent;
 }
 
 :root:not(#pd) .sf-chat-reader > [data-role^='omp.assistant'],
