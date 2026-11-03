@@ -1,6 +1,6 @@
-# Pond
+# Ozette
 
-Pond's structure, type, shapes, rails and motion as a Tern plugin. It sits over whatever theme is selected and reads only the theme's variables, so colour always comes from the theme.
+Ozette's structure, type, shapes, rails and motion as a Tern plugin. It sits over whatever theme is selected and reads only the theme's variables, so colour always comes from the theme.
 
 ## Design note: declared backgrounds stay real
 

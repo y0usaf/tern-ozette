@@ -1,17 +1,17 @@
-:root:not(#pd) {
+:root:not(#oz) {
 	--pm-out: cubic-bezier(0.2, 0, 0, 1);
 	--pm-fast: 120ms;
 	--pm-mid: 180ms;
 	--pm-slow: 220ms;
 }
-:root:not(#pd) .icon-btn,
-:root:not(#pd) .btn,
-:root:not(#pd) .pk-btn,
-:root:not(#pd) .sel-btn,
-:root:not(#pd) .sf-icon.sf-act,
-:root:not(#pd) .sf-tool-copy,
-:root:not(#pd) .sf-block-copy,
-:root:not(#pd) .tn-session-tab {
+:root:not(#oz) .icon-btn,
+:root:not(#oz) .btn,
+:root:not(#oz) .pk-btn,
+:root:not(#oz) .sel-btn,
+:root:not(#oz) .sf-icon.sf-act,
+:root:not(#oz) .sf-tool-copy,
+:root:not(#oz) .sf-block-copy,
+:root:not(#oz) .tn-session-tab {
 	transition:
 		background-color var(--pm-fast) var(--pm-out),
 		color var(--pm-fast) var(--pm-out),
@@ -19,122 +19,122 @@
 		opacity var(--pm-fast) var(--pm-out),
 		transform var(--pm-fast) var(--pm-out);
 }
-:root:not(#pd) :is(.icon-btn, .btn, .pk-btn, .sel-btn, .sf-icon.sf-act, .sf-tool-copy, .sf-block-copy, .tn-session-tab):hover {
+:root:not(#oz) :is(.icon-btn, .btn, .pk-btn, .sel-btn, .sf-icon.sf-act, .sf-tool-copy, .sf-block-copy, .tn-session-tab):hover {
 	transition-duration: 0s, 0s, 0s, 0s, var(--pm-fast);
 }
-:root:not(#pd) :is(.icon-btn, .pk-btn, .sf-icon.sf-act, .sf-tool-copy, .sf-block-copy):active {
+:root:not(#oz) :is(.icon-btn, .pk-btn, .sf-icon.sf-act, .sf-tool-copy, .sf-block-copy):active {
 	transform: scale(0.9);
 	transition-duration: 0s;
 }
-:root:not(#pd) :is(.btn, .sel-btn, .tn-session-tab):active {
+:root:not(#oz) :is(.btn, .sel-btn, .tn-session-tab):active {
 	transform: translateY(1px);
 	transition-duration: 0s;
 }
-:root:not(#pd) .tb-tabs:not(.dragging) > .tt,
-:root:not(#pd) .tn-vt:not(.dragging) .nav-row,
-:root:not(#pd) .pop .mi,
-:root:not(#pd) .ck-item,
-:root:not(#pd) .pk-row,
-:root:not(#pd) .sf-ov-card .sf-item {
+:root:not(#oz) .tb-tabs:not(.dragging) > .tt,
+:root:not(#oz) .tn-vt:not(.dragging) .nav-row,
+:root:not(#oz) .pop .mi,
+:root:not(#oz) .ck-item,
+:root:not(#oz) .pk-row,
+:root:not(#oz) .sf-ov-card .sf-item {
 	transition:
 		background-color var(--pm-fast) var(--pm-out),
 		color var(--pm-fast) var(--pm-out),
 		box-shadow var(--pm-fast) var(--pm-out);
 }
-:root:not(#pd) .tb-tabs:not(.dragging) > .tt {
+:root:not(#oz) .tb-tabs:not(.dragging) > .tt {
 	transition-duration: var(--pm-mid);
 }
-:root:not(#pd) .tb-tabs:not(.dragging) > .tt:hover,
-:root:not(#pd) .tn-vt:not(.dragging) .nav-row:hover,
-:root:not(#pd) .pop .mi:hover,
-:root:not(#pd) .ck-item:hover,
-:root:not(#pd) .pk-row:hover,
-:root:not(#pd) .sf-ov-card .sf-item:hover {
+:root:not(#oz) .tb-tabs:not(.dragging) > .tt:hover,
+:root:not(#oz) .tn-vt:not(.dragging) .nav-row:hover,
+:root:not(#oz) .pop .mi:hover,
+:root:not(#oz) .ck-item:hover,
+:root:not(#oz) .pk-row:hover,
+:root:not(#oz) .sf-ov-card .sf-item:hover {
 	transition-duration: 0s;
 }
-:root:not(#pd) #tabbar .tt.on::after {
+:root:not(#oz) #tabbar .tt.on::after {
 	animation: pm-pip var(--pm-slow) var(--pm-out) both;
 }
-:root:not(#pd) #tabbar .tt .nm,
-:root:not(#pd) #tabbar .tt .sub {
+:root:not(#oz) #tabbar .tt .nm,
+:root:not(#oz) #tabbar .tt .sub {
 	transition: color var(--pm-mid) var(--pm-out), opacity var(--pm-mid) var(--pm-out);
 }
-:root:not(#pd) .sf-region.sf-main > :is(.sf-card, .sf-col, .sf-tool, .sf-section) {
+:root:not(#oz) .sf-region.sf-main > :is(.sf-card, .sf-col, .sf-tool, .sf-section) {
 	animation: pm-rise var(--pm-slow) var(--pm-out) both;
 }
-:root:not(#pd) .sf-still .sf-region.sf-main > *,
-:root:not(#pd) .sf-still.sf-region.sf-main > * {
+:root:not(#oz) .sf-still .sf-region.sf-main > *,
+:root:not(#oz) .sf-still.sf-region.sf-main > * {
 	animation: none;
 }
-:root:not(#pd) .pop {
+:root:not(#oz) .pop {
 	animation: pm-pop var(--pm-mid) var(--pm-out) both;
 	transform-origin: top center;
 }
-:root:not(#pd) .pop.above {
+:root:not(#oz) .pop.above {
 	transform-origin: bottom center;
 }
-:root:not(#pd) .pop[role='menu'] {
+:root:not(#oz) .pop[role='menu'] {
 	transform-origin: top left;
 }
-:root:not(#pd) .pop.still {
+:root:not(#oz) .pop.still {
 	animation: none;
 }
-:root:not(#pd) .pop.mi-subpop {
+:root:not(#oz) .pop.mi-subpop {
 	animation: pm-sub var(--pm-mid) var(--pm-out) both;
 	transform-origin: left top;
 }
-:root:not(#pd) #pal,
-:root:not(#pd) .mdl,
-:root:not(#pd) #dlg,
-:root:not(#pd) .sf-ov-card,
-:root:not(#pd) .pk-sheet {
+:root:not(#oz) #pal,
+:root:not(#oz) .mdl,
+:root:not(#oz) #dlg,
+:root:not(#oz) .sf-ov-card,
+:root:not(#oz) .pk-sheet {
 	animation: pm-pop var(--pm-mid) var(--pm-out) both;
 	transform-origin: top center;
 }
-:root:not(#pd) .mdl-layer,
-:root:not(#pd) .pk-dim {
+:root:not(#oz) .mdl-layer,
+:root:not(#oz) .pk-dim {
 	animation: pm-fade var(--pm-mid) var(--pm-out) both;
 }
-:root:not(#pd) .sf-still :is(.sf-ov-card, .pk-sheet, .pk-dim),
-:root:not(#pd) .sf-picker.sz-screen .pk-sheet {
+:root:not(#oz) .sf-still :is(.sf-ov-card, .pk-sheet, .pk-dim),
+:root:not(#oz) .sf-picker.sz-screen .pk-sheet {
 	animation: none;
 }
-:root:not(#pd):not(.tn-phone) .pf.sheet,
-:root:not(#pd) .bd-sheet {
+:root:not(#oz):not(.tn-phone) .pf.sheet,
+:root:not(#oz) .bd-sheet {
 	animation: pm-drawer var(--pm-slow) var(--pm-out) both;
 }
-:root:not(#pd).tabs-v .tn-vt {
+:root:not(#oz).tabs-v .tn-vt {
 	animation: pm-rail var(--pm-slow) var(--pm-out);
 }
-:root:not(#pd).tabs-v .tn-vt.tn-vt-ghosts {
+:root:not(#oz).tabs-v .tn-vt.tn-vt-ghosts {
 	animation: none;
 }
-:root:not(#pd):not(.tn-phone) .toast {
+:root:not(#oz):not(.tn-phone) .toast {
 	animation: pm-toast var(--pm-slow) var(--pm-out) both;
 }
-:root:not(#pd):not(.tn-phone) .toast.swap {
+:root:not(#oz):not(.tn-phone) .toast.swap {
 	animation: none;
 }
-:root:not(#pd) #tabbar .tt.working .nm,
-:root:not(#pd) .tn-vt .nav-row.working .lbl {
+:root:not(#oz) #tabbar .tt.working .nm,
+:root:not(#oz) .tn-vt .nav-row.working .lbl {
 	background: none;
 	animation: pm-breathe 2.4s steps(24) infinite alternate;
 }
-:root:not(#pd) .tn-vt .nav-row.working .lbl {
+:root:not(#oz) .tn-vt .nav-row.working .lbl {
 	color: inherit;
 }
-:root:not(#pd).inactive #tabbar .tt.working .nm,
-:root:not(#pd).inactive .tn-vt .nav-row.working .lbl {
+:root:not(#oz).inactive #tabbar .tt.working .nm,
+:root:not(#oz).inactive .tn-vt .nav-row.working .lbl {
 	animation-play-state: paused;
 }
 @media (prefers-reduced-motion: reduce) {
-	:root:not(#pd) {
+	:root:not(#oz) {
 			--pm-fast: 0s;
 			--pm-mid: 0s;
 			--pm-slow: 0s;
 		}
-	:root:not(#pd) #tabbar .tt.working .nm,
-	:root:not(#pd) .tn-vt .nav-row.working .lbl {
+	:root:not(#oz) #tabbar .tt.working .nm,
+	:root:not(#oz) .tn-vt .nav-row.working .lbl {
 			animation: none;
 		}
 }
