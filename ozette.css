@@ -725,12 +725,27 @@
 }
 
 :root:not(#oz) .sf-chat-reader > [data-role^='omp.assistant'],
-:root:not(#oz) .sf-chat-reader > [data-role='omp.chat.msg'] > [data-role^='omp.assistant'],
-:root:not(#oz) .sf-chat-reader [data-role='omp.bot.reply'] > [data-role^='omp.assistant'] {
+:root:not(#oz) .sf-chat-reader > [data-role='omp.chat.msg'] > [data-role^='omp.assistant'] {
 	margin-bottom: 14px;
 	padding: 14px 18px 16px;
 	background: var(--card);
 	box-shadow: 0 0 0 1px var(--oz-hair);
+}
+:root:not(#oz) :is([data-role='omp.user.images'], [data-role^='omp.assistant'], .sf-tool-body) .sf-image {
+	overflow: hidden;
+	box-shadow: 0 0 0 1px var(--oz-hair);
+}
+:root:not(#oz) :is([data-role='omp.user.images'], [data-role^='omp.assistant'], .sf-tool-body) .sf-img-frame {
+	margin: -3px;
+	max-width: calc(100% + 6px);
+}
+:root:not(#oz) .sf-card[data-role='omp.composer.chip'] .sf-img-frame {
+	width: 42px;
+	height: 42px;
+	max-width: none;
+	max-height: none !important;
+	margin: -3px;
+	object-fit: cover;
 }
 :root:not(#oz) #tabbar .tb-tabs {
 	scroll-snap-type: y mandatory;
