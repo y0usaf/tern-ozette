@@ -799,7 +799,10 @@
 }
 :root:not(#oz) .md strong {
 	background: var(--oz-lav);
-	box-shadow: -0.18em 0 0 var(--oz-lav), 0.18em 0 0 var(--oz-lav);
+	padding: 0 0.2em;
+	margin: 0 0.15em;
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
 	color: var(--oz-plum);
 	font-weight: 600;
 }
