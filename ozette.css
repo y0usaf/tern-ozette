@@ -718,7 +718,7 @@
 	}
 }
 :root:not(#oz).glass {
-	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, light-dark(rgb(from var(--page) r g b / 22%), rgb(from var(--page) r g b / 62%));
+	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, light-dark(rgb(from var(--page) r g b / 92%), rgb(from var(--page) r g b / 62%));
 }
 :root:not(#oz).glass :is(body, #panel, .tn-stage, .tn-pane, .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
 	background: transparent;
