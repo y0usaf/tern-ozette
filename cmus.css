@@ -1,37 +1,70 @@
-:root:not(#oz) .cm-app, :root:not(#oz) .cm-dockbar { font-family: var(--oz-mono, "IBM Plex Mono", monospace); font-size: 13px }
-:root:not(#oz) :is(.cm-tt, .cm-d-title, .cm-np-title, .cm-ph .cm-t, .cm-hero .cm-big, .cm-topcard .cm-nm, .cm-sec, .cm-err .cm-big) { font-family: "Crimson Pro", Georgia, serif; letter-spacing: 0 }
-:root:not(#oz) .cm-tt { font-size: 1.22em; font-weight: 600 }
-:root:not(#oz) .cm-d-title { font-size: 1.3em; font-weight: 600 }
-:root:not(#oz) .cm-ph .cm-t { font-size: 2em; font-weight: 600 }
-:root:not(#oz) .cm-np-title { font-size: 3.4em; font-weight: 600; line-height: 1 }
-:root:not(#oz) .cm-hero .cm-big, :root:not(#oz) .cm-topcard .cm-nm { font-weight: 600 }
-:root:not(#oz) :is(.cm-searchbox, .cm-chip, .cm-side, .cm-nv, .cm-content, .cm-btn, .cm-row, .cm-art, .cm-tile, .cm-tile .cm-cv, .cm-hero .cm-cv, .cm-np-cover, .cm-np-next, .cm-dockbar, .cm-d-art, .cm-tag, .cm-ib, .cm-topcard, .cm-topcard .cm-cv, .cm-fab, .cm-vs, .cm-q, .cmus-viz .vz-b, .cmus-viz .vz-p) { border-radius: 0 }
-:root:not(#oz) :is(.cm-side, .cm-content, .cm-dockbar, .cm-np-next) { background: var(--card); border: 1px solid var(--oz-plum); box-shadow: 4px 4px 0 var(--oz-plum) }
-:root:not(#oz) .cm-searchbox { background: var(--raise, var(--card)); border: 1px solid var(--oz-plum); box-shadow: 3px 3px 0 var(--oz-plum) }
-:root:not(#oz) .cm-searchbox.cm-on { box-shadow: 3px 3px 0 var(--oz-lav) }
-:root:not(#oz) .cm-chip { background: transparent; color: var(--t2); border: 1px solid var(--oz-hair); font-weight: 500; text-transform: lowercase }
-:root:not(#oz) .cm-chip.cm-on { background: var(--oz-lav); color: var(--oz-plum); border-color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
-:root:not(#oz) .cm-nv { font-weight: 500 }
-:root:not(#oz) .cm-nv.cm-on { background: var(--oz-lav); color: var(--oz-plum); box-shadow: inset 0 0 0 1px var(--oz-plum) }
-:root:not(#oz) .cm-side .cm-lib, :root:not(#oz) .cm-cols, :root:not(#oz) .cm-hd, :root:not(#oz) .cm-eyebrow { font-family: var(--oz-mono, monospace); letter-spacing: .12em; color: var(--t3) }
-:root:not(#oz) .cm-content { background: var(--card) }
-:root:not(#oz) .cm-btn { background: transparent; border: 1px solid var(--oz-plum); color: var(--oz-plum); font-weight: 500 }
-:root:not(#oz) .cm-btn.cm-pri { background: var(--oz-mustard); color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
-:root:not(#oz) .cm-row.cm-sel { background: var(--oz-sel); box-shadow: inset 3px 0 0 var(--oz-plum) }
-:root:not(#oz) .cm-row.cm-cur .cm-tt, :root:not(#oz) .cm-row.cm-cur .cm-num { color: var(--oz-plum) }
-:root:not(#oz) .cm-row.cm-cur { background: color-mix(in srgb, var(--oz-lime) 45%, transparent) }
-:root:not(#oz) :is(.cm-art, .cm-d-art, .cm-np-cover, .cm-tile .cm-cv, .cm-hero .cm-cv, .cm-topcard .cm-cv) { box-shadow: 3px 3px 0 var(--oz-plum); border: 1px solid var(--oz-plum) }
-:root:not(#oz) .cm-np-cover { box-shadow: 6px 6px 0 var(--oz-plum) }
-:root:not(#oz) .cm-np-bg { opacity: .22 }
-:root:not(#oz) .cm-np-shade { background: linear-gradient(180deg, transparent, var(--card) 75%) }
-:root:not(#oz) .cm-tag { background: var(--oz-lime); color: var(--oz-plum); border: 1px solid var(--oz-plum) }
-:root:not(#oz) .cm-dockbar { background: var(--card) }
-:root:not(#oz) .cm-pp { background: var(--oz-plum); color: #fff; box-shadow: 3px 3px 0 var(--oz-pink) }
-:root:not(#oz) .cm-pp:hover { background: var(--oz-plum); transform: none }
-:root:not(#oz) .cm-ib.cm-on { color: var(--oz-plum); background: var(--oz-lav) }
-:root:not(#oz) .cm-dot { background: var(--oz-plum); border-radius: 0 }
-:root:not(#oz) .cm-sl { --sl-off: var(--oz-hair); --sl-on: var(--oz-plum); --sl-pre: var(--oz-lav) }
-:root:not(#oz) .cm-vs .cm-v.cm-f { background: var(--oz-plum) }
-:root:not(#oz) .cmus-viz { gap: 3px }
-:root:not(#oz) .cmus-viz .vz-b { background: var(--oz-lav); box-shadow: inset 0 0 0 1px var(--oz-plum) }
-:root:not(#oz) .cmus-viz .vz-p { background: var(--oz-plum); height: 4px }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-app, :root:not(#oz):not(#oz1):not(#oz2) .cm-dockbar { font-family: "IBM Plex Mono", monospace; font-size: 13px }
+:root:not(#oz):not(#oz1):not(#oz2) :is(.cm-tt, .cm-d-title, .cm-np-title, .cm-ph .cm-t, .cm-hero .cm-big, .cm-topcard .cm-nm, .cm-sec, .cm-err .cm-big) { font-family: "Crimson Pro", Georgia, serif; letter-spacing: 0 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-tt { font-size: 1.22em; font-weight: 600 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-d-title { font-size: 1.3em; font-weight: 600 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-ph .cm-t { font-size: 2em; font-weight: 600 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-title { font-size: 3.4em; font-weight: 600; line-height: 1 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-hero .cm-big, :root:not(#oz):not(#oz1):not(#oz2) .cm-topcard .cm-nm { font-weight: 600 }
+:root:not(#oz):not(#oz1):not(#oz2) :is(.cm-searchbox, .cm-chip, .cm-side, .cm-nv, .cm-content, .cm-btn, .cm-row, .cm-art, .cm-tile, .cm-tile .cm-cv, .cm-hero .cm-cv, .cm-np-cover, .cm-np-next, .cm-dockbar, .cm-d-art, .cm-tag, .cm-ib, .cm-topcard, .cm-topcard .cm-cv, .cm-fab, .cm-vs, .cm-q, .cmus-viz .vz-b, .cmus-viz .vz-p) { border-radius: 0 }
+:root:not(#oz):not(#oz1):not(#oz2) :is(.cm-side, .cm-content, .cm-dockbar, .cm-np-next) { background: var(--card); border: 1px solid var(--oz-plum); box-shadow: 4px 4px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-searchbox { background: var(--raise, var(--card)); border: 1px solid var(--oz-plum); box-shadow: 3px 3px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-searchbox.cm-on { box-shadow: 3px 3px 0 var(--oz-lav) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-chip { background: transparent; color: var(--t2); border: 1px solid var(--oz-hair); font-weight: 500; text-transform: lowercase }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-chip.cm-on { background: var(--oz-lav); color: var(--oz-plum); border-color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-nv { font-weight: 500 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-nv.cm-on { background: var(--oz-lav); color: var(--oz-plum); box-shadow: inset 0 0 0 1px var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-side .cm-lib, :root:not(#oz):not(#oz1):not(#oz2) .cm-cols, :root:not(#oz):not(#oz1):not(#oz2) .cm-hd, :root:not(#oz):not(#oz1):not(#oz2) .cm-eyebrow { font-family: "IBM Plex Mono", monospace; letter-spacing: .12em; color: var(--t3) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-content { background: var(--card) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-btn { background: transparent; border: 1px solid var(--oz-plum); color: var(--oz-plum); font-weight: 500 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-btn.cm-pri { background: var(--oz-mustard); color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-row.cm-sel { background: var(--oz-sel); box-shadow: inset 3px 0 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-row.cm-cur .cm-tt, :root:not(#oz):not(#oz1):not(#oz2) .cm-row.cm-cur .cm-num { color: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) :is(.cm-art, .cm-d-art, .cm-np-cover, .cm-tile .cm-cv, .cm-hero .cm-cv, .cm-topcard .cm-cv) { box-shadow: 3px 3px 0 var(--oz-plum); border: 1px solid var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-cover { box-shadow: 6px 6px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-tag { background: var(--oz-lime); color: var(--oz-plum); border: 1px solid var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-dockbar { background: var(--card) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-pp { background: var(--oz-plum); color: #fff; box-shadow: 3px 3px 0 var(--oz-pink) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-pp:hover { background: var(--oz-plum); transform: none }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-ib.cm-on { color: var(--oz-plum); background: var(--oz-lav) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-dot { background: var(--oz-plum); border-radius: 0 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-sl { --sl-off: var(--oz-hair); --sl-on: var(--oz-plum); --sl-pre: var(--oz-lav) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-vs .cm-v.cm-f { background: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cmus-viz { gap: 3px }
+:root:not(#oz):not(#oz1):not(#oz2) .cmus-viz .vz-b { background: var(--oz-lav) }
+:root:not(#oz):not(#oz1):not(#oz2) .cmus-viz .vz-p { background: var(--oz-plum); height: 2px; opacity: .65 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-fab { border-radius: 0; background: var(--oz-mustard); color: var(--oz-plum); border: 1px solid var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-fab .sf-icon { color: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-tile.cm-sel { background: var(--oz-sel); box-shadow: inset 0 0 0 1px var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-cols .cm-h.cm-on { color: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-searchbox .sf-caret { background: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-app { gap: 14px; padding: 0 6px 0 0 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-body { gap: 16px; padding-bottom: 4px }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-top .cm-ib { background: var(--card); border: 1px solid var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum); color: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-side .cm-sep { background: var(--oz-hair) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-nv.cm-on .cm-n { color: var(--oz-plum); font-weight: 600 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-cols { border-bottom: 1px solid var(--oz-plum); color: var(--t2); margin-bottom: 4px }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-row { border-bottom: 1px solid var(--oz-hair) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-row.cm-cur { background: color-mix(in srgb, var(--oz-lime) 28%, var(--card)); box-shadow: inset 3px 0 0 var(--ok, #5f7d12) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-row.cm-cur.cm-sel { background: var(--oz-sel); box-shadow: inset 3px 0 0 var(--oz-plum), inset 6px 0 0 var(--ok, #5f7d12) }
+:root:not(#oz):not(#oz1):not(#oz2) :is(.cm-ts, .cm-cy, .cm-cd, .cm-d-artist, .cm-tm, .cm-pct, .cm-pager, .cm-ph .cm-c, .cm-np-meta, .cm-nv .cm-n) { color: #655a74 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-tile .cm-fab { top: 16px; right: 16px; bottom: auto; width: 32px; height: 32px }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-vs { background: var(--page); border: 1px solid var(--oz-hair) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-text { gap: 10px }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-title { color: var(--oz-plum); line-height: 1.08 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-line { font-size: 1em; color: var(--t2) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-line .cm-link { font-weight: 500 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-next { align-self: center; padding: 12px; background: var(--page); border: 1px solid var(--oz-hair); box-shadow: none }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-next .cm-hd { color: var(--oz-plum); padding-bottom: 8px }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-viz { padding: 16px 2px 0; border-top: 1px solid var(--oz-hair) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-bg, :root:not(#oz):not(#oz1):not(#oz2) .cm-np-shade { display: none }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-dockbar .cm-ib:not(.cm-pp):not(.cm-on) { background: transparent; border: 0; box-shadow: none; color: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-dockbar .cm-ib:not(.cm-pp):not(.cm-on):hover { background: var(--oz-sel) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-pp { box-shadow: 2px 2px 0 var(--oz-pink) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-dockbar { margin: 0 6px 6px 0 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-top .cm-ib { width: 40px; height: 40px; box-shadow: 3px 3px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-searchbox:not(.cm-on) .sf-caret { display: none }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-np-next .cm-row:last-child { border-bottom: 0 }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-btn:not(.cm-pri), :root:not(#oz):not(#oz1):not(#oz2) .cm-cx .cm-ib { background: var(--card); border: 1px solid var(--oz-plum); color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-pager .cm-ib { border: 1px solid var(--oz-plum); color: var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-ib.cm-on { box-shadow: inset 0 0 0 1px var(--oz-plum) }
+:root:not(#oz):not(#oz1):not(#oz2) .cm-vs { border: 1px solid var(--oz-plum) }
