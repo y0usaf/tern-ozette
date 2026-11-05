@@ -1,0 +1,238 @@
+/* Mini: stock Tern, a short chrome scale, and quiet state indicators.
+   No palette, font family, terminal metrics, layout, or glass ownership. */
+:root {
+	--r-chip: 2px;
+	--r-ctl: 4px;
+	--r-card: 4px;
+	--r-panel: 6px;
+	--ease: ease-out;
+	--out: ease-out;
+	--glass-hi: transparent;
+}
+/* Hardcoded chrome bypasses the stock radius tokens. Circles and joined
+   corners retain their geometry; sent/answer bubbles belong to their toggles. */
+:root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .pk-sheet, .sf-ov-card,
+	.sf-hovercard, .sf-date-pop, .sf-menu-pop, .sf-nav-pop, .pf-rows) {
+	border-radius: var(--r-panel);
+}
+:root:not(#mini) :is(.btn, .sel-btn, .fld, .ck-item, .tt, .tb-pill, .toast,
+	.side-card, .sf-input, .sf-button, .sf-item, .pk-row, .pk-selbar,
+	.pk-confirm, .pk-err, .pf-in, .pf-area, .pf-item, .pf-oi) {
+	border-radius: var(--r-ctl);
+}
+:root:not(#mini) .sf-chat-reader :is(.sf-md .md .code, .sf-md .md .mfig,
+	.sf-tool-body > .sf-code, .sf-tool-body > .sf-diff, .sf-tool-body > .sf-ansi) {
+	border-radius: var(--r-card);
+}
+:root:not(#mini) .sf-col[data-role^='omp.editor'] {
+	border-radius: var(--r-panel);
+	animation: none;
+}
+/* Chrome type only. Prose, code, editor and terminal font settings are untouched. */
+:root:not(#mini) :is(.side-card, .sel-btn.sm, .mdl-sub, .mi-sec, .pk-fact) {
+	font-size: 12px;
+}
+:root:not(#mini) :is(.sel-btn:not(.sm), .pk-scope, .pk-tab) { font-size: 14px; }
+:root:not(#mini) .mdl-t { font-size: 16px; }
+:root:not(#mini) .side-card { padding: 12px; background: var(--well); }
+:root:not(#mini) .sel-btn { gap: 8px; padding: 0 8px; }
+:root:not(#mini) .mdl-body { gap: 16px; padding: 4px 16px 16px; }
+:root:not(#mini) .mdl-head { padding: 16px; }
+:root:not(#mini) .mdl-foot { padding: 12px 16px; }
+:root:not(#mini) :is(.sel-btn.dis, .btn:disabled, .sf-button:disabled) { opacity: .45; }
+:root:not(#mini) :is(.mdl-sub, .pk-fact) { opacity: .7; }
+/* Retain each transition's properties and delays, only shorten its motion. */
+:root:not(#mini) :is(.btn, .sel-btn, .fld, .tt, .nav-row, .sf-item,
+	.sf-button, .pk-row, .pk-tab, .pk-btn, .sf-col[data-role^='omp.editor']) {
+	transition-duration: 100ms;
+	transition-timing-function: var(--ease);
+}
+:root:not(#mini) :is(.sidebar, .sf-switch-knob, .sf-switch-thumb, .pf-sw .knob) {
+	transition-duration: 150ms;
+	transition-timing-function: var(--ease);
+}
+/* One flat boundary replaces depth stacks. Focus, selected/error outlines,
+   mode rails, and inset separators are deliberately not globally reset. */
+:root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .tooltip, .toast,
+	.pk-sheet, .sf-ov-card, .sf-hovercard, .sf-date-pop, .sf-menu-pop,
+	.sf-nav-pop, .sf-ck-pop, .sf-col[data-role^='omp.overlay.'],
+	.sf-prefs .pf-editor > .sf-col, .sf-prefs .pf-menu,
+	.tn-secure, .tn-wait-chip, .tn-card, .tn-find, .tn-op, .tn-ib,
+	.tn-hp, .tn-hd, .tn-sc, .tn-bn-card, .pk-c, .pk-more,
+	.ft-ta, .tn-nodrop, .pr-find, .fl-tip, .sq-pop, .sq-help, .nb-tip,
+	.kg-search, .gb-swipe, .gb-inspector .ki-ai, .kd-card, .kd-bar) {
+	box-shadow: 0 0 0 1px var(--l2);
+}
+:root:not(#mini) :is(.btn, .btn:hover, .btn.accent, .sel-btn, .sel-btn:hover,
+	.cw, .cw:hover, .side-card, .pf-rows, .pf-seg button.on,
+	.sf-attachment[data-variant='chip'], .sf-ck-pill, .sf-ck-pill:hover,
+	.pk-tabs.seg .pk-tab.on, .pk-btn.primary, .pk-btn.primary:hover) {
+	box-shadow: inset 0 0 0 1px var(--l2);
+}
+:root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .btn, .sel-btn):focus-visible {
+	box-shadow: 0 0 0 2px var(--accent);
+}
+:root:not(#mini) :is(.mdl.danger, .toast.err) { box-shadow: 0 0 0 1px var(--bad); }
+:root:not(#mini) .sf-col[data-role^='omp.editor'] { box-shadow: 0 0 0 1px var(--l2); }
+:root:not(#mini) .sf-col[data-role='omp.editor.bash'] {
+	box-shadow: inset 2px 0 0 var(--omp-bashMode, var(--warn)), 0 0 0 1px var(--l2);
+}
+:root:not(#mini) .sf-col[data-role='omp.editor.python'] {
+	box-shadow: inset 2px 0 0 var(--omp-pythonMode, var(--sf-info)), 0 0 0 1px var(--l2);
+}
+:root:not(#mini) .cv { --cv-glass-shadow: 0 0 0 1px var(--l2); }
+:root:not(#mini) .tn-board { --bd-shadow: 0 0 0 1px var(--l2); }
+/* These pseudo-elements are gloss only, not layout, masks, or status markers. */
+:root:not(#mini) :is(.sf-ov-card, .pk-sheet)::after,
+:root:not(#mini) .sf-col[data-role^='omp.editor']::before,
+:root:not(#mini) .sf-col[data-role^='omp.editor']::after,
+:root:not(#mini) .nav-row.arrive::before,
+:root:not(#mini) .tn-bn-card::before,
+:root:not(#mini) .tn-signin-card::after,
+:root:not(#mini) .tn-dk-c[data-st='working']::before {
+	background: none;
+	animation: none;
+}
+:root:not(#mini) #ambient { background: none; }
+:root:not(#mini) .mfig-body { background-image: none; }
+:root:not(#mini) .sf-chat-reader :is(.sf-ov-card, .sf-col[data-role^='omp.overlay.'], .pf-menu) {
+	background: var(--pop-bg);
+}
+:root:not(#mini) .tn-signin { background: var(--page); }
+:root:not(#mini) .ed-mdl { background-image: none; }
+:root:not(#mini) .gb-inspector .ki-ai-head { background: var(--l1); }
+:root:not(#mini) .pk-ic,
+:root:not(#mini) .cv .cv-pal :is(.cv-pal-band, .cv-pal-body) { filter: none; }
+/* A static foreground is essential: stock busy labels use transparent text. */
+:root:not(#mini) :is(.sf-fx-shimmer, .sf-editor .sf-fx-shimmer,
+	.tt.working .nm, .tn-vt .nav-row.working .lbl, .tn-vt-host.busy .nm) {
+	animation: none;
+	background: none;
+	background-clip: border-box;
+	-webkit-background-clip: border-box;
+	color: var(--accent-ink);
+}
+/* Loading remains explicitly pending, not falsely completed. */
+:root:not(#mini) :is(.mmd-wait, .pk-sk .b, .tn-wait-sk .sk, .tn-hd-skel span,
+	.ft-skel .sk-l, .sq-st-count.sk, .sq-pr-skrow .sk, .nb-skel > i,
+	.nbo-img.loading, .nbo-pic.loading, .ki .ki-ai-wait .bar,
+	.ki .ki-skel .bar, .ed-img-ph, .ed-ext.loading .ed-ext-page) {
+	animation: none;
+	background: var(--l2);
+}
+:root:not(#mini) .sf-skeleton[data-variant='shimmer'] .sk-b::after {
+	animation: none;
+	background: none;
+}
+:root:not(#mini) .ed-skel::before { animation: none; background: var(--l2); }
+:root:not(#mini) .ft-skel { animation: none; opacity: 1; }
+:root:not(#mini) :is(.sf-fx-pulse, .sf-spin .strip, .sf-dots > i,
+	.sf-orbit, .sf-chip .dot, .sf-effort[data-level='max'] .crown,
+	.sf-effort[data-level='max'] .ember, .nav-row.bump .ico) { animation: none; }
+:root:not(#mini) .sf-spindle { --sf-spindle: still; }
+:root:not(#mini) .sf-progress.indeterminate .fill { animation: none; width: 30%; opacity: .7; }
+:root:not(#mini) .sf-col[data-role^='omp.editor'][data-tone='pending']
+	[data-role='omp.composer.context'] .sf-mt-track::after {
+	animation: none;
+	background: var(--accent);
+	opacity: .45;
+}
+:root:not(#mini) [data-role='omp.tool.spotlight'] .sf-fx-pulse { animation: none; }
+:root:not(#mini) .sf-overlay[data-role='omp.overlay.fireworks']::before {
+	animation: none;
+	-stencil-particles: none;
+	background: none;
+}
+/* Keep the existing working and zoom rims; remove their bloom and orbit. */
+:root:not(#mini) .tn-glow .tn-glow-bloom,
+:root:not(#mini) .tn-glow .tn-glow-band,
+:root:not(#mini) .tn-zoomring::after { display: none; animation: none; }
+:root:not(#mini) .tn-glow .tn-glow-ring { animation: none; background: var(--accent); }
+:root:not(#mini) .tn-pane.finished .tn-glow .tn-glow-ring { background: var(--ok); }
+:root:not(#mini) .tn-ring::before,
+:root:not(#mini) .tn-ring::after { animation: none; }
+:root:not(#mini) .tn-signin-mark.live::after,
+:root:not(#mini) .tn-hello .hl-ring::before,
+:root:not(#mini) .tn-hello .hl-ring::after { animation: none; }
+/* Custom text FX are independent of CSS animation. No font changes. */
+:root:not(#mini) :is([data-role='omp.hud.activity'] .sf-text,
+	.tn-git .n, .tn-git .ab, .tn-find-n, .sl-run .sl-say, .tn-ib-pip,
+	.tn-ib-n, .pr-m.cpu .pr-mv, .pr-m.gpu .pr-mv, .pr-count,
+	.tn-cmp-n, .tn-up.arrive .lbl, .tn-kick.arrive .lbl) { -stencil-text-effect: none; }
+/* Carly's ID-scoped stock rules need the same ID, not an important reset. */
+:root:not(#mini) #carly.tn-carly :is(.cy-glow, .cy-orb) { background: none; filter: none; animation: none; }
+:root:not(#mini) #carly.tn-carly .cy-blob,
+:root:not(#mini) .tn-cy-block .cb-avatar .cy-blob { animation: none; }
+:root:not(#mini) #carly.tn-carly .cy-pill::before,
+:root:not(#mini) #carly.tn-carly .cy-pill::after,
+:root:not(#mini) #carly.tn-carly .cy-card::after,
+:root:not(#mini) .tn-cy-block :is(.cb-tag, .cb-field)::before,
+:root:not(#mini) .tn-cy-block :is(.cb-tag, .cb-field)::after { background: none; animation: none; }
+:root:not(#mini) #carly.tn-carly :is(.cy-pill, .cy-close, .cy-card),
+:root:not(#mini) .tn-cy-block :is(.cb-avatar, .cb-tag, .cb-field) { box-shadow: 0 0 0 1px var(--l2); }
+:root:not(#mini) .tn-cy-block .cb-avatar { background: var(--raise); }
+:root:not(#mini) .tn-cy-block .cb-mic[aria-pressed='true']::before { filter: none; animation: none; }
+/* Loading glyphs retain their border, dot, tone, and occupied space. */
+:root:not(#mini) .mdl-go.busy::after,
+:root:not(#mini) .tn-hd-stp.act .mk::after,
+:root:not(#mini) .sdot.live::after,
+:root:not(#mini) :is(.sf-trace .sf-trace-spin, .sf-tool-spin,
+	.mdl.ce .ce-acts .btn.busy .ico, .kg-spin, .ki .ki-spin,
+	.gb-tb.busy .ico, .gp-spin, .ed-mdl-ph .ico) { animation: none; }
+:root:not(#mini) :is(.md .md-img.loading, .pk-dot[data-tone='pending'],
+	.pk-c.working .pk-suit, .tn-face[data-st='working'], .tn-hdot.busy,
+	.ft-row.loading .tw, .fl-live, .sc-ring.wait, .sq-x-live,
+	.sq-x-run.busy .ico, .nb-chip.starting .nb-chip-dot,
+	.nb-chip.busy .nb-chip-dot, .nb-toc-live,
+	.mdl.ce .ce-chip.building .ce-dot, .sf-ck-item.st-active .sf-ck-g .dot,
+	.sf-agent-g .live, .sf-tool-askchip .dot,
+	.sf-chat-console .sf-tool.st-running > .sf-tool-head > .sf-tool-ic) {
+	animation: none;
+}
+:root:not(#mini) .tn-dk-c[data-st='working']::after,
+:root:not(#mini) .sf-md .md .code-out-state[data-tone='live']::before,
+:root:not(#mini) .sf-tool [data-role='omp.run.state'][data-tone='pending']::before,
+:root:not(#mini) .sf-chat-spine.sf-main > [data-role^='omp.assistant']
+	> .sf-section[data-role='omp.thinking.live']::before { animation: none; }
+:root:not(#mini) .mmd svg .node.accent :is(rect, polygon) {
+	animation: none;
+	filter: none;
+}
+:root:not(#mini) .sf-skeleton[data-variant='pulse'] > .sk-in,
+:root:not(#mini) :is(.fl-skel > i, .sq-skel > i, .bd-skel-card, .kg-sk,
+	.gb-surface .kd-sk-r, .gb-surface .kd-hr.sk) { animation: none; }
+:root:not(#mini) .btn.busy {
+	animation: none;
+	background-image: none;
+	color: var(--accent-ink);
+}
+/* Indeterminate progress is a stationary partial segment, never 100%. */
+:root:not(#mini) .sf-attachment .att-bar.indeterminate > i,
+:root:not(#mini) .tn-prog.ind {
+	animation: none;
+	width: 30%;
+}
+:root:not(#mini) .sq-job.unknown .sq-job-fill { animation: none; }
+:root:not(#mini) .tn-kick .tn-kick-fx {
+	animation: none;
+	background: none;
+}
+/* Keep Carly's phase icons and live audio-level geometry, not idle loops. */
+:root:not(#mini) #carly.tn-carly .cy-tick,
+:root:not(#mini) :is(.cy-steps-head.run, .cy-step.run) .ic .ico,
+:root:not(#mini) .tn-cy-block .in .cb-typing span,
+:root:not(#mini) .tn-cy-block .cb-mic[aria-pressed='true'] .cb-wave span {
+	animation: none;
+}
+/* The traced welcome logo must stay drawn after removing its entrance. */
+:root:not(#mini) :is([data-role='omp.welcome.logo'],
+	[data-role='omp.welcome.mark'], [data-role='omp.welcome.tip']),
+:root:not(#mini) [data-role='omp.welcome.logo'] :is(.trace, .mark, .s0, .s1, .s2) {
+	animation: none;
+}
+:root:not(#mini) [data-role='omp.welcome.logo'] .trace {
+	stroke-dasharray: none;
+	stroke-dashoffset: 0;
+	stroke-opacity: 1;
+}
+:root:not(#mini) [data-role='omp.welcome.logo'] .mark { fill-opacity: 1; }
