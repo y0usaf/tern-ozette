@@ -3,8 +3,6 @@
 	--yh-ink: light-dark(#000000, #c4c2bb);
 	--yh-alert: light-dark(#d4001f, #ff4255);
 	--yh-paper: color-mix(in srgb, var(--yh-ground) 95%, var(--yh-ink));
-	--yh-grid: light-dark(rgb(from var(--yh-ink) r g b / 5%), rgb(from var(--yh-ink) r g b / 6%));
-	--yh-shade: light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 0%));
 	--yh-i70: rgb(from var(--yh-ink) r g b / 72%);
 	--yh-i50: rgb(from var(--yh-ink) r g b / 52%);
 	--yh-i25: rgb(from var(--yh-ink) r g b / 24%);
@@ -77,11 +75,7 @@
 	accent-color: var(--yh-ink);
 	caret-color: var(--yh-ink);
 
-	background:
-		linear-gradient(90deg, var(--yh-shade), transparent 22%, transparent 78%, var(--yh-shade)),
-		repeating-linear-gradient(0deg, var(--yh-grid) 0 1px, transparent 1px 10px),
-		repeating-linear-gradient(90deg, var(--yh-grid) 0 1px, transparent 1px 10px),
-		var(--yh-ground);
+	background: var(--yh-ground);
 }
 :root:not(#oz):not(#yh):not(#yr) *,
 :root:not(#oz):not(#yh):not(#yr) *::before,
