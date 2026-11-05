@@ -18,9 +18,11 @@ Ozette and YoRHa use Tern's stock surface, ink, syntax and font roles directly i
 
 ## Grok
 
-`grok.css` is a standalone look over stock Tern: source-matched neutral light/dark surfaces, 15px/22px transcript text, rounded code, a 22px composer and pill controls. It does not load Ozette or YoRHa. Tern's existing hover/focus actions remain keyboard accessible.
+`grok.css` is a standalone look over stock Tern: source-matched neutral light/dark surfaces, 15px/22px transcript text, rounded code, a centered 960px-max composer (44px empty height, 22px radius) and 28px circular send control. It does not load Ozette or YoRHa. Tern's existing hover/focus actions remain keyboard accessible.
 
 The UI Menu loads each `grok-*-bubbles.css` sheet only when Grok and that surface's bubble option are enabled; `grok-bot-you.css` follows the bot's your-message toggle. Frost belongs to the shared frost options, not this look. Switching looks removes all Grok sheets without changing the selected theme.
+
+Under Grok only, the composer's model and effort selectors are hidden; `/model` remains available. The existing editor line and send/stop toolbar share one grid row, with separate rows reserved for focus context and attachments. Multiline input grows naturally; terminal text and editor glyph metrics are not changed. The placeholder retains OMP's real wording instead of painting a fake replacement, with source-like colour and spacing. Shared frost still controls the composer material; the arrow stays legible with a transparent window. User bubbles use the source's 6px trailing corner, mirrored in RTL. Exact measured-height spring resizing, automatic expanded-radius changes, Grok's microphone/voice/attachment actions and its dynamic island cannot be recreated by styling Tern's existing controls alone.
 
 Optional `grok-avatars.css` replays reconstructed Grok Bot bodies, transparent cut-out eyes and the four-second Idle_B motion on bot avatars and identity-bearing sidebar icons. Six lossless PNG atlases cover Lloyd (teal cloud), Sol (violet bean), random (orange teardrop), CU-Bot (magenta capsule), baobot (yellow square) and Regal (green clover); helpers/defaults reuse Sol. Each frame is 128px for a maximum 64px display. The 240-sample, 60fps cycle reuses 73–97 pixel-identical frames per bot; atlases total 728,331 bytes. Lloyd and random use full-geometry framing so motion never touches a cell edge. `python check-avatars.py` checks that invariant without dependencies. Reduced motion holds the first frame.
 
