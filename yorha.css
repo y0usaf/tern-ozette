@@ -449,7 +449,7 @@
 	max-width: min(92%, 760px);
 	padding: 20px 18px 14px;
 	background: var(--yh-paper);
-	box-shadow: none;
+	box-shadow: 0 0 0 1px var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] {
 	animation: yh-scan-in calc(120ms * var(--yh-t)) var(--yh-snap) backwards;
@@ -481,9 +481,9 @@
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
 	position: relative;
 	padding: 20px 18px 14px 34px;
-	background: var(--yh-paper);
-	color: var(--yh-ink);
-	box-shadow: none;
+	background: var(--yh-ink);
+	color: var(--yh-ground);
+	box-shadow: 0 0 0 1px var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::after {
 	content: "";
@@ -493,6 +493,7 @@
 	right: 0;
 	height: 6px;
 	background: var(--yh-ink);
+	box-shadow: inset 0 -1px 0 var(--yh-g70);
 	transform-origin: 100% 0;
 	pointer-events: none;
 }
@@ -509,13 +510,13 @@
 	top: 28px;
 	width: 7px;
 	height: 7px;
-	background: var(--yh-ink);
+	background: var(--yh-ground);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body,
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body .md {
-	--t1: var(--yh-ink);
-	--tv-fg: var(--yh-ink);
-	color: var(--yh-ink);
+	--t1: var(--yh-ground);
+	--tv-fg: var(--yh-ground);
+	color: var(--yh-ground);
 	font: 400 16.5px/24px var(--yh-label);
 }
 :root:not(#oz):not(#yh):not(#yr) .md :is(h1, h2, h3) {
@@ -630,7 +631,7 @@
 	position: relative;
 	padding: 20px 18px 16px;
 	background: var(--yh-paper);
-	box-shadow: none;
+	box-shadow: 0 0 0 1px var(--yh-ink);
 	animation: yh-scan-in calc(120ms * var(--yh-t)) var(--yh-snap) backwards;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
