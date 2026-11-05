@@ -8,7 +8,7 @@ import { TranscriptContainer } from "@oh-my-pi/pi-tui/chrome";
 
 // Off-screen design fixture for the Ozette "quantised trails" demo. Fake bot, fake chat, no model calls.
 // The timeline is driven by CUE (a file the harness writes): base | mid | final | go:<n>.
-const CUE = "/run/user/1001/agent/ozette-opus/yorha/cue";
+const CUE = "/run/user/1001/agent/ozette-opus/yorha/v3/cue";
 const wrap = native => ({ render: () => [], invalidate() {}, describe: () => native });
 const tok = s => Math.max(1, Math.round(s.length / 4));
 

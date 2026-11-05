@@ -4,11 +4,12 @@
    the way NieR's menus do: an ink bar wipes across what you chose, rules snap closed around it, corner brackets
    lock onto what has focus, new things scan in line by line, and everything then holds still.
 
-   Two tones, one alert. The default is monochrome: black on white in a light appearance, white on black in a
-   dark one. yorha-parchment.css swaps in the parchment and brown-grey pair. Chao stay the only full colour. */
+   Two tones, one alert. The default is monochrome: black on white in a light appearance, soft grey on black in a
+   dark one (the ink is a warm light grey, never #fff). yorha-parchment.css swaps in the parchment and brown-grey
+   pair. Chao stay the only full colour. Every word is Departure Mono at 11px or 16.5px, whole pixels on 2x screens. */
 :root:not(#oz):not(#yh):not(#yr) {
 	--yh-ground: light-dark(#ffffff, #000000);
-	--yh-ink: light-dark(#000000, #ffffff);
+	--yh-ink: light-dark(#000000, #c4c2bb);
 	--yh-alert: light-dark(#d4001f, #ff4255);
 	--yh-paper: color-mix(in srgb, var(--yh-ground) 95%, var(--yh-ink));
 	--yh-grid: light-dark(rgb(from var(--yh-ink) r g b / 5%), rgb(from var(--yh-ink) r g b / 6%));
@@ -19,8 +20,7 @@
 	--yh-i12: rgb(from var(--yh-ink) r g b / 10%);
 	--yh-i06: rgb(from var(--yh-ink) r g b / 5%);
 	--yh-g70: rgb(from var(--yh-ground) r g b / 72%);
-	--yh-sans: "IBM Plex Sans JP", "IBM Plex Sans", "Noto Sans CJK JP", sans-serif;
-	--yh-label: "Departure Mono", var(--oz-mono);
+	--yh-label: "Departure Mono", monospace;
 	/* the motion vocabulary: one decisive curve, short stepped reveals, nothing that overshoots */
 	--yh-snap: cubic-bezier(0.15, 0.79, 0, 1);
 	--yh-t: 1;
@@ -61,7 +61,8 @@
 	--oz-shade: var(--yh-i25) !important;
 	--oz-dot: var(--yh-i12) !important;
 	--oz-rail-bg: var(--yh-ground) !important;
-	--oz-serif: var(--yh-sans) !important;
+	--oz-serif: var(--yh-label) !important;
+	--oz-mono: var(--yh-label) !important;
 	--oz-code-bg: var(--yh-ground) !important;
 	--oz-code-head: var(--yh-ink) !important;
 	--oz-code-ink: var(--yh-ink) !important;
@@ -82,7 +83,8 @@
 	--tv-cur-ink: var(--yh-ground) !important;
 	--tv-sel-a: var(--yh-i25) !important;
 	--tv-sel-b: var(--yh-i25) !important;
-	--sans: var(--yh-sans) !important;
+	--sans: var(--yh-label) !important;
+	--mono: var(--yh-label) !important;
 	accent-color: var(--yh-ink);
 	caret-color: var(--yh-ink);
 
@@ -92,6 +94,15 @@
 		repeating-linear-gradient(0deg, var(--yh-grid) 0 1px, transparent 1px 10px),
 		repeating-linear-gradient(90deg, var(--yh-grid) 0 1px, transparent 1px 10px),
 		var(--yh-ground);
+}
+/* one face for every word: Departure Mono at its native grid (11px and its multiples, so 2x screens draw whole
+   pixels), no synthesized weights; emphasis is a tint or an inversion, never bold */
+:root:not(#oz):not(#yh):not(#yr) *,
+:root:not(#oz):not(#yh):not(#yr) *::before,
+:root:not(#oz):not(#yh):not(#yr) *::after {
+	font-family: var(--yh-label) !important;
+	font-weight: 400 !important;
+	font-style: normal !important;
 }
 @media (prefers-reduced-motion: reduce) {
 	:root:not(#oz):not(#yh):not(#yr) { --yh-t: 0; }
@@ -114,7 +125,7 @@
 	background: var(--yh-ink);
 	color: var(--yh-ground);
 	font: 400 11px/16px var(--yh-label);
-	letter-spacing: 0.14em;
+	letter-spacing: 1.5px;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab .ico {
 	display: none;
@@ -145,13 +156,13 @@
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt .nm,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] .nm {
-	font: 500 15px/1.15 var(--yh-sans) !important;
-	letter-spacing: 0.02em;
+	font: 400 16.5px/24px var(--yh-label) !important;
+	letter-spacing: 0.5px;
 	color: var(--yh-ink) !important;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt .sub {
-	font: 400 11.5px/1.3 var(--yh-sans);
-	letter-spacing: 0.01em;
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 0px;
 	text-transform: none;
 	color: var(--yh-i70);
 }
@@ -214,7 +225,7 @@
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row {
 	font: 400 11px/1 var(--yh-label);
-	letter-spacing: 0.12em;
+	letter-spacing: 1.5px;
 	color: var(--yh-i70);
 	box-shadow: inset 0 0 0 0 var(--yh-ink);
 	transition: color calc(120ms * var(--yh-t)) steps(2, end);
@@ -227,13 +238,12 @@
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 	color: var(--yh-i70);
-	font-family: var(--yh-label);
 }
 @media (max-width: 1000px) {
 	:root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab {
 		margin: 12px 9px 14px 2px;
 		padding: 3px 8px 3px 6px;
-		letter-spacing: 0.1em;
+		letter-spacing: 1px;
 	}
 	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt,
 	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] {
@@ -312,7 +322,7 @@
 
 /* ── chat ───────────────────────────────────────────────────────────── */
 :root:not(#oz):not(#yh):not(#yr) .sf-region .md {
-	font: 400 15.5px/1.6 var(--yh-sans);
+	font: 400 16.5px/24px var(--yh-label);
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-region.sf-main > :is([data-role='omp.bot.reply'], [data-role='omp.bot.you']) {
@@ -322,10 +332,12 @@
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant'] {
 	position: relative;
 	overflow: visible;
-	max-width: min(86%, 620px);
+	max-width: min(92%, 760px);
 	padding: 20px 18px 14px;
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] {
 	animation: yh-scan-in var(--yh-scan) steps(8, end) calc(110ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before {
@@ -342,6 +354,8 @@
 	background-repeat: no-repeat;
 	transform-origin: 0 0;
 	pointer-events: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant']::before {
 	animation: yh-rules calc(160ms * var(--yh-t)) var(--yh-snap) both;
 }
 /* the newest reply, while nothing follows it, ends in a block cursor: the stream is still being written */
@@ -362,6 +376,8 @@
 	background: var(--yh-ink);
 	color: var(--yh-ground);
 	box-shadow: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
 	animation: yh-wipe-in calc(220ms * var(--yh-t)) steps(6, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
@@ -372,6 +388,8 @@
 	width: 7px;
 	height: 7px;
 	background: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
 	animation: yh-flicker calc(260ms * var(--yh-t)) steps(1, end) calc(200ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body,
@@ -379,7 +397,7 @@
 	--t1: var(--yh-ground);
 	--tv-fg: var(--yh-ground);
 	color: var(--yh-ground);
-	font: 400 15.5px/1.5 var(--yh-sans);
+	font: 400 16.5px/24px var(--yh-label);
 }
 :root:not(#oz):not(#yh):not(#yr) .md :is(h1, h2, h3) {
 	align-self: stretch;
@@ -391,19 +409,19 @@
 		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 1px no-repeat;
 	--omp-mdHeading: var(--yh-ink);
 	color: var(--yh-ink);
-	font: 500 17px/1.3 var(--yh-sans);
-	letter-spacing: 0.04em;
+	font: 400 16.5px/24px var(--yh-label);
+	letter-spacing: 0.5px;
 }
 :root:not(#oz):not(#yh):not(#yr) .md strong {
 	background: var(--yh-i12);
 	color: var(--yh-ink);
-	font-weight: 600;
+	font-weight: 400;
 }
 :root:not(#oz):not(#yh):not(#yr) .md :not(pre) > code {
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 	color: var(--yh-ink);
-	font-size: 13px;
+	font-size: inherit;
 }
 :root:not(#oz):not(#yh):not(#yr) .md ul > li::before {
 	background: var(--yh-ink);
@@ -413,18 +431,22 @@
 	background: var(--yh-ground);
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 }
+:root:not(#oz):not(#yh):not(#yr) .md .code > pre,
+:root:not(#oz):not(#yh):not(#yr) .md .code > pre > code {
+	font-size: 16.5px;
+	line-height: 24px;
+}
 :root:not(#oz):not(#yh):not(#yr) .md .code-head {
 	background: var(--yh-ink);
 	color: var(--yh-ground);
 	--t1: var(--yh-ground);
 	--t2: var(--yh-ground);
 	--t3: var(--yh-g70);
-	font: 400 11px/1.4 var(--yh-label);
-	letter-spacing: 0.14em;
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 1.5px;
 }
 :root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn) {
 	color: var(--yh-g70);
-	font-family: var(--yh-label);
 	background: linear-gradient(90deg, var(--yh-ground) 50%, transparent 50%) 100% 0 / 200% 100%;
 	transition: background-position calc(180ms * var(--yh-t)) var(--yh-snap), color calc(120ms * var(--yh-t)) steps(1, end);
 }
@@ -434,7 +456,7 @@
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.time'] {
 	font: 400 11px/1 var(--yh-label);
-	letter-spacing: 0.14em;
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	color: var(--yh-i50);
 }
@@ -442,21 +464,21 @@
 	box-shadow: 0 1px 0 var(--yh-i25);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] [data-role='omp.bot.name'] {
-	font: 500 14px/1.2 var(--yh-sans);
-	letter-spacing: 0.16em;
+	font: 400 16.5px/24px var(--yh-label);
+	letter-spacing: 2.5px;
 	text-transform: uppercase;
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] [data-role='omp.bot.role'] {
-	font: 400 11px/1.2 var(--yh-label);
-	letter-spacing: 0.14em;
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	opacity: 1;
 	color: var(--yh-i50);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.event.row'] {
-	font: 400 11px/1.2 var(--yh-label);
-	letter-spacing: 0.12em;
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	color: var(--yh-i50);
 }
@@ -465,14 +487,15 @@
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.hello'] {
-	font: 500 18px/1.3 var(--yh-sans);
-	letter-spacing: 0.12em;
+	font: 400 22px/30px var(--yh-label);
+	letter-spacing: 2.5px;
 	text-transform: uppercase;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say'] {
-	font: 400 12px/1.4 var(--yh-label);
-	letter-spacing: 0.06em;
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 0;
 	color: var(--yh-i70);
+	opacity: 1;
 }
 /* the status line ends in a block cursor that blinks a few times when it appears, then holds */
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say']::after {
@@ -487,18 +510,13 @@
 }
 
 /* ── question ───────────────────────────────────────────────────────── */
-/* it arrives as a window: the QUERY bar draws, the body scans down, the options snap in one by one;
-   answering or dismissing collapses it to a line and out */
+/* it arrives as a window: the QUERY bar draws, the body scans down, the options snap in one by one */
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] {
-	--sf-exit: calc(240ms * var(--yh-t));
 	position: relative;
 	padding: 34px 18px 16px;
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
 	animation: yh-scan-in calc(300ms * var(--yh-t)) steps(8, end) calc(120ms * var(--yh-t)) both;
-}
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'].sf-ghost {
-	animation: yh-collapse calc(240ms * var(--yh-t)) steps(6, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
 	content: "QUERY";
@@ -515,13 +533,13 @@
 	background-repeat: no-repeat;
 	color: var(--yh-ground);
 	font: 400 11px/20px var(--yh-label);
-	letter-spacing: 0.18em;
+	letter-spacing: 2px;
 	transform-origin: 0 0;
 	pointer-events: none;
 	animation: yh-rules calc(180ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.question'] {
-	font: 500 17px/1.35 var(--yh-sans);
+	font: 400 16.5px/24px var(--yh-label);
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item {
@@ -543,15 +561,16 @@
 	box-shadow: inset 0 0 0 1px var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item .sf-item-label {
-	font: 500 15px/1.3 var(--yh-sans);
+	font: 400 16.5px/24px var(--yh-label);
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item .sf-item-detail {
-	font: 400 13px/1.4 var(--yh-sans);
+	font: 400 11px/16px var(--yh-label);
 	color: var(--yh-i70);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item::before {
 	border-radius: 0;
+	top: 10px;
 	box-shadow: inset 0 0 0 1px var(--yh-i50);
 	color: var(--yh-ink);
 	font: 400 11px/1 var(--yh-label);
@@ -593,8 +612,7 @@
 /* buttons invert under the pointer with the same wipe; the primary one is already inverted */
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-act,
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] button {
-	font-family: var(--yh-label);
-	letter-spacing: 0.1em;
+	letter-spacing: 1px;
 	text-transform: uppercase;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act {
@@ -633,8 +651,28 @@
 	background: var(--yh-paper);
 	box-shadow: 0 0 0 1px var(--yh-i25), 6px 6px 0 var(--yh-i25);
 }
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] :is(textarea, .sf-text, .sf-ed-text) {
-	font-family: var(--yh-sans);
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-editor :is(.sf-ed-text, .sf-ed-ph) {
+	font-size: 16.5px;
+	line-height: 24px;
+}
+/* the question leaves: Tern drops the card at once, but the composer's row becomes the dock's first row again at
+   that moment, so it draws the card's header bar where the card stood and folds it shut, flat and then closed.
+   A freshly opened chat shows the same fold once as its composer arrives. */
+:root:not(#oz):not(#yh):not(#yr) .sf-dock > .sf-col.gap-none:first-child {
+	position: relative;
+	overflow: visible;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-dock > .sf-col.gap-none:first-child::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: calc(100% + 2px);
+	width: min(720px, calc(100% - 24px));
+	height: 20px;
+	background-color: var(--yh-ink);
+	pointer-events: none;
+	transform: translateX(-50%) scale(0, 0);
+	animation: yh-fold calc(320ms * var(--yh-t)) steps(8, end) both;
 }
 /* focus: brackets lock onto the composer's corners; text in it draws a rule under the line */
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor {
@@ -677,17 +715,20 @@
 	transform: scaleX(1);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-ed-ph {
-	font-family: var(--yh-sans);
 	color: var(--yh-i50);
 }
 /* the caret is a block: solid while you type, a few blinks once you stop, then steady */
 :root:not(#oz):not(#yh):not(#yr) .tv .tv-dock .sf-editor .sf-caret {
-	width: 0.55em !important;
-	margin-right: -0.55em !important;
+	width: 10.5px !important;
+	margin-right: -10.5px !important;
 	background: var(--yh-ink) !important;
 	opacity: 1 !important;
 	border-radius: 0 !important;
 	animation: none !important;
+}
+/* empty, the block stands before the placeholder instead of on top of it */
+:root:not(#oz):not(#yh):not(#yr) .tv .tv-dock .sf-editor.empty .sf-caret {
+	margin-right: 6px !important;
 }
 :root:not(#oz):not(#yh):not(#yr) .tv.caret-idle .tv-dock .sf-editor.focused .sf-caret {
 	animation: yh-blink calc(1000ms * var(--yh-t)) steps(1, end) 3 !important;
@@ -701,8 +742,8 @@
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.composer.model'],
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] {
 	background: var(--yh-ink);
-	font: 400 11px/1.4 var(--yh-label);
-	letter-spacing: 0.12em;
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 1.5px;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'],
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] * {
@@ -778,9 +819,8 @@
 	background: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) :is(.ck-group, .tn-ib-t, .pf-head .pf-t, .tn-ib-gh) {
-	font-family: var(--yh-label);
 	font-weight: 400;
-	letter-spacing: 0.16em;
+	letter-spacing: 2px;
 	color: var(--yh-i70);
 }
 :root:not(#oz):not(#yh):not(#yr) :is(.pk-btn.primary, .btn.accent, .toast-act) {
@@ -808,7 +848,7 @@
 	color: var(--yh-ground);
 	opacity: 1;
 	font: 400 11px/1 var(--yh-label);
-	letter-spacing: 0.12em;
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 	animation: yh-wipe-l calc(200ms * var(--yh-t)) steps(5, end) both;
 	transition: box-shadow calc(120ms * var(--yh-t)) steps(2, end);
@@ -827,13 +867,9 @@
 	animation: yh-flicker calc(160ms * var(--yh-t)) steps(1, end);
 }
 
-/* ── restored views never replay their arrivals ─────────────────────── */
-:root:not(#oz):not(#yh):not(#yr) .sf-still :is([data-role='omp.bot.reply'] > [data-role^='omp.assistant'], [data-role='omp.bot.you'] .sf-md, .sf-col[data-role='omp.editor.ask'], [data-role='omp.ask.options'] .sf-item),
-:root:not(#oz):not(#yh):not(#yr) .sf-still [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before,
-:root:not(#oz):not(#yh):not(#yr) .sf-still [data-role='omp.bot.you'] .sf-md::before,
-:root:not(#oz):not(#yh):not(#yr) .sf-still .sf-col[data-role='omp.editor.ask']::before {
-	animation: none !important;
-}
+/* ── restored views ─────────────────────────────────────────────────── */
+/* Tern rebuilds a chat's rows when it is reopened and marks nothing as restored, so arrivals are tied to the
+   newest row only (:last-child above): a reopened chat draws its history still, and only what is new moves. */
 
 /* ── keyframes: wipe, rule, lock, scan, sweep, collapse, flicker, blink ── */
 @keyframes yh-wipe {
@@ -866,10 +902,10 @@
 	from { clip-path: inset(0 0 100% 0); }
 	to { clip-path: inset(0 0 0 0); }
 }
-@keyframes yh-collapse {
-	0% { clip-path: inset(0 0 0 0); opacity: 1; }
-	60% { clip-path: inset(calc(50% - 1px) 0 calc(50% - 1px) 0); opacity: 1; }
-	100% { clip-path: inset(calc(50% - 1px) 50% calc(50% - 1px) 50%); opacity: 0; }
+@keyframes yh-fold {
+	0% { transform: translateX(-50%) scale(1, 1); }
+	40% { transform: translateX(-50%) scale(1, 0.1); }
+	100% { transform: translateX(-50%) scale(0, 0.1); }
 }
 @keyframes yh-sweep {
 	0% { opacity: 1; transform: translateY(0); }

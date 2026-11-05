@@ -1,18 +1,17 @@
 #!/bin/bash
-# Synced driver: every step goes to both test Terns at once (A = YoRHa, B = current Ozette).
-W=/run/user/1001/agent/ozette-opus/yorha
-A() { ( . $W/env.sh; c "$@" ) >/dev/null 2>&1; }
-B() { ( . $W/envB.sh; c "$@" ) >/dev/null 2>&1; }
-b() { A "$@" & B "$@" & wait; }
-cue() { echo "$1:$RANDOM" > $W/cue; }
+# Scripted interaction pass over one test Tern, timed on Tern's own clock; the same script recorded once per
+# theme gives comparable videos. Usage: drive.sh <env.sh of the test Tern> <cue file of scene.ts> <video name>
+ENV=$1 CUE=$2
+b() { ( . "$ENV"; c "$@" ) >/dev/null 2>&1; }
+cue() { echo "$1:$RANDOM" > "$CUE"; }
 z() { b wait "$(awk "BEGIN{print int($1*1000)}")"; }
-NAME=$1
+NAME=$3
 b record start "$NAME" fps 30
 z 1.2
 # tabs: hover two rows, switch to Mori, back to Kino
-b move 100 196; z 0.6
-b move 100 254; z 0.6
-b click 100 196; z 1.1
+b move 100 198; z 0.6
+b move 100 258; z 0.6
+b click 100 198; z 1.1
 b click 100 138; z 1.1
 # composer: focus, type, pause, clear, send
 b click ".sf-editor"; z 0.9
