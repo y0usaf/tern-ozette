@@ -161,6 +161,7 @@
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on {
 	box-shadow: inset 400px 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink);
 	transition: none;
+	animation: yh-tab-wipe calc(100ms * var(--yh-t)) steps(4, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .nm,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .nm {
@@ -449,7 +450,10 @@
 	max-width: min(92%, 760px);
 	padding: 20px 18px 14px;
 	background: var(--yh-paper);
-	box-shadow: 6px 6px 0 var(--yh-i25);
+	box-shadow: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] {
+	animation: yh-scan-in calc(120ms * var(--yh-t)) steps(4, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before {
 	content: "";
@@ -481,6 +485,9 @@
 	background: var(--yh-ink);
 	color: var(--yh-ground);
 	box-shadow: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	animation: yh-wipe-in calc(100ms * var(--yh-t)) steps(4, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
 	content: "";
@@ -610,7 +617,8 @@
 	position: relative;
 	padding: 20px 18px 16px;
 	background: var(--yh-paper);
-	box-shadow: 6px 6px 0 var(--yh-i25);
+	box-shadow: none;
+	animation: yh-scan-in calc(120ms * var(--yh-t)) steps(4, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
 	content: "";
@@ -635,6 +643,7 @@
 	box-shadow: inset 0 0 0 0 var(--yh-ink);
 	color: var(--yh-ink);
 	overflow: visible;
+	animation: yh-wipe-l calc(100ms * var(--yh-t)) steps(4, start) both;
 	transition: box-shadow calc(80ms * var(--yh-t)) var(--yh-snap);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:not(.sel):hover {
@@ -660,6 +669,7 @@
 	outline: 0;
 	background-position: 0 0;
 	box-shadow: none;
+	animation: yh-wipe calc(80ms * var(--yh-t)) steps(3, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel :is(.sf-item-label, .sf-item-detail) {
 	color: var(--yh-ground);
@@ -725,7 +735,7 @@
 
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] {
 	background: var(--yh-paper);
-	box-shadow: 0 0 0 1px var(--yh-i25), 6px 6px 0 var(--yh-i25);
+	box-shadow: 0 0 0 1px var(--yh-i25);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-editor :is(.sf-ed-text, .sf-ed-ph) {
 	font-size: 16.5px;
@@ -831,9 +841,9 @@
 }
 :root:not(#oz):not(#yh):not(#yr) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .pp-pop, .sq-pop, .sf-ck-pop, .sf-ov-card, .tn-pq-card, .sf-toast, .toast, .tn-ib, .tn-find, .pf.sheet, .tn-bn-card) {
 	background: var(--yh-paper);
-	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-ink), 8px 8px 0 var(--yh-i25);
+	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-ink);
 	color: var(--yh-ink);
-	animation: yh-in calc(80ms * var(--yh-t)) steps(2, end) both;
+	animation: yh-scan-in calc(100ms * var(--yh-t)) steps(4, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-item {
 	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
@@ -859,6 +869,7 @@
 	--t3: var(--yh-g70);
 	--accent-ink: var(--yh-ground);
 	transition: none;
+	animation: yh-wipe calc(80ms * var(--yh-t)) steps(3, start) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true']::before {
 	display: none;
@@ -908,13 +919,13 @@
 	background: var(--yh-ink);
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
-	box-shadow: 4px 4px 0 var(--yh-i25);
+	box-shadow: none;
 	color: var(--yh-ground);
 	opacity: 1;
 	font: 400 11px/1 var(--yh-label);
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
-	animation: yh-in calc(80ms * var(--yh-t)) steps(2, end) both;
+	animation: yh-wipe-l calc(100ms * var(--yh-t)) steps(4, start) both;
 	transition: box-shadow calc(80ms * var(--yh-t)) steps(2, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .tv-back .lbl {
@@ -924,16 +935,71 @@
 }
 :root:not(#oz):not(#yh):not(#yr) .tv-back:hover {
 	color: var(--yh-ground);
-	box-shadow: 4px 4px 0 var(--yh-ink);
+	box-shadow: 0 0 0 1px var(--yh-ground), 0 0 0 2px var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) .tv-back:active {
 	transform: none;
 	animation: yh-flicker calc(80ms * var(--yh-t)) steps(1, end);
 }
 
-@keyframes yh-in {
-	from { opacity: 0; }
-	to { opacity: 1; }
+:root:not(#oz):not(#yh):not(#yr) .sf-region.sf-main > :is(.sf-card, .sf-col, .sf-tool, .sf-section) {
+	animation: yh-scan-in calc(120ms * var(--yh-t)) steps(4, start) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-still .sf-region.sf-main > *,
+:root:not(#oz):not(#yh):not(#yr) .sf-still.sf-region.sf-main > * {
+	animation: none;
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.pop, .pop.mi-subpop, .mdl, #dlg) {
+	animation: yh-scan-in calc(100ms * var(--yh-t)) steps(4, start) both;
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.pop.still, .mdl-layer, .pk-dim, .tabs-v .tn-vt) {
+	animation: none;
+}
+:root:not(#oz):not(#yh):not(#yr):not(.tn-phone) :is(.pf.sheet, .bd-sheet) {
+	animation: yh-wipe-l calc(120ms * var(--yh-t)) steps(4, start) both;
+}
+:root:not(#oz):not(#yh):not(#yr) :is(#tabbar .tt.working .nm, .tn-vt .nav-row.working .lbl) {
+	animation: yh-blink calc(1000ms * var(--yh-t)) steps(1, end) infinite;
+}
+:root:not(#oz):not(#yh):not(#yr) *,
+:root:not(#oz):not(#yh):not(#yr) *::before,
+:root:not(#oz):not(#yh):not(#yr) *::after {
+	-webkit-backdrop-filter: none !important;
+	backdrop-filter: none !important;
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.sf-col[data-role^='omp.overlay.'], .sf-prefs .pf-menu, .sf-prefs .pf-editor, .bd-card, .mdl, #dlg, .tooltip) {
+	box-shadow: 0 0 0 1px var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] {
+	box-shadow: 0 0 0 1px var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.tn-ring, .bd-ring, .tn-ib-empty-ic),
+:root:not(#oz):not(#yh):not(#yr) .md ul > li::before,
+:root:not(#oz):not(#yh):not(#yr) .md ol > li::before {
+	box-shadow: none;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe):not(#pf).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
+	box-shadow: none !important;
+}
+@keyframes yh-wipe {
+	from { background-position: 100% 0; }
+	to { background-position: 0 0; }
+}
+@keyframes yh-wipe-in {
+	from { clip-path: inset(0 0 0 100%); }
+	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-tab-wipe {
+	from { box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink); }
+	to { box-shadow: inset 400px 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink); }
+}
+@keyframes yh-wipe-l {
+	from { clip-path: inset(0 100% 0 0); }
+	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-scan-in {
+	from { clip-path: inset(0 0 100% 0); }
+	to { clip-path: inset(0 0 0 0); }
 }
 @keyframes yh-rules {
 	from { transform: scaleX(0); }
