@@ -98,10 +98,7 @@
 }
 
 :root:not(#oz):not(#yh):not(#yr) #tabbar {
-	background:
-		linear-gradient(var(--yh-ink), var(--yh-ink)) right 0 top 0 / 1px 100% no-repeat,
-		repeating-linear-gradient(180deg, var(--yh-ink) 0 3px, transparent 3px 40px) right 0 top 0 / 7px 100% no-repeat,
-		radial-gradient(circle, var(--yh-ink) 1.4px, transparent 1.6px) right 10px top 18px / 6px 40px repeat-y;
+	background: transparent;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab {
 	margin: 18px 12px 20px;
@@ -246,10 +243,7 @@
 
 :root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline {
 	border-left: 0 !important;
-	background:
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left 0 top 0 / 1px 100% no-repeat,
-		repeating-linear-gradient(180deg, var(--yh-ink) 0 3px, transparent 3px 40px) left 0 top 0 / 7px 100% no-repeat,
-		radial-gradient(circle, var(--yh-ink) 1.4px, transparent 1.6px) left 10px top 18px / 6px 40px repeat-y !important;
+	background: transparent !important;
 	color: var(--yh-i50) !important;
 }
 :root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
