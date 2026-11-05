@@ -20,10 +20,10 @@ Font declarations never use `!important`. Ozette keeps its local serif accents w
 
 The UI Menu loads each `grok-*-bubbles.css` sheet only when Grok and that surface's bubble option are enabled; `grok-bot-you.css` follows the bot's your-message toggle. Frost belongs to the shared frost options, not this look. Switching looks removes all Grok sheets without changing the selected theme.
 
-
 Optional `grok-avatars.css` replays faithfully redrawn Grok Bot bodies, cut-out eyes and the four-second Idle_B motion. Six lossless PNG atlases cover Lloyd (cyan cloud), Sol (violet bean), random (orange teardrop), CU-Bot (magenta capsule), baobot (yellow square) and Regal (green clover); helpers/defaults reuse Sol. Each frame is 128px for a maximum 64px display. The 240-sample, 60fps cycle reuses 73–77 pixel-identical frames per bot. The six atlases total 552,489 bytes; the dark palette is shared by both modes, whose source colours differ by only 1–2 RGB values. Reduced motion holds the first frame.
 
 The PNGs were rasterized from our vector reconstructions, not copied from the app's image files. No app code, reference library, drawing generator or reference probe ships. Nix resolves the six asset URLs when packaging the stylesheet. Tern does not support stylesheet-relative image URLs, WebP CSS images, SVG URL masks, `:has()`, separate background-position axes, or custom-property/percentage positions in sprite keyframes, so the look uses compact PNG grids and literal pixel coordinates.
+
 ## Mini
 
 `mini.css` keeps stock Tern layout, theme colours, configured fonts and terminal text. It normalizes chrome through the existing radius and easing tokens, then overrides hardcoded stock controls, popups and decorative effects. Chrome uses 2/4/6px radii, 12/14/16px type, short 100/150ms transitions and flat one-pixel boundaries rather than depth stacks. Circles, directional bubble corners, focus/error indicators, clipping masks and lifecycle feedback stay functional.
