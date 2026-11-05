@@ -1,45 +1,27 @@
-@keyframes yh-scan-in {
-	0% { clip-path: inset(0 0 100% 0); animation-timing-function: steps(1, end); }
-	8.333% { clip-path: inset(0 0 75.0% 0); animation-timing-function: steps(1, end); }
-	16.667% { clip-path: inset(0 0 56.25% 0); animation-timing-function: steps(1, end); }
-	25.0% { clip-path: inset(0 0 37.5% 0); animation-timing-function: steps(1, end); }
-	33.333% { clip-path: inset(0 0 25.0% 0); animation-timing-function: steps(1, end); }
-	41.667% { clip-path: inset(0 0 18.75% 0); animation-timing-function: steps(1, end); }
-	50.0% { clip-path: inset(0 0 12.5% 0); animation-timing-function: steps(1, end); }
-	58.333% { clip-path: inset(0 0 6.25% 0); animation-timing-function: steps(1, end); }
-	66.667% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
-	75.0% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
-	83.333% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
-	91.667% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
-	100% { clip-path: inset(0 0 0 0); }
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::after,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before,
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi::before,
+:root:not(#oz):not(#yh):not(#yr) section.tn-pane.on > .tn-body::after,
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md,
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::after,
+:root:not(#oz):not(#yh):not(#yr) .sf-region.sf-main > :is([data-role='omp.bot.you'], .sf-col[data-role^='omp.editor']),
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'],
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before,
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item,
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::after,
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:active,
+:root:not(#oz):not(#yh):not(#yr) .sf-dock > .sf-col.gap-none:first-child::before,
+:root:not(#oz):not(#yh):not(#yr) .tn-pane.on .sf-col[data-role='omp.editor'] .sf-editor.focused::before,
+:root:not(#oz):not(#yh):not(#yr) #pal,
+:root:not(#oz):not(#yh):not(#yr) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .pp-pop, .sq-pop, .sf-ck-pop, .sf-ov-card, .tn-pq-card, .tn-ib, .tn-find, .pf.sheet, .tn-bn-card),
+:root:not(#oz):not(#yh):not(#yr) :is(.pop, .pop.mi-subpop, .mdl, #dlg, .mdl-layer, .pk-dim),
+:root:not(#oz):not(#yh):not(#yr) :not(.tn-phone) :is(.pf.sheet, .bd-sheet),
+:root:not(#oz):not(#yh):not(#yr) .tv-back,
+:root:not(#oz):not(#yh):not(#yr) .tv-back:active {
+	animation: none;
 }
-@keyframes yh-wipe-l {
-	0% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(1, end); }
-	8.333% { clip-path: inset(0 75.0% 0 0); animation-timing-function: steps(1, end); }
-	16.667% { clip-path: inset(0 56.25% 0 0); animation-timing-function: steps(1, end); }
-	25.0% { clip-path: inset(0 37.5% 0 0); animation-timing-function: steps(1, end); }
-	33.333% { clip-path: inset(0 25.0% 0 0); animation-timing-function: steps(1, end); }
-	41.667% { clip-path: inset(0 18.75% 0 0); animation-timing-function: steps(1, end); }
-	50.0% { clip-path: inset(0 12.5% 0 0); animation-timing-function: steps(1, end); }
-	58.333% { clip-path: inset(0 6.25% 0 0); animation-timing-function: steps(1, end); }
-	66.667% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
-	75.0% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
-	83.333% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
-	91.667% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
-	100% { clip-path: inset(0 0 0 0); }
-}
-@keyframes yh-rules {
-	0% { transform: scaleX(0); animation-timing-function: steps(1, end); }
-	8.333% { transform: scaleX(0.25); animation-timing-function: steps(1, end); }
-	16.667% { transform: scaleX(0.4375); animation-timing-function: steps(1, end); }
-	25.0% { transform: scaleX(0.5625); animation-timing-function: steps(1, end); }
-	33.333% { transform: scaleX(0.6875); animation-timing-function: steps(1, end); }
-	41.667% { transform: scaleX(0.8125); animation-timing-function: steps(1, end); }
-	50.0% { transform: scaleX(0.875); animation-timing-function: steps(1, end); }
-	58.333% { transform: scaleX(0.9375); animation-timing-function: steps(1, end); }
-	66.667% { transform: scaleX(0.9375); animation-timing-function: steps(1, end); }
-	75.0% { transform: scaleX(1.0); animation-timing-function: steps(1, end); }
-	83.333% { transform: scaleX(1.0); animation-timing-function: steps(1, end); }
-	91.667% { transform: scaleX(1.0); animation-timing-function: steps(1, end); }
-	100% { transform: scaleX(1); }
+:root:not(#oz):not(#yh):not(#yr) *,
+:root:not(#oz):not(#yh):not(#yr) *::before,
+:root:not(#oz):not(#yh):not(#yr) *::after {
+	transition: none !important;
 }
