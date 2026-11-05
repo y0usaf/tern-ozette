@@ -1,0 +1,601 @@
+/* Ozette · YoRHa — design demo (not loaded by plugin.toml).
+   Loaded after ozette.css, motion.css and omp-bot's bot.css. Ozette keeps its structure (rail, solid cards,
+   spacing, offset shadow); this sheet restricts it to two tones, ground and ink, and gives every ornament a job:
+   a square marks a label, a hairline rules a section, an inverted bar means "selected", a ruler measures the rail.
+   Motion is one gesture used everywhere: an ink bar wipes across, then the thing it uncovered stays still. */
+:root:not(#oz):not(#yh):not(#yr) {
+	/* the two tones; theme colours enter only as the alert hue */
+	--yh-ground: light-dark(#cdc8b0, #47453c);
+	--yh-ink: light-dark(#47453c, #d3cdb4);
+	--yh-paper: light-dark(#dcd7c0, #524f45);
+	--yh-alert: light-dark(oklch(from var(--bad) 0.6 0.13 h), oklch(from var(--bad) 0.72 0.11 h));
+	--yh-i70: rgb(from var(--yh-ink) r g b / 72%);
+	--yh-i50: rgb(from var(--yh-ink) r g b / 50%);
+	--yh-i25: rgb(from var(--yh-ink) r g b / 22%);
+	--yh-i12: rgb(from var(--yh-ink) r g b / 11%);
+	--yh-i06: rgb(from var(--yh-ink) r g b / 6%);
+	--yh-sans: "IBM Plex Sans JP", "IBM Plex Sans", "Noto Sans CJK JP", sans-serif;
+	--yh-label: "Departure Mono", var(--oz-mono);
+	--yh-curve: cubic-bezier(0.15, 0.79, 0, 1);
+	--yh-wipe: 260ms;
+
+	/* Ozette's palette collapses onto the two tones */
+	--page: var(--yh-ground) !important;
+	--panel: var(--yh-ground) !important;
+	--card: var(--yh-paper) !important;
+	--raise: var(--yh-paper) !important;
+	--pop-bg: var(--yh-paper) !important;
+	--ink: var(--yh-ink) !important;
+	--t1: var(--yh-ink) !important;
+	--t2: var(--yh-i70) !important;
+	--t3: var(--yh-i50) !important;
+	--t4: var(--yh-i25) !important;
+	--l1: var(--yh-i06) !important;
+	--l2: var(--yh-i12) !important;
+	--l3: var(--yh-i25) !important;
+	--l4: var(--yh-i25) !important;
+	--accent: var(--yh-ink) !important;
+	--accent-ink: var(--yh-ink) !important;
+	--accent-fill: var(--yh-ink) !important;
+	--live: var(--yh-ink) !important;
+	--ok: var(--yh-ink) !important;
+	--warn: var(--yh-ink) !important;
+	--oz-lav: var(--yh-i25) !important;
+	--oz-pink: var(--yh-ink) !important;
+	--oz-mustard: var(--yh-ink) !important;
+	--oz-lime: var(--yh-ink) !important;
+	--oz-plum: var(--yh-ink) !important;
+	--oz-forest: var(--yh-ground) !important;
+	--oz-hair: var(--yh-i25) !important;
+	--oz-sel: var(--yh-ink) !important;
+	--oz-shade: var(--yh-i25) !important;
+	--oz-dot: var(--yh-i12) !important;
+	--oz-rail-bg: var(--yh-ground) !important;
+	--oz-serif: var(--yh-sans) !important;
+	--oz-code-bg: var(--yh-paper) !important;
+	--oz-code-head: var(--yh-ink) !important;
+	--oz-code-ink: var(--yh-ink) !important;
+	--oz-code-ink-2: var(--yh-i70) !important;
+	--oz-code-ink-3: var(--yh-i50) !important;
+	--oz-code-ink-4: var(--yh-i25) !important;
+	--oz-code-keyword: var(--yh-ink) !important;
+	--oz-code-string: var(--yh-i70) !important;
+	--oz-code-function: var(--yh-ink) !important;
+	--oz-code-type: var(--yh-i70) !important;
+	--oz-code-lime: var(--yh-ink) !important;
+	--oz-code-pink: var(--yh-alert) !important;
+	--oz-code-mustard: var(--yh-ink) !important;
+	--omp-mdListBullet: var(--yh-ink) !important;
+	--tv-bg: var(--yh-paper) !important;
+	--tv-fg: var(--yh-ink) !important;
+	--tv-cur: var(--yh-ink) !important;
+	--tv-cur-ink: var(--yh-ground) !important;
+	--tv-sel-a: var(--yh-i25) !important;
+	--tv-sel-b: var(--yh-i25) !important;
+	--sans: var(--yh-sans) !important;
+	accent-color: var(--yh-ink);
+	caret-color: var(--yh-ink);
+	color-scheme: light dark;
+
+	/* the ground: a 10px hairline grid, darker toward both edges like a curved screen */
+	background:
+		linear-gradient(90deg, rgb(0 0 0 / light-dark(7%, 18%)), transparent 22%, transparent 78%, rgb(0 0 0 / light-dark(7%, 18%))),
+		repeating-linear-gradient(0deg, light-dark(var(--yh-i06), rgb(from var(--yh-ink) r g b / 4%)) 0 1px, transparent 1px 10px),
+		repeating-linear-gradient(90deg, light-dark(var(--yh-i06), rgb(from var(--yh-ink) r g b / 4%)) 0 1px, transparent 1px 10px),
+		var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) :is(#panel, .tn-stage, .tn-pane, .tn-body, .tv, .sf-chat-reader, .sf-region) {
+	background: transparent;
+}
+
+/* ── rail ───────────────────────────────────────────────────────────── */
+/* the rail's right edge is a ruler: a hairline, a tick every 40px, a pair of dots between ticks */
+:root:not(#oz):not(#yh):not(#yr) #tabbar {
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right 0 top 0 / 1px 100% no-repeat,
+		repeating-linear-gradient(180deg, var(--yh-ink) 0 3px, transparent 3px 40px) right 0 top 0 / 7px 100% no-repeat,
+		radial-gradient(circle, var(--yh-ink) 1.4px, transparent 1.6px) right 10px top 18px / 6px 40px repeat-y;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab {
+	margin: 18px 12px 20px;
+	padding: 3px 10px 3px 8px;
+	background: var(--yh-ink);
+	color: var(--yh-ground);
+	font: 400 11px/16px var(--yh-label);
+	letter-spacing: 0.14em;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab .ico {
+	display: none;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab::before {
+	content: "";
+	width: 7px;
+	height: 7px;
+	margin-right: 8px;
+	background: var(--yh-ground);
+}
+/* tabs: list rows of the reference's menus — a quiet ink tint, a square, the name */
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] {
+	position: relative;
+	height: 44px;
+	min-height: 44px;
+	margin: 0 22px 14px 12px;
+	background: var(--yh-i12) !important;
+	box-shadow: none;
+	overflow: visible;
+	color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt .nm,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] .nm {
+	font: 500 15px/1.15 var(--yh-sans) !important;
+	letter-spacing: 0.02em;
+	color: var(--yh-ink) !important;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt .sub {
+	font: 400 9.5px/1.3 var(--yh-label);
+	letter-spacing: 0.08em;
+	color: var(--yh-i50);
+}
+/* selected: the bar inverts by wiping in from the left, and two rules close above and below it */
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on {
+	background: linear-gradient(90deg, var(--yh-ink) 50%, var(--yh-i12) 50%) 0 0 / 200% 100% !important;
+	animation: yh-wipe var(--yh-wipe) var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .nm,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .nm {
+	color: var(--yh-ground) !important;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .sub,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .sub,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .kbd.tn-num,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .tn-tx {
+	color: rgb(from var(--yh-ground) r g b / 72%);
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::after {
+	content: "";
+	position: absolute;
+	top: -6px;
+	bottom: -6px;
+	left: 0;
+	right: 0;
+	width: auto;
+	height: auto;
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 100% 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 2px no-repeat;
+	color: transparent;
+	pointer-events: none;
+	animation: yh-rules 340ms var(--yh-curve) both;
+}
+/* a pointer on the ruler marks which row is selected */
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -21px;
+	width: 8px;
+	height: 8px;
+	margin-top: -4px;
+	background: var(--yh-ink);
+	transform: rotate(45deg);
+	pointer-events: none;
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row {
+	font: 400 10.5px/1 var(--yh-label);
+	letter-spacing: 0.12em;
+	color: var(--yh-i70);
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .kbd,
+:root:not(#oz):not(#yh):not(#yr) .kbd {
+	background: none;
+	box-shadow: inset 0 0 0 1px var(--yh-i25);
+	color: var(--yh-i70);
+	font-family: var(--yh-label);
+}
+
+/* a narrow window keeps the same rail, tighter */
+@media (max-width: 1000px) {
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab {
+		margin: 12px 9px 14px 2px;
+		padding: 3px 8px 3px 6px;
+		letter-spacing: 0.1em;
+	}
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt,
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] {
+		height: 34px;
+		min-height: 34px;
+		margin: 0 9px 12px 2px;
+	}
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt .nm,
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] .nm {
+		letter-spacing: 0 !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt:not(:hover) .tn-tx {
+		display: none;
+	}
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before {
+		right: -8px;
+	}
+}
+
+/* ── chat ───────────────────────────────────────────────────────────── */
+:root:not(#oz):not(#yh):not(#yr) .sf-region .md {
+	font: 400 15.5px/1.6 var(--yh-sans);
+	color: var(--yh-ink);
+}
+/* arrivals are this sheet's wipes, not the stock rise */
+:root:not(#oz):not(#yh):not(#yr) .sf-region.sf-main > :is([data-role='omp.bot.reply'], [data-role='omp.bot.you']) {
+	animation: none;
+}
+/* a reply is a window: paper body, an ink title rule, the offset shadow in ink */
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant'] {
+	position: relative;
+	overflow: visible;
+	max-width: min(86%, 620px);
+	padding: 20px 18px 14px;
+	background: var(--yh-paper);
+	box-shadow: 6px 6px 0 var(--yh-i25);
+	animation: yh-uncover 420ms var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 6px;
+	background-color: var(--yh-ink);
+	background-image: linear-gradient(var(--yh-ground), var(--yh-ground)), linear-gradient(var(--yh-ground), var(--yh-ground));
+	background-position: calc(100% - 8px) 2px, calc(100% - 16px) 2px;
+	background-size: 4px 2px;
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+/* your words are the selected line: inverted, flush right, a square where the speaker's mark would be */
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	position: relative;
+	padding: 9px 14px 10px 30px;
+	background: var(--yh-ink);
+	color: var(--yh-ground);
+	box-shadow: none;
+	animation: yh-wipe-in 300ms var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+	content: "";
+	position: absolute;
+	left: 12px;
+	top: 16px;
+	width: 7px;
+	height: 7px;
+	background: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body,
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body .md {
+	--t1: var(--yh-ground);
+	--tv-fg: var(--yh-ground);
+	color: var(--yh-ground);
+	font: 400 15.5px/1.5 var(--yh-sans);
+}
+/* headings are section labels: a square, the words, a hairline running to the edge */
+:root:not(#oz):not(#yh):not(#yr) .md :is(h1, h2, h3) {
+	align-self: stretch;
+	width: auto;
+	margin: 18px 0 10px;
+	padding: 0 0 5px 17px;
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left 0 top 0.42em / 8px 8px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 1px no-repeat;
+	--omp-mdHeading: var(--yh-ink);
+	color: var(--yh-ink);
+	font: 500 17px/1.3 var(--yh-sans);
+	letter-spacing: 0.04em;
+}
+:root:not(#oz):not(#yh):not(#yr) .md strong {
+	background: var(--yh-i12);
+	color: var(--yh-ink);
+	font-weight: 600;
+}
+:root:not(#oz):not(#yh):not(#yr) .md :not(pre) > code {
+	background: none;
+	box-shadow: inset 0 0 0 1px var(--yh-i25);
+	color: var(--yh-ink);
+	font-size: 13px;
+}
+:root:not(#oz):not(#yh):not(#yr) .md ul > li::before {
+	background: var(--yh-ink);
+	box-shadow: none;
+}
+/* code is a small window inside the reply: an ink bar for its label, a hairline frame */
+:root:not(#oz):not(#yh):not(#yr) .md .code {
+	background: var(--yh-ground);
+	box-shadow: inset 0 0 0 1px var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) .md .code-head {
+	background: var(--yh-ink);
+	color: var(--yh-ground);
+	--t1: var(--yh-ground);
+	--t2: var(--yh-ground);
+	--t3: rgb(from var(--yh-ground) r g b / 75%);
+	font: 400 10.5px/1.4 var(--yh-label);
+	letter-spacing: 0.14em;
+}
+:root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn) {
+	color: rgb(from var(--yh-ground) r g b / 80%);
+	font-family: var(--yh-label);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.time'] {
+	font: 400 10.5px/1 var(--yh-label);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--yh-i50);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say'] {
+	font: 400 12px/1.4 var(--yh-label);
+	letter-spacing: 0.06em;
+	color: var(--yh-i70);
+}
+/* the bot's header is a section label: name in spaced capitals, role as a structural label, ruled below */
+:root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] {
+	box-shadow: 0 1px 0 var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] [data-role='omp.bot.name'] {
+	font: 500 14px/1.2 var(--yh-sans);
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] [data-role='omp.bot.role'] {
+	font: 400 10.5px/1.2 var(--yh-label);
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	opacity: 1;
+	color: var(--yh-i50);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.event.row'] {
+	font: 400 10.5px/1.2 var(--yh-label);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--yh-i50);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.event.name'] {
+	font: inherit;
+	color: var(--yh-ink);
+}
+/* the status line ends in a block cursor that blinks a few times, then holds */
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say']::after {
+	content: "";
+	display: inline-block;
+	width: 7px;
+	height: 12px;
+	margin-left: 6px;
+	vertical-align: -2px;
+	background: var(--yh-ink);
+	animation: yh-blink 1060ms steps(1, end) 5;
+}
+
+/* ── question ───────────────────────────────────────────────────────── */
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] {
+	position: relative;
+	padding: 34px 18px 16px;
+	background: var(--yh-paper);
+	box-shadow: 6px 6px 0 var(--yh-i25);
+	animation: yh-uncover 420ms var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
+	content: "QUERY";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 20px;
+	padding: 0 12px 0 27px;
+	background-color: var(--yh-ink);
+	background-image: linear-gradient(var(--yh-ground), var(--yh-ground));
+	background-position: 12px 7px;
+	background-size: 7px 7px;
+	background-repeat: no-repeat;
+	color: var(--yh-ground);
+	font: 400 10.5px/20px var(--yh-label);
+	letter-spacing: 0.18em;
+	pointer-events: none;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.question'] {
+	font: 500 17px/1.35 var(--yh-sans);
+	color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item {
+	position: relative;
+	margin: 0 0 12px;
+	background: var(--yh-i12);
+	box-shadow: none;
+	color: var(--yh-ink);
+	overflow: visible;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item .sf-item-label {
+	font: 500 15px/1.3 var(--yh-sans);
+	color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item .sf-item-detail {
+	font: 400 10.5px/1.4 var(--yh-label);
+	letter-spacing: 0.06em;
+	color: var(--yh-i50);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item::before {
+	border-radius: 0;
+	box-shadow: inset 0 0 0 1px var(--yh-i50);
+	color: var(--yh-ink);
+	font: 400 11px/1 var(--yh-label);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel {
+	background: linear-gradient(90deg, var(--yh-ink) 50%, var(--yh-i12) 50%) 0 0 / 200% 100%;
+	animation: yh-wipe var(--yh-wipe) var(--yh-curve) both;
+	box-shadow: none;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -6px;
+	left: 0;
+	width: 100%;
+	height: calc(100% + 12px);
+	background-image: linear-gradient(var(--yh-ink), var(--yh-ink)), linear-gradient(var(--yh-ink), var(--yh-ink));
+	background-position: 0 0, 0 100%;
+	background-size: 100% 2px;
+	background-repeat: no-repeat;
+	pointer-events: none;
+	animation: yh-rules 340ms var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel :is(.sf-item-label, .sf-item-detail) {
+	color: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::before {
+	background: var(--yh-ground);
+	box-shadow: none;
+	color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-act,
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] button {
+	font-family: var(--yh-label);
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+}
+
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel {
+	border: 0;
+	outline: 0;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act {
+	background: none;
+	box-shadow: inset 0 0 0 1px var(--yh-i25);
+	color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:last-child,
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act[data-tone='accent'] {
+	background: var(--yh-ink);
+	box-shadow: none;
+	color: var(--yh-ground);
+	--t1: var(--yh-ground);
+	--t2: var(--yh-ground);
+	--t3: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:first-child {
+	box-shadow: none;
+}
+
+/* ── composer ───────────────────────────────────────────────────────── */
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] {
+	background: var(--yh-paper);
+	box-shadow: 0 0 0 1px var(--yh-i25), 6px 6px 0 var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] textarea,
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-text {
+	font-family: var(--yh-sans);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.composer.model'],
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] {
+	background: var(--yh-ink);
+	font: 400 10.5px/1.4 var(--yh-label);
+	letter-spacing: 0.12em;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'],
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] * {
+	color: var(--yh-ground) !important;
+}
+
+:root:not(#oz):not(#yh):not(#yr) :is(textarea, input) {
+	caret-color: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-effort {
+	filter: grayscale(1) brightness(1.6);
+}
+
+/* ── menus, palette, popovers ───────────────────────────────────────── */
+:root:not(#oz):not(#yh):not(#yr) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .pp-pop, .sq-pop, .sf-ck-pop, .sf-ov-card, .tn-pq-card, .sf-toast, .toast, .tn-ib, .tn-find, .pf.sheet, .tn-bn-card) {
+	background: var(--yh-paper);
+	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-i50), 6px 6px 0 var(--yh-i25);
+	color: var(--yh-ink);
+	animation: yh-uncover 320ms var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .pk-selbar,
+:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'],
+:root:not(#oz):not(#yh):not(#yr) .tn-thm-row[aria-selected='true'],
+:root:not(#oz):not(#yh):not(#yr) .sf-ov-card .sf-item.sel,
+:root:not(#oz):not(#yh):not(#yr) .pop .mi:hover,
+:root:not(#oz):not(#yh):not(#yr) .sf-prefs .pf-row.focus,
+:root:not(#oz):not(#yh):not(#yr) .tn-ib-row[aria-selected='true'] {
+	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 0 0 / 200% 100%;
+	color: var(--yh-ground);
+	--t1: var(--yh-ground);
+	--t2: var(--yh-ground);
+	--t3: rgb(from var(--yh-ground) r g b / 70%);
+	animation: yh-wipe 220ms var(--yh-curve) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'] {
+	border: 0;
+	box-shadow: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'] :is(.ck-ic, .ck-icon, svg) {
+	background: none;
+	box-shadow: none;
+	color: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true']::before {
+	display: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-group::before {
+	content: "";
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin-right: 8px;
+	vertical-align: 1px;
+	background: var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.ck-group, .tn-ib-t, .pf-head .pf-t, .tn-ib-gh) {
+	font-family: var(--yh-label);
+	font-weight: 400;
+	letter-spacing: 0.16em;
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.pk-btn.primary, .btn.accent, .toast-act) {
+	background: var(--yh-ink);
+	color: var(--yh-ground);
+}
+
+/* ── panes ──────────────────────────────────────────────────────────── */
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.multi {
+	box-shadow: inset 0 0 0 1px var(--yh-i12);
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi {
+	box-shadow: inset 0 3px 0 var(--yh-ink), inset 0 0 0 1px var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-veil {
+	background: var(--yh-ground);
+}
+
+/* ── motion: one ink wipe, then rest ────────────────────────────────── */
+@keyframes yh-wipe {
+	from { background-position: 100% 0; }
+	to { background-position: 0 0; }
+}
+@keyframes yh-wipe-in {
+	from { clip-path: inset(0 0 0 100%); }
+	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-rules {
+	from { transform: scaleX(0); opacity: 0; }
+	to { transform: scaleX(1); opacity: 1; }
+}
+@keyframes yh-uncover {
+	from { clip-path: inset(0 100% 0 0); }
+	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-blink {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+	:root:not(#oz):not(#yh):not(#yr) * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+}
