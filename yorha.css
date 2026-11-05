@@ -542,22 +542,23 @@
 	line-height: 24px;
 }
 :root:not(#oz):not(#yh):not(#yr) .md .code-head {
-	background: var(--yh-ink);
-	color: var(--yh-ground);
-	--t1: var(--yh-ground);
-	--t2: var(--yh-ground);
-	--t3: var(--yh-g70);
+	background: none;
+	box-shadow: inset 0 -1px 0 var(--yh-i25);
+	color: var(--yh-i70);
+	--t1: var(--yh-ink);
+	--t2: var(--yh-i70);
+	--t3: var(--yh-i50);
 	font: 400 11px/16px var(--yh-label);
 	letter-spacing: 1.5px;
 }
 :root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn) {
-	color: var(--yh-g70);
-	background: linear-gradient(90deg, var(--yh-ground) 50%, transparent 50%) 100% 0 / 200% 100%;
+	color: var(--yh-i70);
+	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
 	transition: background-position calc(180ms * var(--yh-t)) var(--yh-snap), color calc(120ms * var(--yh-t)) steps(1, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn):hover {
 	background-position: 0 0;
-	color: var(--yh-ink);
+	color: var(--yh-ground);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.time'] {
 	font: 400 11px/1 var(--yh-label);
