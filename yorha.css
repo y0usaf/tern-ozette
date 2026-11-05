@@ -650,27 +650,19 @@
 
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] {
 	position: relative;
-	padding: 34px 18px 16px;
+	padding: 20px 18px 16px;
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
 	animation: yh-scan-in calc(300ms * var(--yh-t)) steps(8, end) calc(120ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
-	content: "QUERY";
+	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 20px;
-	padding: 0 12px 0 27px;
-	background-color: var(--yh-ink);
-	background-image: linear-gradient(var(--yh-ground), var(--yh-ground));
-	background-position: 12px 7px;
-	background-size: 7px 7px;
-	background-repeat: no-repeat;
-	color: var(--yh-ground);
-	font: 400 11px/20px var(--yh-label);
-	letter-spacing: 2px;
+	height: 6px;
+	background: var(--yh-ink);
 	transform-origin: 0 0;
 	pointer-events: none;
 	animation: yh-rules calc(180ms * var(--yh-t)) var(--yh-snap) both;
@@ -800,7 +792,7 @@
 	left: 50%;
 	bottom: calc(100% + 2px);
 	width: min(720px, calc(100% - 24px));
-	height: 20px;
+	height: 6px;
 	background-color: var(--yh-ink);
 	pointer-events: none;
 	transform: translateX(-50%) scale(0, 0);
