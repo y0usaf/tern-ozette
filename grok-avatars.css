@@ -1,64 +1,1080 @@
 :root {
-	--grok-avatar-blob: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23bea5e0' d='M12 17C17 8 31 8 38 14C49 10 58 20 54 31C60 42 51 55 38 53C27 60 12 54 13 44C3 38 5 24 12 17Z'/%3E%3Cellipse cx='26' cy='30' rx='3' ry='4' fill='%23282130'/%3E%3Cellipse cx='40' cy='28' rx='3' ry='4' fill='%23282130'/%3E%3Cpath d='M29 39Q35 44 40 37' fill='none' stroke='%23282130' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
-	--grok-avatar-bean: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23f0c77d' d='M20 9C29 5 40 12 39 22C39 29 52 24 56 35C61 51 43 60 27 55C10 51 4 38 8 25C10 17 14 12 20 9Z'/%3E%3Cellipse cx='24' cy='33' rx='3' ry='4' fill='%23352b21'/%3E%3Cellipse cx='38' cy='35' rx='3' ry='4' fill='%23352b21'/%3E%3Cpath d='M26 44Q31 48 36 44' fill='none' stroke='%23352b21' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
-	--grok-avatar-sprout: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23a9cfba' d='M12 24C12 14 24 10 31 17C37 5 48 10 48 20C61 23 61 37 52 42C52 55 38 59 30 52C17 58 6 49 10 39C3 34 6 26 12 24Z'/%3E%3Cellipse cx='25' cy='31' rx='3' ry='4' fill='%2322352c'/%3E%3Cellipse cx='39' cy='31' rx='3' ry='4' fill='%2322352c'/%3E%3Cpath d='M27 41Q32 46 37 41' fill='none' stroke='%2322352c' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E");
+	--grok-avatar: url("grok-bots/sol.png");
+	--grok-motion: grok-sol-small;
+	--grok-motion-large: grok-sol-large;
 }
- :root:not(#grok) [data-role^='omp.bot.'][data-role$='.yellow'],
-:root:not(#grok) [data-role^='omp.bot.'][data-role$='.orange'] {
-	--grok-avatar: var(--grok-avatar-bean);
-}
-:root:not(#grok) [data-role^='omp.bot.'][data-role$='.green'],
 :root:not(#grok) [data-role^='omp.bot.'][data-role$='.teal'] {
-	--grok-avatar: var(--grok-avatar-sprout);
+	--grok-avatar: url("grok-bots/lloyd.png");
+	--grok-motion: grok-lloyd-small;
+	--grok-motion-large: grok-lloyd-large;
 }
-:root:not(#grok) [data-role='omp.bot.reply'] {
-	position: relative;
-	padding-left: 44px;
+:root:not(#grok) [data-role^='omp.bot.'][data-role$='.purple'] {
+	--grok-avatar: url("grok-bots/sol.png");
+	--grok-motion: grok-sol-small;
+	--grok-motion-large: grok-sol-large;
 }
-:root:not(#grok) [data-role='omp.bot.reply']::before {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 12px;
+:root:not(#grok) [data-role^='omp.bot.'][data-role$='.orange'] {
+	--grok-avatar: url("grok-bots/random.png");
+	--grok-motion: grok-random-small;
+	--grok-motion-large: grok-random-large;
+}
+:root:not(#grok) [data-role^='omp.bot.'][data-role$='.pink'] {
+	--grok-avatar: url("grok-bots/cu.png");
+	--grok-motion: grok-cu-small;
+	--grok-motion-large: grok-cu-large;
+}
+:root:not(#grok) [data-role^='omp.bot.'][data-role$='.yellow'] {
+	--grok-avatar: url("grok-bots/bao.png");
+	--grok-motion: grok-bao-small;
+	--grok-motion-large: grok-bao-large;
+}
+:root:not(#grok) [data-role^='omp.bot.'][data-role$='.green'] {
+	--grok-avatar: url("grok-bots/regal.png");
+	--grok-motion: grok-regal-small;
+	--grok-motion-large: grok-regal-large;
+}
+:root:not(#grok) [data-role='omp.bot.reply'] { position: relative; padding-left: 44px; }
+:root:not(#grok) [data-role='omp.bot.reply']::before { content: ''; position: absolute; left: 2px; top: 12px; }
+:root:not(#grok) [data-role='omp.bot.reply']::before,
+:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) {
 	width: 32px;
 	height: 32px;
-	background-size: contain;
-	background-image: var(--grok-avatar, var(--grok-avatar-blob));
+	background-image: var(--grok-avatar);
+	background-size: 320px 256px;
+	background-position: 0 0;
 	background-repeat: no-repeat;
-	animation: grok-avatar-bob 2.8s ease-in-out infinite alternate;
+	animation: var(--grok-motion) 4s steps(1, end) infinite;
 }
-:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar']) {
-	width: 28px;
-	height: 28px;
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-image: var(--grok-avatar, var(--grok-avatar-bean));
-	animation: grok-avatar-bob 3.2s ease-in-out infinite alternate;
+:root:not(#grok) [data-role^='omp.bot.hero.'] [data-role^='omp.bot.chao.'] {
+	width: 64px;
+	height: 64px;
+	background-size: 640px 512px;
+	animation-name: var(--grok-motion-large);
 }
-:root:not(#grok) [data-role='omp.bot.xavatar'] {
-	background-image: var(--grok-avatar, var(--grok-avatar-sprout));
-}
-:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar']) > * {
-	display: none !important;
-}
-:root:not(#grok) [data-role^='omp.bot.chao.'] {
-	width: max(24px, calc(16 * var(--p, 2px)));
-	height: max(24px, calc(16 * var(--p, 2px)));
-	background-image: var(--grok-avatar, var(--grok-avatar-blob));
-	background-size: contain;
-	background-repeat: no-repeat;
-	animation: grok-avatar-bob 2.8s ease-in-out infinite alternate;
-}
-:root:not(#grok) [data-role^='omp.bot.chao.'] > * {
-	display: none !important;
-}
-@keyframes grok-avatar-bob {
-	from { transform: translateY(0); }
-	to { transform: translateY(-2px); }
-}
+:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) > * { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
 	:root:not(#grok) [data-role='omp.bot.reply']::before,
-	:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) {
-		animation: none;
-	}
+	:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) { animation: none; background-position: 0 0; }
+}
+@keyframes grok-lloyd-small {
+	0.00000000% { background-position: 0px 0px; }
+	0.83333333% { background-position: -32px 0px; }
+	6.66666667% { background-position: -64px 0px; }
+	7.08333333% { background-position: -96px 0px; }
+	11.25000000% { background-position: -128px 0px; }
+	13.33333333% { background-position: -160px 0px; }
+	15.00000000% { background-position: -192px 0px; }
+	17.08333333% { background-position: -224px 0px; }
+	20.00000000% { background-position: -256px 0px; }
+	24.58333333% { background-position: -288px 0px; }
+	25.41666667% { background-position: 0px -32px; }
+	26.25000000% { background-position: -32px -32px; }
+	26.66666667% { background-position: -64px -32px; }
+	27.08333333% { background-position: -96px -32px; }
+	27.50000000% { background-position: -128px -32px; }
+	28.33333333% { background-position: -160px -32px; }
+	29.16666667% { background-position: -192px -32px; }
+	30.00000000% { background-position: -224px -32px; }
+	30.41666667% { background-position: -256px -32px; }
+	30.83333333% { background-position: -288px -32px; }
+	32.50000000% { background-position: 0px -64px; }
+	34.16666667% { background-position: -32px -64px; }
+	37.08333333% { background-position: -64px -64px; }
+	37.50000000% { background-position: -96px -64px; }
+	37.91666667% { background-position: -128px -64px; }
+	38.33333333% { background-position: -160px -64px; }
+	38.75000000% { background-position: -192px -64px; }
+	39.16666667% { background-position: -224px -64px; }
+	39.58333333% { background-position: -256px -64px; }
+	40.00000000% { background-position: -288px -64px; }
+	40.41666667% { background-position: 0px -96px; }
+	40.83333333% { background-position: -32px -96px; }
+	41.25000000% { background-position: -64px -96px; }
+	41.66666667% { background-position: -96px -96px; }
+	42.08333333% { background-position: -128px -96px; }
+	42.50000000% { background-position: -160px -96px; }
+	42.91666667% { background-position: -192px -96px; }
+	43.33333333% { background-position: -224px -96px; }
+	43.75000000% { background-position: -256px -96px; }
+	44.58333333% { background-position: -288px -96px; }
+	45.00000000% { background-position: -32px -64px; }
+	48.75000000% { background-position: 0px -64px; }
+	50.41666667% { background-position: -288px -32px; }
+	51.25000000% { background-position: -224px -32px; }
+	51.66666667% { background-position: -192px -32px; }
+	52.08333333% { background-position: -160px -32px; }
+	52.50000000% { background-position: 0px -128px; }
+	52.91666667% { background-position: -32px -128px; }
+	53.33333333% { background-position: -64px -128px; }
+	53.75000000% { background-position: -96px -128px; }
+	54.16666667% { background-position: -128px -128px; }
+	54.58333333% { background-position: -160px -128px; }
+	55.83333333% { background-position: -192px -128px; }
+	57.50000000% { background-position: -224px -128px; }
+	58.75000000% { background-position: -256px -128px; }
+	61.25000000% { background-position: -288px -128px; }
+	65.41666667% { background-position: 0px -160px; }
+	69.16666667% { background-position: -32px -160px; }
+	70.00000000% { background-position: -64px -160px; }
+	71.25000000% { background-position: -96px -160px; }
+	72.08333333% { background-position: -128px -160px; }
+	72.50000000% { background-position: -160px -160px; }
+	73.33333333% { background-position: -192px -160px; }
+	74.16666667% { background-position: -224px -160px; }
+	74.58333333% { background-position: -256px -160px; }
+	76.25000000% { background-position: -288px -160px; }
+	76.66666667% { background-position: 0px -192px; }
+	80.00000000% { background-position: -32px -192px; }
+	86.66666667% { background-position: -64px -192px; }
+	87.08333333% { background-position: -96px -192px; }
+	87.50000000% { background-position: -128px -192px; }
+	87.91666667% { background-position: -160px -192px; }
+	88.33333333% { background-position: -192px -192px; }
+	88.75000000% { background-position: -224px -192px; }
+	89.16666667% { background-position: -256px -192px; }
+	89.58333333% { background-position: -288px -192px; }
+	90.00000000% { background-position: 0px -224px; }
+	90.41666667% { background-position: -32px -224px; }
+	90.83333333% { background-position: -64px -224px; }
+	91.25000000% { background-position: -96px -224px; }
+	91.66666667% { background-position: -128px -224px; }
+	92.08333333% { background-position: -160px -224px; }
+	92.50000000% { background-position: -192px -224px; }
+	92.91666667% { background-position: -32px -192px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-lloyd-large {
+	0.00000000% { background-position: 0px 0px; }
+	0.83333333% { background-position: -64px 0px; }
+	6.66666667% { background-position: -128px 0px; }
+	7.08333333% { background-position: -192px 0px; }
+	11.25000000% { background-position: -256px 0px; }
+	13.33333333% { background-position: -320px 0px; }
+	15.00000000% { background-position: -384px 0px; }
+	17.08333333% { background-position: -448px 0px; }
+	20.00000000% { background-position: -512px 0px; }
+	24.58333333% { background-position: -576px 0px; }
+	25.41666667% { background-position: 0px -64px; }
+	26.25000000% { background-position: -64px -64px; }
+	26.66666667% { background-position: -128px -64px; }
+	27.08333333% { background-position: -192px -64px; }
+	27.50000000% { background-position: -256px -64px; }
+	28.33333333% { background-position: -320px -64px; }
+	29.16666667% { background-position: -384px -64px; }
+	30.00000000% { background-position: -448px -64px; }
+	30.41666667% { background-position: -512px -64px; }
+	30.83333333% { background-position: -576px -64px; }
+	32.50000000% { background-position: 0px -128px; }
+	34.16666667% { background-position: -64px -128px; }
+	37.08333333% { background-position: -128px -128px; }
+	37.50000000% { background-position: -192px -128px; }
+	37.91666667% { background-position: -256px -128px; }
+	38.33333333% { background-position: -320px -128px; }
+	38.75000000% { background-position: -384px -128px; }
+	39.16666667% { background-position: -448px -128px; }
+	39.58333333% { background-position: -512px -128px; }
+	40.00000000% { background-position: -576px -128px; }
+	40.41666667% { background-position: 0px -192px; }
+	40.83333333% { background-position: -64px -192px; }
+	41.25000000% { background-position: -128px -192px; }
+	41.66666667% { background-position: -192px -192px; }
+	42.08333333% { background-position: -256px -192px; }
+	42.50000000% { background-position: -320px -192px; }
+	42.91666667% { background-position: -384px -192px; }
+	43.33333333% { background-position: -448px -192px; }
+	43.75000000% { background-position: -512px -192px; }
+	44.58333333% { background-position: -576px -192px; }
+	45.00000000% { background-position: -64px -128px; }
+	48.75000000% { background-position: 0px -128px; }
+	50.41666667% { background-position: -576px -64px; }
+	51.25000000% { background-position: -448px -64px; }
+	51.66666667% { background-position: -384px -64px; }
+	52.08333333% { background-position: -320px -64px; }
+	52.50000000% { background-position: 0px -256px; }
+	52.91666667% { background-position: -64px -256px; }
+	53.33333333% { background-position: -128px -256px; }
+	53.75000000% { background-position: -192px -256px; }
+	54.16666667% { background-position: -256px -256px; }
+	54.58333333% { background-position: -320px -256px; }
+	55.83333333% { background-position: -384px -256px; }
+	57.50000000% { background-position: -448px -256px; }
+	58.75000000% { background-position: -512px -256px; }
+	61.25000000% { background-position: -576px -256px; }
+	65.41666667% { background-position: 0px -320px; }
+	69.16666667% { background-position: -64px -320px; }
+	70.00000000% { background-position: -128px -320px; }
+	71.25000000% { background-position: -192px -320px; }
+	72.08333333% { background-position: -256px -320px; }
+	72.50000000% { background-position: -320px -320px; }
+	73.33333333% { background-position: -384px -320px; }
+	74.16666667% { background-position: -448px -320px; }
+	74.58333333% { background-position: -512px -320px; }
+	76.25000000% { background-position: -576px -320px; }
+	76.66666667% { background-position: 0px -384px; }
+	80.00000000% { background-position: -64px -384px; }
+	86.66666667% { background-position: -128px -384px; }
+	87.08333333% { background-position: -192px -384px; }
+	87.50000000% { background-position: -256px -384px; }
+	87.91666667% { background-position: -320px -384px; }
+	88.33333333% { background-position: -384px -384px; }
+	88.75000000% { background-position: -448px -384px; }
+	89.16666667% { background-position: -512px -384px; }
+	89.58333333% { background-position: -576px -384px; }
+	90.00000000% { background-position: 0px -448px; }
+	90.41666667% { background-position: -64px -448px; }
+	90.83333333% { background-position: -128px -448px; }
+	91.25000000% { background-position: -192px -448px; }
+	91.66666667% { background-position: -256px -448px; }
+	92.08333333% { background-position: -320px -448px; }
+	92.50000000% { background-position: -384px -448px; }
+	92.91666667% { background-position: -64px -384px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-sol-small {
+	0.00000000% { background-position: 0px 0px; }
+	6.66666667% { background-position: -32px 0px; }
+	7.08333333% { background-position: -64px 0px; }
+	11.25000000% { background-position: -96px 0px; }
+	13.33333333% { background-position: -128px 0px; }
+	15.00000000% { background-position: -160px 0px; }
+	17.08333333% { background-position: -192px 0px; }
+	20.00000000% { background-position: -224px 0px; }
+	24.58333333% { background-position: -256px 0px; }
+	25.41666667% { background-position: -288px 0px; }
+	26.66666667% { background-position: 0px -32px; }
+	27.08333333% { background-position: -32px -32px; }
+	27.50000000% { background-position: -64px -32px; }
+	28.33333333% { background-position: -96px -32px; }
+	29.16666667% { background-position: -128px -32px; }
+	30.00000000% { background-position: -160px -32px; }
+	30.41666667% { background-position: -192px -32px; }
+	30.83333333% { background-position: -224px -32px; }
+	32.50000000% { background-position: -256px -32px; }
+	34.16666667% { background-position: -288px -32px; }
+	37.08333333% { background-position: 0px -64px; }
+	37.50000000% { background-position: -32px -64px; }
+	37.91666667% { background-position: -64px -64px; }
+	38.33333333% { background-position: -96px -64px; }
+	38.75000000% { background-position: -128px -64px; }
+	39.16666667% { background-position: -160px -64px; }
+	39.58333333% { background-position: -192px -64px; }
+	40.00000000% { background-position: -224px -64px; }
+	40.41666667% { background-position: -256px -64px; }
+	40.83333333% { background-position: -288px -64px; }
+	41.25000000% { background-position: 0px -96px; }
+	41.66666667% { background-position: -32px -96px; }
+	42.08333333% { background-position: -64px -96px; }
+	42.50000000% { background-position: -96px -96px; }
+	42.91666667% { background-position: -128px -96px; }
+	43.33333333% { background-position: -160px -96px; }
+	43.75000000% { background-position: -192px -96px; }
+	44.58333333% { background-position: -224px -96px; }
+	45.00000000% { background-position: -288px -32px; }
+	48.75000000% { background-position: -256px -32px; }
+	50.41666667% { background-position: -224px -32px; }
+	51.25000000% { background-position: -160px -32px; }
+	51.66666667% { background-position: -128px -32px; }
+	52.08333333% { background-position: -96px -32px; }
+	52.50000000% { background-position: -256px -96px; }
+	52.91666667% { background-position: -288px -96px; }
+	53.33333333% { background-position: 0px -128px; }
+	53.75000000% { background-position: -32px -128px; }
+	54.16666667% { background-position: -64px -128px; }
+	54.58333333% { background-position: -96px -128px; }
+	55.83333333% { background-position: -128px -128px; }
+	57.50000000% { background-position: -160px -128px; }
+	58.75000000% { background-position: -192px -128px; }
+	61.25000000% { background-position: -224px -128px; }
+	65.41666667% { background-position: -256px -128px; }
+	69.16666667% { background-position: -288px -128px; }
+	70.00000000% { background-position: 0px -160px; }
+	71.25000000% { background-position: -32px -160px; }
+	72.08333333% { background-position: -64px -160px; }
+	72.50000000% { background-position: -96px -160px; }
+	73.33333333% { background-position: -128px -160px; }
+	74.16666667% { background-position: -160px -160px; }
+	74.58333333% { background-position: -192px -160px; }
+	76.25000000% { background-position: -224px -160px; }
+	76.66666667% { background-position: -256px -160px; }
+	80.00000000% { background-position: -288px -160px; }
+	86.66666667% { background-position: 0px -192px; }
+	87.08333333% { background-position: -32px -192px; }
+	87.50000000% { background-position: -64px -192px; }
+	87.91666667% { background-position: -96px -192px; }
+	88.33333333% { background-position: -128px -192px; }
+	88.75000000% { background-position: -160px -192px; }
+	89.16666667% { background-position: -192px -192px; }
+	89.58333333% { background-position: -224px -192px; }
+	90.00000000% { background-position: -256px -192px; }
+	90.41666667% { background-position: -288px -192px; }
+	90.83333333% { background-position: 0px -224px; }
+	91.25000000% { background-position: -32px -224px; }
+	91.66666667% { background-position: -64px -224px; }
+	92.08333333% { background-position: -96px -224px; }
+	92.50000000% { background-position: -128px -224px; }
+	92.91666667% { background-position: -288px -160px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-sol-large {
+	0.00000000% { background-position: 0px 0px; }
+	6.66666667% { background-position: -64px 0px; }
+	7.08333333% { background-position: -128px 0px; }
+	11.25000000% { background-position: -192px 0px; }
+	13.33333333% { background-position: -256px 0px; }
+	15.00000000% { background-position: -320px 0px; }
+	17.08333333% { background-position: -384px 0px; }
+	20.00000000% { background-position: -448px 0px; }
+	24.58333333% { background-position: -512px 0px; }
+	25.41666667% { background-position: -576px 0px; }
+	26.66666667% { background-position: 0px -64px; }
+	27.08333333% { background-position: -64px -64px; }
+	27.50000000% { background-position: -128px -64px; }
+	28.33333333% { background-position: -192px -64px; }
+	29.16666667% { background-position: -256px -64px; }
+	30.00000000% { background-position: -320px -64px; }
+	30.41666667% { background-position: -384px -64px; }
+	30.83333333% { background-position: -448px -64px; }
+	32.50000000% { background-position: -512px -64px; }
+	34.16666667% { background-position: -576px -64px; }
+	37.08333333% { background-position: 0px -128px; }
+	37.50000000% { background-position: -64px -128px; }
+	37.91666667% { background-position: -128px -128px; }
+	38.33333333% { background-position: -192px -128px; }
+	38.75000000% { background-position: -256px -128px; }
+	39.16666667% { background-position: -320px -128px; }
+	39.58333333% { background-position: -384px -128px; }
+	40.00000000% { background-position: -448px -128px; }
+	40.41666667% { background-position: -512px -128px; }
+	40.83333333% { background-position: -576px -128px; }
+	41.25000000% { background-position: 0px -192px; }
+	41.66666667% { background-position: -64px -192px; }
+	42.08333333% { background-position: -128px -192px; }
+	42.50000000% { background-position: -192px -192px; }
+	42.91666667% { background-position: -256px -192px; }
+	43.33333333% { background-position: -320px -192px; }
+	43.75000000% { background-position: -384px -192px; }
+	44.58333333% { background-position: -448px -192px; }
+	45.00000000% { background-position: -576px -64px; }
+	48.75000000% { background-position: -512px -64px; }
+	50.41666667% { background-position: -448px -64px; }
+	51.25000000% { background-position: -320px -64px; }
+	51.66666667% { background-position: -256px -64px; }
+	52.08333333% { background-position: -192px -64px; }
+	52.50000000% { background-position: -512px -192px; }
+	52.91666667% { background-position: -576px -192px; }
+	53.33333333% { background-position: 0px -256px; }
+	53.75000000% { background-position: -64px -256px; }
+	54.16666667% { background-position: -128px -256px; }
+	54.58333333% { background-position: -192px -256px; }
+	55.83333333% { background-position: -256px -256px; }
+	57.50000000% { background-position: -320px -256px; }
+	58.75000000% { background-position: -384px -256px; }
+	61.25000000% { background-position: -448px -256px; }
+	65.41666667% { background-position: -512px -256px; }
+	69.16666667% { background-position: -576px -256px; }
+	70.00000000% { background-position: 0px -320px; }
+	71.25000000% { background-position: -64px -320px; }
+	72.08333333% { background-position: -128px -320px; }
+	72.50000000% { background-position: -192px -320px; }
+	73.33333333% { background-position: -256px -320px; }
+	74.16666667% { background-position: -320px -320px; }
+	74.58333333% { background-position: -384px -320px; }
+	76.25000000% { background-position: -448px -320px; }
+	76.66666667% { background-position: -512px -320px; }
+	80.00000000% { background-position: -576px -320px; }
+	86.66666667% { background-position: 0px -384px; }
+	87.08333333% { background-position: -64px -384px; }
+	87.50000000% { background-position: -128px -384px; }
+	87.91666667% { background-position: -192px -384px; }
+	88.33333333% { background-position: -256px -384px; }
+	88.75000000% { background-position: -320px -384px; }
+	89.16666667% { background-position: -384px -384px; }
+	89.58333333% { background-position: -448px -384px; }
+	90.00000000% { background-position: -512px -384px; }
+	90.41666667% { background-position: -576px -384px; }
+	90.83333333% { background-position: 0px -448px; }
+	91.25000000% { background-position: -64px -448px; }
+	91.66666667% { background-position: -128px -448px; }
+	92.08333333% { background-position: -192px -448px; }
+	92.50000000% { background-position: -256px -448px; }
+	92.91666667% { background-position: -576px -320px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-random-small {
+	0.00000000% { background-position: 0px 0px; }
+	6.66666667% { background-position: -32px 0px; }
+	7.08333333% { background-position: -64px 0px; }
+	11.25000000% { background-position: -96px 0px; }
+	15.00000000% { background-position: -128px 0px; }
+	17.08333333% { background-position: -160px 0px; }
+	20.00000000% { background-position: -192px 0px; }
+	24.58333333% { background-position: -224px 0px; }
+	25.41666667% { background-position: -256px 0px; }
+	26.66666667% { background-position: -288px 0px; }
+	27.08333333% { background-position: 0px -32px; }
+	27.50000000% { background-position: -32px -32px; }
+	28.33333333% { background-position: -64px -32px; }
+	29.16666667% { background-position: -96px -32px; }
+	30.00000000% { background-position: -128px -32px; }
+	30.41666667% { background-position: -160px -32px; }
+	30.83333333% { background-position: -192px -32px; }
+	32.50000000% { background-position: -224px -32px; }
+	34.16666667% { background-position: -256px -32px; }
+	37.08333333% { background-position: -288px -32px; }
+	37.50000000% { background-position: 0px -64px; }
+	37.91666667% { background-position: -32px -64px; }
+	38.33333333% { background-position: -64px -64px; }
+	38.75000000% { background-position: -96px -64px; }
+	39.16666667% { background-position: -128px -64px; }
+	39.58333333% { background-position: -160px -64px; }
+	40.00000000% { background-position: -192px -64px; }
+	40.41666667% { background-position: -224px -64px; }
+	40.83333333% { background-position: -256px -64px; }
+	41.25000000% { background-position: -288px -64px; }
+	41.66666667% { background-position: 0px -96px; }
+	42.08333333% { background-position: -32px -96px; }
+	42.50000000% { background-position: -64px -96px; }
+	42.91666667% { background-position: -96px -96px; }
+	43.33333333% { background-position: -128px -96px; }
+	43.75000000% { background-position: -160px -96px; }
+	44.58333333% { background-position: -192px -96px; }
+	45.00000000% { background-position: -256px -32px; }
+	48.75000000% { background-position: -224px -32px; }
+	50.41666667% { background-position: -192px -32px; }
+	51.25000000% { background-position: -128px -32px; }
+	51.66666667% { background-position: -96px -32px; }
+	52.08333333% { background-position: -64px -32px; }
+	52.50000000% { background-position: -224px -96px; }
+	52.91666667% { background-position: -256px -96px; }
+	53.33333333% { background-position: -288px -96px; }
+	53.75000000% { background-position: 0px -128px; }
+	54.16666667% { background-position: -32px -128px; }
+	54.58333333% { background-position: -64px -128px; }
+	55.83333333% { background-position: -96px -128px; }
+	57.50000000% { background-position: -128px -128px; }
+	58.75000000% { background-position: -160px -128px; }
+	61.25000000% { background-position: -192px -128px; }
+	65.41666667% { background-position: -224px -128px; }
+	69.16666667% { background-position: -256px -128px; }
+	70.00000000% { background-position: -288px -128px; }
+	71.25000000% { background-position: 0px -160px; }
+	72.08333333% { background-position: -32px -160px; }
+	72.50000000% { background-position: -64px -160px; }
+	73.33333333% { background-position: -96px -160px; }
+	74.16666667% { background-position: -128px -160px; }
+	74.58333333% { background-position: -160px -160px; }
+	76.25000000% { background-position: -192px -160px; }
+	76.66666667% { background-position: -224px -160px; }
+	80.00000000% { background-position: -256px -160px; }
+	86.66666667% { background-position: -288px -160px; }
+	87.08333333% { background-position: 0px -192px; }
+	87.50000000% { background-position: -32px -192px; }
+	87.91666667% { background-position: -64px -192px; }
+	88.33333333% { background-position: -96px -192px; }
+	88.75000000% { background-position: -128px -192px; }
+	89.16666667% { background-position: -160px -192px; }
+	89.58333333% { background-position: -192px -192px; }
+	90.00000000% { background-position: -224px -192px; }
+	90.41666667% { background-position: -256px -192px; }
+	90.83333333% { background-position: -288px -192px; }
+	91.25000000% { background-position: 0px -224px; }
+	91.66666667% { background-position: -32px -224px; }
+	92.08333333% { background-position: -64px -224px; }
+	92.50000000% { background-position: -96px -224px; }
+	92.91666667% { background-position: -256px -160px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-random-large {
+	0.00000000% { background-position: 0px 0px; }
+	6.66666667% { background-position: -64px 0px; }
+	7.08333333% { background-position: -128px 0px; }
+	11.25000000% { background-position: -192px 0px; }
+	15.00000000% { background-position: -256px 0px; }
+	17.08333333% { background-position: -320px 0px; }
+	20.00000000% { background-position: -384px 0px; }
+	24.58333333% { background-position: -448px 0px; }
+	25.41666667% { background-position: -512px 0px; }
+	26.66666667% { background-position: -576px 0px; }
+	27.08333333% { background-position: 0px -64px; }
+	27.50000000% { background-position: -64px -64px; }
+	28.33333333% { background-position: -128px -64px; }
+	29.16666667% { background-position: -192px -64px; }
+	30.00000000% { background-position: -256px -64px; }
+	30.41666667% { background-position: -320px -64px; }
+	30.83333333% { background-position: -384px -64px; }
+	32.50000000% { background-position: -448px -64px; }
+	34.16666667% { background-position: -512px -64px; }
+	37.08333333% { background-position: -576px -64px; }
+	37.50000000% { background-position: 0px -128px; }
+	37.91666667% { background-position: -64px -128px; }
+	38.33333333% { background-position: -128px -128px; }
+	38.75000000% { background-position: -192px -128px; }
+	39.16666667% { background-position: -256px -128px; }
+	39.58333333% { background-position: -320px -128px; }
+	40.00000000% { background-position: -384px -128px; }
+	40.41666667% { background-position: -448px -128px; }
+	40.83333333% { background-position: -512px -128px; }
+	41.25000000% { background-position: -576px -128px; }
+	41.66666667% { background-position: 0px -192px; }
+	42.08333333% { background-position: -64px -192px; }
+	42.50000000% { background-position: -128px -192px; }
+	42.91666667% { background-position: -192px -192px; }
+	43.33333333% { background-position: -256px -192px; }
+	43.75000000% { background-position: -320px -192px; }
+	44.58333333% { background-position: -384px -192px; }
+	45.00000000% { background-position: -512px -64px; }
+	48.75000000% { background-position: -448px -64px; }
+	50.41666667% { background-position: -384px -64px; }
+	51.25000000% { background-position: -256px -64px; }
+	51.66666667% { background-position: -192px -64px; }
+	52.08333333% { background-position: -128px -64px; }
+	52.50000000% { background-position: -448px -192px; }
+	52.91666667% { background-position: -512px -192px; }
+	53.33333333% { background-position: -576px -192px; }
+	53.75000000% { background-position: 0px -256px; }
+	54.16666667% { background-position: -64px -256px; }
+	54.58333333% { background-position: -128px -256px; }
+	55.83333333% { background-position: -192px -256px; }
+	57.50000000% { background-position: -256px -256px; }
+	58.75000000% { background-position: -320px -256px; }
+	61.25000000% { background-position: -384px -256px; }
+	65.41666667% { background-position: -448px -256px; }
+	69.16666667% { background-position: -512px -256px; }
+	70.00000000% { background-position: -576px -256px; }
+	71.25000000% { background-position: 0px -320px; }
+	72.08333333% { background-position: -64px -320px; }
+	72.50000000% { background-position: -128px -320px; }
+	73.33333333% { background-position: -192px -320px; }
+	74.16666667% { background-position: -256px -320px; }
+	74.58333333% { background-position: -320px -320px; }
+	76.25000000% { background-position: -384px -320px; }
+	76.66666667% { background-position: -448px -320px; }
+	80.00000000% { background-position: -512px -320px; }
+	86.66666667% { background-position: -576px -320px; }
+	87.08333333% { background-position: 0px -384px; }
+	87.50000000% { background-position: -64px -384px; }
+	87.91666667% { background-position: -128px -384px; }
+	88.33333333% { background-position: -192px -384px; }
+	88.75000000% { background-position: -256px -384px; }
+	89.16666667% { background-position: -320px -384px; }
+	89.58333333% { background-position: -384px -384px; }
+	90.00000000% { background-position: -448px -384px; }
+	90.41666667% { background-position: -512px -384px; }
+	90.83333333% { background-position: -576px -384px; }
+	91.25000000% { background-position: 0px -448px; }
+	91.66666667% { background-position: -64px -448px; }
+	92.08333333% { background-position: -128px -448px; }
+	92.50000000% { background-position: -192px -448px; }
+	92.91666667% { background-position: -512px -320px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-cu-small {
+	0.00000000% { background-position: 0px 0px; }
+	7.08333333% { background-position: -32px 0px; }
+	11.25000000% { background-position: -64px 0px; }
+	15.00000000% { background-position: -96px 0px; }
+	17.08333333% { background-position: -128px 0px; }
+	20.00000000% { background-position: -160px 0px; }
+	24.58333333% { background-position: -192px 0px; }
+	25.41666667% { background-position: -224px 0px; }
+	26.66666667% { background-position: -256px 0px; }
+	27.08333333% { background-position: -288px 0px; }
+	27.50000000% { background-position: 0px -32px; }
+	28.33333333% { background-position: -32px -32px; }
+	29.16666667% { background-position: -64px -32px; }
+	30.00000000% { background-position: -96px -32px; }
+	30.41666667% { background-position: -128px -32px; }
+	30.83333333% { background-position: -160px -32px; }
+	32.50000000% { background-position: -192px -32px; }
+	34.16666667% { background-position: -224px -32px; }
+	37.08333333% { background-position: -256px -32px; }
+	37.50000000% { background-position: -288px -32px; }
+	37.91666667% { background-position: 0px -64px; }
+	38.33333333% { background-position: -32px -64px; }
+	38.75000000% { background-position: -64px -64px; }
+	39.16666667% { background-position: -96px -64px; }
+	39.58333333% { background-position: -128px -64px; }
+	40.00000000% { background-position: -160px -64px; }
+	40.41666667% { background-position: -192px -64px; }
+	40.83333333% { background-position: -224px -64px; }
+	41.25000000% { background-position: -256px -64px; }
+	41.66666667% { background-position: -288px -64px; }
+	42.08333333% { background-position: 0px -96px; }
+	42.50000000% { background-position: -32px -96px; }
+	42.91666667% { background-position: -64px -96px; }
+	43.33333333% { background-position: -96px -96px; }
+	43.75000000% { background-position: -128px -96px; }
+	44.58333333% { background-position: -160px -96px; }
+	45.00000000% { background-position: -224px -32px; }
+	48.75000000% { background-position: -192px -32px; }
+	50.41666667% { background-position: -160px -32px; }
+	51.25000000% { background-position: -96px -32px; }
+	51.66666667% { background-position: -64px -32px; }
+	52.08333333% { background-position: -32px -32px; }
+	52.50000000% { background-position: -192px -96px; }
+	52.91666667% { background-position: -224px -96px; }
+	53.33333333% { background-position: -256px -96px; }
+	53.75000000% { background-position: -288px -96px; }
+	54.16666667% { background-position: 0px -128px; }
+	54.58333333% { background-position: -32px -128px; }
+	55.83333333% { background-position: -64px -128px; }
+	57.50000000% { background-position: -96px -128px; }
+	58.75000000% { background-position: -128px -128px; }
+	61.25000000% { background-position: -160px -128px; }
+	65.41666667% { background-position: -192px -128px; }
+	69.16666667% { background-position: -224px -128px; }
+	70.00000000% { background-position: -256px -128px; }
+	71.25000000% { background-position: -288px -128px; }
+	72.08333333% { background-position: 0px -160px; }
+	72.50000000% { background-position: -32px -160px; }
+	73.33333333% { background-position: -64px -160px; }
+	74.16666667% { background-position: -96px -160px; }
+	74.58333333% { background-position: -128px -160px; }
+	76.25000000% { background-position: -160px -160px; }
+	76.66666667% { background-position: -192px -160px; }
+	80.00000000% { background-position: -224px -160px; }
+	86.66666667% { background-position: -256px -160px; }
+	87.08333333% { background-position: -288px -160px; }
+	87.50000000% { background-position: 0px -192px; }
+	87.91666667% { background-position: -32px -192px; }
+	88.33333333% { background-position: -64px -192px; }
+	88.75000000% { background-position: -96px -192px; }
+	89.16666667% { background-position: -128px -192px; }
+	89.58333333% { background-position: -160px -192px; }
+	90.00000000% { background-position: -192px -192px; }
+	90.41666667% { background-position: -224px -192px; }
+	90.83333333% { background-position: -256px -192px; }
+	91.25000000% { background-position: -288px -192px; }
+	91.66666667% { background-position: 0px -224px; }
+	92.08333333% { background-position: -32px -224px; }
+	92.50000000% { background-position: -64px -224px; }
+	92.91666667% { background-position: -224px -160px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-cu-large {
+	0.00000000% { background-position: 0px 0px; }
+	7.08333333% { background-position: -64px 0px; }
+	11.25000000% { background-position: -128px 0px; }
+	15.00000000% { background-position: -192px 0px; }
+	17.08333333% { background-position: -256px 0px; }
+	20.00000000% { background-position: -320px 0px; }
+	24.58333333% { background-position: -384px 0px; }
+	25.41666667% { background-position: -448px 0px; }
+	26.66666667% { background-position: -512px 0px; }
+	27.08333333% { background-position: -576px 0px; }
+	27.50000000% { background-position: 0px -64px; }
+	28.33333333% { background-position: -64px -64px; }
+	29.16666667% { background-position: -128px -64px; }
+	30.00000000% { background-position: -192px -64px; }
+	30.41666667% { background-position: -256px -64px; }
+	30.83333333% { background-position: -320px -64px; }
+	32.50000000% { background-position: -384px -64px; }
+	34.16666667% { background-position: -448px -64px; }
+	37.08333333% { background-position: -512px -64px; }
+	37.50000000% { background-position: -576px -64px; }
+	37.91666667% { background-position: 0px -128px; }
+	38.33333333% { background-position: -64px -128px; }
+	38.75000000% { background-position: -128px -128px; }
+	39.16666667% { background-position: -192px -128px; }
+	39.58333333% { background-position: -256px -128px; }
+	40.00000000% { background-position: -320px -128px; }
+	40.41666667% { background-position: -384px -128px; }
+	40.83333333% { background-position: -448px -128px; }
+	41.25000000% { background-position: -512px -128px; }
+	41.66666667% { background-position: -576px -128px; }
+	42.08333333% { background-position: 0px -192px; }
+	42.50000000% { background-position: -64px -192px; }
+	42.91666667% { background-position: -128px -192px; }
+	43.33333333% { background-position: -192px -192px; }
+	43.75000000% { background-position: -256px -192px; }
+	44.58333333% { background-position: -320px -192px; }
+	45.00000000% { background-position: -448px -64px; }
+	48.75000000% { background-position: -384px -64px; }
+	50.41666667% { background-position: -320px -64px; }
+	51.25000000% { background-position: -192px -64px; }
+	51.66666667% { background-position: -128px -64px; }
+	52.08333333% { background-position: -64px -64px; }
+	52.50000000% { background-position: -384px -192px; }
+	52.91666667% { background-position: -448px -192px; }
+	53.33333333% { background-position: -512px -192px; }
+	53.75000000% { background-position: -576px -192px; }
+	54.16666667% { background-position: 0px -256px; }
+	54.58333333% { background-position: -64px -256px; }
+	55.83333333% { background-position: -128px -256px; }
+	57.50000000% { background-position: -192px -256px; }
+	58.75000000% { background-position: -256px -256px; }
+	61.25000000% { background-position: -320px -256px; }
+	65.41666667% { background-position: -384px -256px; }
+	69.16666667% { background-position: -448px -256px; }
+	70.00000000% { background-position: -512px -256px; }
+	71.25000000% { background-position: -576px -256px; }
+	72.08333333% { background-position: 0px -320px; }
+	72.50000000% { background-position: -64px -320px; }
+	73.33333333% { background-position: -128px -320px; }
+	74.16666667% { background-position: -192px -320px; }
+	74.58333333% { background-position: -256px -320px; }
+	76.25000000% { background-position: -320px -320px; }
+	76.66666667% { background-position: -384px -320px; }
+	80.00000000% { background-position: -448px -320px; }
+	86.66666667% { background-position: -512px -320px; }
+	87.08333333% { background-position: -576px -320px; }
+	87.50000000% { background-position: 0px -384px; }
+	87.91666667% { background-position: -64px -384px; }
+	88.33333333% { background-position: -128px -384px; }
+	88.75000000% { background-position: -192px -384px; }
+	89.16666667% { background-position: -256px -384px; }
+	89.58333333% { background-position: -320px -384px; }
+	90.00000000% { background-position: -384px -384px; }
+	90.41666667% { background-position: -448px -384px; }
+	90.83333333% { background-position: -512px -384px; }
+	91.25000000% { background-position: -576px -384px; }
+	91.66666667% { background-position: 0px -448px; }
+	92.08333333% { background-position: -64px -448px; }
+	92.50000000% { background-position: -128px -448px; }
+	92.91666667% { background-position: -448px -320px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-bao-small {
+	0.00000000% { background-position: 0px 0px; }
+	11.25000000% { background-position: -32px 0px; }
+	13.33333333% { background-position: -64px 0px; }
+	15.00000000% { background-position: -96px 0px; }
+	17.08333333% { background-position: -128px 0px; }
+	20.00000000% { background-position: -160px 0px; }
+	24.58333333% { background-position: -192px 0px; }
+	25.41666667% { background-position: -224px 0px; }
+	26.66666667% { background-position: -256px 0px; }
+	27.08333333% { background-position: -288px 0px; }
+	27.50000000% { background-position: 0px -32px; }
+	28.33333333% { background-position: -32px -32px; }
+	29.16666667% { background-position: -64px -32px; }
+	30.00000000% { background-position: -96px -32px; }
+	30.41666667% { background-position: -128px -32px; }
+	30.83333333% { background-position: -160px -32px; }
+	32.50000000% { background-position: -192px -32px; }
+	34.16666667% { background-position: -224px -32px; }
+	37.08333333% { background-position: -256px -32px; }
+	37.50000000% { background-position: -288px -32px; }
+	37.91666667% { background-position: 0px -64px; }
+	38.33333333% { background-position: -32px -64px; }
+	38.75000000% { background-position: -64px -64px; }
+	39.16666667% { background-position: -96px -64px; }
+	39.58333333% { background-position: -128px -64px; }
+	40.00000000% { background-position: -160px -64px; }
+	40.41666667% { background-position: -192px -64px; }
+	40.83333333% { background-position: -224px -64px; }
+	41.25000000% { background-position: -256px -64px; }
+	41.66666667% { background-position: -288px -64px; }
+	42.08333333% { background-position: 0px -96px; }
+	42.50000000% { background-position: -32px -96px; }
+	42.91666667% { background-position: -64px -96px; }
+	43.33333333% { background-position: -96px -96px; }
+	43.75000000% { background-position: -128px -96px; }
+	44.58333333% { background-position: -160px -96px; }
+	45.00000000% { background-position: -224px -32px; }
+	48.75000000% { background-position: -192px -32px; }
+	50.41666667% { background-position: -160px -32px; }
+	51.25000000% { background-position: -96px -32px; }
+	51.66666667% { background-position: -64px -32px; }
+	52.08333333% { background-position: -32px -32px; }
+	52.50000000% { background-position: -192px -96px; }
+	52.91666667% { background-position: -224px -96px; }
+	53.33333333% { background-position: -256px -96px; }
+	53.75000000% { background-position: -288px -96px; }
+	54.16666667% { background-position: 0px -128px; }
+	54.58333333% { background-position: -32px -128px; }
+	55.83333333% { background-position: -64px -128px; }
+	57.50000000% { background-position: -96px -128px; }
+	58.75000000% { background-position: -128px -128px; }
+	61.25000000% { background-position: -160px -128px; }
+	65.41666667% { background-position: -192px -128px; }
+	69.16666667% { background-position: -224px -128px; }
+	70.00000000% { background-position: -256px -128px; }
+	71.25000000% { background-position: -288px -128px; }
+	72.08333333% { background-position: 0px -160px; }
+	72.50000000% { background-position: -32px -160px; }
+	73.33333333% { background-position: -64px -160px; }
+	74.16666667% { background-position: -96px -160px; }
+	74.58333333% { background-position: -128px -160px; }
+	76.25000000% { background-position: -160px -160px; }
+	76.66666667% { background-position: -192px -160px; }
+	80.00000000% { background-position: -224px -160px; }
+	86.66666667% { background-position: -256px -160px; }
+	87.08333333% { background-position: -288px -160px; }
+	87.50000000% { background-position: 0px -192px; }
+	87.91666667% { background-position: -32px -192px; }
+	88.33333333% { background-position: -64px -192px; }
+	88.75000000% { background-position: -96px -192px; }
+	89.16666667% { background-position: -128px -192px; }
+	89.58333333% { background-position: -160px -192px; }
+	90.00000000% { background-position: -192px -192px; }
+	90.41666667% { background-position: -224px -192px; }
+	90.83333333% { background-position: -256px -192px; }
+	91.25000000% { background-position: -288px -192px; }
+	91.66666667% { background-position: 0px -224px; }
+	92.08333333% { background-position: -32px -224px; }
+	92.50000000% { background-position: -64px -224px; }
+	92.91666667% { background-position: -224px -160px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-bao-large {
+	0.00000000% { background-position: 0px 0px; }
+	11.25000000% { background-position: -64px 0px; }
+	13.33333333% { background-position: -128px 0px; }
+	15.00000000% { background-position: -192px 0px; }
+	17.08333333% { background-position: -256px 0px; }
+	20.00000000% { background-position: -320px 0px; }
+	24.58333333% { background-position: -384px 0px; }
+	25.41666667% { background-position: -448px 0px; }
+	26.66666667% { background-position: -512px 0px; }
+	27.08333333% { background-position: -576px 0px; }
+	27.50000000% { background-position: 0px -64px; }
+	28.33333333% { background-position: -64px -64px; }
+	29.16666667% { background-position: -128px -64px; }
+	30.00000000% { background-position: -192px -64px; }
+	30.41666667% { background-position: -256px -64px; }
+	30.83333333% { background-position: -320px -64px; }
+	32.50000000% { background-position: -384px -64px; }
+	34.16666667% { background-position: -448px -64px; }
+	37.08333333% { background-position: -512px -64px; }
+	37.50000000% { background-position: -576px -64px; }
+	37.91666667% { background-position: 0px -128px; }
+	38.33333333% { background-position: -64px -128px; }
+	38.75000000% { background-position: -128px -128px; }
+	39.16666667% { background-position: -192px -128px; }
+	39.58333333% { background-position: -256px -128px; }
+	40.00000000% { background-position: -320px -128px; }
+	40.41666667% { background-position: -384px -128px; }
+	40.83333333% { background-position: -448px -128px; }
+	41.25000000% { background-position: -512px -128px; }
+	41.66666667% { background-position: -576px -128px; }
+	42.08333333% { background-position: 0px -192px; }
+	42.50000000% { background-position: -64px -192px; }
+	42.91666667% { background-position: -128px -192px; }
+	43.33333333% { background-position: -192px -192px; }
+	43.75000000% { background-position: -256px -192px; }
+	44.58333333% { background-position: -320px -192px; }
+	45.00000000% { background-position: -448px -64px; }
+	48.75000000% { background-position: -384px -64px; }
+	50.41666667% { background-position: -320px -64px; }
+	51.25000000% { background-position: -192px -64px; }
+	51.66666667% { background-position: -128px -64px; }
+	52.08333333% { background-position: -64px -64px; }
+	52.50000000% { background-position: -384px -192px; }
+	52.91666667% { background-position: -448px -192px; }
+	53.33333333% { background-position: -512px -192px; }
+	53.75000000% { background-position: -576px -192px; }
+	54.16666667% { background-position: 0px -256px; }
+	54.58333333% { background-position: -64px -256px; }
+	55.83333333% { background-position: -128px -256px; }
+	57.50000000% { background-position: -192px -256px; }
+	58.75000000% { background-position: -256px -256px; }
+	61.25000000% { background-position: -320px -256px; }
+	65.41666667% { background-position: -384px -256px; }
+	69.16666667% { background-position: -448px -256px; }
+	70.00000000% { background-position: -512px -256px; }
+	71.25000000% { background-position: -576px -256px; }
+	72.08333333% { background-position: 0px -320px; }
+	72.50000000% { background-position: -64px -320px; }
+	73.33333333% { background-position: -128px -320px; }
+	74.16666667% { background-position: -192px -320px; }
+	74.58333333% { background-position: -256px -320px; }
+	76.25000000% { background-position: -320px -320px; }
+	76.66666667% { background-position: -384px -320px; }
+	80.00000000% { background-position: -448px -320px; }
+	86.66666667% { background-position: -512px -320px; }
+	87.08333333% { background-position: -576px -320px; }
+	87.50000000% { background-position: 0px -384px; }
+	87.91666667% { background-position: -64px -384px; }
+	88.33333333% { background-position: -128px -384px; }
+	88.75000000% { background-position: -192px -384px; }
+	89.16666667% { background-position: -256px -384px; }
+	89.58333333% { background-position: -320px -384px; }
+	90.00000000% { background-position: -384px -384px; }
+	90.41666667% { background-position: -448px -384px; }
+	90.83333333% { background-position: -512px -384px; }
+	91.25000000% { background-position: -576px -384px; }
+	91.66666667% { background-position: 0px -448px; }
+	92.08333333% { background-position: -64px -448px; }
+	92.50000000% { background-position: -128px -448px; }
+	92.91666667% { background-position: -448px -320px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-regal-small {
+	0.00000000% { background-position: 0px 0px; }
+	1.25000000% { background-position: -32px 0px; }
+	1.66666667% { background-position: -64px 0px; }
+	2.08333333% { background-position: 0px 0px; }
+	3.33333333% { background-position: -64px 0px; }
+	6.66666667% { background-position: -96px 0px; }
+	7.08333333% { background-position: -128px 0px; }
+	11.25000000% { background-position: -160px 0px; }
+	13.33333333% { background-position: -192px 0px; }
+	15.00000000% { background-position: -224px 0px; }
+	17.08333333% { background-position: -256px 0px; }
+	20.00000000% { background-position: -288px 0px; }
+	24.58333333% { background-position: 0px -32px; }
+	25.41666667% { background-position: -32px -32px; }
+	26.66666667% { background-position: -64px -32px; }
+	27.08333333% { background-position: -96px -32px; }
+	27.50000000% { background-position: -128px -32px; }
+	28.33333333% { background-position: -160px -32px; }
+	29.16666667% { background-position: -192px -32px; }
+	30.00000000% { background-position: -224px -32px; }
+	30.41666667% { background-position: -256px -32px; }
+	30.83333333% { background-position: -288px -32px; }
+	32.50000000% { background-position: 0px -64px; }
+	34.16666667% { background-position: -32px -64px; }
+	37.08333333% { background-position: -64px -64px; }
+	37.50000000% { background-position: -96px -64px; }
+	37.91666667% { background-position: -128px -64px; }
+	38.33333333% { background-position: -160px -64px; }
+	38.75000000% { background-position: -192px -64px; }
+	39.16666667% { background-position: -224px -64px; }
+	39.58333333% { background-position: -256px -64px; }
+	40.00000000% { background-position: -288px -64px; }
+	40.41666667% { background-position: 0px -96px; }
+	40.83333333% { background-position: -32px -96px; }
+	41.25000000% { background-position: -64px -96px; }
+	41.66666667% { background-position: -96px -96px; }
+	42.08333333% { background-position: -128px -96px; }
+	42.50000000% { background-position: -160px -96px; }
+	42.91666667% { background-position: -192px -96px; }
+	43.33333333% { background-position: -224px -96px; }
+	43.75000000% { background-position: -256px -96px; }
+	44.58333333% { background-position: -288px -96px; }
+	45.00000000% { background-position: -32px -64px; }
+	48.75000000% { background-position: 0px -64px; }
+	50.41666667% { background-position: -288px -32px; }
+	51.25000000% { background-position: -224px -32px; }
+	51.66666667% { background-position: -192px -32px; }
+	52.08333333% { background-position: -160px -32px; }
+	52.50000000% { background-position: 0px -128px; }
+	52.91666667% { background-position: -32px -128px; }
+	53.33333333% { background-position: -64px -128px; }
+	53.75000000% { background-position: -96px -128px; }
+	54.16666667% { background-position: -128px -128px; }
+	54.58333333% { background-position: -160px -128px; }
+	55.83333333% { background-position: -192px -128px; }
+	57.50000000% { background-position: -224px -128px; }
+	58.75000000% { background-position: -256px -128px; }
+	61.25000000% { background-position: -288px -128px; }
+	65.41666667% { background-position: 0px -160px; }
+	69.16666667% { background-position: -32px -160px; }
+	70.00000000% { background-position: -64px -160px; }
+	71.25000000% { background-position: -96px -160px; }
+	72.08333333% { background-position: -128px -160px; }
+	72.50000000% { background-position: -160px -160px; }
+	73.33333333% { background-position: -192px -160px; }
+	74.16666667% { background-position: -224px -160px; }
+	74.58333333% { background-position: -256px -160px; }
+	76.25000000% { background-position: -288px -160px; }
+	76.66666667% { background-position: 0px -192px; }
+	80.00000000% { background-position: -32px -192px; }
+	86.66666667% { background-position: -64px -192px; }
+	87.08333333% { background-position: -96px -192px; }
+	87.50000000% { background-position: -128px -192px; }
+	87.91666667% { background-position: -160px -192px; }
+	88.33333333% { background-position: -192px -192px; }
+	88.75000000% { background-position: -224px -192px; }
+	89.16666667% { background-position: -256px -192px; }
+	89.58333333% { background-position: -288px -192px; }
+	90.00000000% { background-position: 0px -224px; }
+	90.41666667% { background-position: -32px -224px; }
+	90.83333333% { background-position: -64px -224px; }
+	91.25000000% { background-position: -96px -224px; }
+	91.66666667% { background-position: -128px -224px; }
+	92.08333333% { background-position: -160px -224px; }
+	92.50000000% { background-position: -192px -224px; }
+	92.91666667% { background-position: -32px -192px; }
+	100% { background-position: 0 0; }
+}
+@keyframes grok-regal-large {
+	0.00000000% { background-position: 0px 0px; }
+	1.25000000% { background-position: -64px 0px; }
+	1.66666667% { background-position: -128px 0px; }
+	2.08333333% { background-position: 0px 0px; }
+	3.33333333% { background-position: -128px 0px; }
+	6.66666667% { background-position: -192px 0px; }
+	7.08333333% { background-position: -256px 0px; }
+	11.25000000% { background-position: -320px 0px; }
+	13.33333333% { background-position: -384px 0px; }
+	15.00000000% { background-position: -448px 0px; }
+	17.08333333% { background-position: -512px 0px; }
+	20.00000000% { background-position: -576px 0px; }
+	24.58333333% { background-position: 0px -64px; }
+	25.41666667% { background-position: -64px -64px; }
+	26.66666667% { background-position: -128px -64px; }
+	27.08333333% { background-position: -192px -64px; }
+	27.50000000% { background-position: -256px -64px; }
+	28.33333333% { background-position: -320px -64px; }
+	29.16666667% { background-position: -384px -64px; }
+	30.00000000% { background-position: -448px -64px; }
+	30.41666667% { background-position: -512px -64px; }
+	30.83333333% { background-position: -576px -64px; }
+	32.50000000% { background-position: 0px -128px; }
+	34.16666667% { background-position: -64px -128px; }
+	37.08333333% { background-position: -128px -128px; }
+	37.50000000% { background-position: -192px -128px; }
+	37.91666667% { background-position: -256px -128px; }
+	38.33333333% { background-position: -320px -128px; }
+	38.75000000% { background-position: -384px -128px; }
+	39.16666667% { background-position: -448px -128px; }
+	39.58333333% { background-position: -512px -128px; }
+	40.00000000% { background-position: -576px -128px; }
+	40.41666667% { background-position: 0px -192px; }
+	40.83333333% { background-position: -64px -192px; }
+	41.25000000% { background-position: -128px -192px; }
+	41.66666667% { background-position: -192px -192px; }
+	42.08333333% { background-position: -256px -192px; }
+	42.50000000% { background-position: -320px -192px; }
+	42.91666667% { background-position: -384px -192px; }
+	43.33333333% { background-position: -448px -192px; }
+	43.75000000% { background-position: -512px -192px; }
+	44.58333333% { background-position: -576px -192px; }
+	45.00000000% { background-position: -64px -128px; }
+	48.75000000% { background-position: 0px -128px; }
+	50.41666667% { background-position: -576px -64px; }
+	51.25000000% { background-position: -448px -64px; }
+	51.66666667% { background-position: -384px -64px; }
+	52.08333333% { background-position: -320px -64px; }
+	52.50000000% { background-position: 0px -256px; }
+	52.91666667% { background-position: -64px -256px; }
+	53.33333333% { background-position: -128px -256px; }
+	53.75000000% { background-position: -192px -256px; }
+	54.16666667% { background-position: -256px -256px; }
+	54.58333333% { background-position: -320px -256px; }
+	55.83333333% { background-position: -384px -256px; }
+	57.50000000% { background-position: -448px -256px; }
+	58.75000000% { background-position: -512px -256px; }
+	61.25000000% { background-position: -576px -256px; }
+	65.41666667% { background-position: 0px -320px; }
+	69.16666667% { background-position: -64px -320px; }
+	70.00000000% { background-position: -128px -320px; }
+	71.25000000% { background-position: -192px -320px; }
+	72.08333333% { background-position: -256px -320px; }
+	72.50000000% { background-position: -320px -320px; }
+	73.33333333% { background-position: -384px -320px; }
+	74.16666667% { background-position: -448px -320px; }
+	74.58333333% { background-position: -512px -320px; }
+	76.25000000% { background-position: -576px -320px; }
+	76.66666667% { background-position: 0px -384px; }
+	80.00000000% { background-position: -64px -384px; }
+	86.66666667% { background-position: -128px -384px; }
+	87.08333333% { background-position: -192px -384px; }
+	87.50000000% { background-position: -256px -384px; }
+	87.91666667% { background-position: -320px -384px; }
+	88.33333333% { background-position: -384px -384px; }
+	88.75000000% { background-position: -448px -384px; }
+	89.16666667% { background-position: -512px -384px; }
+	89.58333333% { background-position: -576px -384px; }
+	90.00000000% { background-position: 0px -448px; }
+	90.41666667% { background-position: -64px -448px; }
+	90.83333333% { background-position: -128px -448px; }
+	91.25000000% { background-position: -192px -448px; }
+	91.66666667% { background-position: -256px -448px; }
+	92.08333333% { background-position: -320px -448px; }
+	92.50000000% { background-position: -384px -448px; }
+	92.91666667% { background-position: -64px -384px; }
+	100% { background-position: 0 0; }
 }
