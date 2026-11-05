@@ -882,6 +882,19 @@
 	font: 400 16.5px/24px var(--yh-label);
 	box-shadow: none;
 }
+:root:not(#yh) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	position: relative;
+	padding-left: 18px;
+}
+:root:not(#yh) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 8px;
+	width: 7px;
+	height: 7px;
+	background: var(--yh-ink);
+}
 :root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body,
 :root:not(#yh):not(#yb) .sf-chat-reader [data-role='omp.chat.msg'] > .sf-card[data-role^='omp.user'] > .sf-card-body {
 	--yh-ink: var(--yh-ground);
