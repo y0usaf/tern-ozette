@@ -2,11 +2,6 @@
 	max-width: min(90%, 640px);
 	margin-left: auto;
 }
-:root:not(#grok) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	padding: 0;
-	background: none;
-	box-shadow: none;
-}
 :root:not(#grok) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
 	padding: 12px 18px;
 	border-radius: 20px 20px 6px 20px;

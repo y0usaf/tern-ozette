@@ -1,3 +1,4 @@
+:root,
 html.tn-themed {
 	--grok-page: light-dark(#ffffff, #141414);
 	--grok-chrome: light-dark(#fcfcfc, #181818);
@@ -32,20 +33,20 @@ html.tn-themed {
 	--accent: light-dark(#1c1c1c, #f0f0f0);
 	--code-bg: light-dark(#f5f5f5, #1c1c1c);
 	--r-card: 16px;
-	--r-control: 10px;
+	--r-ctl: 10px;
 }
-:root:not(#grok) :is(.tn-bg, .tv-cover) {
+:root:not(#grok) .tv-cover {
 	background: var(--page);
 }
 :root:not(#grok) #tabbar {
 	background: var(--panel);
 	box-shadow: none;
 }
-:root:not(#grok) :is(.tb-tab, .tn-tab) {
+:root:not(#grok) #tabbar .tt {
 	border-radius: 10px;
 	box-shadow: none;
 }
-:root:not(#grok) :is(.tb-tab, .tn-tab).active {
+:root:not(#grok) #tabbar .tt.on {
 	background: var(--grok-soft);
 }
 :root:not(#grok) :is(.cmdk, .dlg-card, .pk-sheet, .sf-ov-card) {
