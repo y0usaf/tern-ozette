@@ -31,12 +31,12 @@
 	--oz-sel: light-dark(rgb(from var(--oz-lav) r g b / 42%), rgb(from var(--oz-lav) r g b / 22%));
 	--oz-shade: light-dark(rgb(from var(--oz-lav) r g b / 55%), rgb(0 0 0 / 45%));
 	--oz-dot: light-dark(rgb(from var(--oz-forest) r g b / 16%), rgb(from var(--oz-lime) r g b / 14%));
-	--oz-rail-bg: var(--page);
+	--oz-rail-bg: rgb(from var(--page) r g b / 1);
 	--oz-page: color-mix(in srgb, var(--page), var(--tn-page, var(--page)) 1%);
 	--oz-tint: light-dark(rgb(from var(--oz-plum) r g b / 4%), rgb(255 255 255 / 4%));
 	--oz-serif: "Crimson Pro", "EB Garamond", serif;
-	--oz-mono: "IBM Plex Mono", ui-monospace, monospace;
-	--mono: var(--oz-mono);
+	--oz-mono: var(--mono);
+	--mono: "IBM Plex Mono", ui-monospace, monospace;
 	--r-chip: 0px;
 	--r-ctl: 0px;
 	--r-card: 0px;
@@ -516,14 +516,14 @@
 :root:not(#oz).tn-status footer#statusline {
 	background: transparent !important;
 	color: var(--t3) !important;
-	font-family: var(--oz-mono) !important;
+	font-family: var(--oz-mono);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin {
 	order: 5 !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='arc-sidebar'] {
 	order: 0 !important;
-	font: 500 11px/1.7 var(--oz-mono) !important;
+	font: 500 11px/1.7 var(--oz-mono);
 	letter-spacing: 0.12em !important;
 	color: var(--t2) !important;
 }
@@ -534,7 +534,7 @@
 	padding: 6px 14px 4px !important;
 	background: var(--oz-lime) !important;
 	color: var(--oz-forest) !important;
-	font: 400 40px/1 var(--oz-serif) !important;
+	font: 400 40px/1 var(--oz-serif);
 	letter-spacing: 0 !important;
 	box-shadow: 6px 6px 0 var(--oz-forest) !important;
 }
@@ -546,7 +546,7 @@
 	padding: 3px 10px !important;
 	background: var(--oz-lav) !important;
 	color: var(--oz-plum) !important;
-	font: 600 11px/1.4 var(--oz-mono) !important;
+	font: 600 11px/1.4 var(--oz-mono);
 	letter-spacing: 0.12em !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
@@ -554,10 +554,10 @@
 	padding: 10px 12px 4px !important;
 	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%)) !important;
 	color: var(--t1) !important;
-	font: 400 24px/1.2 var(--oz-serif) !important;
+	font: 400 24px/1.2 var(--oz-serif);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
-	font: 400 10px/1.3 var(--oz-mono) !important;
+	font: 400 10px/1.3 var(--oz-mono);
 	letter-spacing: 0.12em !important;
 	color: var(--t3) !important;
 }
@@ -584,7 +584,7 @@
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
 	border-top: 0 !important;
 	color: var(--t2) !important;
-	font: 400 11px/1.5 var(--oz-mono) !important;
+	font: 400 11px/1.5 var(--oz-mono);
 	letter-spacing: 0.06em !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
@@ -609,7 +609,7 @@
 	margin: 0 0 10px !important;
 	padding: 0 !important;
 	color: var(--t2) !important;
-	font: italic 400 17px/1.3 var(--oz-serif) !important;
+	font: italic 400 17px/1.3 var(--oz-serif);
 	letter-spacing: 0 !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] svg.ico {
@@ -626,7 +626,7 @@
 	color: var(--oz-plum) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	font: 600 10px/1.4 var(--oz-mono) !important;
+	font: 600 10px/1.4 var(--oz-mono);
 	letter-spacing: 0.12em !important;
 	text-transform: uppercase !important;
 }
@@ -650,7 +650,7 @@
 	background: currentColor !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.tn-git {
-	font: 500 10.5px/1.7 var(--oz-mono) !important;
+	font: 500 10.5px/1.7 var(--oz-mono);
 	letter-spacing: 0.12em !important;
 	color: var(--t3) !important;
 }
@@ -700,7 +700,7 @@
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
 		padding: 4px 10px 3px !important;
-		font-size: 26px !important;
+		font-size: 26px;
 		box-shadow: 4px 4px 0 var(--oz-forest) !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
@@ -708,7 +708,7 @@
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
 		margin: 0 0 8px !important;
-		font-size: 15px !important;
+		font-size: 15px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
 		margin: 0 0 18px !important;
@@ -723,7 +723,7 @@
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 		padding: 6px 8px 2px !important;
-		font-size: 17px !important;
+		font-size: 17px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 		height: 36px !important;
@@ -731,7 +731,7 @@
 		padding: 0 8px 8px !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-		font-size: 10px !important;
+		font-size: 10px;
 		letter-spacing: 0 !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
@@ -770,12 +770,12 @@
 		padding: 14px 6px !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
-		font-size: 19px !important;
+		font-size: 19px;
 		box-shadow: 3px 3px 0 var(--oz-forest) !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
 		margin: 0 0 6px !important;
-		font-size: 13px !important;
+		font-size: 13px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) svg.ico {
 		display: none !important;
@@ -783,7 +783,7 @@
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
 		margin: 0 0 14px !important;
 		padding: 2px 6px !important;
-		font-size: 9px !important;
+		font-size: 9px;
 		letter-spacing: 0.04em !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
@@ -797,10 +797,10 @@
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 		padding: 4px 6px 2px !important;
-		font-size: 14px !important;
+		font-size: 14px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
-		font-size: 9px !important;
+		font-size: 9px;
 		letter-spacing: 0.06em !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
@@ -838,7 +838,7 @@
 	}
 }
 :root:not(#oz).glass {
-	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, light-dark(rgb(from var(--oz-page) r g b / calc(0.92 * var(--surface-a, 1))), rgb(from var(--oz-page) r g b / calc(0.62 * var(--surface-a, 1))));
+	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, var(--oz-rail-bg);
 }
 :root:not(#oz).glass :is(body, #panel, .tn-stage, .tn-pane:not(.pip):not(.glimpse), .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
 	background: transparent;
@@ -870,7 +870,7 @@
 }
 :root:not(#oz) #tabbar .tt[data-tc] .nm {
 	color: var(--t1) !important;
-	font-weight: 400 !important;
+	font-weight: 400;
 }
 :root:not(#oz) #tabbar .tt[data-tc].on .nm {
 	color: var(--oz-forest) !important;

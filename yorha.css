@@ -13,7 +13,7 @@
 	--yh-g25: rgb(from var(--yh-ground) r g b / 24%);
 	--yh-g12: rgb(from var(--yh-ground) r g b / 10%);
 	--yh-tint: light-dark(rgb(from var(--yh-ink) r g b / 4%), rgb(255 255 255 / 4%));
-	--yh-label: "Departure Mono", monospace;
+	--yh-label: var(--sans);
 	--yh-snap: cubic-bezier(0.15, 0.79, 0, 1);
 	--yh-ease: cubic-bezier(0.2, 0, 0, 1);
 	--yh-t: 1;
@@ -49,8 +49,8 @@
 	--tv-cur-ink: var(--yh-ground) !important;
 	--tv-sel-a: var(--yh-i25) !important;
 	--tv-sel-b: var(--yh-i25) !important;
-	--sans: var(--yh-label) !important;
-	--mono: var(--yh-label) !important;
+	--sans: "Departure Mono", monospace;
+	--mono: var(--sans);
 	--r-chip: 0px;
 	--r-ctl: 0px;
 	--r-card: 0px;
@@ -63,20 +63,17 @@
 	--oz-hair: var(--yh-i25) !important;
 	--oz-shade: var(--yh-i25) !important;
 	--oz-tint: var(--yh-tint) !important;
-	--oz-serif: var(--yh-label) !important;
-	--oz-mono: var(--yh-label) !important;
+	--oz-serif: var(--sans);
+	--oz-mono: var(--mono);
 	accent-color: var(--yh-ink);
 	caret-color: var(--yh-ink);
 
-	background: rgb(from var(--yh-ground) r g b / var(--surface-a, 1));
+	background: var(--yh-ground);
 }
 :root:not(#yh) *,
 :root:not(#yh) *::before,
 :root:not(#yh) *::after {
 	border-radius: 0;
-	font-family: var(--yh-label) !important;
-	font-weight: 400 !important;
-	font-style: normal !important;
 	-webkit-backdrop-filter: none !important;
 	backdrop-filter: none !important;
 }
@@ -151,7 +148,7 @@
 }
 :root:not(#yh) #tabbar .tt .nm,
 :root:not(#yh) #tabbar .tt[data-tc] .nm {
-	font: 400 16.5px/24px var(--yh-label) !important;
+	font: 400 16.5px/24px var(--yh-label);
 	letter-spacing: 0.5px;
 	color: var(--yh-ink) !important;
 }
@@ -354,7 +351,7 @@
 	color: var(--yh-i50) !important;
 }
 :root:not(#yh).tn-status #statusline > span.tn-git {
-	font: 500 10.5px/1.7 var(--yh-label) !important;
+	font: 500 10.5px/1.7 var(--yh-label);
 	letter-spacing: 0.12em !important;
 	color: var(--t3) !important;
 }
@@ -363,7 +360,7 @@
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='arc-sidebar'] {
 	order: 0 !important;
-	font: 500 11px/1.7 var(--yh-label) !important;
+	font: 500 11px/1.7 var(--yh-label);
 	letter-spacing: 0.12em !important;
 	color: var(--t2) !important;
 }
@@ -375,7 +372,7 @@
 	padding: 4px 12px 2px !important;
 	background: var(--yh-ink) !important;
 	color: var(--yh-ground) !important;
-	font: 400 27.5px/33px var(--yh-label) !important;
+	font: 400 27.5px/33px var(--yh-label);
 	letter-spacing: 0 !important;
 	box-shadow: none !important;
 }
@@ -387,7 +384,7 @@
 	padding: 0 !important;
 	background: none !important;
 	color: var(--yh-i70) !important;
-	font: 400 11px/16px var(--yh-label) !important;
+	font: 400 11px/16px var(--yh-label);
 	letter-spacing: 1.5px !important;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) {
@@ -404,7 +401,7 @@
 	margin: 0 0 10px !important;
 	padding: 0 !important;
 	color: var(--yh-i70) !important;
-	font: 400 11px/16px var(--yh-label) !important;
+	font: 400 11px/16px var(--yh-label);
 	letter-spacing: 0 !important;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='cmus'] svg.ico {
@@ -423,7 +420,7 @@
 	color: var(--yh-ink) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	font: 400 11px/16px var(--yh-label) !important;
+	font: 400 11px/16px var(--yh-label);
 	letter-spacing: 1.5px !important;
 	text-transform: uppercase !important;
 }
@@ -459,7 +456,7 @@
 	background-color: transparent !important;
 	background-image: none !important;
 	color: var(--yh-ink) !important;
-	font: 400 22px/33px var(--yh-label) !important;
+	font: 400 22px/33px var(--yh-label);
 	letter-spacing: 0 !important;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-cpu'] {
@@ -467,7 +464,7 @@
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-']::before {
 	color: var(--yh-i50) !important;
-	font: 400 11px/16px var(--yh-label) !important;
+	font: 400 11px/16px var(--yh-label);
 	letter-spacing: 1.5px !important;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
@@ -486,7 +483,7 @@
 	border-top: 0 !important;
 	padding: 0 !important;
 	color: var(--yh-i70) !important;
-	font: 400 11px/22px var(--yh-label) !important;
+	font: 400 11px/22px var(--yh-label);
 	letter-spacing: 0 !important;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-net'] {
@@ -501,7 +498,7 @@
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='time'] {
 		padding: 3px 8px 1px !important;
-		font: 400 22px/27px var(--yh-label) !important;
+		font: 400 22px/27px var(--yh-label);
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='date'] {
 		margin: 16px 0 18px !important;
@@ -517,7 +514,7 @@
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-'] {
 		padding: 6px 0 0 !important;
-		font: 400 16.5px/24px var(--yh-label) !important;
+		font: 400 16.5px/24px var(--yh-label);
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='spark-'] {
 		height: 24px !important;
@@ -528,7 +525,7 @@
 		flex-direction: column !important;
 		align-items: flex-start !important;
 		padding: 0 !important;
-		font: 400 11px/16px var(--yh-label) !important;
+		font: 400 11px/16px var(--yh-label);
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load'])::before {
 		padding-bottom: 0 !important;
@@ -545,7 +542,7 @@
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='time'] {
 		padding: 2px 6px 1px !important;
-		font: 400 16.5px/22px var(--yh-label) !important;
+		font: 400 16.5px/22px var(--yh-label);
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='date'] {
 		margin: 12px 0 14px !important;
