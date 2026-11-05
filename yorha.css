@@ -252,18 +252,6 @@
 	letter-spacing: 0 !important;
 	box-shadow: none !important;
 }
-:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time']::after {
-	content: "";
-	position: absolute;
-	top: -6px;
-	bottom: -6px;
-	left: 0;
-	right: 0;
-	background:
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 100% 2px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 2px no-repeat;
-	pointer-events: none;
-}
 :root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
 	margin: 20px 0 24px !important;
 	padding: 0 !important;
