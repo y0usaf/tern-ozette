@@ -39,7 +39,18 @@
 	background-image: var(--grok-avatar, var(--grok-avatar-sprout));
 }
 :root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar']) > * {
-	display: none;
+	display: none !important;
+}
+:root:not(#grok) [data-role^='omp.bot.chao.'] {
+	width: max(24px, calc(16 * var(--p, 2px)));
+	height: max(24px, calc(16 * var(--p, 2px)));
+	background-image: var(--grok-avatar, var(--grok-avatar-blob));
+	background-size: contain;
+	background-repeat: no-repeat;
+	animation: grok-avatar-bob 2.8s ease-in-out infinite alternate;
+}
+:root:not(#grok) [data-role^='omp.bot.chao.'] > * {
+	display: none !important;
 }
 @keyframes grok-avatar-bob {
 	from { transform: translateY(0); }
@@ -47,7 +58,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
 	:root:not(#grok) [data-role='omp.bot.reply']::before,
-	:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar']) {
+	:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) {
 		animation: none;
 	}
 }
