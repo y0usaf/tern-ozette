@@ -66,14 +66,14 @@
 :root:not(#oz) .sf-still.sf-region.sf-main > * {
 	animation: none;
 }
-:root:not(#oz) .pop {
+:root:not(#oz) .pop:where(:not(.tn-ql)) {
 	animation: pm-pop var(--pm-mid) var(--pm-out) both;
 	transform-origin: top center;
 }
-:root:not(#oz) .pop.above {
+:root:not(#oz) .pop.above:where(:not(.tn-ql)) {
 	transform-origin: bottom center;
 }
-:root:not(#oz) .pop[role='menu'] {
+:root:not(#oz) .pop[role='menu']:where(:not(.tn-ql)) {
 	transform-origin: top left;
 }
 :root:not(#oz) .pop.still {
@@ -86,20 +86,17 @@
 :root:not(#oz) #pal,
 :root:not(#oz) .mdl,
 :root:not(#oz) #dlg,
-:root:not(#oz) .sf-ov-card,
-:root:not(#oz) .pk-sheet {
+:root:not(#oz) :where(.sf-overlay:not(.at-side)) > .sf-ov-card {
 	animation: pm-pop var(--pm-mid) var(--pm-out) both;
 	transform-origin: top center;
 }
-:root:not(#oz) .mdl-layer,
-:root:not(#oz) .pk-dim {
+:root:not(#oz) .mdl-layer {
 	animation: pm-fade var(--pm-mid) var(--pm-out) both;
 }
-:root:not(#oz) .sf-still :is(.sf-ov-card, .pk-sheet, .pk-dim),
-:root:not(#oz) .sf-picker.sz-screen .pk-sheet {
+:root:not(#oz) .sf-still .sf-ov-card {
 	animation: none;
 }
-:root:not(#oz):not(.tn-phone) .pf.sheet,
+:root:not(#oz):not(.tn-phone) .pf.sheet.on,
 :root:not(#oz) .bd-sheet {
 	animation: pm-drawer var(--pm-slow) var(--pm-out) both;
 }
@@ -126,17 +123,6 @@
 :root:not(#oz).inactive #tabbar .tt.working .nm,
 :root:not(#oz).inactive .tn-vt .nav-row.working .lbl {
 	animation-play-state: paused;
-}
-@media (prefers-reduced-motion: reduce) {
-	:root:not(#oz) {
-			--pm-fast: 0s;
-			--pm-mid: 0s;
-			--pm-slow: 0s;
-		}
-	:root:not(#oz) #tabbar .tt.working .nm,
-	:root:not(#oz) .tn-vt .nav-row.working .lbl {
-			animation: none;
-		}
 }
 @keyframes pm-rise {
 	from {
