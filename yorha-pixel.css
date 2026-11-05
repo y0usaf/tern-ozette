@@ -1,5 +1,0 @@
-:root:not(#yh) *,
-:root:not(#yh) *:not(.tt)::before,
-:root:not(#yh) *:not(.sf-editor)::after {
-	transition: none !important;
-}

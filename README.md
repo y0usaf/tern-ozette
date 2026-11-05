@@ -4,6 +4,8 @@ Ozette's structure, type, shapes, rails and motion as a Tern plugin. It sits ove
 
 The UI Menu loads `ozette-answer-bubbles.css` only with Ozette and answer bubbles enabled, and `ozette-bot-you.css` only with Ozette and your message bubbles enabled. Assistant blocks and bot-user card colours live in those optional sheets; turning bubbles off leaves the typography, code, images and lists intact. Classic Tern user cards retain their normal Ozette treatment. YoRHa follows the same rule: `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css` and `yorha-bot-you.css` load only with YoRHa and answer bubbles, bot answer bubbles or your message bubbles enabled.
 
+The menu has no separate Pixel variant or legacy “Grok chat” typography preset. Plain omp and bot answer bubbles remain separate shared choices; their small look-specific sheets have hidden dependency gates rather than extra visible controls.
+
 ## Design note: declared backgrounds stay real
 
 Never make a surface's declared background colour transparent where Tern computes contrast from it. The terminal's automatic contrast correction measures every cell against `--tv-bg`; if `--tv-bg` is `transparent`, Tern measures against nothing and leaves pale text unreadable on light glass. Glass is done by layering instead: the element's own `background` goes transparent and the one canvas behind everything carries the tint and dot grid, while `--tv-bg` (and the theme's other surface colours) keep the colour the eye actually sees.
