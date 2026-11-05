@@ -1,0 +1,13 @@
+:root:not(#grok) [data-role='omp.chat.msg'] .sf-card[data-role='omp.user'] > .sf-card-body {
+	max-width: min(90%, 640px);
+	padding: 12px 18px;
+	border-radius: 20px 20px 6px 20px;
+	background: var(--grok-user);
+	color: #ffffff;
+	--t1: #ffffff;
+	--tv-fg: #ffffff;
+	box-shadow: none;
+}
+:root:not(#grok) [data-role='omp.chat.msg'] .sf-card[data-role='omp.user'] .md {
+	color: #ffffff;
+}

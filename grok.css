@@ -1,0 +1,154 @@
+:root:not(#grok) {
+	--grok-page: light-dark(#ffffff, #141414);
+	--grok-chrome: light-dark(#fcfcfc, #181818);
+	--grok-side: light-dark(#f5f5f5, #1c1c1c);
+	--grok-ink: light-dark(#1c1c1c, #f0f0f0);
+	--grok-muted: light-dark(#727272, #a0a0a0);
+	--grok-line: light-dark(#1c1c1c14, #ffffff14);
+	--grok-soft: light-dark(#1c1c1c0f, #ffffff0f);
+	--grok-user: #1c1c1c;
+	--page: var(--grok-page);
+	--panel: var(--grok-chrome);
+	--card: var(--grok-chrome);
+	--pop: var(--grok-chrome);
+	--tn-page: var(--grok-page);
+	--tn-panel: var(--grok-chrome);
+	--tn-pop: var(--grok-chrome);
+	--tv-bg: var(--grok-page);
+	--tv-fg: var(--grok-ink);
+	--t1: var(--grok-ink);
+	--t2: var(--grok-ink);
+	--t3: var(--grok-muted);
+	--t4: var(--grok-muted);
+	--l1: var(--grok-line);
+	--l2: var(--grok-soft);
+	--l3: light-dark(#1c1c1c26, #ffffff26);
+	--accent: light-dark(#1c1c1c, #f0f0f0);
+	--code-bg: light-dark(#f5f5f5, #1c1c1c);
+	--r-card: 16px;
+	--r-control: 10px;
+}
+:root:not(#grok) :is(.tn-bg, .tv-cover) {
+	background: var(--grok-page);
+}
+:root:not(#grok) #tabbar {
+	background: var(--grok-side);
+	box-shadow: none;
+}
+:root:not(#grok) :is(.tb-tab, .tn-tab) {
+	border-radius: 10px;
+	box-shadow: none;
+}
+:root:not(#grok) :is(.tb-tab, .tn-tab).active {
+	background: var(--grok-soft);
+}
+:root:not(#grok) :is(.cmdk, .dlg-card, .pk-sheet, .sf-ov-card) {
+	border-radius: 16px;
+	box-shadow: 0 0 0 1px var(--grok-line), 0 12px 36px #00000020;
+}
+:root:not(#grok) .sf-chat-reader.sf-main {
+	--rd-measure: 800px;
+	gap: 0;
+	padding: 24px 24px 20px;
+}
+:root:not(#grok) .sf-chat-reader.sf-main > * {
+	margin-top: 0;
+	margin-bottom: 16px;
+}
+:root:not(#grok) .sf-chat-reader :is([data-role^='omp.assistant'], [data-role^='omp.user']) .md {
+	font: 400 16px/1.6 var(--sans);
+	letter-spacing: -0.01em;
+	color: var(--grok-ink);
+}
+:root:not(#grok) .sf-chat-reader :is([data-role^='omp.assistant'], [data-role^='omp.user']) .md p {
+	margin: 0 0 12px;
+}
+:root:not(#grok) .sf-chat-reader .md > :last-child {
+	margin-bottom: 0;
+}
+:root:not(#grok) .sf-chat-reader .md :is(h1, h2, h3, h4) {
+	font-family: var(--sans);
+	font-weight: 600;
+	letter-spacing: -0.025em;
+	line-height: 1.35;
+	margin: 20px 0 10px;
+}
+:root:not(#grok) .sf-chat-reader .md :is(ul, ol) {
+	padding-left: 24px;
+	margin: 0 0 12px;
+}
+:root:not(#grok) .sf-chat-reader .md li {
+	margin-bottom: 6px;
+}
+:root:not(#grok) .sf-chat-reader .md :not(pre) > code {
+	font: 13px/1.4 var(--mono);
+	padding: 2px 5px;
+	border-radius: 5px;
+	color: inherit;
+	background: var(--grok-soft);
+	box-shadow: none;
+}
+:root:not(#grok) .sf-chat-reader .md .code {
+	border-radius: 12px;
+	background: var(--code-bg);
+	box-shadow: inset 0 0 0 1px var(--grok-line);
+}
+:root:not(#grok) .sf-chat-reader .md .code-head {
+	background: none;
+	color: var(--grok-muted);
+	box-shadow: inset 0 -1px 0 var(--grok-line);
+}
+:root:not(#grok) .sf-chat-reader .md .code pre {
+	font: 13px/1.6 var(--mono);
+	padding: 14px 16px;
+}
+:root:not(#grok) .sf-chat-reader .md a {
+	color: inherit;
+	text-decoration: underline;
+	box-shadow: none;
+}
+:root:not(#grok) .sf-chat-reader .sf-col[data-role^='omp.editor'] {
+	max-width: 768px;
+	border-radius: 20px;
+	padding: 16px 16px 10px;
+	background: var(--grok-chrome);
+	box-shadow: inset 0 0 0 1px var(--grok-line);
+	animation: none;
+}
+:root:not(#grok) .sf-chat-reader .sf-editor {
+	font: 16px/24px var(--sans);
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.composer.model'] {
+	border-radius: 999px;
+	background: var(--grok-soft);
+	box-shadow: none;
+	font: 12px/1 var(--sans);
+	color: var(--grok-muted);
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.composer.send'] .kbd {
+	border-radius: 999px;
+	background: var(--grok-ink);
+	color: var(--grok-page);
+	box-shadow: none;
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.hud.todo'] .sf-ck-pill {
+	border-radius: 16px;
+	background: var(--grok-side);
+	box-shadow: inset 0 0 0 1px var(--grok-line);
+	padding: 6px 12px;
+}
+:root:not(#grok) .sf-chat-reader.sf-folded .sf-col[data-role^='omp.editor'] {
+	border-radius: 999px;
+	padding: 8px 16px;
+}
+:root:not(#grok) .sf-chat-reader .sf-row[data-role='omp.working'] {
+	align-self: center;
+	max-width: 224px;
+	padding: 4px 12px;
+	border-radius: 999px;
+	background: var(--grok-user);
+	color: #ffffff;
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.working'] :is(.sf-shimmer, .sf-elapsed, [data-role='omp.working.label']) {
+	color: #ffffff;
+}
