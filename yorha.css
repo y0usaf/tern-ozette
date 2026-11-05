@@ -433,23 +433,6 @@
 	transform-origin: 0 0;
 	animation: yh-rules calc(260ms * var(--yh-t)) var(--yh-snap) both;
 }
-:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi::after {
-	content: "";
-	position: absolute;
-	inset: 10px;
-	z-index: 6;
-	pointer-events: none;
-	background:
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 16px 2px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 2px 16px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) right top / 16px 2px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) right top / 2px 16px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 16px 2px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 2px 16px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 16px 2px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 2px 16px no-repeat;
-	animation: yh-lock calc(300ms * var(--yh-t)) steps(5, end) both;
-}
 :root:not(#oz):not(#yh):not(#yr) section.tn-pane.on > .tn-body::after {
 	content: "";
 	position: absolute;
