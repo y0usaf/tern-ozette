@@ -6,8 +6,6 @@ import { Composer } from "@oh-my-pi/pi-tui/prompt/composer";
 import { col, row, text } from "@oh-my-pi/pi-tui/native/describe";
 import { TranscriptContainer } from "@oh-my-pi/pi-tui/chrome";
 
-// Off-screen design fixture for the Ozette "quantised trails" demo. Fake bot, fake chat, no model calls.
-// The timeline is driven by CUE (a file the harness writes): base | mid | final | go:<n>.
 const CUE = "/run/user/1001/agent/ozette-opus/yorha/v3/cue";
 const wrap = native => ({ render: () => [], invalidate() {}, describe: () => native });
 const tok = s => Math.max(1, Math.round(s.length / 4));
@@ -57,7 +55,6 @@ export default function trailsScene(pi) {
       let dock = [];
       let timers = [];
       const clear = () => { for (const t of timers) clearTimeout(t); timers = []; };
-      // reply 2 streams like omp streams: one component, updated in place, finalized at the end
       const r2c = new AssistantMessageComponent(undefined, true);
       let r2cells = ["04", "0 tok", "0.0 s"];
       let r2live = true;
