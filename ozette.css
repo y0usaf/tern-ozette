@@ -838,7 +838,7 @@
 	}
 }
 :root:not(#oz).glass {
-	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, light-dark(rgb(from var(--oz-page) r g b / 92%), rgb(from var(--oz-page) r g b / 62%));
+	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, light-dark(rgb(from var(--oz-page) r g b / calc(0.92 * var(--surface-a, 1))), rgb(from var(--oz-page) r g b / calc(0.62 * var(--surface-a, 1))));
 }
 :root:not(#oz).glass :is(body, #panel, .tn-stage, .tn-pane:not(.pip):not(.glimpse), .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
 	background: transparent;

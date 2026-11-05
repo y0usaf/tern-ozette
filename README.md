@@ -8,7 +8,7 @@ The UI Menu loads `ozette-answer-bubbles.css` only with Ozette and answer bubble
 
 Never make a surface's declared background colour transparent where Tern computes contrast from it. The terminal's automatic contrast correction measures every cell against `--tv-bg`; if `--tv-bg` is `transparent`, Tern measures against nothing and leaves pale text unreadable on light glass. Glass is done by layering instead: the element's own `background` goes transparent and the one canvas behind everything carries the tint and dot grid, while `--tv-bg` (and the theme's other surface colours) keep the colour the eye actually sees.
 
-The canvas takes its colour from `--oz-page`, not `--page` directly. Another plugin may set `--page: transparent` (the Transparent plugin does), and `rgb(from transparent r g b / 92%)` is black. `--oz-page` mixes `--page` with 1% of `--tn-page` in premultiplied sRGB: an opaque `--page` (a file theme's own) wins, a cleared one falls back to the selected theme's page colour.
+The canvas takes its colour from `--oz-page`, not `--page` directly. Another plugin may set `--page: transparent` (the Transparent plugin does), and `rgb(from transparent r g b / 92%)` is black. `--oz-page` mixes `--page` with 1% of `--tn-page` in premultiplied sRGB: an opaque `--page` (a file theme's own) wins, a cleared one falls back to the selected theme's page colour. Its alpha is multiplied by `--surface-a` (default 1), which the settings menu's transparent window option sets to 0; YoRHa's `--page` and `--panel` read the same variable.
 
 ## Grok
 

@@ -18,8 +18,8 @@
 	--yh-ease: cubic-bezier(0.2, 0, 0, 1);
 	--yh-t: 1;
 
-	--page: var(--yh-ground) !important;
-	--panel: var(--yh-ground) !important;
+	--page: rgb(from var(--yh-ground) r g b / var(--surface-a, 1)) !important;
+	--panel: rgb(from var(--yh-ground) r g b / var(--surface-a, 1)) !important;
 	--card: var(--yh-paper) !important;
 	--raise: var(--yh-paper) !important;
 	--pop-bg: var(--yh-paper) !important;
@@ -68,7 +68,7 @@
 	accent-color: var(--yh-ink);
 	caret-color: var(--yh-ink);
 
-	background: var(--yh-ground);
+	background: rgb(from var(--yh-ground) r g b / var(--surface-a, 1));
 }
 :root:not(#yh) *,
 :root:not(#yh) *::before,
