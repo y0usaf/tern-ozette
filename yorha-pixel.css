@@ -1,0 +1,45 @@
+@keyframes yh-scan-in {
+	0% { clip-path: inset(0 0 100% 0); animation-timing-function: steps(1, end); }
+	8.333% { clip-path: inset(0 0 75.0% 0); animation-timing-function: steps(1, end); }
+	16.667% { clip-path: inset(0 0 56.25% 0); animation-timing-function: steps(1, end); }
+	25.0% { clip-path: inset(0 0 37.5% 0); animation-timing-function: steps(1, end); }
+	33.333% { clip-path: inset(0 0 25.0% 0); animation-timing-function: steps(1, end); }
+	41.667% { clip-path: inset(0 0 18.75% 0); animation-timing-function: steps(1, end); }
+	50.0% { clip-path: inset(0 0 12.5% 0); animation-timing-function: steps(1, end); }
+	58.333% { clip-path: inset(0 0 6.25% 0); animation-timing-function: steps(1, end); }
+	66.667% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
+	75.0% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
+	83.333% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
+	91.667% { clip-path: inset(0 0 0.0% 0); animation-timing-function: steps(1, end); }
+	100% { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-wipe-l {
+	0% { clip-path: inset(0 100% 0 0); animation-timing-function: steps(1, end); }
+	8.333% { clip-path: inset(0 75.0% 0 0); animation-timing-function: steps(1, end); }
+	16.667% { clip-path: inset(0 56.25% 0 0); animation-timing-function: steps(1, end); }
+	25.0% { clip-path: inset(0 37.5% 0 0); animation-timing-function: steps(1, end); }
+	33.333% { clip-path: inset(0 25.0% 0 0); animation-timing-function: steps(1, end); }
+	41.667% { clip-path: inset(0 18.75% 0 0); animation-timing-function: steps(1, end); }
+	50.0% { clip-path: inset(0 12.5% 0 0); animation-timing-function: steps(1, end); }
+	58.333% { clip-path: inset(0 6.25% 0 0); animation-timing-function: steps(1, end); }
+	66.667% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
+	75.0% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
+	83.333% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
+	91.667% { clip-path: inset(0 0.0% 0 0); animation-timing-function: steps(1, end); }
+	100% { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-rules {
+	0% { transform: scaleX(0); animation-timing-function: steps(1, end); }
+	8.333% { transform: scaleX(0.25); animation-timing-function: steps(1, end); }
+	16.667% { transform: scaleX(0.4375); animation-timing-function: steps(1, end); }
+	25.0% { transform: scaleX(0.5625); animation-timing-function: steps(1, end); }
+	33.333% { transform: scaleX(0.6875); animation-timing-function: steps(1, end); }
+	41.667% { transform: scaleX(0.8125); animation-timing-function: steps(1, end); }
+	50.0% { transform: scaleX(0.875); animation-timing-function: steps(1, end); }
+	58.333% { transform: scaleX(0.9375); animation-timing-function: steps(1, end); }
+	66.667% { transform: scaleX(0.9375); animation-timing-function: steps(1, end); }
+	75.0% { transform: scaleX(1.0); animation-timing-function: steps(1, end); }
+	83.333% { transform: scaleX(1.0); animation-timing-function: steps(1, end); }
+	91.667% { transform: scaleX(1.0); animation-timing-function: steps(1, end); }
+	100% { transform: scaleX(1); }
+}

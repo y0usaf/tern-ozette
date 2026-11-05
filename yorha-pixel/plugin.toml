@@ -1,0 +1,8 @@
+schema = 1
+id = "yorha-pixel"
+name = "YoRHa Pixel"
+version = "0.1.0"
+description = "YoRHa with pixel-quantised reveals: scans, wipes and title bars land on a block grid with ragged stray-pixel edges, a new state every frame, same durations; at rest identical to YoRHa. Turn off YoRHa and Ozette while this is on."
+icon = "layers"
+window = "window.luau"
+styles = ["ozette.css", "motion.css", "cmus.css", "yorha.css", "yorha-pixel.css"]
