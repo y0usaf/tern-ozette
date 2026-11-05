@@ -12,8 +12,9 @@
 	--yh-label: "Departure Mono", monospace;
 	--yh-snap: cubic-bezier(0.15, 0.79, 0, 1);
 	--yh-t: 1;
-	--yh-wipe: calc(240ms * var(--yh-t));
-	--yh-scan: calc(260ms * var(--yh-t));
+	--pm-fast: calc(80ms * var(--yh-t));
+	--pm-mid: calc(100ms * var(--yh-t));
+	--pm-slow: calc(120ms * var(--yh-t));
 
 	--page: var(--yh-ground) !important;
 	--panel: var(--yh-ground) !important;
@@ -123,7 +124,7 @@
 	box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 -2px 0 -2px var(--yh-ink);
 	overflow: visible;
 	color: var(--yh-ink);
-	transition: box-shadow calc(160ms * var(--yh-t)) steps(4, end);
+	transition: box-shadow calc(100ms * var(--yh-t)) steps(2, end);
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt:not(.on):hover {
 	box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 -2px 0 0 var(--yh-ink);
@@ -151,7 +152,7 @@
 	box-shadow: inset 0 0 0 1.5px var(--yh-ink);
 	transform: rotate(45deg) scale(0);
 	pointer-events: none;
-	transition: transform calc(140ms * var(--yh-t)) steps(3, end);
+	transition: transform calc(80ms * var(--yh-t)) steps(2, end);
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt:hover::before {
 	transform: rotate(45deg) scale(1);
@@ -159,12 +160,12 @@
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on {
 	box-shadow: inset 400px 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink);
-	animation: yh-tab-wipe var(--yh-wipe) steps(6, end) both;
+	transition: none;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .nm,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .nm {
 	color: var(--yh-ground) !important;
-	animation: yh-flicker calc(200ms * var(--yh-t)) steps(1, end) both;
+	transition: none;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .sub,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .sub,
@@ -187,20 +188,20 @@
 		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 2px no-repeat;
 	color: transparent;
 	pointer-events: none;
-	animation: yh-rules calc(300ms * var(--yh-t)) var(--yh-snap) both;
+	animation: yh-rules calc(100ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before {
 	background: var(--yh-ink);
 	box-shadow: none;
 	transform: rotate(45deg) scale(1);
-	animation: yh-pointer calc(200ms * var(--yh-t)) steps(4, end) both, yh-alive 7s steps(1, end) 2s infinite;
+	animation: yh-pointer calc(100ms * var(--yh-t)) steps(3, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row {
 	font: 400 11px/1 var(--yh-label);
 	letter-spacing: 1.5px;
 	color: var(--yh-i70);
 	box-shadow: inset 0 0 0 0 var(--yh-ink);
-	transition: color calc(120ms * var(--yh-t)) steps(2, end);
+	transition: color calc(80ms * var(--yh-t)) steps(2, end);
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row:hover {
 	color: var(--yh-ink);
@@ -419,7 +420,7 @@
 :root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi::before {
 	background: var(--yh-ink);
 	transform-origin: 0 0;
-	animation: yh-rules calc(260ms * var(--yh-t)) var(--yh-snap) both;
+	animation: yh-rules calc(100ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#oz):not(#yh):not(#yr) section.tn-pane.on > .tn-body::after {
 	content: "";
@@ -432,7 +433,7 @@
 	background: var(--yh-ink);
 	opacity: 0;
 	pointer-events: none;
-	animation: yh-sweep calc(340ms * var(--yh-t)) steps(12, end);
+	animation: yh-sweep calc(140ms * var(--yh-t)) steps(6, end);
 }
 
 :root:not(#oz):not(#yh):not(#yr) .sf-region .md {
@@ -450,9 +451,6 @@
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
 }
-:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] {
-	animation: yh-scan-in var(--yh-scan) steps(8, end) calc(110ms * var(--yh-t)) both;
-}
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before {
 	content: "";
 	position: absolute;
@@ -465,9 +463,9 @@
 	pointer-events: none;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant']::before {
-	animation: yh-rules calc(160ms * var(--yh-t)) var(--yh-snap) both;
+	animation: yh-rules calc(100ms * var(--yh-t)) var(--yh-snap) both;
 }
-:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] .md > :last-child::after {
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] .md.streaming > :last-child::after {
 	content: "";
 	display: inline-block;
 	width: 0.5em;
@@ -484,9 +482,6 @@
 	color: var(--yh-ground);
 	box-shadow: none;
 }
-:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
-	animation: yh-wipe-in calc(220ms * var(--yh-t)) steps(6, end) both;
-}
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
 	content: "";
 	position: absolute;
@@ -495,9 +490,6 @@
 	width: 7px;
 	height: 7px;
 	background: var(--yh-ground);
-}
-:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
-	animation: yh-flicker calc(260ms * var(--yh-t)) steps(1, end) calc(200ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body,
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body .md {
@@ -554,7 +546,7 @@
 :root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn) {
 	color: var(--yh-i70);
 	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
-	transition: background-position calc(180ms * var(--yh-t)) var(--yh-snap), color calc(120ms * var(--yh-t)) steps(1, end);
+	transition: background-position calc(100ms * var(--yh-t)) var(--yh-snap), color calc(50ms * var(--yh-t)) steps(1, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn):hover {
 	background-position: 0 0;
@@ -619,7 +611,6 @@
 	padding: 20px 18px 16px;
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
-	animation: yh-scan-in calc(300ms * var(--yh-t)) steps(8, end) calc(120ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
 	content: "";
@@ -631,7 +622,7 @@
 	background: var(--yh-ink);
 	transform-origin: 0 0;
 	pointer-events: none;
-	animation: yh-rules calc(180ms * var(--yh-t)) var(--yh-snap) both;
+	animation: yh-rules calc(100ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.question'] {
 	font: 400 16.5px/24px var(--yh-label);
@@ -644,14 +635,8 @@
 	box-shadow: inset 0 0 0 0 var(--yh-ink);
 	color: var(--yh-ink);
 	overflow: visible;
-	animation: yh-wipe-l calc(200ms * var(--yh-t)) steps(5, end) both;
-	transition: box-shadow calc(140ms * var(--yh-t)) var(--yh-snap);
+	transition: box-shadow calc(80ms * var(--yh-t)) var(--yh-snap);
 }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(1) { animation-delay: calc(300ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(2) { animation-delay: calc(350ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(3) { animation-delay: calc(400ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(4) { animation-delay: calc(450ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(n+5) { animation-delay: calc(500ms * var(--yh-t)); }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:not(.sel):hover {
 	box-shadow: inset 0 0 0 1px var(--yh-ink);
 }
@@ -675,11 +660,9 @@
 	outline: 0;
 	background-position: 0 0;
 	box-shadow: none;
-	animation: yh-wipe var(--yh-wipe) steps(6, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel :is(.sf-item-label, .sf-item-detail) {
 	color: var(--yh-ground);
-	animation: yh-flicker calc(200ms * var(--yh-t)) steps(1, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel .sf-item-detail {
 	color: var(--yh-g70);
@@ -702,7 +685,7 @@
 	background-size: 100% 2px;
 	background-repeat: no-repeat;
 	pointer-events: none;
-	animation: yh-rules calc(300ms * var(--yh-t)) var(--yh-snap) both;
+	animation: yh-rules calc(100ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-act,
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] button {
@@ -713,7 +696,7 @@
 	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 	color: var(--yh-ink);
-	transition: background-position calc(200ms * var(--yh-t)) var(--yh-snap), color calc(100ms * var(--yh-t)) steps(1, end);
+	transition: background-position calc(100ms * var(--yh-t)) var(--yh-snap), color calc(50ms * var(--yh-t)) steps(1, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:hover {
 	background-position: 0 0;
@@ -734,7 +717,7 @@
 	box-shadow: 0 0 0 3px var(--yh-ground), 0 0 0 5px var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:active {
-	animation: yh-flicker calc(160ms * var(--yh-t)) steps(1, end);
+	animation: yh-flicker calc(80ms * var(--yh-t)) steps(1, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:first-child {
 	box-shadow: none;
@@ -762,7 +745,7 @@
 	background-color: var(--yh-ink);
 	pointer-events: none;
 	transform: translateX(-50%) scale(0, 0);
-	animation: yh-fold calc(320ms * var(--yh-t)) steps(8, end) both;
+	animation: yh-fold calc(120ms * var(--yh-t)) steps(4, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor {
 	position: relative;
@@ -785,7 +768,7 @@
 		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 2px 12px no-repeat,
 		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 12px 2px no-repeat,
 		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 2px 12px no-repeat;
-	animation: yh-lock calc(260ms * var(--yh-t)) steps(5, end) both;
+	animation: yh-lock calc(100ms * var(--yh-t)) steps(3, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor::after {
 	content: "";
@@ -798,7 +781,7 @@
 	transform: scaleX(0);
 	transform-origin: 0 0;
 	pointer-events: none;
-	transition: transform calc(220ms * var(--yh-t)) var(--yh-snap);
+	transition: transform calc(100ms * var(--yh-t)) var(--yh-snap);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor:not(.empty)::after {
 	transform: scaleX(1);
@@ -850,26 +833,16 @@
 	background: var(--yh-paper);
 	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-ink), 8px 8px 0 var(--yh-i25);
 	color: var(--yh-ink);
-	animation: yh-scan-in calc(240ms * var(--yh-t)) steps(8, end) both;
+	animation: yh-in calc(80ms * var(--yh-t)) steps(2, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-item {
 	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
 	box-shadow: inset 0 0 0 0 var(--yh-ink);
-	transition: box-shadow calc(120ms * var(--yh-t)) var(--yh-snap);
+	transition: box-shadow calc(80ms * var(--yh-t)) var(--yh-snap);
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-item:not([aria-selected='true']):hover {
 	box-shadow: inset 4px 0 0 var(--yh-ink);
 }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(-n+8) {
-	animation: yh-wipe-l calc(160ms * var(--yh-t)) steps(4, end) both;
-}
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(2) { animation-delay: calc(140ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(3) { animation-delay: calc(170ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(4) { animation-delay: calc(200ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(5) { animation-delay: calc(230ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(6) { animation-delay: calc(260ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(7) { animation-delay: calc(290ms * var(--yh-t)); }
-:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(8) { animation-delay: calc(320ms * var(--yh-t)); }
 :root:not(#oz):not(#yh):not(#yr) .pk-selbar,
 :root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'],
 :root:not(#oz):not(#yh):not(#yr) .tn-thm-row[aria-selected='true'],
@@ -884,7 +857,8 @@
 	--t1: var(--yh-ground);
 	--t2: var(--yh-ground);
 	--t3: var(--yh-g70);
-	animation: yh-wipe calc(200ms * var(--yh-t)) steps(5, end) both;
+	--accent-ink: var(--yh-ground);
+	transition: none;
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true']::before {
 	display: none;
@@ -893,6 +867,14 @@
 	background: none;
 	box-shadow: none;
 	color: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) :is(.ck-item, .pk-row, .sf-item, .tn-ib-row, .nav-row, .tn-thm-row, .pf-row, #cmp, .tn-clist) mark {
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
+	color: inherit;
+	font-weight: inherit;
+	text-decoration: underline;
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-group::before {
 	content: "";
@@ -932,8 +914,8 @@
 	font: 400 11px/1 var(--yh-label);
 	letter-spacing: 1.5px;
 	text-transform: uppercase;
-	animation: yh-wipe-l calc(200ms * var(--yh-t)) steps(5, end) both;
-	transition: box-shadow calc(120ms * var(--yh-t)) steps(2, end);
+	animation: yh-in calc(80ms * var(--yh-t)) steps(2, end) both;
+	transition: box-shadow calc(80ms * var(--yh-t)) steps(2, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .tv-back .lbl {
 	max-width: 200px;
@@ -946,24 +928,12 @@
 }
 :root:not(#oz):not(#yh):not(#yr) .tv-back:active {
 	transform: none;
-	animation: yh-flicker calc(160ms * var(--yh-t)) steps(1, end);
+	animation: yh-flicker calc(80ms * var(--yh-t)) steps(1, end);
 }
 
-@keyframes yh-wipe {
-	from { background-position: 100% 0; }
-	to { background-position: 0 0; }
-}
-@keyframes yh-wipe-in {
-	from { clip-path: inset(0 0 0 100%); }
-	to { clip-path: inset(0 0 0 0); }
-}
-@keyframes yh-tab-wipe {
-	from { box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink); }
-	to { box-shadow: inset 400px 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink); }
-}
-@keyframes yh-wipe-l {
-	from { clip-path: inset(0 100% 0 0); }
-	to { clip-path: inset(0 0 0 0); }
+@keyframes yh-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
 }
 @keyframes yh-rules {
 	from { transform: scaleX(0); }
@@ -974,10 +944,6 @@
 	40% { opacity: 1; }
 	60% { opacity: 0.3; }
 	100% { transform: scale(1); opacity: 1; }
-}
-@keyframes yh-scan-in {
-	from { clip-path: inset(0 0 100% 0); }
-	to { clip-path: inset(0 0 0 0); }
 }
 @keyframes yh-fold {
 	0% { transform: translateX(-50%) scale(1, 1); }
@@ -1003,11 +969,6 @@
 @keyframes yh-blink {
 	0% { opacity: 1; }
 	50% { opacity: 0; }
-}
-@keyframes yh-alive {
-	0% { opacity: 1; }
-	97% { opacity: 0.15; }
-	98.5% { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
 	:root:not(#oz):not(#yh):not(#yr) *,
