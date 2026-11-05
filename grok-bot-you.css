@@ -6,11 +6,11 @@
 	padding: 12px 18px;
 	border-radius: 20px 20px 6px 20px;
 	background: var(--grok-user);
-	color: #ffffff;
+	color: var(--t1);
 	--t1: #ffffff;
-	--tv-fg: #ffffff;
+	--tv-fg: var(--t1);
 	box-shadow: none;
 }
 :root:not(#grok) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
-	color: #ffffff;
+	color: var(--t1);
 }
