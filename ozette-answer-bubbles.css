@@ -1,0 +1,7 @@
+:root:not(#oz) .sf-chat-reader > [data-role^='omp.assistant'],
+:root:not(#oz) .sf-chat-reader > [data-role='omp.chat.msg'] > [data-role^='omp.assistant'] {
+	margin-bottom: 14px;
+	padding: 14px 18px 16px;
+	background: var(--card);
+	box-shadow: 0 0 0 1px var(--oz-hair);
+}

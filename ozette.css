@@ -368,7 +368,7 @@
 :root:not(#oz) .sf-region .sf-tool.st-error .sf-tool-ic {
 	color: var(--bad);
 }
-:root:not(#oz) .sf-card[data-role^='omp.user'] > .sf-card-body {
+:root:not(#oz) .sf-card[data-role^='omp.user']:where(:not([data-role='omp.bot.you'] .sf-card)) > .sf-card-body {
 	--tv-fg: var(--oz-plum);
 	--t1: var(--oz-plum);
 	--t3: rgb(from var(--oz-plum) r g b / 60%);
@@ -377,7 +377,7 @@
 	font: 400 17px/1.4 var(--oz-serif);
 	box-shadow: none;
 }
-:root:not(#oz) .sf-card[data-role^='omp.user'] > .sf-card-body .md {
+:root:not(#oz) .sf-card[data-role^='omp.user']:where(:not([data-role='omp.bot.you'] .sf-card)) > .sf-card-body .md {
 	color: var(--oz-plum);
 }
 :root:not(#oz) .sf-col[data-role^='omp.editor'] {
@@ -842,13 +842,6 @@
 }
 :root:not(#oz).glass :is(body, #panel, .tn-stage, .tn-pane:not(.pip):not(.glimpse), .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
 	background: transparent;
-}
-:root:not(#oz) .sf-chat-reader > [data-role^='omp.assistant'],
-:root:not(#oz) .sf-chat-reader > [data-role='omp.chat.msg'] > [data-role^='omp.assistant'] {
-	margin-bottom: 14px;
-	padding: 14px 18px 16px;
-	background: var(--card);
-	box-shadow: 0 0 0 1px var(--oz-hair);
 }
 :root:not(#oz) :is([data-role='omp.user.images'], [data-role^='omp.assistant'], .sf-tool-body) .sf-image {
 	overflow: hidden;
