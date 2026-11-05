@@ -1191,7 +1191,7 @@ html.tn-themed {
  animation: none;
  pointer-events: none;
 }
-:root:not(#grok) [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.emote'] > * { display: none; }
+:root:not(#grok) [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.emote'] > * { display: none; visibility: hidden; }
 :root:not(#grok) [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.emote']::before,
 :root:not(#grok) [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.emote']::after,
 :root:not(#grok) [data-role='omp.bot.chao.sleep']::after {
