@@ -206,6 +206,9 @@
 	color: var(--yh-ink);
 	background: var(--yh-i12);
 }
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row .kbds {
+	display: none;
+}
 :root:not(#oz):not(#yh):not(#yr) .kbd {
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
