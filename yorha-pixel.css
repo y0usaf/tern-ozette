@@ -1,25 +1,3 @@
-:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::after,
-:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before,
-:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi::before,
-:root:not(#oz):not(#yh):not(#yr) section.tn-pane.on > .tn-body::after,
-:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md,
-:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.you']:last-child .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::after,
-:root:not(#oz):not(#yh):not(#yr) .sf-region.sf-main > :is([data-role='omp.bot.you'], .sf-col[data-role^='omp.editor']),
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'],
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before,
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item,
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::after,
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:active,
-:root:not(#oz):not(#yh):not(#yr) .sf-dock > .sf-col.gap-none:first-child::before,
-:root:not(#oz):not(#yh):not(#yr) .tn-pane.on .sf-col[data-role='omp.editor'] .sf-editor.focused::before,
-:root:not(#oz):not(#yh):not(#yr) #pal,
-:root:not(#oz):not(#yh):not(#yr) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .pp-pop, .sq-pop, .sf-ck-pop, .sf-ov-card, .tn-pq-card, .tn-ib, .tn-find, .pf.sheet, .tn-bn-card),
-:root:not(#oz):not(#yh):not(#yr) :is(.pop, .pop.mi-subpop, .mdl, #dlg, .mdl-layer, .pk-dim),
-:root:not(#oz):not(#yh):not(#yr) :not(.tn-phone) :is(.pf.sheet, .bd-sheet),
-:root:not(#oz):not(#yh):not(#yr) .tv-back,
-:root:not(#oz):not(#yh):not(#yr) .tv-back:active {
-	animation: none;
-}
 :root:not(#oz):not(#yh):not(#yr) *,
 :root:not(#oz):not(#yh):not(#yr) *::before,
 :root:not(#oz):not(#yh):not(#yr) *::after {
