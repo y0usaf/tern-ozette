@@ -16,6 +16,12 @@
 	--tn-pop: var(--grok-chrome);
 	--tv-bg: var(--grok-page);
 	--tv-fg: var(--grok-ink);
+	--ink: var(--grok-ink);
+	--omp-text: var(--grok-ink);
+	--omp-accent: var(--grok-ink);
+	--omp-mdHeading: var(--grok-ink);
+	--accent-ink: var(--grok-ink);
+	--accent-fill: var(--grok-ink);
 	--t1: var(--grok-ink);
 	--t2: var(--grok-ink);
 	--t3: var(--grok-muted);
