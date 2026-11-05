@@ -1,0 +1,9 @@
+/* Ozette · YoRHa parchment: load after yorha.css. Parchment ground, brown-grey ink; dark swaps them. */
+:root:not(#oz):not(#yh):not(#yr):not(#yp) {
+	--yh-ground: light-dark(#cdc8b0, #47453c);
+	--yh-ink: light-dark(#47453c, #d3cdb4);
+	--yh-alert: light-dark(#b8503a, #e0846b);
+	--yh-paper: light-dark(#dcd7c0, #524f45);
+	--yh-grid: light-dark(rgb(from var(--yh-ink) r g b / 6%), rgb(from var(--yh-ink) r g b / 4%));
+	--yh-shade: light-dark(rgb(0 0 0 / 7%), rgb(0 0 0 / 18%));
+}

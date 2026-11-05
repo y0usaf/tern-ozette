@@ -1,23 +1,31 @@
 /* Ozette · YoRHa — design demo (not loaded by plugin.toml).
-   Loaded after ozette.css, motion.css and omp-bot's bot.css. Ozette keeps its structure (rail, solid cards,
-   spacing, offset shadow); this sheet restricts it to two tones, ground and ink, and gives every ornament a job:
-   a square marks a label, a hairline rules a section, an inverted bar means "selected", a ruler measures the rail.
-   Motion is one gesture used everywhere: an ink bar wipes across, then the thing it uncovered stays still. */
+   Loaded after ozette.css, motion.css and omp-bot's bot.css. Ozette keeps its layout (rail, solid cards,
+   spacing, offset shadow); this sheet restricts it to two tones and makes the interface answer every action
+   the way NieR's menus do: an ink bar wipes across what you chose, rules snap closed around it, corner brackets
+   lock onto what has focus, new things scan in line by line, and everything then holds still.
+
+   Two tones, one alert. The default is monochrome: black on white in a light appearance, white on black in a
+   dark one. yorha-parchment.css swaps in the parchment and brown-grey pair. Chao stay the only full colour. */
 :root:not(#oz):not(#yh):not(#yr) {
-	/* the two tones; theme colours enter only as the alert hue */
-	--yh-ground: light-dark(#cdc8b0, #47453c);
-	--yh-ink: light-dark(#47453c, #d3cdb4);
-	--yh-paper: light-dark(#dcd7c0, #524f45);
-	--yh-alert: light-dark(oklch(from var(--bad) 0.6 0.13 h), oklch(from var(--bad) 0.72 0.11 h));
+	--yh-ground: light-dark(#ffffff, #000000);
+	--yh-ink: light-dark(#000000, #ffffff);
+	--yh-alert: light-dark(#d4001f, #ff4255);
+	--yh-paper: color-mix(in srgb, var(--yh-ground) 95%, var(--yh-ink));
+	--yh-grid: light-dark(rgb(from var(--yh-ink) r g b / 5%), rgb(from var(--yh-ink) r g b / 6%));
+	--yh-shade: light-dark(rgb(0 0 0 / 6%), rgb(0 0 0 / 0%));
 	--yh-i70: rgb(from var(--yh-ink) r g b / 72%);
-	--yh-i50: rgb(from var(--yh-ink) r g b / 50%);
-	--yh-i25: rgb(from var(--yh-ink) r g b / 22%);
-	--yh-i12: rgb(from var(--yh-ink) r g b / 11%);
-	--yh-i06: rgb(from var(--yh-ink) r g b / 6%);
+	--yh-i50: rgb(from var(--yh-ink) r g b / 52%);
+	--yh-i25: rgb(from var(--yh-ink) r g b / 24%);
+	--yh-i12: rgb(from var(--yh-ink) r g b / 10%);
+	--yh-i06: rgb(from var(--yh-ink) r g b / 5%);
+	--yh-g70: rgb(from var(--yh-ground) r g b / 72%);
 	--yh-sans: "IBM Plex Sans JP", "IBM Plex Sans", "Noto Sans CJK JP", sans-serif;
 	--yh-label: "Departure Mono", var(--oz-mono);
-	--yh-curve: cubic-bezier(0.15, 0.79, 0, 1);
-	--yh-wipe: 260ms;
+	/* the motion vocabulary: one decisive curve, short stepped reveals, nothing that overshoots */
+	--yh-snap: cubic-bezier(0.15, 0.79, 0, 1);
+	--yh-t: 1;
+	--yh-wipe: calc(240ms * var(--yh-t));
+	--yh-scan: calc(260ms * var(--yh-t));
 
 	/* Ozette's palette collapses onto the two tones */
 	--page: var(--yh-ground) !important;
@@ -25,6 +33,7 @@
 	--card: var(--yh-paper) !important;
 	--raise: var(--yh-paper) !important;
 	--pop-bg: var(--yh-paper) !important;
+	--modal-bg: var(--yh-paper) !important;
 	--ink: var(--yh-ink) !important;
 	--t1: var(--yh-ink) !important;
 	--t2: var(--yh-i70) !important;
@@ -40,6 +49,7 @@
 	--live: var(--yh-ink) !important;
 	--ok: var(--yh-ink) !important;
 	--warn: var(--yh-ink) !important;
+	--bad: var(--yh-alert) !important;
 	--oz-lav: var(--yh-i25) !important;
 	--oz-pink: var(--yh-ink) !important;
 	--oz-mustard: var(--yh-ink) !important;
@@ -52,7 +62,7 @@
 	--oz-dot: var(--yh-i12) !important;
 	--oz-rail-bg: var(--yh-ground) !important;
 	--oz-serif: var(--yh-sans) !important;
-	--oz-code-bg: var(--yh-paper) !important;
+	--oz-code-bg: var(--yh-ground) !important;
 	--oz-code-head: var(--yh-ink) !important;
 	--oz-code-ink: var(--yh-ink) !important;
 	--oz-code-ink-2: var(--yh-i70) !important;
@@ -75,21 +85,23 @@
 	--sans: var(--yh-sans) !important;
 	accent-color: var(--yh-ink);
 	caret-color: var(--yh-ink);
-	color-scheme: light dark;
 
-	/* the ground: a 10px hairline grid, darker toward both edges like a curved screen */
+	/* the ground: a 10px hairline grid, shaded toward both edges like a curved screen */
 	background:
-		linear-gradient(90deg, rgb(0 0 0 / light-dark(7%, 18%)), transparent 22%, transparent 78%, rgb(0 0 0 / light-dark(7%, 18%))),
-		repeating-linear-gradient(0deg, light-dark(var(--yh-i06), rgb(from var(--yh-ink) r g b / 4%)) 0 1px, transparent 1px 10px),
-		repeating-linear-gradient(90deg, light-dark(var(--yh-i06), rgb(from var(--yh-ink) r g b / 4%)) 0 1px, transparent 1px 10px),
+		linear-gradient(90deg, var(--yh-shade), transparent 22%, transparent 78%, var(--yh-shade)),
+		repeating-linear-gradient(0deg, var(--yh-grid) 0 1px, transparent 1px 10px),
+		repeating-linear-gradient(90deg, var(--yh-grid) 0 1px, transparent 1px 10px),
 		var(--yh-ground);
+}
+@media (prefers-reduced-motion: reduce) {
+	:root:not(#oz):not(#yh):not(#yr) { --yh-t: 0; }
 }
 :root:not(#oz):not(#yh):not(#yr) :is(#panel, .tn-stage, .tn-pane, .tn-body, .tv, .sf-chat-reader, .sf-region) {
 	background: transparent;
 }
 
 /* ── rail ───────────────────────────────────────────────────────────── */
-/* the rail's right edge is a ruler: a hairline, a tick every 40px, a pair of dots between ticks */
+/* the rail's right edge is a ruler: a hairline, a tick every 40px, a dot between ticks */
 :root:not(#oz):not(#yh):not(#yr) #tabbar {
 	background:
 		linear-gradient(var(--yh-ink), var(--yh-ink)) right 0 top 0 / 1px 100% no-repeat,
@@ -114,17 +126,22 @@
 	margin-right: 8px;
 	background: var(--yh-ground);
 }
-/* tabs: list rows of the reference's menus — a quiet ink tint, a square, the name */
+/* a tab is a menu row: a quiet tint, the name; hover darkens the tint and draws a rule under it */
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] {
 	position: relative;
 	height: 44px;
 	min-height: 44px;
 	margin: 0 22px 14px 12px;
+	--oz-lime: var(--yh-i12);
 	background: var(--yh-i12) !important;
-	box-shadow: none;
+	box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 -2px 0 -2px var(--yh-ink);
 	overflow: visible;
 	color: var(--yh-ink);
+	transition: box-shadow calc(160ms * var(--yh-t)) steps(4, end);
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt:not(.on):hover {
+	box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 -2px 0 0 var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt .nm,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc] .nm {
@@ -133,25 +150,45 @@
 	color: var(--yh-ink) !important;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt .sub {
-	font: 400 9.5px/1.3 var(--yh-label);
-	letter-spacing: 0.08em;
-	color: var(--yh-i50);
+	font: 400 11.5px/1.3 var(--yh-sans);
+	letter-spacing: 0.01em;
+	text-transform: none;
+	color: var(--yh-i70);
 }
-/* selected: the bar inverts by wiping in from the left, and two rules close above and below it */
+/* the ruler's pointer follows the pointer: an outline on the hovered row, solid on the selected one */
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: -21px;
+	width: 8px;
+	height: 8px;
+	margin-top: -4px;
+	box-shadow: inset 0 0 0 1.5px var(--yh-ink);
+	transform: rotate(45deg) scale(0);
+	pointer-events: none;
+	transition: transform calc(140ms * var(--yh-t)) steps(3, end);
+}
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tt:hover::before {
+	transform: rotate(45deg) scale(1);
+}
+/* selected: the bar inverts by wiping in from the left, the name flickers once, two rules close round it */
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on {
-	background: linear-gradient(90deg, var(--yh-ink) 50%, var(--yh-i12) 50%) 0 0 / 200% 100% !important;
-	animation: yh-wipe var(--yh-wipe) var(--yh-curve) both;
+	box-shadow: inset 400px 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink);
+	animation: yh-tab-wipe var(--yh-wipe) steps(6, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .nm,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .nm {
 	color: var(--yh-ground) !important;
+	animation: yh-flicker calc(200ms * var(--yh-t)) steps(1, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .sub,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt[data-tc].on .sub,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .kbd.tn-num,
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on .tn-tx {
-	color: rgb(from var(--yh-ground) r g b / 72%);
+	color: var(--yh-g70);
+	opacity: 1;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::after {
 	content: "";
@@ -167,35 +204,31 @@
 		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 2px no-repeat;
 	color: transparent;
 	pointer-events: none;
-	animation: yh-rules 340ms var(--yh-curve) both;
+	animation: yh-rules calc(300ms * var(--yh-t)) var(--yh-snap) both;
 }
-/* a pointer on the ruler marks which row is selected */
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before {
-	content: "";
-	position: absolute;
-	top: 50%;
-	right: -21px;
-	width: 8px;
-	height: 8px;
-	margin-top: -4px;
 	background: var(--yh-ink);
-	transform: rotate(45deg);
-	pointer-events: none;
+	box-shadow: none;
+	transform: rotate(45deg) scale(1);
+	animation: yh-pointer calc(200ms * var(--yh-t)) steps(4, end) both, yh-alive 7s steps(1, end) 2s infinite;
 }
 :root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row {
-	font: 400 10.5px/1 var(--yh-label);
+	font: 400 11px/1 var(--yh-label);
 	letter-spacing: 0.12em;
 	color: var(--yh-i70);
+	box-shadow: inset 0 0 0 0 var(--yh-ink);
+	transition: color calc(120ms * var(--yh-t)) steps(2, end);
 }
-:root:not(#oz):not(#yh):not(#yr) #tabbar .kbd,
+:root:not(#oz):not(#yh):not(#yr) #tabbar .tb-row:hover {
+	color: var(--yh-ink);
+	background: var(--yh-i12);
+}
 :root:not(#oz):not(#yh):not(#yr) .kbd {
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 	color: var(--yh-i70);
 	font-family: var(--yh-label);
 }
-
-/* a narrow window keeps the same rail, tighter */
 @media (max-width: 1000px) {
 	:root:not(#oz):not(#yh):not(#yr) #tabbar .tn-session-tab {
 		margin: 12px 9px 14px 2px;
@@ -215,9 +248,66 @@
 	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt:not(:hover) .tn-tx {
 		display: none;
 	}
-	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt.on::before {
+	:root:not(#oz):not(#yh):not(#yr) #tabbar .tt::before {
 		right: -8px;
 	}
+}
+
+/* ── panes ──────────────────────────────────────────────────────────── */
+/* no veil: the focused pane is the one the brackets lock onto; the others keep a hatched standby strip */
+:root:not(#oz):not(#yh):not(#yr) .tn-veil {
+	display: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.multi,
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi {
+	box-shadow: inset 1px 0 0 var(--yh-i25), inset -1px 0 0 var(--yh-i25);
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.multi::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 5px;
+	z-index: 6;
+	background: repeating-linear-gradient(135deg, var(--yh-i50) 0 2px, transparent 2px 7px);
+	pointer-events: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi::before {
+	background: var(--yh-ink);
+	transform-origin: 0 0;
+	animation: yh-rules calc(260ms * var(--yh-t)) var(--yh-snap) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi::after {
+	content: "";
+	position: absolute;
+	inset: 10px;
+	z-index: 6;
+	pointer-events: none;
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 16px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 2px 16px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right top / 16px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right top / 2px 16px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 16px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 2px 16px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 16px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 2px 16px no-repeat;
+	animation: yh-lock calc(300ms * var(--yh-t)) steps(5, end) both;
+}
+/* a pane that takes focus (or a tab that opens) gets one scanline swept down it, then nothing */
+:root:not(#oz):not(#yh):not(#yr) section.tn-pane.on > .tn-body::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 2px;
+	z-index: 7;
+	background: var(--yh-ink);
+	opacity: 0;
+	pointer-events: none;
+	animation: yh-sweep calc(340ms * var(--yh-t)) steps(12, end);
 }
 
 /* ── chat ───────────────────────────────────────────────────────────── */
@@ -225,11 +315,10 @@
 	font: 400 15.5px/1.6 var(--yh-sans);
 	color: var(--yh-ink);
 }
-/* arrivals are this sheet's wipes, not the stock rise */
 :root:not(#oz):not(#yh):not(#yr) .sf-region.sf-main > :is([data-role='omp.bot.reply'], [data-role='omp.bot.you']) {
 	animation: none;
 }
-/* a reply is a window: paper body, an ink title rule, the offset shadow in ink */
+/* a reply is a window: its title bar draws across first, then the body scans in line by line */
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant'] {
 	position: relative;
 	overflow: visible;
@@ -237,7 +326,7 @@
 	padding: 20px 18px 14px;
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
-	animation: yh-uncover 420ms var(--yh-curve) both;
+	animation: yh-scan-in var(--yh-scan) steps(8, end) calc(110ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before {
 	content: "";
@@ -251,16 +340,29 @@
 	background-position: calc(100% - 8px) 2px, calc(100% - 16px) 2px;
 	background-size: 4px 2px;
 	background-repeat: no-repeat;
+	transform-origin: 0 0;
 	pointer-events: none;
+	animation: yh-rules calc(160ms * var(--yh-t)) var(--yh-snap) both;
 }
-/* your words are the selected line: inverted, flush right, a square where the speaker's mark would be */
+/* the newest reply, while nothing follows it, ends in a block cursor: the stream is still being written */
+:root:not(#oz):not(#yh):not(#yr) .sf-main > [data-role='omp.bot.reply']:last-child > [data-role^='omp.assistant'] .md > :last-child::after {
+	content: "";
+	display: inline-block;
+	width: 0.5em;
+	height: 1em;
+	margin-left: 3px;
+	vertical-align: -0.12em;
+	background: var(--yh-ink);
+	animation: yh-blink calc(700ms * var(--yh-t)) steps(1, end) infinite;
+}
+/* your words are the selected line: inverted, flush right, wiped in from the right in hard steps */
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
 	position: relative;
 	padding: 9px 14px 10px 30px;
 	background: var(--yh-ink);
 	color: var(--yh-ground);
 	box-shadow: none;
-	animation: yh-wipe-in 300ms var(--yh-curve) both;
+	animation: yh-wipe-in calc(220ms * var(--yh-t)) steps(6, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
 	content: "";
@@ -270,6 +372,7 @@
 	width: 7px;
 	height: 7px;
 	background: var(--yh-ground);
+	animation: yh-flicker calc(260ms * var(--yh-t)) steps(1, end) calc(200ms * var(--yh-t)) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body,
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body .md {
@@ -278,7 +381,6 @@
 	color: var(--yh-ground);
 	font: 400 15.5px/1.5 var(--yh-sans);
 }
-/* headings are section labels: a square, the words, a hairline running to the edge */
 :root:not(#oz):not(#yh):not(#yr) .md :is(h1, h2, h3) {
 	align-self: stretch;
 	width: auto;
@@ -307,7 +409,6 @@
 	background: var(--yh-ink);
 	box-shadow: none;
 }
-/* code is a small window inside the reply: an ink bar for its label, a hairline frame */
 :root:not(#oz):not(#yh):not(#yr) .md .code {
 	background: var(--yh-ground);
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
@@ -317,26 +418,26 @@
 	color: var(--yh-ground);
 	--t1: var(--yh-ground);
 	--t2: var(--yh-ground);
-	--t3: rgb(from var(--yh-ground) r g b / 75%);
-	font: 400 10.5px/1.4 var(--yh-label);
+	--t3: var(--yh-g70);
+	font: 400 11px/1.4 var(--yh-label);
 	letter-spacing: 0.14em;
 }
 :root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn) {
-	color: rgb(from var(--yh-ground) r g b / 80%);
+	color: var(--yh-g70);
 	font-family: var(--yh-label);
+	background: linear-gradient(90deg, var(--yh-ground) 50%, transparent 50%) 100% 0 / 200% 100%;
+	transition: background-position calc(180ms * var(--yh-t)) var(--yh-snap), color calc(120ms * var(--yh-t)) steps(1, end);
+}
+:root:not(#oz):not(#yh):not(#yr) .md .code-head :is(button, .btn):hover {
+	background-position: 0 0;
+	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.time'] {
-	font: 400 10.5px/1 var(--yh-label);
+	font: 400 11px/1 var(--yh-label);
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
 	color: var(--yh-i50);
 }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say'] {
-	font: 400 12px/1.4 var(--yh-label);
-	letter-spacing: 0.06em;
-	color: var(--yh-i70);
-}
-/* the bot's header is a section label: name in spaced capitals, role as a structural label, ruled below */
 :root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] {
 	box-shadow: 0 1px 0 var(--yh-i25);
 }
@@ -347,14 +448,14 @@
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role^='omp.bot.top.'] [data-role='omp.bot.role'] {
-	font: 400 10.5px/1.2 var(--yh-label);
+	font: 400 11px/1.2 var(--yh-label);
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
 	opacity: 1;
 	color: var(--yh-i50);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.event.row'] {
-	font: 400 10.5px/1.2 var(--yh-label);
+	font: 400 11px/1.2 var(--yh-label);
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	color: var(--yh-i50);
@@ -363,7 +464,17 @@
 	font: inherit;
 	color: var(--yh-ink);
 }
-/* the status line ends in a block cursor that blinks a few times, then holds */
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.hello'] {
+	font: 500 18px/1.3 var(--yh-sans);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say'] {
+	font: 400 12px/1.4 var(--yh-label);
+	letter-spacing: 0.06em;
+	color: var(--yh-i70);
+}
+/* the status line ends in a block cursor that blinks a few times when it appears, then holds */
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.bot.say']::after {
 	content: "";
 	display: inline-block;
@@ -372,16 +483,22 @@
 	margin-left: 6px;
 	vertical-align: -2px;
 	background: var(--yh-ink);
-	animation: yh-blink 1060ms steps(1, end) 5;
+	animation: yh-blink calc(1000ms * var(--yh-t)) steps(1, end) 4;
 }
 
 /* ── question ───────────────────────────────────────────────────────── */
+/* it arrives as a window: the QUERY bar draws, the body scans down, the options snap in one by one;
+   answering or dismissing collapses it to a line and out */
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] {
+	--sf-exit: calc(240ms * var(--yh-t));
 	position: relative;
 	padding: 34px 18px 16px;
 	background: var(--yh-paper);
 	box-shadow: 6px 6px 0 var(--yh-i25);
-	animation: yh-uncover 420ms var(--yh-curve) both;
+	animation: yh-scan-in calc(300ms * var(--yh-t)) steps(8, end) calc(120ms * var(--yh-t)) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'].sf-ghost {
+	animation: yh-collapse calc(240ms * var(--yh-t)) steps(6, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask']::before {
 	content: "QUERY";
@@ -397,9 +514,11 @@
 	background-size: 7px 7px;
 	background-repeat: no-repeat;
 	color: var(--yh-ground);
-	font: 400 10.5px/20px var(--yh-label);
+	font: 400 11px/20px var(--yh-label);
 	letter-spacing: 0.18em;
+	transform-origin: 0 0;
 	pointer-events: none;
+	animation: yh-rules calc(180ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.question'] {
 	font: 500 17px/1.35 var(--yh-sans);
@@ -408,19 +527,28 @@
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item {
 	position: relative;
 	margin: 0 0 12px;
-	background: var(--yh-i12);
-	box-shadow: none;
+	background: linear-gradient(90deg, var(--yh-ink) 50%, var(--yh-i12) 50%) 100% 0 / 200% 100%;
+	box-shadow: inset 0 0 0 0 var(--yh-ink);
 	color: var(--yh-ink);
 	overflow: visible;
+	animation: yh-wipe-l calc(200ms * var(--yh-t)) steps(5, end) both;
+	transition: box-shadow calc(140ms * var(--yh-t)) var(--yh-snap);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(1) { animation-delay: calc(300ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(2) { animation-delay: calc(350ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(3) { animation-delay: calc(400ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(4) { animation-delay: calc(450ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:nth-child(n+5) { animation-delay: calc(500ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item:not(.sel):hover {
+	box-shadow: inset 0 0 0 1px var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item .sf-item-label {
 	font: 500 15px/1.3 var(--yh-sans);
 	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item .sf-item-detail {
-	font: 400 10.5px/1.4 var(--yh-label);
-	letter-spacing: 0.06em;
-	color: var(--yh-i50);
+	font: 400 13px/1.4 var(--yh-sans);
+	color: var(--yh-i70);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item::before {
 	border-radius: 0;
@@ -429,9 +557,23 @@
 	font: 400 11px/1 var(--yh-label);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel {
-	background: linear-gradient(90deg, var(--yh-ink) 50%, var(--yh-i12) 50%) 0 0 / 200% 100%;
-	animation: yh-wipe var(--yh-wipe) var(--yh-curve) both;
+	border: 0;
+	outline: 0;
+	background-position: 0 0;
 	box-shadow: none;
+	animation: yh-wipe var(--yh-wipe) steps(6, end) both;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel :is(.sf-item-label, .sf-item-detail) {
+	color: var(--yh-ground);
+	animation: yh-flicker calc(200ms * var(--yh-t)) steps(1, end) both;
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel .sf-item-detail {
+	color: var(--yh-g70);
+}
+:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::before {
+	background: var(--yh-ground);
+	box-shadow: none;
+	color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::after {
 	content: "";
@@ -446,40 +588,41 @@
 	background-size: 100% 2px;
 	background-repeat: no-repeat;
 	pointer-events: none;
-	animation: yh-rules 340ms var(--yh-curve) both;
+	animation: yh-rules calc(300ms * var(--yh-t)) var(--yh-snap) both;
 }
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel :is(.sf-item-label, .sf-item-detail) {
-	color: var(--yh-ground);
-}
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel::before {
-	background: var(--yh-ground);
-	box-shadow: none;
-	color: var(--yh-ink);
-}
+/* buttons invert under the pointer with the same wipe; the primary one is already inverted */
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-act,
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] button {
 	font-family: var(--yh-label);
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 }
-
-:root:not(#oz):not(#yh):not(#yr) [data-role='omp.ask.options'] .sf-item.sel {
-	border: 0;
-	outline: 0;
-}
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act {
-	background: none;
+	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 	color: var(--yh-ink);
+	transition: background-position calc(200ms * var(--yh-t)) var(--yh-snap), color calc(100ms * var(--yh-t)) steps(1, end);
 }
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:last-child,
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act[data-tone='accent'] {
-	background: var(--yh-ink);
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:hover {
+	background-position: 0 0;
+	color: var(--yh-ground);
+	--t1: var(--yh-ground);
+	--t2: var(--yh-ground);
+	--t3: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:last-child {
+	background-position: 0 0;
 	box-shadow: none;
 	color: var(--yh-ground);
 	--t1: var(--yh-ground);
 	--t2: var(--yh-ground);
 	--t3: var(--yh-ground);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:last-child:hover {
+	box-shadow: 0 0 0 3px var(--yh-ground), 0 0 0 5px var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:active {
+	animation: yh-flicker calc(160ms * var(--yh-t)) steps(1, end);
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor.ask'] .sf-act:first-child {
 	box-shadow: none;
@@ -490,35 +633,117 @@
 	background: var(--yh-paper);
 	box-shadow: 0 0 0 1px var(--yh-i25), 6px 6px 0 var(--yh-i25);
 }
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] textarea,
-:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-text {
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] :is(textarea, .sf-text, .sf-ed-text) {
 	font-family: var(--yh-sans);
+}
+/* focus: brackets lock onto the composer's corners; text in it draws a rule under the line */
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor {
+	position: relative;
+	overflow: visible;
+}
+:root:not(#oz):not(#yh):not(#yr) .tn-pane.on .sf-col[data-role='omp.editor'] .sf-editor.focused::before {
+	content: "";
+	position: absolute;
+	top: -18px;
+	left: -22px;
+	right: -16px;
+	bottom: -56px;
+	pointer-events: none;
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 12px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 2px 12px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right top / 12px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right top / 2px 12px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 12px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 2px 12px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 12px 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) right bottom / 2px 12px no-repeat;
+	animation: yh-lock calc(260ms * var(--yh-t)) steps(5, end) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -4px;
+	height: 1px;
+	background: var(--yh-ink);
+	transform: scaleX(0);
+	transform-origin: 0 0;
+	pointer-events: none;
+	transition: transform calc(220ms * var(--yh-t)) var(--yh-snap);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-editor:not(.empty)::after {
+	transform: scaleX(1);
+}
+:root:not(#oz):not(#yh):not(#yr) .sf-col[data-role='omp.editor'] .sf-ed-ph {
+	font-family: var(--yh-sans);
+	color: var(--yh-i50);
+}
+/* the caret is a block: solid while you type, a few blinks once you stop, then steady */
+:root:not(#oz):not(#yh):not(#yr) .tv .tv-dock .sf-editor .sf-caret {
+	width: 0.55em !important;
+	margin-right: -0.55em !important;
+	background: var(--yh-ink) !important;
+	opacity: 1 !important;
+	border-radius: 0 !important;
+	animation: none !important;
+}
+:root:not(#oz):not(#yh):not(#yr) .tv.caret-idle .tv-dock .sf-editor.focused .sf-caret {
+	animation: yh-blink calc(1000ms * var(--yh-t)) steps(1, end) 3 !important;
+}
+:root:not(#oz):not(#yh):not(#yr) .tv .tv-dock .sf-editor:not(.focused) .sf-caret {
+	opacity: 0 !important;
+}
+:root:not(#oz):not(#yh):not(#yr) :is(textarea, input) {
+	caret-color: var(--yh-ink);
 }
 :root:not(#oz):not(#yh):not(#yr) [data-role='omp.composer.model'],
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] {
 	background: var(--yh-ink);
-	font: 400 10.5px/1.4 var(--yh-label);
+	font: 400 11px/1.4 var(--yh-label);
 	letter-spacing: 0.12em;
 }
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'],
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] [data-role='omp.composer.model'] * {
 	color: var(--yh-ground) !important;
 }
-
-:root:not(#oz):not(#yh):not(#yr) :is(textarea, input) {
-	caret-color: var(--yh-ink);
-}
 :root:not(#oz):not(#yh):not(#yr) .sf-col[data-role^='omp.editor'] .sf-effort {
-	filter: grayscale(1) brightness(1.6);
+	filter: grayscale(1) contrast(3);
 }
 
 /* ── menus, palette, popovers ───────────────────────────────────────── */
+/* the palette dims the screen with scanlines rather than a wash, and scans in from the top in steps */
+:root:not(#oz):not(#yh):not(#yr) #pal {
+	background: repeating-linear-gradient(0deg, rgb(from var(--yh-ink) r g b / 9%) 0 1px, transparent 1px 3px);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	animation: none;
+}
 :root:not(#oz):not(#yh):not(#yr) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .pp-pop, .sq-pop, .sf-ck-pop, .sf-ov-card, .tn-pq-card, .sf-toast, .toast, .tn-ib, .tn-find, .pf.sheet, .tn-bn-card) {
 	background: var(--yh-paper);
-	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-i50), 6px 6px 0 var(--yh-i25);
+	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-ink), 8px 8px 0 var(--yh-i25);
 	color: var(--yh-ink);
-	animation: yh-uncover 320ms var(--yh-curve) both;
+	animation: yh-scan-in calc(240ms * var(--yh-t)) steps(8, end) both;
 }
+:root:not(#oz):not(#yh):not(#yr) .ck-item {
+	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 100% 0 / 200% 100%;
+	box-shadow: inset 0 0 0 0 var(--yh-ink);
+	transition: box-shadow calc(120ms * var(--yh-t)) var(--yh-snap);
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-item:not([aria-selected='true']):hover {
+	box-shadow: inset 4px 0 0 var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(-n+8) {
+	animation: yh-wipe-l calc(160ms * var(--yh-t)) steps(4, end) both;
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(2) { animation-delay: calc(140ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(3) { animation-delay: calc(170ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(4) { animation-delay: calc(200ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(5) { animation-delay: calc(230ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(6) { animation-delay: calc(260ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(7) { animation-delay: calc(290ms * var(--yh-t)); }
+:root:not(#oz):not(#yh):not(#yr) .ck-list > .ck-item:nth-child(8) { animation-delay: calc(320ms * var(--yh-t)); }
 :root:not(#oz):not(#yh):not(#yr) .pk-selbar,
 :root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'],
 :root:not(#oz):not(#yh):not(#yr) .tn-thm-row[aria-selected='true'],
@@ -527,23 +752,21 @@
 :root:not(#oz):not(#yh):not(#yr) .sf-prefs .pf-row.focus,
 :root:not(#oz):not(#yh):not(#yr) .tn-ib-row[aria-selected='true'] {
 	background: linear-gradient(90deg, var(--yh-ink) 50%, transparent 50%) 0 0 / 200% 100%;
+	border: 0;
+	box-shadow: none;
 	color: var(--yh-ground);
 	--t1: var(--yh-ground);
 	--t2: var(--yh-ground);
-	--t3: rgb(from var(--yh-ground) r g b / 70%);
-	animation: yh-wipe 220ms var(--yh-curve) both;
-}
-:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'] {
-	border: 0;
-	box-shadow: none;
-}
-:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'] :is(.ck-ic, .ck-icon, svg) {
-	background: none;
-	box-shadow: none;
-	color: var(--yh-ground);
+	--t3: var(--yh-g70);
+	animation: yh-wipe calc(200ms * var(--yh-t)) steps(5, end) both;
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true']::before {
 	display: none;
+}
+:root:not(#oz):not(#yh):not(#yr) .ck-item[aria-selected='true'] :is(.ck-ic, svg) {
+	background: none;
+	box-shadow: none;
+	color: var(--yh-ground);
 }
 :root:not(#oz):not(#yh):not(#yr) .ck-group::before {
 	content: "";
@@ -558,24 +781,61 @@
 	font-family: var(--yh-label);
 	font-weight: 400;
 	letter-spacing: 0.16em;
+	color: var(--yh-i70);
 }
 :root:not(#oz):not(#yh):not(#yr) :is(.pk-btn.primary, .btn.accent, .toast-act) {
 	background: var(--yh-ink);
 	color: var(--yh-ground);
 }
 
-/* ── panes ──────────────────────────────────────────────────────────── */
-:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.multi {
-	box-shadow: inset 0 0 0 1px var(--yh-i12);
+/* ── scrolling ──────────────────────────────────────────────────────── */
+/* the scroll thumb is a thin ink bar */
+:root:not(#oz):not(#yh):not(#yr) .tv-bar .tv-thumb {
+	border-radius: 0 !important;
+	background: var(--yh-ink) !important;
+	width: 3px !important;
+	margin-left: 6px;
 }
-:root:not(#oz):not(#yh):not(#yr) .tn-stage section.tn-pane.on.multi {
-	box-shadow: inset 0 3px 0 var(--yh-ink), inset 0 0 0 1px var(--yh-i25);
+/* scrolled back: the jump-to-latest control is an inverted label that wipes in and names what's below */
+:root:not(#oz):not(#yh):not(#yr) .tv-back {
+	height: 26px;
+	padding: 0 10px 0 8px;
+	border-radius: 0;
+	background: var(--yh-ink);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	box-shadow: 4px 4px 0 var(--yh-i25);
+	color: var(--yh-ground);
+	opacity: 1;
+	font: 400 11px/1 var(--yh-label);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	animation: yh-wipe-l calc(200ms * var(--yh-t)) steps(5, end) both;
+	transition: box-shadow calc(120ms * var(--yh-t)) steps(2, end);
 }
-:root:not(#oz):not(#yh):not(#yr) .tn-veil {
-	background: var(--yh-ground);
+:root:not(#oz):not(#yh):not(#yr) .tv-back .lbl {
+	max-width: 200px;
+	padding: 0 2px 0 6px;
+	opacity: 1;
+}
+:root:not(#oz):not(#yh):not(#yr) .tv-back:hover {
+	color: var(--yh-ground);
+	box-shadow: 4px 4px 0 var(--yh-ink);
+}
+:root:not(#oz):not(#yh):not(#yr) .tv-back:active {
+	transform: none;
+	animation: yh-flicker calc(160ms * var(--yh-t)) steps(1, end);
 }
 
-/* ── motion: one ink wipe, then rest ────────────────────────────────── */
+/* ── restored views never replay their arrivals ─────────────────────── */
+:root:not(#oz):not(#yh):not(#yr) .sf-still :is([data-role='omp.bot.reply'] > [data-role^='omp.assistant'], [data-role='omp.bot.you'] .sf-md, .sf-col[data-role='omp.editor.ask'], [data-role='omp.ask.options'] .sf-item),
+:root:not(#oz):not(#yh):not(#yr) .sf-still [data-role='omp.bot.reply'] > [data-role^='omp.assistant']::before,
+:root:not(#oz):not(#yh):not(#yr) .sf-still [data-role='omp.bot.you'] .sf-md::before,
+:root:not(#oz):not(#yh):not(#yr) .sf-still .sf-col[data-role='omp.editor.ask']::before {
+	animation: none !important;
+}
+
+/* ── keyframes: wipe, rule, lock, scan, sweep, collapse, flicker, blink ── */
 @keyframes yh-wipe {
 	from { background-position: 100% 0; }
 	to { background-position: 0 0; }
@@ -584,18 +844,66 @@
 	from { clip-path: inset(0 0 0 100%); }
 	to { clip-path: inset(0 0 0 0); }
 }
-@keyframes yh-rules {
-	from { transform: scaleX(0); opacity: 0; }
-	to { transform: scaleX(1); opacity: 1; }
+@keyframes yh-tab-wipe {
+	from { box-shadow: inset 0 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink); }
+	to { box-shadow: inset 400px 0 0 0 var(--yh-ink), inset 0 0 0 0 var(--yh-ink); }
 }
-@keyframes yh-uncover {
+@keyframes yh-wipe-l {
 	from { clip-path: inset(0 100% 0 0); }
 	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-rules {
+	from { transform: scaleX(0); }
+	to { transform: scaleX(1); }
+}
+@keyframes yh-lock {
+	0% { transform: scale(1.06); opacity: 0; }
+	40% { opacity: 1; }
+	60% { opacity: 0.3; }
+	100% { transform: scale(1); opacity: 1; }
+}
+@keyframes yh-scan-in {
+	from { clip-path: inset(0 0 100% 0); }
+	to { clip-path: inset(0 0 0 0); }
+}
+@keyframes yh-collapse {
+	0% { clip-path: inset(0 0 0 0); opacity: 1; }
+	60% { clip-path: inset(calc(50% - 1px) 0 calc(50% - 1px) 0); opacity: 1; }
+	100% { clip-path: inset(calc(50% - 1px) 50% calc(50% - 1px) 50%); opacity: 0; }
+}
+@keyframes yh-sweep {
+	0% { opacity: 1; transform: translateY(0); }
+	99% { opacity: 1; transform: translateY(calc(100vh - 2px)); }
+	100% { opacity: 0; transform: translateY(calc(100vh - 2px)); }
+}
+@keyframes yh-flicker {
+	0% { opacity: 0; }
+	25% { opacity: 1; }
+	50% { opacity: 0.25; }
+	75% { opacity: 1; }
+}
+@keyframes yh-pointer {
+	0% { transform: rotate(45deg) scale(0.4); }
+	50% { transform: rotate(45deg) scale(1.5); }
+	100% { transform: rotate(45deg) scale(1); }
 }
 @keyframes yh-blink {
 	0% { opacity: 1; }
 	50% { opacity: 0; }
 }
+/* the one idle sign of life: the selected tab's pointer drops out for a frame every seven seconds */
+@keyframes yh-alive {
+	0% { opacity: 1; }
+	97% { opacity: 0.15; }
+	98.5% { opacity: 1; }
+}
 @media (prefers-reduced-motion: reduce) {
-	:root:not(#oz):not(#yh):not(#yr) * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+	:root:not(#oz):not(#yh):not(#yr) *,
+	:root:not(#oz):not(#yh):not(#yr) *::before,
+	:root:not(#oz):not(#yh):not(#yr) *::after {
+		animation-duration: 1ms !important;
+		animation-delay: 0ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0ms !important;
+	}
 }
