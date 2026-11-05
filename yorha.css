@@ -9,6 +9,9 @@
 	--yh-i12: rgb(from var(--yh-ink) r g b / 10%);
 	--yh-i06: rgb(from var(--yh-ink) r g b / 5%);
 	--yh-g70: rgb(from var(--yh-ground) r g b / 72%);
+	--yh-g50: rgb(from var(--yh-ground) r g b / 52%);
+	--yh-g25: rgb(from var(--yh-ground) r g b / 24%);
+	--yh-g12: rgb(from var(--yh-ground) r g b / 10%);
 	--yh-tint: light-dark(rgb(from var(--yh-ink) r g b / 4%), rgb(255 255 255 / 4%));
 	--yh-label: "Departure Mono", monospace;
 	--yh-snap: cubic-bezier(0.15, 0.79, 0, 1);
@@ -33,6 +36,8 @@
 	--accent: var(--yh-ink) !important;
 	--accent-ink: var(--yh-ink) !important;
 	--accent-fill: var(--yh-ink) !important;
+	--grad: var(--yh-ink) !important;
+	--grad-ink: var(--yh-ground) !important;
 	--live: var(--yh-ink) !important;
 	--ok: var(--yh-ink) !important;
 	--warn: var(--yh-ink) !important;
@@ -678,16 +683,28 @@
 	margin-top: 0;
 }
 :root:not(#yh) .md strong {
-	margin: 0 0.15em;
-	padding: 0 0.2em;
-	background: var(--yh-i12);
 	color: var(--yh-ink);
+	text-decoration-line: underline;
+	text-decoration-color: var(--yh-i50);
+}
+:root:not(#yh):not(#yb) .sf-region .md a {
+	color: var(--yh-ink);
+	box-shadow: none;
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+	text-decoration-color: var(--yh-ink);
+}
+:root:not(#yh):not(#yb) .sf-region .md a:hover {
+	background: var(--yh-ink);
+	color: var(--yh-ground);
 }
 :root:not(#yh) .md :not(pre) > code {
-	background: none;
-	box-shadow: inset 0 0 0 1px var(--yh-i25);
+	padding: 0 0.3em;
+	border-radius: 0;
+	background: var(--yh-i12);
+	box-shadow: none;
 	color: var(--yh-ink);
-	font-size: inherit;
+	font: inherit;
 }
 :root:not(#yh) .md :is(ul, ol) {
 	list-style: none;
@@ -709,16 +726,13 @@
 }
 :root:not(#yh) .md ol > li::before {
 	position: absolute;
-	left: -30px;
-	top: 0.4em;
-	min-width: 1.7em;
-	height: 1.7em;
-	padding: 0 0.25em;
-	background: var(--yh-i25);
-	color: var(--yh-ink);
-	font-size: 0.62em;
-	line-height: 1.7em;
-	text-align: center;
+	left: -28px;
+	top: 0;
+	width: 20px;
+	background: none;
+	color: var(--yh-i50);
+	font: inherit;
+	text-align: right;
 	box-shadow: none;
 }
 :root:not(#yh) .md ul.tasks > li::before {
@@ -864,24 +878,38 @@
 :root:not(#yh) .sf-region .sf-tool.st-error .sf-tool-ic {
 	color: var(--bad);
 }
-:root:not(#yh) .sf-chat-reader > [data-role^='omp.assistant'],
-:root:not(#yh) .sf-chat-reader > [data-role='omp.chat.msg'] > [data-role^='omp.assistant'] {
-	margin-bottom: 14px;
-	padding: 14px 18px 16px;
-	background: var(--card);
-	box-shadow: 0 0 0 1px var(--yh-i25);
-}
 :root:not(#yh) .sf-card[data-role^='omp.user'] > .sf-card-body {
-	--tv-fg: var(--yh-ink);
-	--t1: var(--yh-ink);
-	--t3: rgb(from var(--yh-ink) r g b / 60%);
-	background: var(--yh-ink);
-	color: var(--yh-ink);
-	font: 400 17px/1.4 var(--yh-label);
+	font: 400 16.5px/24px var(--yh-label);
 	box-shadow: none;
 }
-:root:not(#yh) .sf-card[data-role^='omp.user'] > .sf-card-body .md {
-	color: var(--yh-ink);
+:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body,
+:root:not(#yh):not(#yb) .sf-chat-reader [data-role='omp.chat.msg'] > .sf-card[data-role^='omp.user'] > .sf-card-body {
+	--yh-ink: var(--yh-ground);
+	--yh-i70: var(--yh-g70);
+	--yh-i50: var(--yh-g50);
+	--yh-i25: var(--yh-g25);
+	--yh-i12: var(--yh-g12);
+	--t1: var(--yh-ground);
+	--t2: var(--yh-g70);
+	--t3: var(--yh-g50);
+	--tv-fg: var(--yh-ground);
+	--accent: var(--yh-ground);
+	--accent-ink: var(--yh-ground);
+	position: relative;
+	padding: 12px 16px 12px 31px;
+	background: var(--ink);
+	box-shadow: none;
+	color: var(--yh-ground);
+}
+:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body::before,
+:root:not(#yh):not(#yb) .sf-chat-reader [data-role='omp.chat.msg'] > .sf-card[data-role^='omp.user'] > .sf-card-body::before {
+	content: "";
+	position: absolute;
+	left: 13px;
+	top: 20px;
+	width: 7px;
+	height: 7px;
+	background: var(--yh-ground);
 }
 :root:not(#yh) :is([data-role='omp.user.images'], [data-role^='omp.assistant'], .sf-tool-body) .sf-image {
 	overflow: hidden;
@@ -1200,14 +1228,12 @@
 :root:not(#yh) .ck-item:not([aria-selected='true']):hover {
 	box-shadow: inset 4px 0 0 var(--yh-ink);
 }
-:root:not(#yh) .pk-scope.nav-row.on,
-:root:not(#yh) .pk-tabs .pk-tab.on {
-	background-color: var(--yh-ink);
-	background-image: none;
-	box-shadow: none;
-	color: var(--t1);
-}
 :root:not(#yh) .pk-selbar,
+:root:not(#yh) .pk-scope.nav-row.on,
+:root:not(#yh) .pk-tabs .pk-tab.on,
+:root:not(#yh) .pf-items .nav-row.on,
+:root:not(#yh) .pf-seg button.on,
+:root:not(#yh) .ft-row.cur,
 :root:not(#yh) .ck-item[aria-selected='true'],
 :root:not(#yh) .tn-thm-row[aria-selected='true'],
 :root:not(#yh) .sf-ov-card .sf-item.sel,
@@ -1222,6 +1248,7 @@
 	--t1: var(--yh-ground);
 	--t2: var(--yh-ground);
 	--t3: var(--yh-g70);
+	--accent: var(--yh-ground);
 	--accent-ink: var(--yh-ground);
 	transition: none;
 }
@@ -1336,10 +1363,6 @@
 	background: var(--card);
 	box-shadow: inset 0 0 0 1px var(--yh-i25);
 }
-:root:not(#yh) .pf-items .nav-row.on {
-	background: var(--yh-ink);
-	color: var(--t1);
-}
 :root:not(#yh) .ft {
 	background: var(--panel);
 	box-shadow: inset -1px 0 0 var(--yh-i25);
@@ -1350,10 +1373,6 @@
 	font: 400 11px/1.4 var(--yh-label);
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-}
-:root:not(#yh) .ft-row.cur {
-	background: var(--yh-ink);
-	color: var(--t1);
 }
 :root:not(#yh) .ed-bar {
 	background: var(--panel);
@@ -1382,8 +1401,7 @@
 :root:not(#yh) :is(.seg, .pf-seg) {
 	background: var(--yh-tint);
 }
-:root:not(#yh) .seg .mthumb,
-:root:not(#yh) .pf-seg button.on {
+:root:not(#yh) .seg .mthumb {
 	background: var(--card);
 	box-shadow: 0 0 0 1px var(--yh-i25);
 }

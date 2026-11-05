@@ -1,0 +1,6 @@
+:root:not(#yh):not(#yb) [data-role='omp.bot.reply'] > [data-role^='omp.assistant'],
+:root:not(#yh):not(#yb) [data-role='omp.bot.xmsg'] {
+	padding: 16px 18px 14px;
+	background: var(--yh-paper);
+	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-i25);
+}

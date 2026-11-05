@@ -1,0 +1,6 @@
+:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > [data-role='omp.assistant'] > .sf-md,
+:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > [data-role='omp.chat.msg'] > [data-role='omp.assistant'] > .sf-md {
+	padding: 16px 18px 14px;
+	background: var(--yh-paper);
+	box-shadow: inset 0 3px 0 var(--yh-ink), 0 0 0 1px var(--yh-i25);
+}

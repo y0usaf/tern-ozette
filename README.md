@@ -2,7 +2,7 @@
 
 Ozette's structure, type, shapes, rails and motion as a Tern plugin. It sits over whatever theme is selected and reads only the theme's variables, so colour always comes from the theme.
 
-The UI Menu loads `ozette-answer-bubbles.css` only with Ozette and answer bubbles enabled, and `ozette-bot-you.css` only with Ozette and your message bubbles enabled. These optional sheets keep message containers out of the base look; turning bubbles off leaves the typography, code, images and lists intact.
+The UI Menu loads `ozette-answer-bubbles.css` only with Ozette and answer bubbles enabled, and `ozette-bot-you.css` only with Ozette and your message bubbles enabled. These optional sheets keep message containers out of the base look; turning bubbles off leaves the typography, code, images and lists intact. YoRHa follows the same rule: `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css` and `yorha-bot-you.css` load only with YoRHa and answer bubbles, bot answer bubbles or your message bubbles enabled.
 
 ## Design note: declared backgrounds stay real
 

@@ -1,0 +1,27 @@
+:root:not(#yh):not(#yb) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	--yh-ink: var(--yh-ground);
+	--yh-i70: var(--yh-g70);
+	--yh-i50: var(--yh-g50);
+	--yh-i25: var(--yh-g25);
+	--yh-i12: var(--yh-g12);
+	--t1: var(--yh-ground);
+	--t2: var(--yh-g70);
+	--t3: var(--yh-g50);
+	--tv-fg: var(--yh-ground);
+	--accent: var(--yh-ground);
+	--accent-ink: var(--yh-ground);
+	position: relative;
+	padding: 12px 16px 12px 31px;
+	background: var(--ink);
+	box-shadow: none;
+	color: var(--yh-ground);
+}
+:root:not(#yh):not(#yb) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+	content: "";
+	position: absolute;
+	left: 13px;
+	top: 20px;
+	width: 7px;
+	height: 7px;
+	background: var(--yh-ground);
+}
