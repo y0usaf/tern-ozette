@@ -11,12 +11,13 @@
 }
 /* Hardcoded chrome bypasses the stock radius tokens. Circles and joined
    corners retain their geometry; sent/answer bubbles belong to their toggles. */
-:root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .pk-sheet, .sf-ov-card,
+:root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .sf-picker:not(.sz-screen) .pk-sheet,
+	.sf-overlay:not(.at-side, .sz-screen) > .sf-ov-card,
 	.sf-hovercard, .sf-date-pop, .sf-menu-pop, .sf-nav-pop, .pf-rows) {
 	border-radius: var(--r-panel);
 }
-:root:not(#mini) :is(.btn, .sel-btn, .fld, .ck-item, .tt, .tb-pill, .toast,
-	.side-card, .sf-input, .sf-button, .sf-item, .pk-row, .pk-selbar,
+:root:not(#mini) :is(.btn, .sel-btn, .fld, .ck-item, .tb-pill, .toast,
+	.side-card, .sf-item, .pk-row, .pk-selbar,
 	.pk-confirm, .pk-err, .pf-in, .pf-area, .pf-item, .pf-oi) {
 	border-radius: var(--r-ctl);
 }
@@ -24,7 +25,7 @@
 	.sf-tool-body > .sf-code, .sf-tool-body > .sf-diff, .sf-tool-body > .sf-ansi) {
 	border-radius: var(--r-card);
 }
-:root:not(#mini) .sf-col[data-role^='omp.editor'] {
+:root:not(#mini) .sf-col[data-role^='omp.editor']:not(.sf-chat-spine *) {
 	border-radius: var(--r-panel);
 	animation: none;
 }
@@ -54,8 +55,9 @@
 /* One flat boundary replaces depth stacks. Focus, selected/error outlines,
    mode rails, and inset separators are deliberately not globally reset. */
 :root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .tooltip, .toast,
-	.pk-sheet, .sf-ov-card, .sf-hovercard, .sf-date-pop, .sf-menu-pop,
-	.sf-nav-pop, .sf-ck-pop, .sf-col[data-role^='omp.overlay.'],
+	.sf-picker:not(.sz-screen) .pk-sheet, .sf-overlay:not(.at-side, .sz-screen) > .sf-ov-card,
+	.sf-hovercard, .sf-date-pop, .sf-menu-pop, .sf-nav-pop, .sf-ck-pop,
+	.sf-col[data-role^='omp.overlay.']:not(.sf-picker.sz-screen *, .sf-overlay.at-side *),
 	.sf-prefs .pf-editor > .sf-col, .sf-prefs .pf-menu,
 	.tn-secure, .tn-wait-chip, .tn-card, .tn-find, .tn-op, .tn-ib,
 	.tn-hp, .tn-hd, .tn-sc, .tn-bn-card, .pk-c, .pk-more,
@@ -73,11 +75,11 @@
 	box-shadow: 0 0 0 2px var(--accent);
 }
 :root:not(#mini) :is(.mdl.danger, .toast.err) { box-shadow: 0 0 0 1px var(--bad); }
-:root:not(#mini) .sf-col[data-role^='omp.editor'] { box-shadow: 0 0 0 1px var(--l2); }
-:root:not(#mini) .sf-col[data-role='omp.editor.bash'] {
+:root:not(#mini) .sf-col[data-role^='omp.editor']:not(.sf-chat-spine *) { box-shadow: 0 0 0 1px var(--l2); }
+:root:not(#mini) .sf-col[data-role='omp.editor.bash']:not(.sf-chat-spine *) {
 	box-shadow: inset 2px 0 0 var(--omp-bashMode, var(--warn)), 0 0 0 1px var(--l2);
 }
-:root:not(#mini) .sf-col[data-role='omp.editor.python'] {
+:root:not(#mini) .sf-col[data-role='omp.editor.python']:not(.sf-chat-spine *) {
 	box-shadow: inset 2px 0 0 var(--omp-pythonMode, var(--sf-info)), 0 0 0 1px var(--l2);
 }
 :root:not(#mini) .cv { --cv-glass-shadow: 0 0 0 1px var(--l2); }
