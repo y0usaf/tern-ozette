@@ -1,5 +1,5 @@
-:root:not(#oz):not(#yh):not(#yr) *,
-:root:not(#oz):not(#yh):not(#yr) *::before,
-:root:not(#oz):not(#yh):not(#yr) *::after {
+:root:not(#yh) *,
+:root:not(#yh) *:not(.tt)::before,
+:root:not(#yh) *:not(.sf-editor)::after {
 	transition: none !important;
 }
