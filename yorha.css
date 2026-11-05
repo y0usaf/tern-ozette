@@ -492,8 +492,8 @@
 	left: 0;
 	right: 0;
 	height: 6px;
-	background: var(--yh-ink);
-	box-shadow: inset 0 -1px 0 var(--yh-g70);
+	background: #000000;
+	box-shadow: 0 1px 0 var(--yh-ground);
 	transform-origin: 100% 0;
 	pointer-events: none;
 }
