@@ -5,37 +5,13 @@
 	--oz-lime: oklch(from var(--ok) 0.87 0.15 h);
 	--oz-plum: oklch(from var(--accent) 0.28 0.06 h);
 	--oz-forest: oklch(from var(--oz-lime) 0.3 0.035 h);
-	--oz-plum-2: color-mix(in oklab, var(--oz-lav) 10%, var(--oz-plum));
-	--oz-on-plum: oklch(from var(--oz-plum) 0.934 calc(c * 0.37) h);
-	--oz-on-plum-2: oklch(from var(--oz-plum) 0.803 calc(c * 0.74) h);
-	--oz-on-plum-3: oklch(from var(--oz-plum) 0.718 calc(c * 1.03) h);
-	--oz-on-plum-4: oklch(from var(--oz-plum) 0.564 calc(c * 1.09) h);
-	--oz-syn-keyword: oklch(from var(--oz-lav) 0.813 calc(c * 1.24) h);
-	--oz-syn-string: oklch(from var(--oz-lime) 0.907 calc(c * 0.85) h);
-	--oz-syn-function: oklch(from var(--oz-mustard) 0.886 calc(c * 0.82) h);
-	--oz-syn-type: oklch(from var(--oz-pink) 0.864 calc(c * 0.63) h);
-	--oz-code-bg: light-dark(color-mix(in oklab, var(--card) 93%, var(--oz-lav)), var(--oz-plum));
-	--oz-code-head: light-dark(color-mix(in oklab, var(--card) 84%, var(--oz-lav)), var(--oz-plum-2));
-	--oz-code-ink: light-dark(oklch(from var(--oz-plum) 0.24 calc(c * 0.8) h), var(--oz-on-plum));
-	--oz-code-ink-2: light-dark(oklch(from var(--oz-plum) 0.38 calc(c * 0.8) h), var(--oz-on-plum-2));
-	--oz-code-ink-3: light-dark(oklch(from var(--oz-plum) 0.5 calc(c * 0.7) h), var(--oz-on-plum-3));
-	--oz-code-ink-4: light-dark(oklch(from var(--oz-plum) 0.64 calc(c * 0.6) h), var(--oz-on-plum-4));
-	--oz-code-keyword: light-dark(oklch(from var(--oz-lav) 0.45 calc(c * 1.6) h), var(--oz-syn-keyword));
-	--oz-code-string: light-dark(oklch(from var(--oz-lime) 0.46 calc(c * 0.9) h), var(--oz-syn-string));
-	--oz-code-function: light-dark(oklch(from var(--oz-mustard) 0.5 calc(c * 0.9) h), var(--oz-syn-function));
-	--oz-code-type: light-dark(oklch(from var(--oz-pink) 0.48 calc(c * 1.2) h), var(--oz-syn-type));
-	--oz-code-lime: light-dark(oklch(from var(--oz-lime) 0.46 calc(c * 0.9) h), var(--oz-lime));
-	--oz-code-pink: light-dark(oklch(from var(--oz-pink) 0.48 calc(c * 1.2) h), var(--oz-pink));
-	--oz-code-mustard: light-dark(oklch(from var(--oz-mustard) 0.5 calc(c * 0.9) h), var(--oz-mustard));
 	--oz-hair: var(--l4);
 	--oz-sel: light-dark(rgb(from var(--oz-lav) r g b / 42%), rgb(from var(--oz-lav) r g b / 22%));
 	--oz-shade: light-dark(rgb(from var(--oz-lav) r g b / 55%), rgb(0 0 0 / 45%));
 	--oz-dot: light-dark(rgb(from var(--oz-forest) r g b / 16%), rgb(from var(--oz-lime) r g b / 14%));
 	--oz-rail-bg: rgb(from var(--page) r g b / 1);
-	--oz-page: color-mix(in srgb, var(--page), var(--tn-page, var(--page)) 1%);
 	--oz-tint: light-dark(rgb(from var(--oz-plum) r g b / 4%), rgb(255 255 255 / 4%));
 	--oz-serif: "Crimson Pro", "EB Garamond", serif;
-	--oz-mono: var(--mono);
 	--mono: "IBM Plex Mono", ui-monospace, monospace;
 	--r-chip: 0px;
 	--r-ctl: 0px;
@@ -116,7 +92,7 @@
 :root:not(#oz) .toast-act,
 :root:not(#oz) .pf.sheet .btn {
 	box-shadow: none;
-	font-family: var(--oz-mono);
+	font-family: var(--mono);
 	font-size: 11.5px;
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
@@ -141,7 +117,7 @@
 :root:not(#oz) .tn-ib-t,
 :root:not(#oz) .ck-group,
 :root:not(#oz) .tn-ib-gh {
-	font-family: var(--oz-mono);
+	font-family: var(--mono);
 	font-size: 11px;
 	font-weight: 500;
 	letter-spacing: 0.12em;
@@ -165,7 +141,7 @@
 	padding: 3px 10px;
 	background: var(--oz-lav);
 	color: var(--oz-plum);
-	font: 600 11px/1.4 var(--oz-mono);
+	font: 600 11px/1.4 var(--mono);
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 }
@@ -182,7 +158,7 @@
 	color: var(--t1);
 }
 :root:not(#oz) #tabbar .tt .sub {
-	font: 400 10px/1.3 var(--oz-mono);
+	font: 400 10px/1.3 var(--mono);
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: var(--t3);
@@ -201,13 +177,13 @@
 }
 :root:not(#oz) #tabbar .tt .mk.keys .hint {
 	margin: 0;
-	font: 400 10px/1 var(--oz-mono);
+	font: 400 10px/1 var(--mono);
 	color: var(--t3);
 }
 :root:not(#oz) #tabbar .tt .kbd.tn-num {
 	justify-content: center;
 	min-width: 18px;
-	font: 400 10px/17px var(--oz-mono);
+	font: 400 10px/17px var(--mono);
 	color: var(--t3);
 }
 :root:not(#oz) #tabbar .tt.on {
@@ -234,11 +210,11 @@
 	height: 22px;
 	background: var(--oz-forest);
 	color: var(--oz-lime);
-	font: 500 13px/22px var(--oz-mono);
+	font: 500 13px/22px var(--mono);
 	text-align: center;
 }
 :root:not(#oz) #tabbar .tb-row {
-	font: 500 11px/1 var(--oz-mono);
+	font: 500 11px/1 var(--mono);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
 	color: var(--t2);
@@ -285,56 +261,56 @@
 :root:not(#oz) .md .code,
 :root:not(#oz) .sf-region .sf-tool .sf-tool-body {
 	border: 0;
-	--code-bg: var(--oz-code-bg);
-	--t1: var(--oz-code-ink);
-	--t2: var(--oz-code-ink-2);
-	--t3: var(--oz-code-ink-3);
-	--t4: var(--oz-code-ink-4);
-	--ink: var(--oz-code-ink);
-	--tv-fg: var(--oz-code-ink);
-	--omp-toolOutput: var(--oz-code-ink-2);
-	--omp-mdCodeBlock: var(--oz-code-ink);
-	--omp-dim: var(--oz-code-ink-3);
-	--omp-muted: var(--oz-code-ink-3);
-	--omp-success: var(--oz-code-lime);
-	--omp-error: var(--oz-code-pink);
-	--ok: var(--oz-code-lime);
-	--bad: var(--oz-code-pink);
-	--warn: var(--oz-code-mustard);
-	--l1: rgb(from var(--oz-code-ink) r g b / 8%);
-	--l2: rgb(from var(--oz-code-ink) r g b / 12%);
-	--tk-keyword: var(--oz-code-keyword);
-	--tk-string: var(--oz-code-string);
-	--tk-function: var(--oz-code-function);
-	--tk-type: var(--oz-code-type);
-	--tk-number: var(--oz-code-function);
-	--tk-variable: var(--oz-code-ink);
-	--tk-punct: var(--oz-code-ink-3);
-	--tk-operator: var(--oz-code-type);
-	--tk-macro: var(--oz-code-pink);
-	--tk-comment: var(--oz-code-ink-3);
-	--tk-property: var(--oz-code-ink-2);
-	--tk-constant: var(--oz-code-function);
-	--omp-syntaxKeyword: var(--oz-code-keyword);
-	--omp-syntaxString: var(--oz-code-string);
-	--omp-syntaxFunction: var(--oz-code-function);
-	--omp-syntaxType: var(--oz-code-type);
-	--omp-syntaxNumber: var(--oz-code-function);
-	--omp-syntaxVariable: var(--oz-code-ink);
-	--omp-syntaxPunctuation: var(--oz-code-ink-3);
-	--omp-syntaxOperator: var(--oz-code-type);
-	--omp-syntaxComment: var(--oz-code-ink-3);
-	color: var(--oz-code-ink);
+	--code-bg: light-dark(color-mix(in oklab, var(--card) 93%, var(--oz-lav)), var(--oz-plum));
+	--t1: light-dark(oklch(from var(--oz-plum) 0.24 calc(c * 0.8) h), oklch(from var(--oz-plum) 0.934 calc(c * 0.37) h));
+	--t2: light-dark(oklch(from var(--oz-plum) 0.38 calc(c * 0.8) h), oklch(from var(--oz-plum) 0.803 calc(c * 0.74) h));
+	--t3: light-dark(oklch(from var(--oz-plum) 0.5 calc(c * 0.7) h), oklch(from var(--oz-plum) 0.718 calc(c * 1.03) h));
+	--t4: light-dark(oklch(from var(--oz-plum) 0.64 calc(c * 0.6) h), oklch(from var(--oz-plum) 0.564 calc(c * 1.09) h));
+	--ink: var(--t1);
+	--tv-fg: var(--t1);
+	--omp-toolOutput: var(--t2);
+	--omp-mdCodeBlock: var(--t1);
+	--omp-dim: var(--t3);
+	--omp-muted: var(--t3);
+	--omp-success: var(--ok);
+	--omp-error: var(--bad);
+	--ok: light-dark(oklch(from var(--oz-lime) 0.46 calc(c * 0.9) h), var(--oz-lime));
+	--bad: light-dark(oklch(from var(--oz-pink) 0.48 calc(c * 1.2) h), var(--oz-pink));
+	--warn: light-dark(oklch(from var(--oz-mustard) 0.5 calc(c * 0.9) h), var(--oz-mustard));
+	--l1: rgb(from var(--t1) r g b / 8%);
+	--l2: rgb(from var(--t1) r g b / 12%);
+	--tk-keyword: light-dark(oklch(from var(--oz-lav) 0.45 calc(c * 1.6) h), oklch(from var(--oz-lav) 0.813 calc(c * 1.24) h));
+	--tk-string: light-dark(oklch(from var(--oz-lime) 0.46 calc(c * 0.9) h), oklch(from var(--oz-lime) 0.907 calc(c * 0.85) h));
+	--tk-function: light-dark(oklch(from var(--oz-mustard) 0.5 calc(c * 0.9) h), oklch(from var(--oz-mustard) 0.886 calc(c * 0.82) h));
+	--tk-type: light-dark(oklch(from var(--oz-pink) 0.48 calc(c * 1.2) h), oklch(from var(--oz-pink) 0.864 calc(c * 0.63) h));
+	--tk-number: var(--tk-function);
+	--tk-variable: var(--t1);
+	--tk-punct: var(--t3);
+	--tk-operator: var(--tk-type);
+	--tk-macro: var(--bad);
+	--tk-comment: var(--t3);
+	--tk-property: var(--t2);
+	--tk-constant: var(--tk-function);
+	--omp-syntaxKeyword: var(--tk-keyword);
+	--omp-syntaxString: var(--tk-string);
+	--omp-syntaxFunction: var(--tk-function);
+	--omp-syntaxType: var(--tk-type);
+	--omp-syntaxNumber: var(--tk-function);
+	--omp-syntaxVariable: var(--t1);
+	--omp-syntaxPunctuation: var(--t3);
+	--omp-syntaxOperator: var(--tk-type);
+	--omp-syntaxComment: var(--t3);
+	color: var(--t1);
 }
 :root:not(#oz) .md .code {
-	background: var(--oz-code-bg);
+	background: var(--code-bg);
 	box-shadow: light-dark(0 0 0 1px var(--oz-hair), none);
 }
 :root:not(#oz) .md .code-head {
-	background: var(--oz-code-head);
+	background: light-dark(color-mix(in oklab, var(--card) 84%, var(--oz-lav)), color-mix(in oklab, var(--oz-lav) 10%, var(--oz-plum)));
 	border: 0;
-	color: var(--oz-code-ink-3);
-	font: 500 11px/1.4 var(--oz-mono);
+	color: var(--t3);
+	font: 500 11px/1.4 var(--mono);
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 }
@@ -348,7 +324,7 @@
 	background: var(--oz-tint);
 	box-shadow: none;
 	color: var(--t3);
-	font: 400 12px/1.4 var(--oz-mono);
+	font: 400 12px/1.4 var(--mono);
 }
 :root:not(#oz) .sf-region .sf-tool-title {
 	padding: 0;
@@ -389,7 +365,7 @@
 :root:not(#oz) [data-role='omp.composer.model'] {
 	background: var(--oz-lav);
 	color: var(--oz-plum);
-	font: 600 11px/1.4 var(--oz-mono);
+	font: 600 11px/1.4 var(--mono);
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	flex-shrink: 0;
@@ -433,7 +409,7 @@
 	letter-spacing: normal;
 }
 :root:not(#oz) :is(.pf-eyebrow, .pf-sec-t, .nav-head) {
-	font: 500 11px/1.4 var(--oz-mono);
+	font: 500 11px/1.4 var(--mono);
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 }
@@ -462,7 +438,7 @@
 :root:not(#oz) .ft-name,
 :root:not(#oz) .bd-name,
 :root:not(#oz) .bd-lt {
-	font: 500 11px/1.4 var(--oz-mono);
+	font: 500 11px/1.4 var(--mono);
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
 }
@@ -511,64 +487,64 @@
 	font-size: 13px;
 }
 :root:not(#oz) .pop .mi .kbd {
-	font-family: var(--oz-mono);
+	font-family: var(--mono);
 }
 :root:not(#oz).tn-status footer#statusline {
 	background: transparent !important;
-	color: var(--t3) !important;
-	font-family: var(--oz-mono);
+	color: var(--t3);
+	font-family: var(--mono);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin {
-	order: 5 !important;
+	order: 5;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='arc-sidebar'] {
-	order: 0 !important;
-	font: 500 11px/1.7 var(--oz-mono);
-	letter-spacing: 0.12em !important;
-	color: var(--t2) !important;
+	order: 0;
+	font: 500 11px/1.7 var(--mono);
+	letter-spacing: 0.12em;
+	color: var(--t2);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
-	order: 1 !important;
-	align-self: center !important;
-	width: max-content !important;
+	order: 1;
+	align-self: center;
+	width: max-content;
 	padding: 6px 14px 4px !important;
-	background: var(--oz-lime) !important;
+	background: var(--oz-lime);
 	color: var(--oz-forest) !important;
 	font: 400 40px/1 var(--oz-serif);
 	letter-spacing: 0 !important;
-	box-shadow: 6px 6px 0 var(--oz-forest) !important;
+	box-shadow: 6px 6px 0 var(--oz-forest);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
-	order: 2 !important;
-	align-self: center !important;
-	width: max-content !important;
-	margin: 18px 0 26px !important;
+	order: 2;
+	align-self: center;
+	width: max-content;
+	margin: 18px 0 26px;
 	padding: 3px 10px !important;
-	background: var(--oz-lav) !important;
+	background: var(--oz-lav);
 	color: var(--oz-plum) !important;
-	font: 600 11px/1.4 var(--oz-mono);
+	font: 600 11px/1.4 var(--mono);
 	letter-spacing: 0.12em !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 	margin: 0 !important;
 	padding: 10px 12px 4px !important;
-	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%)) !important;
-	color: var(--t1) !important;
+	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	color: var(--t1);
 	font: 400 24px/1.2 var(--oz-serif);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
-	font: 400 10px/1.3 var(--oz-mono);
+	font: 400 10px/1.3 var(--mono);
 	letter-spacing: 0.12em !important;
-	color: var(--t3) !important;
+	color: var(--t3);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
 	border-top: 0 !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
-	color: var(--warn) !important;
+	color: var(--warn);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
-	color: var(--bad) !important;
+	color: var(--bad);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 	--spark-c: light-dark(var(--oz-plum), var(--oz-lime));
@@ -576,15 +552,15 @@
 	width: auto !important;
 	height: 50px !important;
 	margin: 0 0 10px !important;
-	padding: 0 12px 10px !important;
-	background-color: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%)) !important;
-	background-origin: content-box !important;
-	background-clip: border-box !important;
+	padding: 0 12px 10px;
+	background-color: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	background-origin: content-box;
+	background-clip: border-box;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
 	border-top: 0 !important;
-	color: var(--t2) !important;
-	font: 400 11px/1.5 var(--oz-mono);
+	color: var(--t2);
+	font: 400 11px/1.5 var(--mono);
 	letter-spacing: 0.06em !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
@@ -592,43 +568,43 @@
 	padding: 2px 12px 10px !important;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) {
-	display: block !important;
-	align-self: center !important;
-	box-sizing: border-box !important;
-	max-width: 100% !important;
-	overflow: hidden !important;
-	text-overflow: ellipsis !important;
-	text-align: center !important;
+	display: block;
+	align-self: center;
+	box-sizing: border-box;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) svg.ico {
-	display: inline-block !important;
-	vertical-align: -1px !important;
+	display: inline-block;
+	vertical-align: -1px;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
-	order: 3 !important;
-	margin: 0 0 10px !important;
-	padding: 0 !important;
-	color: var(--t2) !important;
+	order: 3;
+	margin: 0 0 10px;
+	padding: 0;
+	color: var(--t2);
 	font: italic 400 17px/1.3 var(--oz-serif);
-	letter-spacing: 0 !important;
+	letter-spacing: 0;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] svg.ico {
-	width: 12px !important;
-	height: 12px !important;
-	margin-right: 6px !important;
+	width: 12px;
+	height: 12px;
+	margin-right: 6px;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
-	order: 4 !important;
-	position: relative !important;
-	margin: 0 0 26px !important;
+	order: 4;
+	position: relative;
+	margin: 0 0 26px;
 	padding: 3px 10px !important;
 	background: var(--oz-lav) !important;
 	color: var(--oz-plum) !important;
 	border-radius: 0 !important;
 	box-shadow: none !important;
-	font: 600 10px/1.4 var(--oz-mono);
+	font: 600 10px/1.4 var(--mono);
 	letter-spacing: 0.12em !important;
-	text-transform: uppercase !important;
+	text-transform: uppercase;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) svg.ico {
 	width: 10px !important;
@@ -639,20 +615,20 @@
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
 	padding-right: 22px !important;
 	background: var(--oz-mustard) !important;
-	color: var(--oz-plum) !important;
+	color: var(--oz-plum);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
-	right: 10px !important;
-	width: 5px !important;
-	height: 5px !important;
-	margin-top: -2.5px !important;
-	border-radius: 0 !important;
-	background: currentColor !important;
+	right: 10px;
+	width: 5px;
+	height: 5px;
+	margin-top: -2.5px;
+	border-radius: 0;
+	background: currentColor;
 }
 :root:not(#oz).tn-status footer#statusline > span.tn-git {
-	font: 500 10.5px/1.7 var(--oz-mono);
-	letter-spacing: 0.12em !important;
-	color: var(--t3) !important;
+	font: 500 10.5px/1.7 var(--mono);
+	letter-spacing: 0.12em;
+	color: var(--t3);
 }
 :root:not(#oz) [data-role='omp.composer.model'] .sf-text {
 	flex-shrink: 0;
@@ -701,17 +677,17 @@
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
 		padding: 4px 10px 3px !important;
 		font-size: 26px;
-		box-shadow: 4px 4px 0 var(--oz-forest) !important;
+		box-shadow: 4px 4px 0 var(--oz-forest);
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
-		margin: 12px 0 16px !important;
+		margin: 12px 0 16px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
-		margin: 0 0 8px !important;
+		margin: 0 0 8px;
 		font-size: 15px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
-		margin: 0 0 18px !important;
+		margin: 0 0 18px;
 		padding: 3px 8px !important;
 		letter-spacing: 0.08em !important;
 	}
@@ -719,7 +695,7 @@
 		padding-right: 18px !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
-		right: 8px !important;
+		right: 8px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 		padding: 6px 8px 2px !important;
@@ -728,7 +704,7 @@
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 		height: 36px !important;
 		margin: 0 0 8px !important;
-		padding: 0 8px 8px !important;
+		padding: 0 8px 8px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
 		font-size: 10px;
@@ -771,17 +747,17 @@
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
 		font-size: 19px;
-		box-shadow: 3px 3px 0 var(--oz-forest) !important;
+		box-shadow: 3px 3px 0 var(--oz-forest);
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
-		margin: 0 0 6px !important;
+		margin: 0 0 6px;
 		font-size: 13px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) svg.ico {
 		display: none !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
-		margin: 0 0 14px !important;
+		margin: 0 0 14px;
 		padding: 2px 6px !important;
 		font-size: 9px;
 		letter-spacing: 0.04em !important;
@@ -790,10 +766,10 @@
 		padding-right: 15px !important;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
-		right: 6px !important;
-		width: 4px !important;
-		height: 4px !important;
-		margin-top: -2px !important;
+		right: 6px;
+		width: 4px;
+		height: 4px;
+		margin-top: -2px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 		padding: 4px 6px 2px !important;
@@ -806,7 +782,7 @@
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 		height: 24px !important;
 		margin: 0 0 6px !important;
-		padding: 0 6px 6px !important;
+		padding: 0 6px 6px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
 		display: none !important;
@@ -869,11 +845,11 @@
 	background: var(--oz-lime) !important;
 }
 :root:not(#oz) #tabbar .tt[data-tc] .nm {
-	color: var(--t1) !important;
+	color: var(--t1);
 	font-weight: 400;
 }
 :root:not(#oz) #tabbar .tt[data-tc].on .nm {
-	color: var(--oz-forest) !important;
+	color: var(--oz-forest);
 }
 :root:not(#oz) #tabbar .tt[data-tc].on .sub {
 	color: rgb(from var(--oz-forest) r g b / 70%);
@@ -918,7 +894,7 @@
 	padding: 0 0.25em;
 	background: var(--oz-lav);
 	color: var(--oz-plum);
-	font-family: var(--oz-mono);
+	font-family: var(--mono);
 	font-size: 0.62em;
 	font-weight: 600;
 	line-height: 1.7em;

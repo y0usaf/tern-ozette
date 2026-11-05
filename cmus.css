@@ -1,4 +1,4 @@
-:root:not(#oz) .cm-app, :root:not(#oz) .cm-dockbar { font-family: var(--oz-mono); font-size: 13px }
+:root:not(#oz) .cm-app, :root:not(#oz) .cm-dockbar { font-family: var(--mono); font-size: 13px }
 :root:not(#oz) :is(.cm-tt, .cm-d-title, .cm-np-title, .cm-ph .cm-t, .cm-hero .cm-big, .cm-topcard .cm-nm, .cm-sec, .cm-err .cm-big) { font-family: var(--oz-serif); letter-spacing: 0 }
 :root:not(#oz) .cm-tt { font-size: 1.22em; font-weight: 600 }
 :root:not(#oz) .cm-d-title { font-size: 1.3em; font-weight: 600 }
@@ -12,7 +12,7 @@
 :root:not(#oz) .cm-chip.cm-on { background: var(--oz-lav); color: var(--oz-plum); border-color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
 :root:not(#oz) .cm-nv { font-weight: 500 }
 :root:not(#oz) .cm-nv.cm-on { background: var(--oz-lav); color: var(--oz-plum); box-shadow: inset 0 0 0 1px var(--oz-plum) }
-:root:not(#oz) .cm-side .cm-lib, :root:not(#oz) .cm-cols, :root:not(#oz) .cm-hd, :root:not(#oz) .cm-eyebrow { font-family: var(--oz-mono); letter-spacing: .12em; color: var(--t3) }
+:root:not(#oz) .cm-side .cm-lib, :root:not(#oz) .cm-cols, :root:not(#oz) .cm-hd, :root:not(#oz) .cm-eyebrow { font-family: var(--mono); letter-spacing: .12em; color: var(--t3) }
 :root:not(#oz) .cm-btn { border: 1px solid var(--oz-plum); font-weight: 500 }
 :root:not(#oz) .cm-btn.cm-pri { background: var(--oz-mustard); color: var(--oz-plum); box-shadow: 2px 2px 0 var(--oz-plum) }
 :root:not(#oz) .cm-row.cm-sel { background: var(--oz-sel); box-shadow: inset 3px 0 0 var(--oz-plum) }
