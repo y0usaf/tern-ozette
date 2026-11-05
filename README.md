@@ -14,6 +14,8 @@ The look canvas is opaque with transparent window off: Ozette keeps its theme-de
 
 Font declarations never use `!important`. Ozette keeps its local serif accents without changing the stock secondary UI family; mono labels read Tern's configured code font. YoRHa's UI defaults are non-important and do not override configured UI or terminal fonts. The shared Glass options control sent-message frost and composer frost independently.
 
+Ozette uses Tern's stock surface, ink, syntax and font roles directly instead of parallel aliases. Look-only variables remain for genuinely distinct palette transforms and motion timing. Remaining priority flags protect the existing runtime palette, rail-plugin styles and stock image limits; they never force typography.
+
 ## Grok
 
 `grok.css` is a standalone look over stock Tern: neutral light/dark surfaces, generous sans-serif text, rounded code, a 20px composer and pill controls. It does not load Ozette or YoRHa. Tern's existing hover/focus actions remain keyboard accessible.
