@@ -20,7 +20,7 @@
 	max-width: min(80%, 560px, 100% - 82px);
 	margin-left: auto;
 	padding: 7px 12px;
-	border-radius: 18px 18px 6px 18px;
+	border-radius: 18px;
 	background: linear-gradient(to bottom, light-dark(#ffffff0f, #ffffff08), transparent), var(--grok-user);
 	color: var(--t1);
 	--t1: light-dark(#ffffff, #f5f5f5);
@@ -34,7 +34,4 @@
 }
 :root:not(#grok) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
 	color: var(--t1);
-}
-:root:not(#grok)[dir='rtl'] [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
-	border-radius: 18px 18px 18px 6px;
 }
