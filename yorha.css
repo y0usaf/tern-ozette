@@ -244,6 +244,181 @@
 	}
 }
 
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline {
+	border-left: 0 !important;
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left 0 top 0 / 1px 100% no-repeat,
+		repeating-linear-gradient(180deg, var(--yh-ink) 0 3px, transparent 3px 40px) left 0 top 0 / 7px 100% no-repeat,
+		radial-gradient(circle, var(--yh-ink) 1.4px, transparent 1.6px) left 10px top 18px / 6px 40px repeat-y !important;
+	color: var(--yh-i50) !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
+	position: relative !important;
+	padding: 4px 12px 2px !important;
+	background: var(--yh-ink) !important;
+	color: var(--yh-ground) !important;
+	font: 400 27.5px/33px var(--yh-label) !important;
+	letter-spacing: 0 !important;
+	box-shadow: none !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time']::after {
+	content: "";
+	position: absolute;
+	top: -6px;
+	bottom: -6px;
+	left: 0;
+	right: 0;
+	background:
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left top / 100% 2px no-repeat,
+		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 2px no-repeat;
+	pointer-events: none;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
+	margin: 20px 0 24px !important;
+	padding: 0 !important;
+	background: none !important;
+	color: var(--yh-i70) !important;
+	font: 400 11px/16px var(--yh-label) !important;
+	letter-spacing: 1.5px !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
+	color: var(--yh-i70) !important;
+	font: 400 11px/16px var(--yh-label) !important;
+	letter-spacing: 0 !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
+	padding: 3px 10px 3px 8px !important;
+	background: var(--yh-i12) !important;
+	color: var(--yh-ink) !important;
+	font: 400 11px/16px var(--yh-label) !important;
+	letter-spacing: 1.5px !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) svg.ico {
+	display: none !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy'])::before {
+	content: "";
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	margin-right: 8px;
+	vertical-align: 1px;
+	background: currentColor;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
+	padding-right: 22px !important;
+	background: var(--yh-ink) !important;
+	color: var(--yh-ground) !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
+	width: 5px !important;
+	height: 5px !important;
+	margin-top: -2.5px !important;
+	background: var(--yh-ground) !important;
+	animation: yh-blink calc(1000ms * var(--yh-t)) steps(1, end) infinite;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
+	padding: 8px 0 2px !important;
+	background-color: transparent !important;
+	color: var(--yh-ink) !important;
+	font: 400 22px/33px var(--yh-label) !important;
+	letter-spacing: 0 !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
+	color: var(--yh-i50) !important;
+	font: 400 11px/16px var(--yh-label) !important;
+	letter-spacing: 1.5px !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
+	color: var(--yh-alert) !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
+	--spark-c: var(--yh-ink) !important;
+	--spark-track: var(--yh-i25) !important;
+	height: 33px !important;
+	margin: 2px 0 14px !important;
+	padding: 0 !important;
+	background-color: transparent !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
+	padding: 0 !important;
+	color: var(--yh-i70) !important;
+	font: 400 11px/22px var(--yh-label) !important;
+	letter-spacing: 0 !important;
+}
+:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-net'] {
+	margin-top: 6px !important;
+}
+@media (max-width: 1200px) {
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline {
+		padding: 20px 10px 20px 18px !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
+		padding: 3px 8px 1px !important;
+		font: 400 22px/27px var(--yh-label) !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
+		margin: 16px 0 18px !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
+		padding: 6px 0 0 !important;
+		font: 400 16.5px/24px var(--yh-label) !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
+		height: 24px !important;
+		margin: 2px 0 10px !important;
+		padding: 0 !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		padding: 0 !important;
+		font: 400 11px/16px var(--yh-label) !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load'])::before {
+		padding-bottom: 0 !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
+		margin-top: 6px !important;
+	}
+}
+@media (max-width: 1000px) {
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline {
+		padding: 20px 6px 14px 18px !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
+		padding: 2px 6px 1px !important;
+		font: 400 16.5px/22px var(--yh-label) !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
+		margin: 12px 0 14px !important;
+		letter-spacing: 0 !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
+		padding: 3px 6px !important;
+		letter-spacing: 0 !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
+		padding-right: 16px !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
+		right: 6px !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
+		flex-direction: column !important;
+		align-items: flex-start !important;
+		padding: 4px 0 0 !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
+		padding-bottom: 0 !important;
+		letter-spacing: 1px !important;
+	}
+	:root:not(#oz):not(#yh):not(#yr):not(#pe).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
+		height: 16px !important;
+		margin: 2px 0 8px !important;
+	}
+}
+
 :root:not(#oz):not(#yh):not(#yr) .tn-veil {
 	display: none;
 }
