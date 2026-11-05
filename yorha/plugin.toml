@@ -1,8 +1,0 @@
-schema = 1
-id = "yorha"
-name = "YoRHa"
-version = "0.1.0"
-description = "Ozette in YoRHa dress: Departure Mono throughout, two tones, crisp stepped motion. Turn off Ozette while this is on."
-icon = "layers"
-window = "window.luau"
-styles = ["ozette.css", "motion.css", "cmus.css", "yorha.css"]
