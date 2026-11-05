@@ -33,9 +33,6 @@
 	--grok-motion: grok-regal-small;
 	--grok-motion-large: grok-regal-large;
 }
-:root:not(#grok) [data-role='omp.bot.reply'] { position: relative; padding-left: 44px; }
-:root:not(#grok) [data-role='omp.bot.reply']::before { content: ''; position: absolute; left: 2px; top: 12px; }
-:root:not(#grok) [data-role='omp.bot.reply']::before,
 :root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) {
 	width: 32px;
 	height: 32px;
@@ -53,7 +50,6 @@
 }
 :root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) > * { display: none !important; }
 @media (prefers-reduced-motion: reduce) {
-	:root:not(#grok) [data-role='omp.bot.reply']::before,
 	:root:not(#grok) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']) { animation: none; background-position: 0 0; }
 }
 @keyframes grok-lloyd-small {
