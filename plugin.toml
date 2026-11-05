@@ -5,4 +5,4 @@ version = "0.1.0"
 description = "Ozette structure over any theme: square paper surfaces with offset shadows, serif chat, plum code cards, pastel label tabs, dot-grid rails (ekko's status rail included) and a light motion layer, coloured only by the selected theme's variables."
 icon = "layers"
 window = "window.luau"
-styles = ["ozette.css", "motion.css", "cmus.css", "yorha.css"]
+styles = ["ozette.css", "motion.css", "cmus.css"]
