@@ -543,10 +543,8 @@
 	align-self: stretch;
 	width: auto;
 	margin: 18px 0 10px;
-	padding: 0 0 5px 17px;
-	background:
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left 0 top 0.42em / 8px 8px no-repeat,
-		linear-gradient(var(--yh-ink), var(--yh-ink)) left bottom / 100% 1px no-repeat;
+	padding: 0 0 0 17px;
+	background: linear-gradient(var(--yh-ink), var(--yh-ink)) left 0 top 0.42em / 8px 8px no-repeat;
 	--omp-mdHeading: var(--yh-ink);
 	color: var(--yh-ink);
 	font: 400 16.5px/24px var(--yh-label);
