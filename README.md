@@ -20,7 +20,7 @@ Ozette and YoRHa use Tern's stock surface, ink, syntax and font roles directly i
 
 ## Grok
 
-`grok.css` is a standalone look over stock Tern: source-matched neutral light/dark surfaces, 15px/22px transcript text, rounded code, a centered 960px-max composer (44px empty height, 22px radius) and 28px circular send control. It does not load Ozette or YoRHa. Tern's existing hover/focus actions remain keyboard accessible.
+`grok.css` is a standalone look over stock Tern: source-matched neutral light/dark surfaces, 15px/22px transcript text, rounded code, a centered 960px-max composer (44px empty height, 22px radius) and 28px circular send control. It does not load Ozette or YoRHa. Tern's existing hover/focus actions remain keyboard accessible. Grok sets Tern's `--pop-bg` to its opaque chrome, so every stock popover, menu, tooltip, chip and the inbox are solid; the inbox and find bar also drop their glass blur for Grok's popover shadow. Modal dialogs keep the shared frost.
 
 The UI Menu loads each `grok-*-bubbles.css` sheet only when Grok and that surface's bubble option are enabled; `grok-bot-you.css` follows the bot's your-message toggle. Frost belongs to the shared frost options, not this look. Switching looks removes all Grok sheets without changing the selected theme.
 
