@@ -2,6 +2,8 @@
 
 Ozette's structure, type, shapes, rails and motion as a Tern plugin. It sits over whatever theme is selected and reads only the theme's variables, so colour always comes from the theme.
 
+System light/dark following is Tern’s native **Appearance → System** setting (`"theme": "System"` in `settings.json`), independent of the look and its light/dark theme slots. Omitting `theme` selects Light in Tern 0.9.11; removing custom `theme_dark`/`theme_light` pins must preserve `theme`. None, Ozette, YoRHa, Mini and Grok all follow the same native setting, with no look-specific appearance watcher.
+
 The UI Menu loads `ozette-answer-bubbles.css` only with Ozette and answer bubbles enabled, and `ozette-bot-you.css` only with Ozette and your message bubbles enabled. Assistant blocks and bot-user card colours live in those optional sheets; turning bubbles off leaves the typography, code, images and lists intact. Classic Tern user cards retain their normal Ozette treatment. YoRHa follows the same rule: `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css` and `yorha-bot-you.css` load only with YoRHa and answer bubbles, bot answer bubbles or your message bubbles enabled.
 
 The menu has no separate Pixel variant or legacy “Grok chat” typography preset. Plain omp and bot answer bubbles remain separate shared choices; their small look-specific sheets have hidden dependency gates rather than extra visible controls.
