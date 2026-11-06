@@ -1,0 +1,38 @@
+{
+ "base": {
+  "important": 0,
+  "vars": 2,
+  "infinite": 0
+ },
+ "none": {
+  "important": 0,
+  "vars": 0,
+  "infinite": 0
+ },
+ "mini": {
+  "important": 0,
+  "vars": 10,
+  "infinite": 0
+ },
+ "ozette": {
+  "important": 4,
+  "vars": 72,
+  "infinite": 1,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "yorha": {
+  "important": 28,
+  "vars": 111,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "grok": {
+  "important": 2,
+  "vars": 68,
+  "infinite": 3
+ }
+}

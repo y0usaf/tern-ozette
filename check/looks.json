@@ -1,0 +1,123 @@
+{
+ "stock_css": "~/dev/ref/tern-default-css",
+ "size": [
+  1600,
+  1000
+ ],
+ "backdrop": "#000000",
+ "settle_ms": 800,
+ "plugins": [
+  "ekko"
+ ],
+ "selector_sources": [
+  "ekko",
+  "cmus",
+  "omp-bot"
+ ],
+ "base": [
+  "rail.css",
+  "settings.css"
+ ],
+ "transparent": "@transparent.css",
+ "looks": {
+  "none": {},
+  "mini": {
+   "mini": "mini.css"
+  },
+  "ozette": {
+   "ozette": "ozette.css",
+   "ozette-motion": "motion.css",
+   "ozette-cmus": "cmus.css",
+   "ozette-answer-bubbles": "ozette-answer-bubbles.css",
+   "ozette-bot-you": "ozette-bot-you.css"
+  },
+  "yorha": {
+   "yorha": "yorha.css",
+   "bot-yorha-labels": "@bot-yorha-labels.css",
+   "yorha-answer-bubbles": "yorha-answer-bubbles.css",
+   "yorha-bot-answer-bubbles": "yorha-bot-answer-bubbles.css",
+   "yorha-bot-you": "yorha-bot-you.css"
+  },
+  "grok": {
+   "grok": "grok.css",
+   "grok-answer-bubbles": "grok-answer-bubbles.css",
+   "grok-user-bubbles": "grok-user-bubbles.css",
+   "grok-bot-answer-bubbles": "grok-bot-answer-bubbles.css",
+   "grok-bot-you": "grok-bot-you.css"
+  }
+ },
+ "tweaks": {
+  "account": true,
+  "answer-bubbles": true,
+  "answer-frost": true,
+  "attention": false,
+  "bot-answer-bubbles": true,
+  "bot-answer-frost": true,
+  "bot-ask": true,
+  "bot-cards": true,
+  "bot-chat-still": true,
+  "bot-dock": true,
+  "bot-events": true,
+  "bot-jobs": true,
+  "bot-layout": true,
+  "bot-names": false,
+  "bot-rail": false,
+  "bot-spacing": true,
+  "bot-stop": true,
+  "bot-text": true,
+  "bot-time": true,
+  "bot-tints": true,
+  "bot-turn-stats": true,
+  "bot-work-rail": true,
+  "bot-yorha-labels": true,
+  "bot-you": true,
+  "bot-you-frost": true,
+  "bottom": false,
+  "buttons": false,
+  "centering": true,
+  "chat-still": true,
+  "composer-frost": false,
+  "dividers": false,
+  "files": true,
+  "frost": true,
+  "grips": true,
+  "grok": false,
+  "grok-answer-bubbles": true,
+  "grok-bot-answer-bubbles": true,
+  "grok-bot-you": true,
+  "grok-user-bubbles": true,
+  "inbox": true,
+  "lock": true,
+  "mini": false,
+  "ozette": false,
+  "ozette-answer-bubbles": true,
+  "ozette-bot-you": true,
+  "ozette-cmus": false,
+  "ozette-motion": false,
+  "pane-borders": false,
+  "rail_ages": false,
+  "rail_card": false,
+  "rail_compact": false,
+  "rail_header": true,
+  "rail_sections": false,
+  "rail_status": false,
+  "reply-frost": false,
+  "roomy": false,
+  "row-keys": true,
+  "scratch": false,
+  "single": true,
+  "tabs": false,
+  "transparent": false,
+  "turn-stats": true,
+  "user-frost": false,
+  "width": true,
+  "work-rail": true,
+  "yorha": false,
+  "yorha-answer-bubbles": true,
+  "yorha-bot-answer-bubbles": true,
+  "yorha-bot-you": true
+ },
+ "mask": [
+  "^footer#statusline>span\\.sl-plugins$"
+ ]
+}
