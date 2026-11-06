@@ -7,7 +7,7 @@
     "avatarEntry": "280ms 4px/0.8 spring-like settle",
     "composerFocus": "150ms native editor focus fade; 220ms send mount; 80ms press and 260ms spring-like return",
     "paletteEntry": "240ms 6px/0.975 settle with 120ms backdrop fade; deliberate extension beyond source static default",
-    "settingsEntry": "180ms 4px/0.98 settle; 150ms row hover and 80ms press",
+    "settingsEntry": "native theme/plugin picker entry and rows are static; transcript submenus retain 180ms entry, 100ms colour and 70ms press",
     "railEntry": "none; flat sidebar rows use 200ms cubic-bezier(0.22,1,0.36,1) hover/press fills, zero under reduced motion",
     "avatarReplay": "one four-second Idle_B cycle on hover or focused tab, never perpetual",
     "idleDecoration": "shimmers, typing-dot dances, sleep breathing and particles disabled; semantic working labels and functional progress retained",

@@ -365,8 +365,9 @@ html.tn-themed {
 :root:not(#grok).lay-rail.tabs-h #tabbar .tb-tabs { gap: 4px; padding-right: 8px; }
 :root:not(#grok):not(.tn-phone).lay-rail.tabs-h #tabbar { width: 280px; }
 :root:not(#grok):not(.tn-phone).lay-rail.tabs-h #panel { left: calc(280px * var(--tn-zoom, 1)); }
+:root:not(#grok) #tabbar .tn-ib-pip { color: var(--grok-page); }
 
-:root:not(#grok) #pal {
+:root:not(#grok) :is(#pal, #thm, #pick) {
 	--t1: light-dark(#1c1c1c, #f5f5f5);
 	--t2: light-dark(rgb(28 28 28 / 68%), rgb(245 245 245 / 66%));
 	--t3: light-dark(rgb(28 28 28 / 56%), rgb(245 245 245 / 54%));
@@ -390,8 +391,10 @@ html.tn-themed {
 	bottom: auto;
 	width: 560px;
 	max-width: min(92vw, calc(100vw - 32px));
-	max-height: calc(100vh - 32px);
 	transform: translate(-50%, -50%);
+}
+:root:not(#grok) :is(#pal, #thm, #pick) .cmdk {
+	max-height: calc(100vh - 32px);
 	display: flex;
 	flex-direction: column;
 	box-sizing: border-box;
@@ -405,7 +408,13 @@ html.tn-themed {
 	animation: none;
 	transition: none;
 }
-:root:not(#grok) #pal .ck-top {
+:root:not(#grok) :is(#thm, #pick) .cmdk {
+	width: min(560px, calc(100vw - 24px));
+}
+:root:not(#grok) #pick.anchored {
+	background: transparent;
+}
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-top {
 	flex: none;
 	gap: 4px;
 	height: auto;
@@ -414,13 +423,13 @@ html.tn-themed {
 	box-sizing: border-box;
 	border-bottom: 1px solid var(--l1);
 }
-:root:not(#grok) #pal .ck-top > .ico {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-top > .ico {
 	flex: none;
 	width: 18px;
 	height: 18px;
 	color: var(--t3);
 }
-:root:not(#grok) #pal .ck-top input {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-top input {
 	height: 22px;
 	padding: 0;
 	border: 0;
@@ -435,14 +444,11 @@ html.tn-themed {
 	animation: none;
 	transition: none;
 }
-:root:not(#grok) #pal .ck-top input::placeholder {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-top input::placeholder {
 	color: var(--t3);
 }
-:root:not(#grok) #pal .ck-list {
-	flex: 0 1 402px;
-	height: 402px;
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-list {
 	min-height: 0;
-	max-height: calc(100vh - 84.5px);
 	display: flex;
 	flex-direction: column;
 	row-gap: 2px;
@@ -450,7 +456,7 @@ html.tn-themed {
 	box-sizing: border-box;
 	scroll-padding: 24px 0;
 }
-:root:not(#grok) #pal .ck-group {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-group {
 	flex: none;
 	padding: 8px 8px 4px;
 	font-family: var(--sans);
@@ -460,10 +466,11 @@ html.tn-themed {
 	letter-spacing: -0.08px;
 	color: var(--t2);
 }
-:root:not(#grok) #pal .ck-item {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item {
 	flex: none;
 	width: 100%;
-	height: 49px;
+	min-height: 36px;
+	height: auto;
 	gap: 8px;
 	padding: 6px 10px 6px 8px;
 	box-sizing: border-box;
@@ -481,19 +488,19 @@ html.tn-themed {
 	animation: none;
 	transition: none;
 }
-:root:not(#grok) #pal .ck-item:not([aria-selected='true']):hover {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item:not([aria-selected='true']):hover {
 	background: light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 4%));
 }
-:root:not(#grok) #pal .ck-item[aria-selected='true'],
-:root:not(#grok) #pal .ck-item[aria-selected='true']:hover {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item[aria-selected='true'],
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item[aria-selected='true']:hover {
 	background: light-dark(rgb(28 28 28 / 8%), rgb(245 245 245 / 8%));
 	color: var(--t1);
 	box-shadow: none;
 }
-:root:not(#grok) #pal .ck-item[aria-selected='true']::before {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item[aria-selected='true']::before {
 	display: none;
 }
-:root:not(#grok) #pal .ck-item .ck-ic {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-ic {
 	width: 24px;
 	height: 24px;
 	border-radius: 6px;
@@ -501,11 +508,11 @@ html.tn-themed {
 	color: var(--t2);
 	box-shadow: none;
 }
-:root:not(#grok) #pal .ck-item .ck-ic > .ico {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-ic > .ico {
 	width: 16px;
 	height: 16px;
 }
-:root:not(#grok) #pal .ck-ic.deck .tn-dk {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-ic.deck .tn-dk {
 	--dk: 24px;
 	margin: 0;
 }
@@ -514,18 +521,18 @@ html.tn-themed {
 	height: 24px;
 	box-shadow: none;
 }
-:root:not(#grok) #pal .ck-item .ck-label {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-label {
 	font-size: 13px;
 	line-height: 18px;
 	letter-spacing: -0.08px;
 	color: var(--t1);
 }
-:root:not(#grok) #pal .ck-item .ck-label mark {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-label mark {
 	background: transparent;
 	color: inherit;
 	font-weight: 600;
 }
-:root:not(#grok) #pal .ck-item .ck-sub {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-sub {
 	color: var(--t2);
 	font-family: var(--sans);
 	font-size: 12px;
@@ -533,18 +540,18 @@ html.tn-themed {
 	line-height: 16px;
 	letter-spacing: 0;
 }
-:root:not(#grok) #pal .ck-item .ck-label .ck-sub {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-label .ck-sub {
 	display: block;
 	margin-left: 0;
 }
-:root:not(#grok) #pal .ck-item .ck-hint {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-hint {
 	color: var(--t3);
 	font-family: var(--sans);
 	font-size: 12px;
 	line-height: 16px;
 }
-:root:not(#grok) #pal .tn-keys .kbd,
-:root:not(#grok) #pal .ck-top .kbd {
+:root:not(#grok) :is(#pal, #thm, #pick) .tn-keys .kbd,
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-top .kbd {
 	min-width: 0;
 	height: 18px;
 	padding: 0 3px;
@@ -591,7 +598,7 @@ html.tn-themed {
 :root:not(#grok) #pal .tn-pl-item.danger[aria-selected='true'] {
 	background: rgb(from var(--bad) r g b / 8%);
 }
-:root:not(#grok) #pal .ck-empty {
+:root:not(#grok) :is(#pal, #thm, #pick) .ck-empty {
 	flex: 1;
 	min-height: 0;
 	display: flex;
@@ -625,11 +632,19 @@ html.tn-themed {
 :root:not(#grok) #pal .ck-foot {
 	display: none;
 }
-:root:not(#grok) #pal [hidden] {
+:root:not(#grok) :is(#pal, #thm, #pick) [hidden] {
 	display: none;
 }
+:root:not(#grok) #pal .ck-list {
+	flex: 0 1 402px;
+	height: 402px;
+	max-height: calc(100vh - 84.5px);
+}
+:root:not(#grok) #pal .ck-item {
+	height: 49px;
+}
 
-:root:not(#grok) :is(.sf-menu-pop, .pop:not(.cp, .tn-ql, .gb-peek, .kit-web-sugg, .mde-bubble)) {
+:root:not(#grok) :is(.sf-menu-pop, div.pop:not(.cp, .tn-ql, .gb-peek, .kit-web-sugg, .mde-bubble)) {
 	min-width: min(200px, calc(100vw - 16px));
 	max-width: min(320px, calc(100vw - 16px));
 	padding: 6px 0;
@@ -899,7 +914,7 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader :is([data-role='omp.turn.usage'], [data-role='omp.user.tools']) {
 	transition: margin 300ms cubic-bezier(0.2, 0, 0, 1);
 }
-:root:not(#grok) :is(.sf-menu-pop, .pop) {
+:root:not(#grok) :is(.sf-menu-pop, div.pop) {
 	animation: grok-menu-enter 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 :root:not(#grok) .sf-menu-pop.sf-menu-subpop { animation: none; }
@@ -1262,7 +1277,7 @@ html.tn-themed {
 :root:not(#grok) .sf-paused [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.body'],
 :root:not(#grok) .sf-covered [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.body'] { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) {
- :root:not(#grok) :is(.sf-menu-pop, .pop) { animation-duration: 0.01ms; }
+ :root:not(#grok) :is(.sf-menu-pop, div.pop) { animation-duration: 0.01ms; }
 }
 
 :root:not(#grok)[dir='rtl'] [data-role='omp.bot.chao.sleep'] > [data-role='omp.bot.emote'] { left: auto; right: calc(100% - 4px); }
@@ -1273,6 +1288,9 @@ html.tn-themed {
 :root:not(#grok).tn-status footer#statusline {
 	font-family: var(--sans);
 	justify-content: flex-start;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: var(--grok-line) transparent;
 	color: var(--grok-muted);
 	border-left-color: var(--grok-line);
 	background: rgb(from var(--grok-side) r g b / var(--surface-a, 1));
@@ -1372,111 +1390,32 @@ html.tn-themed {
 	}
 }
 
- :root:not(#grok) #pick .tn-pk {
-	width: min(560px, calc(100vw - 24px));
-	border: 1px solid var(--grok-line);
-	border-radius: 16px;
-	background: rgb(from var(--grok-chrome) r g b / var(--surface-a, 1));
-	box-shadow: 0 8px 32px #00000018;
-	animation: grok-settings-enter 180ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
-}
-:root:not(#grok) #pick .tn-pk .ck-top {
-	height: 48px;
-	gap: 10px;
-	padding: 0 14px;
-	border-bottom: 1px solid var(--grok-line);
-}
-:root:not(#grok) #pick .tn-pk .ck-top input {
-	font-family: var(--sans);
-	font-size: 14px;
-	line-height: 22px;
-	color: var(--grok-ink);
-	box-shadow: none;
-}
-:root:not(#grok) #pick .tn-pk .ck-list {
-	padding: 6px;
-	scroll-padding: 32px 0 8px;
-}
-:root:not(#grok) #pick .tn-pk .ck-group {
-	padding: 12px 10px 6px;
-	font-size: 12px;
-	line-height: 18px;
-	font-weight: 500;
-	color: var(--grok-muted);
-}
-:root:not(#grok) #pick .tn-pk .ck-item {
-	min-height: 32px;
-	height: auto;
-	padding: 7px 10px;
-	border-radius: 8px;
-	color: var(--grok-ink);
-	font-size: 13px;
-	line-height: 18px;
-	box-sizing: border-box;
-	transition: background-color 150ms ease, color 150ms ease, transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-:root:not(#grok) #pick .tn-pk .ck-item:hover {
-	background: var(--grok-soft);
-}
-:root:not(#grok) #pick .tn-pk .ck-item[aria-selected='true'] {
-	color: var(--grok-ink);
-	background: light-dark(#1c1c1c14, #f5f5f514);
-	box-shadow: none;
-}
-:root:not(#grok) #pick .tn-pk .ck-item[aria-selected='true']::before {
-	content: none;
-}
-:root:not(#grok) #pick .tn-pk .ck-item:active {
-	transform: scale(0.985);
-	transition-duration: 80ms;
-}
-:root:not(#grok) #pick .tn-pk .ck-ic {
-	width: 20px;
-	height: 20px;
-	border-radius: 4px;
-	color: var(--grok-muted);
-	background: none;
-	box-shadow: none;
-}
-:root:not(#grok) #pick .tn-pk .ck-sub,
-:root:not(#grok) #pick .tn-pk .ck-hint {
-	font-family: var(--sans);
-	font-size: 12px;
-	line-height: 18px;
-	color: var(--grok-muted);
-}
-:root:not(#grok) #pick .tn-pk .tn-pk-check {
-	color: var(--grok-ink);
-}
-:root:not(#grok) #pick .tn-pk .ck-foot {
-	border-top: 1px solid var(--grok-line);
-	color: var(--grok-muted);
+:root:not(#grok) :is(#thm, #pick) .ck-foot {
+	flex: none;
+	border-top: 1px solid var(--l1);
+	color: var(--t2);
 	font-size: 12px;
 	line-height: 18px;
 }
-:root:not(#grok) #pick .tn-pk .kbd {
+:root:not(#grok) :is(#thm, #pick) .ck-foot .kbd {
 	border: 0;
 	border-radius: 4px;
-	background: var(--grok-soft);
-	box-shadow: none;
+	background: var(--l1);
 	color: inherit;
+	box-shadow: none;
 }
-@keyframes grok-settings-enter {
-	from { opacity: 0; transform: translateX(-50%) translateY(-4px) scale(0.98); }
-	to { opacity: 1; transform: translateX(-50%); }
+:root:not(#grok) #thm .tn-thm-mode {
+	color: var(--t2);
+	background: var(--l1);
 }
-:root:not(#grok) #pick.anchored .tn-pk {
-	animation-name: grok-settings-anchored-enter;
+:root:not(#grok) #thm .tn-thm-row.other:not([aria-selected='true']) .ck-label {
+	color: var(--t2);
 }
-@keyframes grok-settings-anchored-enter {
-	from { opacity: 0; transform: translateY(-4px) scale(0.98); }
-	to { opacity: 1; transform: none; }
+:root:not(#grok) #pick .tn-pk-check {
+	color: var(--t1);
 }
-@media (prefers-reduced-motion: reduce) {
-	:root:not(#grok) #pick .tn-pk,
-	:root:not(#grok) #pick.anchored .tn-pk { animation: none; }
-	:root:not(#grok) #pick .tn-pk .ck-item { transition: none; }
-	:root:not(#grok) #pick .tn-pk .ck-item:active { transform: none; }
+:root:not(#grok) #pick .tn-pk-path {
+	flex: none;
 }
 
 @keyframes grok-polish-body-enter {
@@ -1656,3 +1595,65 @@ html.tn-themed {
  :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) :is([data-role='omp.bot.event.avatar'], [data-role='omp.bot.xavatar'], [data-role^='omp.bot.chao.']):not([data-role='omp.bot.chao.sleep']):hover,
  :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) [data-role^='omp.bot.hero.'] [data-role^='omp.bot.chao.']:not([data-role='omp.bot.chao.sleep']):hover,
  :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) #tabbar .tt[data-tc]:is(:hover, :focus-visible) .tn-dk-c { animation: none; }
+
+html.tn-phone:not(#grok) .sf-chat-reader.sf-main {
+	padding: 16px 8px;
+}
+html.tn-phone:not(#grok) .sf-chat-reader .sf-col[data-role^='omp.editor'] {
+	align-self: stretch;
+	width: auto;
+	max-width: none;
+	margin-left: 8px;
+	margin-right: 8px;
+}
+html.tn-phone:not(#grok) .sf-chat-reader:not(.sf-chat-spine) .sf-col:is([data-role='omp.editor'], [data-role='omp.editor.bash'], [data-role='omp.editor.python']) {
+	margin-bottom: 8px;
+	padding: 8px 12px;
+	gap: 0 8px;
+}
+html.tn-phone:not(#grok) .sf-chat-reader:not(.sf-chat-spine):not(.sf-folded) [data-role='omp.composer.bar'] {
+	height: auto;
+	min-height: 40px;
+	align-self: end;
+}
+html.tn-phone:not(#grok) .sf-chat-reader :is([data-role='omp.composer.send'], [data-role='omp.composer.stop']),
+html.tn-phone:not(#grok) .sf-chat-reader [data-role='omp.composer.send'] .kbd {
+	min-width: 40px;
+	min-height: 40px;
+}
+html.tn-phone:not(#grok) .sf-chat-reader [data-role='omp.composer.send'] .kbd {
+	width: 40px;
+	height: 40px;
+}
+html.tn-phone:not(#grok) :is(#pal, #thm, #pick) .cmdk {
+	position: fixed;
+	top: auto;
+	left: 8px;
+	right: 8px;
+	bottom: 8px;
+	width: auto;
+	max-width: none;
+	max-height: calc(100vh - var(--ph-top) - 16px);
+	zoom: 1;
+	transform: none;
+	animation: none;
+}
+html.tn-phone:not(#grok) #pal:not([hidden]) .cmdk {
+	animation: none;
+}
+html.tn-phone:not(#grok) :is(#pal, #thm, #pick) .ck-top input {
+	font-size: 16px;
+}
+html.tn-phone:not(#grok) :is(#pal, #thm, #pick) .ck-item {
+	min-height: 44px;
+	height: auto;
+}
+html.tn-phone:not(#grok) :is(#pal, #thm, #pick) .ck-item .ck-label {
+	font-size: 15px;
+	line-height: 20px;
+}
+html.tn-phone:not(#grok) #pal .tn-pl-acts .icon-btn,
+html.tn-phone:not(#grok) :is(div.pop[role='menu'] .mi:not(.bare), .sf-menu-pop .sf-menu-item:not(.rich)) {
+	min-width: 40px;
+	min-height: 40px;
+}
