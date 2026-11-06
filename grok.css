@@ -1271,90 +1271,104 @@ html.tn-themed {
 :root:not(#grok)[dir='rtl'] [data-role='omp.bot.chao.sleep']::after { left: auto; right: calc(100% + 4px); }
 
 :root:not(#grok).tn-status footer#statusline {
+	font-family: var(--sans);
+	justify-content: flex-start;
 	color: var(--grok-muted);
 	border-left-color: var(--grok-line);
 	background: rgb(from var(--grok-side) r g b / var(--surface-a, 1));
 }
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins {
-	animation: grok-rail-enter 160ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+:root:not(#grok).tn-status:not(.tabs-auto):not(.side-collapsed) footer#statusline {
+	padding: 16px 12px;
 }
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
-	padding: 6px 12px;
-	margin-bottom: 4px;
-	background: rgb(from var(--grok-chrome) r g b / var(--surface-a, 1));
-	box-shadow: inset 0 0 0 1px var(--grok-line);
+	align-self: stretch;
+	min-height: 32px;
+	padding: 6px 8px;
+	margin-bottom: 16px;
+	font-size: 13px;
+	line-height: 20px;
+	letter-spacing: 0;
+	text-align: left;
+	background: transparent;
+	box-shadow: none;
 	border-radius: 8px;
 }
+:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
+	padding-right: 24px;
+}
+:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) svg.ico {
+	width: 14px;
+	height: 14px;
+	margin-right: 8px;
+	vertical-align: -2px;
+	opacity: 1;
+}
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
-	padding-top: 18px;
+	padding: 0 8px;
+	font-size: 24px;
+	line-height: 32px;
+	letter-spacing: -0.02em;
+	text-align: left;
 }
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
-	padding: 6px 0 18px;
+	padding: 2px 8px 20px;
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0;
+	text-align: left;
 }
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 	box-sizing: border-box;
-	padding: 8px 8px 2px;
-	margin-bottom: 0;
-	border-radius: 8px 8px 0 0;
-	background-color: rgb(from var(--grok-chrome) r g b / var(--surface-a, 1));
-	box-shadow: inset 1px 0 0 var(--grok-line), inset -1px 0 0 var(--grok-line), inset 0 1px 0 var(--grok-line);
-	transition: background-color 150ms ease;
+	padding: 6px 8px;
+	margin: 0;
+	border: 0;
+	border-radius: 8px;
+	font-size: 14px;
+	line-height: 20px;
+	background: transparent;
+	box-shadow: none;
 }
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
-	border-top: 0;
+:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
+	padding: 0;
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0;
 }
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 	--spark-c: var(--grok-ink);
 	--spark-track: var(--grok-line);
 	box-sizing: border-box;
-	padding: 0 8px 8px;
-	margin: 0 0 8px;
-	border-radius: 0 0 8px 8px;
-	background-color: rgb(from var(--grok-chrome) r g b / var(--surface-a, 1));
-	background-origin: content-box;
-	background-clip: border-box;
-	box-shadow: inset 1px 0 0 var(--grok-line), inset -1px 0 0 var(--grok-line), inset 0 -1px 0 var(--grok-line);
-	transition: background-color 150ms ease;
-}
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']:hover,
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']:hover + span.sl-plugin[data-tone^='spark-'] {
-	background-color: rgb(from color-mix(in srgb, var(--grok-chrome) 94%, var(--grok-ink)) r g b / var(--surface-a, 1));
-}
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-	padding: 8px;
-	margin-bottom: 4px;
-	border-top: 0;
-	border-radius: 8px;
+	width: calc(100% - 16px);
+	height: 32px;
+	margin: 0 8px 12px;
+	padding: 0;
+	border-radius: 0;
 	background-color: transparent;
+	background-origin: content-box;
+	background-clip: content-box;
 	box-shadow: none;
 }
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']):hover {
-	background-color: var(--grok-soft);
+:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
+	min-height: 32px;
+	font-size: 12px;
+	line-height: 20px;
 }
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on {
-	transform-origin: center;
-	transition: background-color 150ms ease, box-shadow 150ms ease, transform 50ms cubic-bezier(0.165, 0.84, 0.44, 1);
+	transition: background-color 200ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on:active {
-	transform: scale(0.98);
+:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on:not([data-tone^='spark-']):hover {
+	background-color: rgb(from var(--grok-ink) r g b / 6%);
+}
+:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on:not([data-tone^='spark-']):active {
+	background-color: rgb(from var(--grok-ink) r g b / 8%);
 }
 :root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on:focus-visible {
 	outline: 2px solid var(--accent);
-	outline-offset: 2px;
-}
-@keyframes grok-rail-enter {
-	from { opacity: 0; transform: translateY(-6px) scale(0.98); }
-	to { opacity: 1; transform: translateY(0) scale(1); }
+	outline-offset: -2px;
 }
 @media (prefers-reduced-motion: reduce) {
-	:root:not(#grok).tn-status footer#statusline > span.sl-plugins {
-		animation: none;
-	}
-	:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is(.on, [data-tone^='m-'], [data-tone^='spark-']) {
+	:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on {
 		transition: none;
-	}
-	:root:not(#grok).tn-status footer#statusline > span.sl-plugins > span.sl-plugin.on:active {
-		transform: none;
 	}
 }
 
