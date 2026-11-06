@@ -5,7 +5,7 @@
   "interactionPolish": {
     "messageBodyEntry": "320ms opacity and 3px/0.985 settle",
     "avatarEntry": "280ms 4px/0.8 spring-like settle",
-    "composerFocus": "300ms 1px focus lift; 220ms send mount; 80ms press and 260ms spring-like return",
+    "composerFocus": "150ms native editor focus fade; 220ms send mount; 80ms press and 260ms spring-like return",
     "paletteEntry": "240ms 6px/0.975 settle with 120ms backdrop fade; deliberate extension beyond source static default",
     "settingsEntry": "180ms 4px/0.98 settle; 150ms row hover and 80ms press",
     "railEntry": "160ms 6px/0.98 settle; 150ms row hover",
