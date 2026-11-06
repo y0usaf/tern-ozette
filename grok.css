@@ -366,6 +366,36 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader :is([data-role='omp.bot.event.action'], [data-role='omp.bot.event.more']) {
 	transition: background-color 0.15s ease, color 0.15s ease;
 }
+:root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
+	border-radius: 24px;
+	background: var(--grok-chrome);
+	box-shadow: 0 0 0 1px var(--grok-soft), 0 2px 8px light-dark(rgb(28 28 28 / 3.5%), transparent);
+}
+:root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] > .sf-card-body {
+	gap: 0;
+	padding: 14px 8px 8px;
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.bot.asked.q'] {
+	padding: 0 8px 4px;
+	font: 600 15px/22px var(--sans);
+	color: var(--grok-muted);
+}
+:root:not(#grok) .sf-chat-reader :is([data-role='omp.bot.asked.pick'], [data-role='omp.bot.asked.note']) {
+	padding: 8px;
+	font: 400 14px/20px var(--sans);
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.bot.asked.pick'] {
+	gap: 12px;
+	color: var(--grok-ink);
+}
+:root:not(#grok) .sf-chat-reader [data-role='omp.bot.asked.pick'] > .sf-badge {
+	width: 24px;
+	min-width: 24px;
+	height: 24px;
+	padding: 0;
+	border-radius: 8px;
+	font: 500 12px/1 var(--sans);
+}
 :root:not(#grok).lay-rail.tabs-h #tabbar .tt.on::before,
 :root:not(#grok).lay-rail.tabs-h #tabbar .tt.on::after { content: none; }
 :root:not(#grok).lay-rail.tabs-h #tabbar .tb-tabs { gap: 4px; padding-right: 8px; }
@@ -1451,10 +1481,14 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader .sf-message .sf-msg-act:not(:disabled, .dis, [aria-disabled='true']):active,
 :root:not(#grok) .sf-chat-reader .sf-button:not([data-role^='omp.composer.'], .disabled, .dis, :disabled, [aria-disabled='true']):active { transform: scale(0.94); transition-duration: 80ms; }
 :root:not(#grok) .sf-fx-pulse { animation: none; }
-:root:not(#grok) .sf-fx-shimmer {
+:root:not(#grok) .sf-fx-shimmer:not(:is([data-role^='omp.bot.chat.'], [data-role='omp.working'], [data-role='omp.thinking.live']) *) {
  animation: none;
  background-image: none;
  color: var(--t3);
+}
+:root:not(#grok) :is([data-role^='omp.bot.chat.'], [data-role='omp.working'], [data-role='omp.thinking.live']) .sf-fx-shimmer {
+ --sh-lo: light-dark(rgb(28 28 28 / 40%), rgb(245 245 245 / 40%));
+ animation-duration: 2.2s;
 }
 :root:not(#grok) .sf-skeleton .sk-b::after { animation: none; background-image: none; }
 :root:not(#grok) .sf-chat-reader :is([data-role='omp.thinking.spin'], [data-role='omp.working']) .sf-dots > i,

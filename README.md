@@ -8,7 +8,7 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 
 - **Ozette**: square paper surfaces with offset shadows, serif chat, code cards, label tabs and a dot-grid canvas.
 - **YoRHa**: two-tone menus after NieR: Automata's YoRHa screens: light paper or dark ink.
-- **Grok**: a standalone look after the Grok Bot app: neutral surfaces, rounded code, a centred 960px composer, and Grok Bot's own menus, dialogs, keycaps and bottom-right notification toasts. It hides the composer's model and effort selectors; `/model` still works.
+- **Grok**: a standalone look after the Grok Bot app: neutral surfaces, rounded code, a centred 960px composer, and Grok Bot's own menus, dialogs, keycaps, bottom-right notification toasts, answered question cards and shimmering working phrase. It hides the composer's model and effort selectors; `/model` still works.
 - **Mini**: stock layout with small radii, short transitions, flat borders and no decorative animation. It sets no colours or fonts.
 
 ## Sheets
