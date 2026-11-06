@@ -1607,7 +1607,7 @@ html.tn-phone:not(#grok) .sf-chat-reader .sf-col[data-role^='omp.editor'] {
 	margin-right: 8px;
 }
 html.tn-phone:not(#grok) .sf-chat-reader:not(.sf-chat-spine) .sf-col:is([data-role='omp.editor'], [data-role='omp.editor.bash'], [data-role='omp.editor.python']) {
-	margin-bottom: 8px;
+	margin-bottom: max(8px, calc(var(--tn-home) * 0.4 + 6px));
 	padding: 8px 12px;
 	gap: 0 8px;
 }
