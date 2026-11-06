@@ -322,14 +322,14 @@
 }
 
 :root:not(#yh).tn-status #statusline {
-	border-left: 0 !important;
-	background: transparent !important;
-	color: var(--t3) !important;
+	border-left: 0;
+	background: transparent;
+	color: var(--t3);
 }
 :root:not(#yh).tn-status #statusline > span.tn-git {
 	font: 500 10.5px/1.7 var(--sans);
-	letter-spacing: 0.12em !important;
-	color: var(--t3) !important;
+	letter-spacing: 0.12em;
+	color: var(--t3);
 }
 :root:not(#yh).tn-status #statusline .sl-plugin {
 	order: 5;
@@ -337,19 +337,20 @@
 :root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='arc-sidebar'] {
 	order: 0;
 	font: 500 11px/1.7 var(--sans);
-	letter-spacing: 0.12em !important;
-	color: var(--t2) !important;
+	letter-spacing: 0.12em;
+	color: var(--t2);
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone='time'] {
 	order: 1;
 	position: relative;
 	align-self: center;
 	width: max-content;
-	padding: 4px 12px 2px !important;
-	background: var(--ink) !important;
-	color: var(--yh-ground) !important;
-	font: 400 27.5px/33px var(--sans);
-	letter-spacing: 0 !important;
+	padding: 4px 12px 2px;
+	background: var(--ink);
+	color: var(--yh-ground);
+	font: 400 2.3em/1.05 var(--sans);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0;
 	box-shadow: none;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone='date'] {
@@ -357,51 +358,51 @@
 	align-self: center;
 	width: max-content;
 	margin: 20px 0 24px;
-	padding: 0 !important;
+	padding: 0;
 	background: none;
-	color: var(--t2) !important;
-	font: 400 11px/16px var(--sans);
-	letter-spacing: 1.5px !important;
+	color: var(--t2);
+	font: 400 11px/1.6 var(--sans);
+	letter-spacing: 1.5px;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) {
-	display: block !important;
-	align-self: center !important;
-	box-sizing: border-box !important;
-	max-width: 100% !important;
-	overflow: hidden !important;
-	text-overflow: ellipsis !important;
-	text-align: center !important;
+	display: block;
+	align-self: center;
+	box-sizing: border-box;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-align: center;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='cmus'] {
 	order: 3;
-	margin: 0 0 10px !important;
-	padding: 0 !important;
-	color: var(--t2) !important;
+	margin: 0 0 10px;
+	padding: 0;
+	color: var(--t2);
 	font: 400 11px/16px var(--sans);
-	letter-spacing: 0 !important;
+	letter-spacing: 0;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='cmus'] svg.ico {
-	display: inline-block !important;
-	width: 12px !important;
-	height: 12px !important;
-	margin-right: 6px !important;
-	vertical-align: -1px !important;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	margin-right: 6px;
+	vertical-align: -1px;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
 	order: 4;
-	position: relative !important;
-	margin: 0 0 26px !important;
-	padding: 3px 10px 3px 8px !important;
-	background: var(--l2) !important;
-	color: var(--ink) !important;
-	border-radius: 0 !important;
-	box-shadow: none !important;
-	font: 400 11px/16px var(--sans);
-	letter-spacing: 1.5px !important;
+	position: relative;
+	margin: 0 0 26px;
+	padding: 3px 10px 3px 8px;
+	background: var(--l2);
+	color: var(--ink);
+	border-radius: 0;
+	box-shadow: none;
+	font: 400 10px/1.4 var(--sans);
+	letter-spacing: 1.5px;
 	text-transform: uppercase;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) svg.ico {
-	display: none !important;
+	display: none;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone='deck'], [data-tone='deck-busy'])::before {
 	content: "";
@@ -413,9 +414,9 @@
 	background: currentColor;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone='deck-busy'] {
-	padding-right: 22px !important;
-	background: var(--ink) !important;
-	color: var(--yh-ground) !important;
+	padding-right: 22px;
+	background: var(--ink);
+	color: var(--yh-ground);
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone='deck-busy']::after {
 	right: 10px;
@@ -427,135 +428,133 @@
 	animation: yh-blink calc(1000ms * var(--yh-t)) steps(1, end) infinite;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-'] {
-	margin: 0 !important;
-	padding: 8px 0 2px !important;
+	margin: 0;
+	padding: 8px 0 2px;
 	background-color: transparent;
-	background-image: none !important;
-	color: var(--ink) !important;
-	font: 400 22px/33px var(--sans);
-	letter-spacing: 0 !important;
+	background-image: none;
+	color: var(--ink);
+	font: 400 22px/1.3 var(--sans);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-cpu'] {
-	border-top: 0 !important;
+	border-top: 0;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-']::before {
-	color: var(--t3) !important;
+	color: var(--t3);
 	font: 400 11px/16px var(--sans);
-	letter-spacing: 1.5px !important;
+	letter-spacing: 1.5px;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
-	color: var(--bad) !important;
+	color: var(--bad);
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='spark-'] {
 	--spark-c: var(--ink);
 	--spark-track: var(--l3);
-	width: auto !important;
-	height: 33px !important;
-	margin: 2px 0 14px !important;
+	width: auto;
+	height: 33px;
+	margin: 2px 0 14px;
 	padding: 0;
 	background-color: transparent;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-	border-top: 0 !important;
-	padding: 0 !important;
-	color: var(--t2) !important;
-	font: 400 11px/22px var(--sans);
-	letter-spacing: 0 !important;
+	border-top: 0;
+	padding: 0;
+	color: var(--t2);
+	font: 400 12.5px/1.3 var(--sans);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-net'] {
-	margin-top: 6px !important;
+	margin-top: 6px;
 }
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-load'] {
-	margin-bottom: 10px !important;
+	margin-bottom: 10px;
 }
 @media (max-width: 1200px) {
 	:root:not(#yh).tn-status #statusline {
-		padding: 20px 10px 20px 18px !important;
+		padding: 20px 10px 20px 18px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='time'] {
-		padding: 3px 8px 1px !important;
-		font: 400 22px/27px var(--sans);
+		padding: 3px 8px 1px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='date'] {
-		margin: 16px 0 18px !important;
+		margin: 16px 0 18px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='cmus'] {
-		margin: 0 0 8px !important;
+		margin: 0 0 8px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
-		margin: 0 0 18px !important;
+		margin: 0 0 18px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='deck-busy']::after {
-		right: 8px !important;
+		right: 8px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-'] {
-		padding: 6px 0 0 !important;
-		font: 400 16.5px/24px var(--sans);
+		padding: 6px 0 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='spark-'] {
-		height: 24px !important;
-		margin: 2px 0 10px !important;
-		padding: 0 !important;
+		height: 24px;
+		margin: 2px 0 10px;
+		padding: 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-		flex-direction: column !important;
-		align-items: flex-start !important;
-		padding: 0 !important;
-		font: 400 11px/16px var(--sans);
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load'])::before {
-		padding-bottom: 0 !important;
+		padding-bottom: 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-load'] {
-		margin-top: 6px !important;
-		margin-bottom: 8px !important;
+		margin-top: 6px;
+		margin-bottom: 8px;
 	}
 }
 @media (max-width: 1000px) {
 	:root:not(#yh).tn-status #statusline {
-		justify-content: flex-start !important;
-		padding: 20px 6px 14px 18px !important;
+		justify-content: flex-start;
+		padding: 20px 6px 14px 18px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='time'] {
-		padding: 2px 6px 1px !important;
-		font: 400 16.5px/22px var(--sans);
+		padding: 2px 6px 1px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='date'] {
-		margin: 12px 0 14px !important;
-		letter-spacing: 0 !important;
+		margin: 12px 0 14px;
+		letter-spacing: 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='cmus'] {
-		margin: 0 0 6px !important;
+		margin: 0 0 6px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='cmus'] svg.ico {
-		display: none !important;
+		display: none;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
-		margin: 0 0 14px !important;
-		padding: 3px 6px !important;
-		letter-spacing: 0 !important;
+		margin: 0 0 14px;
+		padding: 3px 6px;
+		letter-spacing: 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='deck-busy'] {
-		padding-right: 16px !important;
+		padding-right: 16px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone='deck-busy']::after {
-		right: 6px !important;
+		right: 6px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-'] {
-		flex-direction: column !important;
-		align-items: flex-start !important;
-		padding: 4px 0 0 !important;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 4px 0 0;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='m-']::before {
-		padding-bottom: 0 !important;
-		letter-spacing: 1px !important;
+		padding-bottom: 0;
+		letter-spacing: 1px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin[data-tone^='spark-'] {
-		height: 16px !important;
-		margin: 2px 0 8px !important;
+		height: 16px;
+		margin: 2px 0 8px;
 	}
 	:root:not(#yh).tn-status #statusline .sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-		display: none !important;
+		display: none;
 	}
 }
 

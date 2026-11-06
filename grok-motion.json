@@ -2,6 +2,18 @@
   "version": 1,
   "reference": "Grok Bot 0.75.8",
   "sourceCssSha256": "fb2628102ec16e7e58393b52976fdff244c602d89945ea1d5d285ae86d244c73",
+  "interactionPolish": {
+    "messageBodyEntry": "320ms opacity and 3px/0.985 settle",
+    "avatarEntry": "280ms 4px/0.8 spring-like settle",
+    "composerFocus": "300ms 1px focus lift; 220ms send mount; 80ms press and 260ms spring-like return",
+    "paletteEntry": "240ms 6px/0.975 settle with 120ms backdrop fade; deliberate extension beyond source static default",
+    "settingsEntry": "180ms 4px/0.98 settle; 150ms row hover and 80ms press",
+    "railEntry": "160ms 6px/0.98 settle; 150ms row hover",
+    "avatarReplay": "one four-second Idle_B cycle on hover or focused tab, never perpetual",
+    "idleDecoration": "shimmers, typing-dot dances, sleep breathing and particles disabled; semantic working labels and functional progress retained",
+    "springApproximation": "cubic-bezier(0.34,1.56,0.64,1) for controls; cubic-bezier(0.22,1,0.36,1) for settles",
+    "limitations": ["No retained close lifecycle for palette/menu exit", "No keyboard send-event CSS state", "No source message grouping/stagger metadata", "No measured height:auto spring", "No dynamic-island or voice-word surfaces"]
+  },
   "counts": {
     "keyframes": 138,
     "feasibility": {

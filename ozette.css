@@ -490,7 +490,7 @@
 	font-family: var(--mono);
 }
 :root:not(#oz).tn-status footer#statusline {
-	background: transparent !important;
+	background: transparent;
 	color: var(--t3);
 	font-family: var(--mono);
 }
@@ -507,11 +507,12 @@
 	order: 1;
 	align-self: center;
 	width: max-content;
-	padding: 6px 14px 4px !important;
+	padding: 6px 14px 4px;
 	background: var(--oz-lime);
-	color: var(--oz-forest) !important;
-	font: 400 40px/1 var(--oz-serif);
-	letter-spacing: 0 !important;
+	color: var(--oz-forest);
+	font: 400 2.3em/1.05 var(--oz-serif);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0;
 	box-shadow: 6px 6px 0 var(--oz-forest);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
@@ -519,26 +520,27 @@
 	align-self: center;
 	width: max-content;
 	margin: 18px 0 26px;
-	padding: 3px 10px !important;
+	padding: 3px 10px;
 	background: var(--oz-lav);
-	color: var(--oz-plum) !important;
-	font: 600 11px/1.4 var(--mono);
-	letter-spacing: 0.12em !important;
+	color: var(--oz-plum);
+	font: 600 11px/1.6 var(--mono);
+	letter-spacing: 0.12em;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
-	margin: 0 !important;
-	padding: 10px 12px 4px !important;
+	margin: 0;
+	padding: 10px 12px 4px;
 	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
 	color: var(--t1);
-	font: 400 24px/1.2 var(--oz-serif);
+	font: 400 22px/1.3 var(--oz-serif);
+	font-variant-numeric: tabular-nums;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
-	font: 400 10px/1.3 var(--mono);
-	letter-spacing: 0.12em !important;
+	font: 400 11px/1.3 var(--mono);
+	letter-spacing: 0.12em;
 	color: var(--t3);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
-	border-top: 0 !important;
+	border-top: 0;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
 	color: var(--warn);
@@ -549,23 +551,24 @@
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 	--spark-c: light-dark(var(--oz-plum), var(--oz-lime));
 	--spark-track: var(--oz-hair);
-	width: auto !important;
-	height: 50px !important;
-	margin: 0 0 10px !important;
+	width: auto;
+	height: 50px;
+	margin: 0 0 10px;
 	padding: 0 12px 10px;
 	background-color: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
 	background-origin: content-box;
 	background-clip: border-box;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-	border-top: 0 !important;
+	border-top: 0;
 	color: var(--t2);
-	font: 400 11px/1.5 var(--mono);
-	letter-spacing: 0.06em !important;
+	font: 400 12.5px/1.3 var(--mono);
+	font-variant-numeric: tabular-nums;
+	letter-spacing: 0.06em;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
-	margin-bottom: 10px !important;
-	padding: 2px 12px 10px !important;
+	margin-bottom: 10px;
+	padding: 2px 12px 10px;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) {
 	display: block;
@@ -597,24 +600,24 @@
 	order: 4;
 	position: relative;
 	margin: 0 0 26px;
-	padding: 3px 10px !important;
-	background: var(--oz-lav) !important;
-	color: var(--oz-plum) !important;
-	border-radius: 0 !important;
-	box-shadow: none !important;
+	padding: 3px 10px;
+	background: var(--oz-lav);
+	color: var(--oz-plum);
+	border-radius: 0;
+	box-shadow: none;
 	font: 600 10px/1.4 var(--mono);
-	letter-spacing: 0.12em !important;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) svg.ico {
-	width: 10px !important;
-	height: 10px !important;
-	margin-right: 6px !important;
-	opacity: 1 !important;
+	width: 10px;
+	height: 10px;
+	margin-right: 6px;
+	opacity: 1;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
-	padding-right: 22px !important;
-	background: var(--oz-mustard) !important;
+	padding-right: 22px;
+	background: var(--oz-mustard);
 	color: var(--oz-plum);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
@@ -672,11 +675,10 @@
 		margin: 12px 8px 14px;
 	}
 	:root:not(#oz).tn-status footer#statusline {
-		padding: 20px 10px !important;
+		padding: 20px 10px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
-		padding: 4px 10px 3px !important;
-		font-size: 26px;
+		padding: 4px 10px 3px;
 		box-shadow: 4px 4px 0 var(--oz-forest);
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
@@ -688,31 +690,29 @@
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
 		margin: 0 0 18px;
-		padding: 3px 8px !important;
-		letter-spacing: 0.08em !important;
+		padding: 3px 8px;
+		letter-spacing: 0.08em;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
-		padding-right: 18px !important;
+		padding-right: 18px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
 		right: 8px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
-		padding: 6px 8px 2px !important;
-		font-size: 17px;
+		padding: 6px 8px 2px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
-		height: 36px !important;
-		margin: 0 0 8px !important;
+		height: 36px;
+		margin: 0 0 8px;
 		padding: 0 8px 8px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-		font-size: 10px;
-		letter-spacing: 0 !important;
+		letter-spacing: 0;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
-		margin-bottom: 8px !important;
-		padding: 2px 8px 8px !important;
+		margin-bottom: 8px;
+		padding: 2px 8px 8px;
 	}
 }
 @media (max-width: 1000px) {
@@ -742,11 +742,10 @@
 		padding: 2px 8px;
 	}
 	:root:not(#oz).tn-status footer#statusline {
-		justify-content: flex-start !important;
-		padding: 14px 6px !important;
+		justify-content: flex-start;
+		padding: 14px 6px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
-		font-size: 19px;
 		box-shadow: 3px 3px 0 var(--oz-forest);
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
@@ -754,16 +753,15 @@
 		font-size: 13px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) svg.ico {
-		display: none !important;
+		display: none;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
 		margin: 0 0 14px;
-		padding: 2px 6px !important;
-		font-size: 9px;
-		letter-spacing: 0.04em !important;
+		padding: 2px 6px;
+		letter-spacing: 0.04em;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
-		padding-right: 15px !important;
+		padding-right: 15px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
 		right: 6px;
@@ -772,20 +770,18 @@
 		margin-top: -2px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
-		padding: 4px 6px 2px !important;
-		font-size: 14px;
+		padding: 4px 6px 2px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
-		font-size: 9px;
-		letter-spacing: 0.06em !important;
+		letter-spacing: 0.06em;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
-		height: 24px !important;
-		margin: 0 0 6px !important;
+		height: 24px;
+		margin: 0 0 6px;
 		padding: 0 6px 6px;
 	}
 	:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
-		display: none !important;
+		display: none;
 	}
 	:root:not(#oz).lay-rail.tabs-h #tabbar .tb-in {
 		display: grid;

@@ -1,0 +1,28 @@
+#pick .tn-pk {
+	max-height: calc(100vh - 32px);
+	display: flex;
+	flex-direction: column;
+}
+#pick .tn-pk .ck-top,
+#pick .tn-pk .ck-foot {
+	flex-shrink: 0;
+}
+#pick .tn-pk .ck-list {
+	min-height: 0;
+	overscroll-behavior: contain;
+}
+#pick .tn-pk .ck-item {
+	gap: 10px;
+}
+#pick .tn-pk .ck-hint,
+#pick .tn-pk .tn-pk-check {
+	flex-shrink: 0;
+}
+#pick .tn-pk .ck-foot {
+	height: auto;
+	min-height: 40px;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	padding: 8px 16px;
+	box-sizing: border-box;
+}

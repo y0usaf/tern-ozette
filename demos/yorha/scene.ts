@@ -34,7 +34,7 @@ export default function trailsScene(pi) {
       state.bot.nap = () => {};
       const head = state.top;
       const status = state.status;
-      const stamp = wrap(text("Today 15:14", { role: "omp.bot.time" }));
+      const stamp = wrap(text("Today 15:14", { role: "omp.bot.time.you" }));
       const event = wrap(col([row([text("Message from", { role: "omp.bot.event.action" }), text("Mori", { role: "omp.bot.event.name" }), text("›", { role: "omp.bot.event.more" })], { role: "omp.bot.event.row", gap: "xs", align: "center" })], { role: "omp.bot.eventbox.purple" }));
       const you = (msg, cells) => {
         const c = new UserMessageComponent(msg);

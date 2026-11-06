@@ -53,7 +53,7 @@
 	background-size: 320px calc(32px * var(--grok-rows));
 	background-position: 0 0;
 	background-repeat: no-repeat;
-	animation: var(--grok-motion) 4s steps(1, end) infinite;
+	animation: none;
 }
 :root:not(#grok) [data-role^='omp.bot.hero.'] [data-role^='omp.bot.chao.'] {
 	width: 64px;
@@ -77,7 +77,7 @@
 	box-shadow: none;
 	transform: scale(1.25);
 	transform-origin: center;
-	animation: var(--grok-motion) 4s steps(1, end) infinite;
+	animation: none;
 }
 :root:not(#grok) #tabbar .tt[data-tc] .tn-dk-g,
 :root:not(#grok) #tabbar .tt[data-tc] .tn-dk-c > .ico { display: none; }
