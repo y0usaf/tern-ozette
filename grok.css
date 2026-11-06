@@ -16,6 +16,11 @@ html.tn-themed {
 	--tn-page: var(--grok-page);
 	--tn-panel: var(--grok-page);
 	--tn-pop: var(--grok-chrome);
+	--modal-bg: var(--grok-chrome);
+	--modal-filter: none;
+	--modal-dim: light-dark(rgb(0 0 0 / 50%), rgb(0 0 0 / 70%));
+	--modal-dim-filter: none;
+	--glass-hi: transparent;
 	--tv-bg: var(--grok-page);
 	--tv-fg: var(--grok-ink);
 	--ink: var(--grok-ink);
@@ -55,9 +60,31 @@ html.tn-themed {
 :root:not(#grok) #tabbar .tt.on {
 	background: var(--grok-soft);
 }
-:root:not(#grok) :is(.cmdk, .dlg-card, .pk-sheet, .sf-ov-card) {
+:root:not(#grok) :is(.pop:not(:is(.cp, .tn-ql, .gb-peek, .kit-web-sugg, .mde-bubble)), .sf-menu-pop, .tn-ib, .tn-hp, :where(.sf-overlay:not(.modal)) > .sf-ov-card, .sf-hovercard, #cmp, .tn-clist, .tn-crumbs, .sf-date-pop, .sf-nav-pop, .sf-ck-pop, .sq-pop, :where(.pp.float) .pp-pop, .sf-col[data-role^='omp.overlay.'], .toast, .tn-bn-card, .tn-find) {
+	background: var(--pop-bg);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	box-shadow: 0 10px 20px -3px light-dark(rgb(28 28 28 / 10%), transparent), 0 4px 6px -4px light-dark(rgb(28 28 28 / 10%), transparent), inset 0 0 0 0.5px light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+}
+:root:not(#grok) :is(.pop:not(:is(.cp, .tn-ql, .gb-peek, .kit-web-sugg, .mde-bubble)), .sf-menu-pop, .tn-ib, .tn-hp, :where(.sf-overlay:not(.modal)) > .sf-ov-card, .sf-hovercard, #cmp, .tn-clist, .tn-crumbs, .sf-date-pop, .sf-nav-pop, .sf-ck-pop, .sq-pop, :where(.pp.float) .pp-pop, .sf-col[data-role^='omp.overlay.']) {
 	border-radius: 16px;
-	box-shadow: 0 0 0 1px var(--grok-line), 0 12px 36px #00000020;
+}
+:root:not(#grok) :is(.sf-overlay:not(.modal) > .sf-ov-card, .tn-bn-card)::after,
+:root:not(#grok) :is(.pk-sheet, .tn-signin-card, .tn-bn-card)::before,
+:root:not(#grok) :is(.pk-sheet, .tn-signin-card)::after {
+	background: none;
+}
+:root:not(#grok) :is(.cmdk, .mdl, .dlg-card, .pk-sheet, .tn-hd, .tn-signin-card, :where(.sf-overlay.modal) > .sf-ov-card, :where(.sf-prefs .pf-editor) > .sf-col) {
+	border-radius: 14px;
+	background: var(--modal-bg);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	box-shadow: 0 0 0 1px light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+}
+:root:not(#grok) :is(.mdl-layer, .tn-hd-back, .tn-signin) {
+	background: var(--modal-dim);
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
 }
 :root:not(#grok) .sf-chat-reader.sf-main {
 	--rd-measure: 960px;
@@ -367,12 +394,6 @@ html.tn-themed {
 :root:not(#grok):not(.tn-phone).lay-rail.tabs-h #tabbar { width: 280px; }
 :root:not(#grok):not(.tn-phone).lay-rail.tabs-h #panel { left: calc(280px * var(--tn-zoom, 1)); }
 :root:not(#grok) #tabbar .tn-ib-pip { color: var(--grok-page); }
-:root:not(#grok) :is(.tn-ib, .tn-find) {
-	background: var(--pop-bg);
-	-webkit-backdrop-filter: none;
-	backdrop-filter: none;
-	box-shadow: inset 0 0 0 1px var(--grok-line), 0 3px 8px #0000001f, 0 2px 5px #0000001f, 0 1px 1px #0000001f;
-}
 
 :root:not(#grok) :is(#pal, #thm, #pick) {
 	--t1: light-dark(#1c1c1c, #f5f5f5);
@@ -655,13 +676,7 @@ html.tn-themed {
 	min-width: min(200px, calc(100vw - 16px));
 	max-width: min(320px, calc(100vw - 16px));
 	padding: 6px 0;
-	border-radius: 16px;
-	background: var(--grok-chrome);
-	border: 1px solid var(--grok-line);
 	box-sizing: border-box;
-	box-shadow: none;
-	-webkit-backdrop-filter: none;
-	backdrop-filter: none;
 	letter-spacing: 0;
 }
 :root:not(#grok) :is(.sf-menu-pop .sf-menu-item:not(.rich), .pop .mi:not(.bare)) {
@@ -671,7 +686,7 @@ html.tn-themed {
 	margin-left: 6px;
 	margin-right: 6px;
 	padding: 6px 8px;
-	gap: 4px;
+	gap: 6px;
 	border-radius: 10px;
 	font-size: 14px;
 	line-height: 20px;
@@ -703,8 +718,15 @@ html.tn-themed {
 	color: var(--t3);
 }
 :root:not(#grok) :is(.sf-menu-pop .sf-menu-sep, .pop .sep) {
-	margin: 6px 14px;
-	background: var(--grok-line);
+	margin: 4px 14px;
+	background: light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+}
+:root:not(#grok) .pop .mi .sub {
+	font: 400 13px/18px var(--sans);
+	color: var(--t3);
+}
+:root:not(#grok) .pop :is(.mi, .mi-row) .ico {
+	color: var(--t2);
 }
 :root:not(#grok) .sf-menu-pop .sf-menu-item:not(.rich) .sf-menu-lead {
 	width: 14px;
@@ -717,20 +739,230 @@ html.tn-themed {
 :root:not(#grok) .sf-menu-pop .sf-menu-detail {
 	color: var(--t3);
 }
-:root:not(#grok) :is(.sf-overlay.at-node, .sf-overlay.at-caret) > .sf-ov-card {
-	border-radius: 12px;
-	background: var(--pop-bg);
-	box-shadow: inset 0 0 0 1px var(--grok-line), 0 3px 8px #0000001f, 0 2px 5px #0000001f, 0 1px 1px #0000001f;
-}
-:root:not(#grok) :is(.sf-overlay.at-node, .sf-overlay.at-caret) > .sf-ov-card::after {
-	background: none;
-}
 :root:not(#grok) .tooltip {
 	max-width: 300px;
-	padding: 6px 10px;
-	border-radius: 8px;
+	min-height: 24px;
+	padding: 4px 6px;
+	border-radius: 6px;
 	background: var(--pop-bg);
-	box-shadow: inset 0 0 0 1px var(--grok-line), 0 3px 8px #0000001f, 0 2px 5px #0000001f, 0 1px 1px #0000001f;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	box-shadow: 0 4px 12px -1px light-dark(rgb(28 28 28 / 8%), transparent), 0 2px 4px -2px light-dark(rgb(28 28 28 / 6%), transparent), inset 0 0 0 0.5px light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+	font-size: 12px;
+	line-height: 16px;
+}
+:root:not(#grok) .kbd {
+	padding: 0 4px;
+	border-radius: 4px;
+	background: light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 4%));
+	box-shadow: inset 0 0 0 1px light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 6%));
+	color: var(--t2);
+	font-family: var(--sans);
+	font-weight: 400;
+	letter-spacing: 0.11px;
+}
+:root:not(#grok) :is(.mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)) .kbd {
+	background: light-dark(rgb(255 255 255 / 16%), rgb(0 0 0 / 12%));
+	box-shadow: none;
+	color: inherit;
+}
+:root:not(#grok) :is(.toast, .tn-bn-card) {
+	border-radius: 9px;
+	gap: 8px;
+	font-size: 12.5px;
+}
+:root:not(#grok) .toast {
+	min-height: 36px;
+	height: auto;
+	padding: 9px 12px;
+	line-height: 18px;
+}
+:root:not(#grok) .toast.err {
+	box-shadow: 0 10px 20px -3px light-dark(rgb(28 28 28 / 10%), transparent), 0 4px 6px -4px light-dark(rgb(28 28 28 / 10%), transparent), inset 0 0 0 1px rgb(from var(--bad) r g b / 40%);
+}
+:root:not(#grok):not(.tn-phone) #banners.tn-bn-stack {
+	top: auto;
+	bottom: 6px;
+	right: 16px;
+	width: 360px;
+	flex-direction: column-reverse;
+}
+:root:not(#grok) .tn-bn-card {
+	padding: 9px 36px 9px 12px;
+}
+:root:not(#grok) .tn-bn-card :is(.tn-bn-t, .tn-bn-b) {
+	font-size: 12.5px;
+	line-height: 16px;
+	letter-spacing: 0;
+}
+:root:not(#grok) .tn-bn-card .tn-bn-t {
+	font-weight: 500;
+}
+:root:not(#grok) .tn-bn-card .tn-bn-hd {
+	line-height: 16px;
+}
+:root:not(#grok) .tn-bn-card :is(.tn-bn-s, .tn-bn-b) {
+	color: var(--t2);
+}
+:root:not(#grok) .tn-bn-card .tn-bn-ic {
+	width: 24px;
+	height: 24px;
+}
+:root:not(#grok) .tn-bn-card .tn-bn-ic > .tn-dk {
+	--dk: 26px;
+	left: -1px;
+	top: -1px;
+}
+:root:not(#grok) .tn-bn-k:is(.bell, .waiting) {
+	color: var(--grok-page);
+}
+:root:not(#grok) .tn-bn-card .tn-bn-x {
+	left: auto;
+	right: 9px;
+	top: 50%;
+	width: 18px;
+	height: 18px;
+	margin-top: -9px;
+	border-radius: 5px;
+	background: transparent;
+	-webkit-backdrop-filter: none;
+	backdrop-filter: none;
+	box-shadow: none;
+	opacity: 0.7;
+	transform: none;
+}
+:root:not(#grok) .tn-bn-card .tn-bn-x:hover {
+	opacity: 1;
+	background: var(--grok-soft);
+}
+:root:not(#grok) .tn-ib-head {
+	height: auto;
+	min-height: 46px;
+	padding: 12px 10px 4px 16px;
+	box-shadow: none;
+}
+:root:not(#grok) .tn-ib-t {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0.15px;
+}
+:root:not(#grok) :is(.tn-ib-n, .tn-ib-gh .n) {
+	font-family: var(--sans);
+	font-size: 13px;
+	color: var(--t3);
+}
+:root:not(#grok) .tn-ib-clear {
+	height: 28px;
+	padding: 0 10px;
+	border-radius: 999px;
+	font-size: 13px;
+	color: var(--t2);
+}
+:root:not(#grok) .tn-ib-clear:hover {
+	background: var(--grok-soft);
+}
+:root:not(#grok) .tn-ib-list {
+	padding: 0 6px 6px;
+}
+:root:not(#grok) .tn-ib-gh {
+	height: 24px;
+	padding: 0 8px;
+	font-size: 12px;
+	font-weight: 400;
+	color: var(--t2);
+}
+:root:not(#grok) .tn-ib-row {
+	height: 32px;
+	gap: 8px;
+	padding: 0 6px 0 8px;
+	border-radius: 10px;
+	font-size: 14px;
+}
+:root:not(#grok) .tn-ib-row:is(:hover, [aria-selected='true']) {
+	background: var(--grok-soft);
+}
+:root:not(#grok) .tn-ib-row[aria-selected='true']::before {
+	display: none;
+}
+:root:not(#grok) .tn-ib-ic {
+	background: transparent;
+}
+:root:not(#grok) .tn-ib-ic:not(.bell, .waiting, .done, .failed) {
+	color: var(--t2);
+}
+:root:not(#grok) .tn-ib-lbl {
+	font-weight: 400;
+}
+:root:not(#grok) .tn-ib-x {
+	border-radius: 6px;
+}
+:root:not(#grok) .tn-ib-empty-ic {
+	background: none;
+	box-shadow: none;
+	color: var(--t3);
+}
+:root:not(#grok) :is(.mdl-head, .dlg-head) {
+	padding: 16px 12px 8px 20px;
+}
+:root:not(#grok) :is(.mdl-t, .tn-hd-t) {
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 22px;
+	letter-spacing: 0.15px;
+	color: var(--t1);
+}
+:root:not(#grok) :is(.mdl-sub, .tn-hd-s) {
+	font-size: 13px;
+	line-height: 18px;
+	color: var(--t3);
+}
+:root:not(#grok) :is(.mdl:not(.danger) .mdl-ic, .tn-hd-ic:not(.warn), .dlg-card:not(.danger) .dlg-ic) {
+	border-radius: 10px;
+	background: var(--grok-soft);
+	box-shadow: none;
+	color: var(--t2);
+}
+:root:not(#grok) .mdl-body {
+	padding: 8px 20px 16px;
+}
+:root:not(#grok) :is(.mdl-foot, .dlg-foot) {
+	border-top: 0;
+	padding: 4px 16px 16px 20px;
+}
+:root:not(#grok) .tn-hd-foot {
+	box-shadow: none;
+}
+:root:not(#grok) :is(.mdl-foot, .dlg-foot, .tn-hd-foot) .btn:not(#grok) {
+	border-radius: 999px;
+}
+:root:not(#grok) .pf.sheet {
+	background: var(--page);
+	box-shadow: inset 1px 0 0 var(--grok-line);
+}
+:root:not(#grok) .pf.sheet .pf-title {
+	font-weight: 500;
+	letter-spacing: 0.17px;
+}
+:root:not(#grok) .pf-sec-t {
+	margin: 0 0 8px;
+	padding: 0 8px;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+	color: var(--t2);
+}
+:root:not(#grok) .pf-rows {
+	border-radius: 14px;
+	background: var(--grok-chrome);
+	box-shadow: 0 0 0 1px var(--grok-line);
+}
+:root:not(#grok) .pf-rows > :not(:first-child, .focus, :focus-visible) {
+	box-shadow: none;
+}
+:root:not(#grok) .pf-lbl .t {
+	font-weight: 400;
+	letter-spacing: -0.08px;
 }
 :root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
 	border-radius: 8px;
@@ -751,19 +983,19 @@ html.tn-themed {
 :root:not(#grok) :is(.sf-button[data-variant='quiet'], .btn.quiet, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):not(:hover, .on) {
 	background: transparent;
 }
-:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
 	background: var(--t1);
 	color: var(--grok-page);
 }
-:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	background: light-dark(#363636, #d6d6d6);
 	color: var(--grok-page);
 }
-:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
 	background: rgb(from var(--bad) r g b / 10%);
 	color: var(--bad);
 }
-:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	background: rgb(from var(--bad) r g b / 18%);
 	color: var(--bad);
 }
@@ -1130,11 +1362,12 @@ html.tn-themed {
 :root:not(#grok) .sf-progress:not(.indeterminate) .fill {
  transition: width 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-:root:not(#grok) .mdl-layer { animation: grok-fade-in 200ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
-:root:not(#grok) .mdl:not(.shake) { animation: grok-dialog-enter 200ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
-:root:not(#grok) .toast:not(.swap) { animation: grok-toast-enter 180ms cubic-bezier(0.16, 1, 0.3, 1); }
+:root:not(#grok) :is(.mdl-layer, .tn-hd-back) { animation: grok-fade-in 200ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+:root:not(#grok) :is(.mdl:not(.shake), .tn-hd) { animation: grok-dialog-enter 200ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+:root:not(#grok) :is(.toast:not(.swap), .tn-bn-card:not(.out)) { animation: grok-toast-enter 200ms cubic-bezier(0.165, 0.84, 0.44, 1); }
 :root:not(#grok) .tn-find { animation: grok-find-enter 140ms cubic-bezier(0.22, 1, 0.36, 1); }
 :root:not(#grok) .tooltip { animation: grok-menu-enter 100ms cubic-bezier(0.165, 0.84, 0.44, 1); }
+:root:not(#grok) .tn-ib { animation: grok-menu-enter 100ms cubic-bezier(0.165, 0.84, 0.44, 1); }
 :root:not(#grok) .sf-scroll > .sf-scroll-dock > .sf-scroll-jump {
  transform: translateY(6px);
  transition: opacity 150ms cubic-bezier(0.2, 0, 0, 1), transform 150ms cubic-bezier(0.2, 0, 0, 1), background-color 120ms ease, color 120ms ease;
@@ -1159,8 +1392,10 @@ html.tn-themed {
  :root:not(#grok) .sf-chat-reader [data-role='omp.hud.activity'] [data-role='omp.working.label'] { animation: grok-phrase-enter 100ms cubic-bezier(0.1, 0.9, 0.2, 1) 0ms backwards; }
  :root:not(#grok) :is(.sf-msg-react, .sf-badge[data-role='omp.reaction']) { animation: grok-reaction-fade 120ms linear backwards; }
  :root:not(#grok) #sidebar .nav-row.arrive { animation: grok-pane-row-fade 120ms linear backwards; }
- :root:not(#grok) .mdl:not(.shake) { animation: grok-fade-in 200ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
+ :root:not(#grok) :is(.mdl:not(.shake), .tn-hd) { animation: grok-fade-in 200ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards; }
  :root:not(#grok) .toast:not(.swap),
+ :root:not(#grok) .tn-bn-card:not(.out),
+ :root:not(#grok) .tn-ib,
  :root:not(#grok) .tn-find { animation: none; }
  :root:not(#grok) .tooltip { animation-duration: 0.01ms; }
  :root:not(#grok) .sf-progress.indeterminate { animation: none; }
@@ -1397,19 +1632,13 @@ html.tn-themed {
 	}
 }
 
-:root:not(#grok) :is(#thm, #pick) .ck-foot {
+:root:not(#grok) :is(#thm .ck-foot, #pick .ck-foot, .tn-ib-foot) {
 	flex: none;
-	border-top: 1px solid var(--l1);
+	border-top: 0;
+	box-shadow: inset 0 1px 0 var(--grok-line);
 	color: var(--t2);
 	font-size: 12px;
 	line-height: 18px;
-}
-:root:not(#grok) :is(#thm, #pick) .ck-foot .kbd {
-	border: 0;
-	border-radius: 4px;
-	background: var(--l1);
-	color: inherit;
-	box-shadow: none;
 }
 :root:not(#grok) #thm .tn-thm-mode {
 	color: var(--t2);
