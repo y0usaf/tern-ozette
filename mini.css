@@ -28,6 +28,7 @@
 :root:not(#mini) .sf-col[data-role^='omp.editor']:not(.sf-chat-spine *) {
 	border-radius: var(--r-panel);
 	animation: none;
+	box-shadow: 0 0 0 1px var(--l2);
 }
 /* Chrome type only. Prose, code, editor and terminal font settings are untouched. */
 :root:not(#mini) :is(.side-card, .sel-btn.sm, .mdl-sub, .mi-sec, .pk-fact) {
@@ -75,7 +76,6 @@
 	box-shadow: 0 0 0 2px var(--accent);
 }
 :root:not(#mini) :is(.mdl.danger, .toast.err) { box-shadow: 0 0 0 1px var(--bad); }
-:root:not(#mini) .sf-col[data-role^='omp.editor']:not(.sf-chat-spine *) { box-shadow: 0 0 0 1px var(--l2); }
 :root:not(#mini) .sf-col[data-role='omp.editor.bash']:not(.sf-chat-spine *) {
 	box-shadow: inset 2px 0 0 var(--omp-bashMode, var(--warn)), 0 0 0 1px var(--l2);
 }

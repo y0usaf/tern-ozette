@@ -5,11 +5,8 @@
 	--oz-lime: oklch(from var(--ok) 0.87 0.15 h);
 	--oz-plum: oklch(from var(--accent) 0.28 0.06 h);
 	--oz-forest: oklch(from var(--oz-lime) 0.3 0.035 h);
-	--oz-hair: var(--l4);
 	--oz-sel: light-dark(rgb(from var(--oz-lav) r g b / 42%), rgb(from var(--oz-lav) r g b / 22%));
 	--oz-shade: light-dark(rgb(from var(--oz-lav) r g b / 55%), rgb(0 0 0 / 45%));
-	--oz-dot: light-dark(rgb(from var(--oz-forest) r g b / 16%), rgb(from var(--oz-lime) r g b / 14%));
-	--oz-rail-bg: rgb(from var(--page) r g b / 1);
 	--oz-tint: light-dark(rgb(from var(--oz-plum) r g b / 4%), rgb(255 255 255 / 4%));
 	--oz-serif: "Crimson Pro", "EB Garamond", serif;
 	--mono: "IBM Plex Mono", ui-monospace, monospace;
@@ -17,7 +14,7 @@
 	--r-ctl: 0px;
 	--r-card: 0px;
 	--r-panel: 0px;
-	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, var(--oz-rail-bg);
+	background: radial-gradient(circle, light-dark(rgb(from var(--oz-forest) r g b / 16%), rgb(from var(--oz-lime) r g b / 14%)) 1.2px, transparent 1.3px) 0 0 / 22px 22px, rgb(from var(--page) r g b / 1);
 }
 :root:not(#oz) *,
 :root:not(#oz) *::before,
@@ -48,23 +45,23 @@
 	background: var(--pop-bg);
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
-	box-shadow: 0 0 0 1px var(--oz-hair), 6px 6px 0 var(--oz-shade);
+	box-shadow: 0 0 0 1px var(--l4), 6px 6px 0 var(--oz-shade);
 	color: var(--t1);
 }
 :root:not(#oz) .sf-prefs :is(.pf-menu, .pf-editor) {
 	border: 0;
 	background: var(--pop-bg);
-	box-shadow: 0 0 0 1px var(--oz-hair), 6px 6px 0 var(--oz-shade);
+	box-shadow: 0 0 0 1px var(--l4), 6px 6px 0 var(--oz-shade);
 }
 :root:not(#oz) :is(.pk-head, .pk-bar, .pk-pv, .ck-top, .ck-foot, .tn-ib-head, .tn-ib-foot, .pf-head) {
-	border-color: var(--oz-hair);
+	border-color: var(--l4);
 	box-shadow: none;
 }
 :root:not(#oz) :is(.ck-top, .tn-ib-head, .pk-head) {
-	border-bottom: 1px solid var(--oz-hair);
+	border-bottom: 1px solid var(--l4);
 }
 :root:not(#oz) :is(.ck-foot, .tn-ib-foot) {
-	border-top: 1px solid var(--oz-hair);
+	border-top: 1px solid var(--l4);
 }
 :root:not(#oz) .pk-selbar,
 :root:not(#oz) .ck-item[aria-selected='true'],
@@ -104,7 +101,7 @@
 }
 :root:not(#oz) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .sf-ov-card, .tn-ib, .pf.sheet) :is(.kbd, .sf-badge) {
 	background: none;
-	box-shadow: inset 0 0 0 1px var(--oz-hair);
+	box-shadow: inset 0 0 0 1px var(--l4);
 }
 :root:not(#oz) .pk-dim {
 	background: light-dark(rgb(from var(--oz-plum) r g b / 18%), rgb(0 0 0 / 40%));
@@ -223,8 +220,7 @@
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--t4);
 }
-:root:not(#oz) section.tn-pane,
-:root:not(#oz) section.tn-pane.on {
+:root:not(#oz) section.tn-pane {
 	border: 0;
 	box-shadow: none;
 }
@@ -254,7 +250,7 @@
 }
 :root:not(#oz) .md :not(pre) > code {
 	background: light-dark(color-mix(in oklab, var(--card) 88%, var(--oz-lav)), rgb(from var(--oz-lav) r g b / 16%));
-	box-shadow: light-dark(inset 0 0 0 1px var(--oz-hair), none);
+	box-shadow: light-dark(inset 0 0 0 1px var(--l4), none);
 	color: light-dark(oklch(from var(--oz-plum) 0.3 calc(c * 0.9) h), var(--t1));
 	font-size: 13px;
 }
@@ -304,7 +300,7 @@
 }
 :root:not(#oz) .md .code {
 	background: var(--code-bg);
-	box-shadow: light-dark(0 0 0 1px var(--oz-hair), none);
+	box-shadow: light-dark(0 0 0 1px var(--l4), none);
 }
 :root:not(#oz) .md .code-head {
 	background: light-dark(color-mix(in oklab, var(--card) 84%, var(--oz-lav)), color-mix(in oklab, var(--oz-lav) 10%, var(--oz-plum)));
@@ -359,7 +355,7 @@
 :root:not(#oz) .sf-col[data-role^='omp.editor'] {
 	border: 0;
 	background: var(--raise);
-	box-shadow: 0 0 0 1px var(--oz-hair), 6px 6px 0 var(--oz-lime);
+	box-shadow: 0 0 0 1px var(--l4), 6px 6px 0 var(--oz-lime);
 	color: var(--t1);
 }
 :root:not(#oz) [data-role='omp.composer.model'] {
@@ -399,7 +395,7 @@
 }
 :root:not(#oz) #carly .cy-close {
 	background: var(--pop-bg);
-	box-shadow: 0 0 0 1px var(--oz-hair);
+	box-shadow: 0 0 0 1px var(--l4);
 }
 :root:not(#oz) .pf.sheet {
 	background: var(--panel);
@@ -415,7 +411,7 @@
 }
 :root:not(#oz) .pf-rows {
 	background: var(--card);
-	box-shadow: 0 0 0 1px var(--oz-hair);
+	box-shadow: 0 0 0 1px var(--l4);
 }
 :root:not(#oz) .pf-sw.on {
 	background: light-dark(var(--oz-plum), var(--oz-lime));
@@ -425,7 +421,7 @@
 }
 :root:not(#oz) :is(.pf-search, .pf-in, .pp-field) {
 	background: var(--card);
-	box-shadow: inset 0 0 0 1px var(--oz-hair);
+	box-shadow: inset 0 0 0 1px var(--l4);
 }
 :root:not(#oz) .pf-items .nav-row.on {
 	background: var(--oz-sel);
@@ -433,7 +429,7 @@
 }
 :root:not(#oz) .ft {
 	background: var(--panel);
-	box-shadow: inset -1px 0 0 var(--oz-hair);
+	box-shadow: inset -1px 0 0 var(--l4);
 }
 :root:not(#oz) .ft-name,
 :root:not(#oz) .bd-name,
@@ -448,7 +444,7 @@
 }
 :root:not(#oz) .ed-bar {
 	background: var(--panel);
-	box-shadow: inset 0 -1px 0 var(--oz-hair);
+	box-shadow: inset 0 -1px 0 var(--l4);
 }
 :root:not(#oz) .tv-thumb {
 	background: rgb(from var(--oz-lav) r g b / 70%);
@@ -471,7 +467,7 @@
 }
 :root:not(#oz) .bd-card {
 	background: var(--card);
-	box-shadow: 0 0 0 1px var(--oz-hair), 3px 3px 0 var(--oz-shade);
+	box-shadow: 0 0 0 1px var(--l4), 3px 3px 0 var(--oz-shade);
 	font-family: var(--oz-serif);
 	font-size: 15px;
 }
@@ -481,7 +477,7 @@
 :root:not(#oz) .seg .mthumb,
 :root:not(#oz) .pf-seg button.on {
 	background: var(--card);
-	box-shadow: 0 0 0 1px var(--oz-hair);
+	box-shadow: 0 0 0 1px var(--l4);
 }
 :root:not(#oz) .pop .mi {
 	font-size: 13px;
@@ -491,7 +487,6 @@
 }
 :root:not(#oz).tn-status footer#statusline {
 	background: transparent;
-	color: var(--t3);
 	font-family: var(--mono);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin {
@@ -527,41 +522,30 @@
 	letter-spacing: 0.12em;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
-	margin: 0;
 	padding: 10px 12px 4px;
 	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
-	color: var(--t1);
 	font: 400 22px/1.3 var(--oz-serif);
 	font-variant-numeric: tabular-nums;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
 	font: 400 11px/1.3 var(--mono);
 	letter-spacing: 0.12em;
-	color: var(--t3);
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
 	border-top: 0;
 }
-:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
-	color: var(--warn);
-}
-:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
-	color: var(--bad);
-}
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 	--spark-c: light-dark(var(--oz-plum), var(--oz-lime));
-	--spark-track: var(--oz-hair);
+	--spark-track: var(--l4);
 	width: auto;
 	height: 50px;
 	margin: 0 0 10px;
 	padding: 0 12px 10px;
 	background-color: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
 	background-origin: content-box;
-	background-clip: border-box;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {
 	border-top: 0;
-	color: var(--t2);
 	font: 400 12.5px/1.3 var(--mono);
 	font-variant-numeric: tabular-nums;
 	letter-spacing: 0.06em;
@@ -570,7 +554,8 @@
 	margin-bottom: 10px;
 	padding: 2px 12px 10px;
 }
-:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) {
+:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
+	order: 3;
 	display: block;
 	align-self: center;
 	box-sizing: border-box;
@@ -578,13 +563,6 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	text-align: center;
-}
-:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) svg.ico {
-	display: inline-block;
-	vertical-align: -1px;
-}
-:root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] {
-	order: 3;
 	margin: 0 0 10px;
 	padding: 0;
 	color: var(--t2);
@@ -592,13 +570,14 @@
 	letter-spacing: 0;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-plugin='cmus'] svg.ico {
+	display: inline-block;
+	vertical-align: -1px;
 	width: 12px;
 	height: 12px;
 	margin-right: 6px;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone='deck'], [data-tone='deck-busy']) {
 	order: 4;
-	position: relative;
 	margin: 0 0 26px;
 	padding: 3px 10px;
 	background: var(--oz-lav);
@@ -626,12 +605,9 @@
 	height: 5px;
 	margin-top: -2.5px;
 	border-radius: 0;
-	background: currentColor;
 }
 :root:not(#oz).tn-status footer#statusline > span.tn-git {
 	font: 500 10.5px/1.7 var(--mono);
-	letter-spacing: 0.12em;
-	color: var(--t3);
 }
 :root:not(#oz) [data-role='omp.composer.model'] .sf-text {
 	flex-shrink: 0;
@@ -644,7 +620,7 @@
 	scroll-snap-type: y mandatory;
 }
 :root:not(#oz) #tabbar .tb-tabs.more-end {
-	box-shadow: inset 0 -1px 0 var(--oz-hair);
+	box-shadow: inset 0 -1px 0 var(--l4);
 }
 :root:not(#oz) #tabbar .tb-add {
 	margin-top: 4px;
@@ -809,15 +785,12 @@
 		grid-row: 5;
 	}
 }
-:root:not(#oz).glass {
-	background: radial-gradient(circle, var(--oz-dot) 1.2px, transparent 1.3px) 0 0 / 22px 22px, var(--oz-rail-bg);
-}
 :root:not(#oz).glass :is(body, #panel, .tn-stage, .tn-pane:not(.pip):not(.glimpse), .tn-body, .tn-head, .tv, .tb-in, .ft, .ed, .ed-bar, .ed-body, .tn-hello, .sf-chat-reader, .sf-region) {
 	background: transparent;
 }
 :root:not(#oz) :is([data-role='omp.user.images'], [data-role^='omp.assistant'], .sf-tool-body) .sf-image {
 	overflow: hidden;
-	box-shadow: 0 0 0 1px var(--oz-hair);
+	box-shadow: 0 0 0 1px var(--l4);
 }
 :root:not(#oz) :is([data-role='omp.user.images'], [data-role^='omp.assistant'], .sf-tool-body) .sf-img-frame {
 	margin: -3px;
@@ -840,15 +813,7 @@
 :root:not(#oz) #tabbar .tt[data-tc].on {
 	background: var(--oz-lime) !important;
 }
-:root:not(#oz) #tabbar .tt[data-tc] .nm {
-	color: var(--t1);
-	font-weight: 400;
-}
-:root:not(#oz) #tabbar .tt[data-tc].on .nm {
-	color: var(--oz-forest);
-}
 :root:not(#oz) #tabbar .tt[data-tc].on .sub {
-	color: rgb(from var(--oz-forest) r g b / 70%);
 	opacity: 1;
 }
 :root:not(#oz) .md strong {

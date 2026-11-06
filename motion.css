@@ -91,7 +91,7 @@
 	transform-origin: top center;
 }
 :root:not(#oz) .mdl-layer {
-	animation: pm-fade var(--pm-mid) var(--pm-out) both;
+	animation: fadeIn var(--pm-mid) var(--pm-out) both;
 }
 :root:not(#oz) .sf-still .sf-ov-card {
 	animation: none;
@@ -140,11 +140,6 @@
 	from {
 		opacity: 0;
 		transform: translateX(-4px) scale(0.98);
-	}
-}
-@keyframes pm-fade {
-	from {
-		opacity: 0;
 	}
 }
 @keyframes pm-drawer {

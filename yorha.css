@@ -9,7 +9,7 @@
 	--card: color-mix(in srgb, light-dark(#ffffff, #000000) 95%, light-dark(#000000, #c4c2bb)) !important;
 	--raise: var(--card) !important;
 	--pop-bg: var(--card) !important;
-	--modal-bg: var(--card) !important;
+	--modal-bg: var(--card);
 	--ink: light-dark(#000000, #c4c2bb) !important;
 	--t1: light-dark(#000000, #c4c2bb) !important;
 	--t2: rgb(from var(--ink) r g b / 72%) !important;
@@ -18,20 +18,20 @@
 	--l1: rgb(from var(--ink) r g b / 5%) !important;
 	--l2: rgb(from var(--ink) r g b / 10%) !important;
 	--l3: rgb(from var(--ink) r g b / 24%) !important;
-	--l4: var(--l3) !important;
-	--accent: var(--ink) !important;
+	--l4: var(--l3);
+	--accent: var(--ink);
 	--accent-ink: var(--ink) !important;
 	--accent-fill: var(--ink) !important;
-	--grad: var(--ink) !important;
+	--grad: var(--ink);
 	--grad-ink: var(--yh-ground) !important;
 	--live: var(--ink) !important;
-	--ok: var(--ink) !important;
+	--ok: var(--ink);
 	--warn: var(--ink) !important;
 	--bad: light-dark(#d4001f, #ff4255) !important;
-	--omp-mdListBullet: var(--ink) !important;
+	--omp-mdListBullet: var(--ink);
 	--tv-bg: var(--card) !important;
 	--tv-fg: var(--ink) !important;
-	--tv-cur: var(--ink) !important;
+	--tv-cur: var(--ink);
 	--tv-cur-ink: var(--yh-ground) !important;
 	--tv-sel-a: var(--l3) !important;
 	--tv-sel-b: var(--l3) !important;
@@ -41,7 +41,6 @@
 	--r-ctl: 0px;
 	--r-card: 0px;
 	--r-panel: 0px;
-	accent-color: var(--ink);
 	caret-color: var(--ink);
 
 	background: var(--yh-ground);
@@ -50,7 +49,6 @@
 :root:not(#yh) *::before,
 :root:not(#yh) *::after {
 	border-radius: 0;
-	-webkit-backdrop-filter: none !important;
 	backdrop-filter: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -112,12 +110,10 @@
 	margin: 0 22px 14px 12px;
 	background: var(--l2) !important;
 	box-shadow: inset 0 0 0 0 var(--ink), inset 0 -2px 0 -2px var(--ink);
+	border-radius: 0;
 	overflow: visible;
 	color: var(--ink);
 	transition: none;
-}
-:root:not(#yh) #tabbar .tt[data-tc] {
-	border-radius: 0;
 }
 :root:not(#yh) #tabbar .tt:not(.on):hover {
 	box-shadow: inset 0 0 0 0 var(--ink), inset 0 -2px 0 0 var(--ink);
@@ -156,7 +152,6 @@
 	color: var(--t3);
 }
 :root:not(#yh) #tabbar .tt .kbd.tn-num {
-	justify-content: center;
 	min-width: 18px;
 	font: 400 10px/17px var(--sans);
 }
@@ -179,7 +174,6 @@
 :root:not(#yh) #tabbar .tt.on,
 :root:not(#yh) #tabbar .tt[data-tc].on {
 	box-shadow: inset 400px 0 0 0 var(--ink), inset 0 0 0 0 var(--ink);
-	transition: none;
 }
 :root:not(#yh) #tabbar .tt.on .nm,
 :root:not(#yh) #tabbar .tt[data-tc].on .nm {
@@ -334,12 +328,6 @@
 :root:not(#yh).tn-status #statusline .sl-plugin {
 	order: 5;
 }
-:root:not(#yh).tn-status #statusline .sl-plugin[data-plugin='arc-sidebar'] {
-	order: 0;
-	font: 500 11px/1.7 var(--sans);
-	letter-spacing: 0.12em;
-	color: var(--t2);
-}
 :root:not(#yh).tn-status #statusline .sl-plugin[data-tone='time'] {
 	order: 1;
 	position: relative;
@@ -367,7 +355,6 @@
 :root:not(#yh).tn-status #statusline .sl-plugin:is([data-plugin='cmus'], [data-tone='deck'], [data-tone='deck-busy']) {
 	display: block;
 	align-self: center;
-	box-sizing: border-box;
 	max-width: 100%;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -603,7 +590,6 @@
 	display: none;
 }
 :root:not(#yh) .tv-bar .tv-thumb {
-	border-radius: 0;
 	background: var(--ink);
 	width: 3px;
 	margin-left: 6px;
@@ -627,7 +613,6 @@
 	opacity: 1;
 }
 :root:not(#yh) .tv-back:hover {
-	color: var(--yh-ground);
 	box-shadow: 0 0 0 1px var(--yh-ground), 0 0 0 2px var(--ink);
 }
 :root:not(#yh) .tv-back:active {
@@ -644,7 +629,6 @@
 	width: auto;
 	margin: 18px 0 10px;
 	padding: 0 0 0 17px;
-	border: 0;
 	background: linear-gradient(var(--t1), var(--t1)) left 0 top 0.42em / 8px 8px no-repeat;
 	--omp-mdHeading: var(--t1);
 	color: var(--t1);
@@ -672,7 +656,6 @@
 }
 :root:not(#yh) .md :not(pre) > code {
 	padding: 0 0.3em;
-	border-radius: 0;
 	background: var(--l2);
 	box-shadow: none;
 	color: var(--t1);
@@ -759,7 +742,6 @@
 	--omp-success: var(--t1);
 	--omp-error: var(--bad);
 	--ok: var(--t1);
-	--bad: light-dark(#d4001f, #ff4255);
 	--warn: var(--t1);
 	--l1: rgb(from var(--t1) r g b / 8%);
 	--l2: rgb(from var(--t1) r g b / 12%);
@@ -860,8 +842,7 @@
 	height: 7px;
 	background: var(--t1);
 }
-:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body,
-:root:not(#yh):not(#yb) .sf-chat-reader [data-role='omp.chat.msg'] > .sf-card[data-role^='omp.user'] > .sf-card-body {
+:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body {
 	--l3: rgb(from var(--yh-ground) r g b / 24%);
 	--l2: rgb(from var(--yh-ground) r g b / 10%);
 	--t1: var(--yh-ground);
@@ -876,8 +857,7 @@
 	box-shadow: none;
 	color: var(--yh-ground);
 }
-:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body::before,
-:root:not(#yh):not(#yb) .sf-chat-reader [data-role='omp.chat.msg'] > .sf-card[data-role^='omp.user'] > .sf-card-body::before {
+:root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body::before {
 	content: "";
 	position: absolute;
 	left: 13px;
@@ -955,7 +935,6 @@
 	color: var(--t2);
 }
 :root:not(#yh):not(#yb) [data-role='omp.ask.options'] .sf-item.sf-item::before {
-	border-radius: 0;
 	top: 10px;
 	box-shadow: inset 0 0 0 1px var(--t3);
 	color: var(--ink);
@@ -967,7 +946,7 @@
 	background-position: 0 0;
 	box-shadow: none;
 }
-:root:not(#yh):not(#yb) [data-role='omp.ask.options'] .sf-item.sel :is(.sf-item-label, .sf-item-detail) {
+:root:not(#yh):not(#yb) [data-role='omp.ask.options'] .sf-item.sel .sf-item-label {
 	color: var(--yh-ground);
 }
 :root:not(#yh):not(#yb) [data-role='omp.ask.options'] .sf-item.sel .sf-item-detail {
@@ -976,7 +955,6 @@
 :root:not(#yh):not(#yb) [data-role='omp.ask.options'] .sf-item.sel::before {
 	background: var(--yh-ground);
 	box-shadow: none;
-	color: var(--ink);
 }
 :root:not(#yh):not(#yb) [data-role='omp.ask.options'] .sf-item.sel::after {
 	content: "";
@@ -1063,7 +1041,6 @@
 	animation: yh-fold calc(120ms * var(--yh-t)) var(--yh-snap) both;
 }
 :root:not(#yh) .sf-col[data-role='omp.editor'] .sf-editor {
-	position: relative;
 	overflow: visible;
 }
 :root:not(#yh) .tn-pane.on .sf-col[data-role='omp.editor'] .sf-editor.focused::before {
@@ -1109,7 +1086,6 @@
 	margin-right: -10.5px;
 	background: var(--ink);
 	opacity: 1;
-	border-radius: 0;
 	animation: none;
 }
 :root:not(#yh) .tv .tv-dock .sf-editor.empty .sf-caret {
@@ -1241,7 +1217,6 @@
 :root:not(#yh) :is(.ck-item, .pk-row, .sf-item, .tn-ib-row, .nav-row, .tn-thm-row, .pf-row, #cmp, .tn-clist) mark {
 	background: none;
 	box-shadow: none;
-	border-radius: 0;
 	color: inherit;
 	font-weight: inherit;
 	text-decoration: underline;
@@ -1400,7 +1375,7 @@
 :root:not(#yh) .pop.mi-subpop {
 	transform-origin: left top;
 }
-:root:not(#yh) :is(.pop.still, .mdl-layer, .tabs-v .tn-vt) {
+:root:not(#yh) :is(.mdl-layer, .tabs-v .tn-vt) {
 	animation: none;
 }
 :root:not(#yh):not(.tn-phone) :is(.pf.sheet, .bd-sheet) {
@@ -1467,12 +1442,8 @@
 :root:not(#yh) .cm-np-title {
 	font-size: 3.4em;
 	line-height: 1.08;
-	color: var(--ink);
 }
-:root:not(#yh) :is(.cm-searchbox, .cm-chip, .cm-side, .cm-nv, .cm-content, .cm-btn, .cm-row, .cm-art, .cm-tile, .cm-tile .cm-cv, .cm-hero .cm-cv, .cm-np-cover, .cm-np-next, .cm-dockbar, .cm-d-art, .cm-tag, .cm-ib, .cm-topcard, .cm-topcard .cm-cv, .cm-fab, .cm-vs, .cm-q, .cmus-viz .vz-b, .cmus-viz .vz-p) {
-	border-radius: 0;
-}
-:root:not(#yh) :is(.cm-side, .cm-content, .cm-dockbar, .cm-np-next) {
+:root:not(#yh) :is(.cm-side, .cm-content, .cm-dockbar) {
 	background: var(--card);
 	border: 1px solid var(--ink);
 	box-shadow: 4px 4px 0 var(--ink);
@@ -1508,15 +1479,8 @@
 :root:not(#yh) .cm-eyebrow {
 	letter-spacing: 0.12em;
 }
-:root:not(#yh) .cm-side .cm-lib,
-:root:not(#yh) .cm-hd,
-:root:not(#yh) .cm-eyebrow {
-	color: var(--t3);
-}
 :root:not(#yh) .cm-btn {
-	background: transparent;
 	border: 1px solid var(--ink);
-	color: var(--ink);
 }
 :root:not(#yh) .cm-btn.cm-pri {
 	background: var(--ink);
@@ -1535,9 +1499,6 @@
 	box-shadow: 3px 3px 0 var(--ink);
 	border: 1px solid var(--ink);
 }
-:root:not(#yh) .cm-np-cover {
-	box-shadow: 6px 6px 0 var(--ink);
-}
 :root:not(#yh) .cm-tag {
 	background: var(--ink);
 	color: var(--ink);
@@ -1549,7 +1510,6 @@
 	box-shadow: 2px 2px 0 var(--ink);
 }
 :root:not(#yh) .cm-pp:hover {
-	background: var(--ink);
 	transform: none;
 }
 :root:not(#yh) .cm-ib.cm-on {
@@ -1654,7 +1614,6 @@
 }
 :root:not(#yh) .cm-np-line {
 	font-size: 1em;
-	color: var(--t2);
 }
 :root:not(#yh) .cm-np-next {
 	align-self: center;

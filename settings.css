@@ -3,8 +3,7 @@
 	display: flex;
 	flex-direction: column;
 }
-#pick .tn-pk .ck-top,
-#pick .tn-pk .ck-foot {
+#pick .tn-pk :is(.ck-top, .ck-foot, .ck-hint) {
 	flex-shrink: 0;
 }
 #pick .tn-pk .ck-list {
@@ -13,10 +12,6 @@
 }
 #pick .tn-pk .ck-item {
 	gap: 10px;
-}
-#pick .tn-pk .ck-hint,
-#pick .tn-pk .tn-pk-check {
-	flex-shrink: 0;
 }
 #pick .tn-pk .ck-foot {
 	height: auto;

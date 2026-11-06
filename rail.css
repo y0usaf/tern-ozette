@@ -6,7 +6,7 @@ html.tn-status footer#statusline {
 	text-align: left;
 	white-space: pre;
 	color: var(--t3);
-	border-left: 1px solid var(--l2, rgba(127, 127, 127, 0.2));
+	border-left: 1px solid var(--l2);
 	background: rgb(from var(--t1) r g b / 2%);
 }
 
@@ -29,7 +29,6 @@ html.tn-status footer#statusline > span.tn-git {
 	font-size: 10.5px;
 	letter-spacing: 0.12em;
 	line-height: 1.7;
-	color: var(--t3);
 	text-align: center;
 	justify-content: center;
 }
@@ -106,7 +105,7 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='d
 }
 
 html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
-	border-top: 1px solid var(--l2, rgba(127, 127, 127, 0.2));
+	border-top: 1px solid var(--l2);
 	padding-top: 18px;
 }
 
@@ -121,7 +120,6 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='
 	color: var(--t1);
 	text-align: left;
 	padding-bottom: 2px;
-	margin-bottom: 0;
 }
 
 html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
@@ -169,69 +167,20 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='
 
 html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
 	color: var(--warn);
-	--fillc: var(--warn);
 }
 
 html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
 	color: var(--bad);
-	--fillc: var(--bad);
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b0'] {
-	--p: 0%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b1'] {
-	--p: 10%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b2'] {
-	--p: 20%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b3'] {
-	--p: 30%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b4'] {
-	--p: 40%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b5'] {
-	--p: 50%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b6'] {
-	--p: 60%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b7'] {
-	--p: 70%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b8'] {
-	--p: 80%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b9'] {
-	--p: 90%;
-}
-
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone$='-b10'] {
-	--p: 100%;
 }
 
 html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-net'],
 html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
-	background-image: none;
 	font-size: 12.5px;
 	color: var(--t2);
-	padding: 12px 0 0;
-	margin-bottom: 0;
-	border-top: 1px solid var(--l2, rgba(127, 127, 127, 0.2));
+	padding: 4px 0 0;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
-	padding-top: 4px;
-	border-top: 0;
+html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-net'] {
+	padding-top: 12px;
+	border-top: 1px solid var(--l2);
 }

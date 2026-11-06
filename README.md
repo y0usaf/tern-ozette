@@ -22,12 +22,11 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 | `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css`, `yorha-bot-you.css` | YoRHa plus the matching bubble option |
 | `grok.css` | Grok is selected |
 | `grok-*-bubbles.css`, `grok-bot-you.css` | Grok plus the matching bubble option |
-| `grok-avatars.css`, `grok-bots/*.png` | Grok plus the "Grok bot avatars" option |
 | `mini.css` | Mini is selected |
 
 `plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
-The Grok avatars are PNG sprite sheets drawn from our own vector reconstructions, one per bot; no app files ship. `python check-avatars.py` checks that no frame touches its cell edge. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
+Bot avatars are not part of any look: omp-bot's Tern plugin draws them under every look. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
 
 ## Light and dark
 
