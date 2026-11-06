@@ -1,49 +1,41 @@
-# Ozette
+# tern-ozette
 
-Ozette's structure, type, shapes, rails and motion as a Tern plugin. It sits over whatever theme is selected and reads only the theme's variables, so colour always comes from the theme.
+tern-ozette holds the CSS for four Tern looks: Ozette, YoRHa, Grok and Mini.
 
-System light/dark following is Tern’s native **Appearance → System** setting (`"theme": "System"` in `settings.json`), independent of the look and its light/dark theme slots. Omitting `theme` selects Light in Tern 0.9.11; removing custom `theme_dark`/`theme_light` pins must preserve `theme`. None, Ozette, YoRHa, Mini and Grok all follow the same native setting, with no look-specific appearance watcher.
+A look restyles stock Tern through its own selectors and variables; colour always comes from the selected theme. finix copies these sheets into the UI Menu plugin (`~/.config/tern/plugins/ui-menu/snippets/`), and the UI Menu's Looks picker loads them. Nothing here needs building.
 
-The UI Menu loads `ozette-answer-bubbles.css` only with Ozette and answer bubbles enabled, and `ozette-bot-you.css` only with Ozette and your message bubbles enabled. Assistant blocks and bot-user card colours live in those optional sheets; turning bubbles off leaves the typography, code, images and lists intact. Classic Tern user cards retain their normal Ozette treatment. YoRHa follows the same rule: `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css` and `yorha-bot-you.css` load only with YoRHa and answer bubbles, bot answer bubbles or your message bubbles enabled.
+## Looks
 
-The menu has no separate Pixel variant or legacy “Grok chat” typography preset. Plain omp and bot answer bubbles remain separate shared choices; their small look-specific sheets have hidden dependency gates rather than extra visible controls.
+- **Ozette**: square paper surfaces with offset shadows, serif chat, code cards, label tabs and a dot-grid canvas.
+- **YoRHa**: two-tone menus after NieR: Automata's YoRHa screens: light paper or dark ink.
+- **Grok**: a standalone look after the Grok Bot app: neutral surfaces, rounded code, a centred 960px composer and solid popovers. It hides the composer's model and effort selectors; `/model` still works.
+- **Mini**: stock layout with small radii, short transitions, flat borders and no decorative animation. It sets no colours or fonts.
 
-## Design note: declared backgrounds stay real
+## Sheets
 
-Never make a surface's declared background colour transparent where Tern computes contrast from it. The terminal's automatic contrast correction measures every cell against `--tv-bg`; if `--tv-bg` is `transparent`, Tern measures against nothing and leaves pale text unreadable on light glass. Glass is done by layering instead: the element's own `background` goes transparent and the one canvas behind everything carries the tint and dot grid, while `--tv-bg` (and the theme's other surface colours) keep the colour the eye actually sees.
+| Sheet | Loaded when |
+| --- | --- |
+| `rail.css`, `settings.css` | always: right-rail base and native picker sizing |
+| `ozette.css`, `motion.css`, `cmus.css` | Ozette is selected |
+| `ozette-answer-bubbles.css`, `ozette-bot-you.css` | Ozette plus answer bubbles / your-message bubbles |
+| `yorha.css` | YoRHa is selected |
+| `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css`, `yorha-bot-you.css` | YoRHa plus the matching bubble option |
+| `grok.css` | Grok is selected |
+| `grok-*-bubbles.css`, `grok-bot-you.css` | Grok plus the matching bubble option |
+| `grok-avatars.css`, `grok-bots/*.png` | Grok plus the "Grok bot avatars" option |
+| `mini.css` | Mini is selected |
 
-The look canvas is opaque with transparent window off: Ozette keeps its theme-derived dot-grid paper, and YoRHa keeps its light paper or dark ink. The shared transparent window option alone clears the canvas; turning it off restores the look.
+`plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
-Font declarations never use `!important`. Ozette keeps its local serif accents without changing the stock secondary UI family; mono labels read Tern's configured code font. YoRHa's UI defaults are non-important and do not override configured UI or terminal fonts. The shared Glass options control sent-message frost and composer frost independently.
+The Grok avatars are PNG sprite sheets drawn from our own vector reconstructions, one per bot; no app files ship. `python check-avatars.py` checks that no frame touches its cell edge. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
 
-Ozette and YoRHa use Tern's stock surface, ink, syntax and font roles directly instead of parallel aliases. Look-only variables remain for genuinely distinct palette transforms, solid window ground and motion timing. Remaining priority flags protect the runtime palette and stock image limits; they never force typography. The UI Menu always loads `rail.css` for the right rail's base appearance and `settings.css` for native picker sizing, flexible keyboard hints and scroll containment. Ekko owns only the desktop rail's structural bounds and live readings; its layout rules exclude Tern's native phone shell, which keeps the full chat width and hides desktop rails. Each look restyles the rail's visual rules with normal specificity. Finix pins both the look and Ekko plugin sources.
+## Light and dark
 
-## Grok
+Light/dark following is Tern's own **Appearance → System** setting (`"theme": "System"` in `settings.json`). Every look follows it. Tern 0.9.11 picks Light when `theme` is missing, so keep that key when editing theme settings.
 
-`grok.css` is a standalone look over stock Tern: source-matched neutral light/dark surfaces, 15px/22px transcript text, rounded code, a centered 960px-max composer (44px empty height, 22px radius) and 28px circular send control. It does not load Ozette or YoRHa. Tern's existing hover/focus actions remain keyboard accessible. Grok sets Tern's `--pop-bg` to its opaque chrome, so every stock popover, menu, tooltip, chip and the inbox are solid; the inbox and find bar also drop their glass blur for Grok's popover shadow. Modal dialogs keep the shared frost.
+## Rules for editing
 
-The UI Menu loads each `grok-*-bubbles.css` sheet only when Grok and that surface's bubble option are enabled; `grok-bot-you.css` follows the bot's your-message toggle. Frost belongs to the shared frost options, not this look. Switching looks removes all Grok sheets without changing the selected theme.
-
-Under Grok only, the composer's model and effort selectors are hidden; `/model` remains available. The existing editor line and send/stop toolbar share one grid row, with separate rows reserved for focus context and attachments. Multiline input grows naturally; terminal text and editor glyph metrics are not changed. The placeholder retains OMP's real wording instead of painting a fake replacement, with source-like colour and spacing. Shared frost still controls the composer material; the arrow stays legible with a transparent window. Bubbles keep the source's uniform 18px base radius: its conditional 6px continuation corners require grouping state Tern does not expose. Exact measured-height spring resizing, automatic expanded-radius changes, Grok's microphone/voice/attachment actions and its dynamic island cannot be recreated by styling Tern's existing controls alone.
-
-Optional `grok-avatars.css` supplies reconstructed Grok Bot bodies, transparent cut-out eyes and four-second Idle_B motion on bot avatars and identity-bearing sidebar icons. Avatars stay still at rest and replay one cycle on hover or keyboard focus; reduced motion holds the first frame. Six lossless PNG atlases cover Lloyd (teal cloud), Sol (violet bean), random (orange teardrop), CU-Bot (magenta capsule), baobot (yellow square) and Regal (green clover); helpers/defaults reuse Sol. Each frame is 128px for a maximum 64px display. The 240-sample, 60fps cycle reuses 73–97 pixel-identical frames per bot; atlases total 728,331 bytes. Lloyd and random use full-geometry framing so motion never touches a cell edge. `python check-avatars.py` checks that invariant without dependencies.
-
-The PNGs were rasterized from our vector reconstructions, not copied from the app's image files. No app code, reference library, drawing generator or reference probe ships. Nix installs the six atlases inside the UI Menu plugin; its CSS loader resolves their plugin-relative URLs. Directly injected CSS needs absolute URLs, while the plugin loader rejects them. CSS probes also found unsupported WebP images, SVG URL masks, `:has()`, separate background-position axes and custom-property/percentage sprite-keyframe positions, so this look uses compact PNG grids and literal pixel coordinates.
-
-Motion favors state-triggered entrances and interactions: 240ms message translation, 320ms body settle, 280ms avatar entry, 150ms native-editor focus fade, 220ms send-control entry, spring-like press/release, 180ms transcript submenu entry and 240ms palette entry. Hover actions lift into view, and menu rows gain restrained hover and press feedback. Rail rows use a 200ms source sidebar easing for state fills without entrance or idle animation. Cubic-bezier curves approximate spring settling; palette/focus extensions are deliberate Grok-inspired adaptations, not claims of identical source behavior. Native focus lives on the editor rather than the outer composer, so focus feedback does not move the shell or its text. Perpetual thinking shimmers, typing-dot dances, sleep breathing and Z particles are disabled; semantic activity labels, functional progress and carets remain. Existing history, paused, covered and reduced-motion states retain ownership. No close animation is fabricated for nodes Tern immediately removes.
-
-The right rail follows Grok’s sidebar and detail-list components: top-aligned content, a flat sidebar ground, compact left-aligned clock/date and status rows, 8px row corners, quiet metric labels and unboxed charts. Resting rows are transparent; clickable rows use source-matched 6% hover and 8% press fills with inset keyboard focus. Configured UI fonts and semantic warning colours remain intact. Short windows scroll the rail natively rather than clipping the lower readings. The inbox count keeps its native compact badge and contrasting ink; popup styling targets actual menu elements, not the badge’s animation state. Ekko’s flat telemetry spans cannot supply Grok’s agent previews, selection/unread state or expandable groups, so no fake agents or grouped-card interactions are added. Command, theme, session, host, file and plugin pickers share a solid neutral panel, search header and flat selected rows. Theme swatches, checkmarks, breadcrumb paths, anchored placement and action footers remain native; Tall pickers retains priority. Theme and plugin pickers are static while the command palette keeps its entry motion. Bubbles retain symmetric 7px/12px padding and 22px line boxes; terminal/editor glyph metrics stay untouched. A scoped first/last-block reset prevents paragraph margins from adding a false bottom band, while paragraphs use 10px gaps. Bot timestamps align with their following bubble, with a real gap instead of overlapping it; ordinary message pairs use 12px spacing. Nib was verified in the native renderer rather than corrected with font-specific baseline offsets.
-
-On the native phone shell, Grok keeps the stock drawer and keyboard behavior while fitting the composer to the chat width, preserving native home-indicator clearance, bottom-aligning its send control for multiline input, and giving send/stop and menu actions at least 40px targets. Native picker sheets sit within the viewport with 44px rows, 16px search text and 15px option labels. Phone sheets do not inherit desktop centering transforms or entry motion. Configured UI, editor and terminal fonts remain independent; the desktop layout is unchanged.
-
-`grok-motion.json` inventories all 138 source keyframes and 614 element motion declarations (plus three keyframe easing declarations), exact selectors/values, component bindings and blockers. Of the keyframes, 28 map to stock CSS paths, 48 require absent lifecycle/state/child structure, 29 belong to unavailable surfaces, and 33 have no static renderer reference. Missing capabilities include retained exit/page/text-swap lifecycles, source dynamic-island/new-chat state, segmented voice words, reader-avatar membership, countdown SVGs, document/onboarding/remote-desktop effects and the removed async-task tray. They are not replaced with unrelated animations or a restored task board. The inventory and this extracted-source-derived look remain local-only; do not publish them or add a remote.
-
-## Mini
-
-`mini.css` keeps stock Tern layout, theme colours, configured fonts and terminal text. It normalizes chrome through the existing radius and easing tokens, then overrides hardcoded stock controls, popups and decorative effects. Chrome uses 2/4/6px radii, 12/14/16px type, short 100/150ms transitions and flat one-pixel boundaries rather than depth stacks. Circles, directional bubble corners, focus/error indicators, clipping masks and lifecycle feedback stay functional.
-
-Busy labels, loading placeholders and progress remain visible but static; ornamental shimmers, pulses, orbiting dots, gloss, bloom and welcome flourishes are quiet. Mini supplies no palette, alias variables, font families or `!important` rules. The shared bubble, Glass frost, transparent-window and omp-bot options remain independent; no compatibility layer is needed. Select **Mini** in the Looks picker to load just this sheet.
-
-The reference audit covered all 130 stock sheets from Tern 0.9.11 (`f93bb18`): 86 radius values, 582 shadow values, 62 font sizes, 863 spacing values, 31 opacities, 30 transition times and 298 named keyframes. These are inventory totals, not a claim that Mini rewrites every literal. The four root radius values collapse to three, both root easings become one, and the targeted chrome uses the scales above. Mini targets owners of 66 infinite-animation names and nine finite Mermaid/welcome names; streaming carets, terminal settings, save/bell feedback and lifecycle exits are intentionally retained.
-
-Spine's borderless composer, screen-sized pickers, sidebar overlays, joined button groups and circular app actions keep their stock shape variants; Mini does not apply its rectangular chrome reset to those variants.
+- Use Tern's stock selectors and variables; add look-only variables only for colour transforms Tern has no variable for.
+- Never set `--tv-bg` or another surface colour to `transparent`. Tern measures terminal text contrast against it, so pale text becomes unreadable. For glass, make the element's `background` transparent and tint the canvas behind it instead.
+- Never use `!important` on fonts; looks must not override configured UI or terminal fonts.
+- Ekko (the rail plugin) owns the rail's layout and data; looks restyle only its visuals, and leave Tern's phone shell to its stock layout.
