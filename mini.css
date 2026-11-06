@@ -1,5 +1,3 @@
-/* Mini: stock Tern, a short chrome scale, and quiet state indicators.
-   No palette, font family, terminal metrics, layout, or glass ownership. */
 :root {
 	--r-chip: 2px;
 	--r-ctl: 4px;
@@ -9,8 +7,6 @@
 	--out: ease-out;
 	--glass-hi: transparent;
 }
-/* Hardcoded chrome bypasses the stock radius tokens. Circles and joined
-   corners retain their geometry; sent/answer bubbles belong to their toggles. */
 :root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .sf-picker:not(.sz-screen) .pk-sheet,
 	.sf-overlay:not(.at-side, .sz-screen) > .sf-ov-card,
 	.sf-hovercard, .sf-date-pop, .sf-menu-pop, .sf-nav-pop, .pf-rows) {
@@ -30,7 +26,6 @@
 	animation: none;
 	box-shadow: 0 0 0 1px var(--l2);
 }
-/* Chrome type only. Prose, code, editor and terminal font settings are untouched. */
 :root:not(#mini) :is(.side-card, .sel-btn.sm, .mdl-sub, .mi-sec, .pk-fact) {
 	font-size: 12px;
 }
@@ -43,7 +38,6 @@
 :root:not(#mini) .mdl-foot { padding: 12px 16px; }
 :root:not(#mini) :is(.sel-btn.dis, .btn:disabled, .sf-button:disabled) { opacity: .45; }
 :root:not(#mini) :is(.mdl-sub, .pk-fact) { opacity: .7; }
-/* Retain each transition's properties and delays, only shorten its motion. */
 :root:not(#mini) :is(.btn, .sel-btn, .fld, .tt, .nav-row, .sf-item,
 	.sf-button, .pk-row, .pk-tab, .pk-btn, .sf-col[data-role^='omp.editor']) {
 	transition-duration: 100ms;
@@ -53,8 +47,6 @@
 	transition-duration: 150ms;
 	transition-timing-function: var(--ease);
 }
-/* One flat boundary replaces depth stacks. Focus, selected/error outlines,
-   mode rails, and inset separators are deliberately not globally reset. */
 :root:not(#mini) :is(.mdl, .cmdk, .dlg-card, .pop, .tooltip, .toast,
 	.sf-picker:not(.sz-screen) .pk-sheet, .sf-overlay:not(.at-side, .sz-screen) > .sf-ov-card,
 	.sf-hovercard, .sf-date-pop, .sf-menu-pop, .sf-nav-pop, .sf-ck-pop,
@@ -84,7 +76,6 @@
 }
 :root:not(#mini) .cv { --cv-glass-shadow: 0 0 0 1px var(--l2); }
 :root:not(#mini) .tn-board { --bd-shadow: 0 0 0 1px var(--l2); }
-/* These pseudo-elements are gloss only, not layout, masks, or status markers. */
 :root:not(#mini) :is(.sf-ov-card, .pk-sheet)::after,
 :root:not(#mini) .sf-col[data-role^='omp.editor']::before,
 :root:not(#mini) .sf-col[data-role^='omp.editor']::after,
@@ -105,7 +96,6 @@
 :root:not(#mini) .gb-inspector .ki-ai-head { background: var(--l1); }
 :root:not(#mini) .pk-ic,
 :root:not(#mini) .cv .cv-pal :is(.cv-pal-band, .cv-pal-body) { filter: none; }
-/* A static foreground is essential: stock busy labels use transparent text. */
 :root:not(#mini) :is(.sf-fx-shimmer, .sf-editor .sf-fx-shimmer,
 	.tt.working .nm, .tn-vt .nav-row.working .lbl, .tn-vt-host.busy .nm) {
 	animation: none;
@@ -114,7 +104,6 @@
 	-webkit-background-clip: border-box;
 	color: var(--accent-ink);
 }
-/* Loading remains explicitly pending, not falsely completed. */
 :root:not(#mini) :is(.mmd-wait, .pk-sk .b, .tn-wait-sk .sk, .tn-hd-skel span,
 	.ft-skel .sk-l, .sq-st-count.sk, .sq-pr-skrow .sk, .nb-skel > i,
 	.nbo-img.loading, .nbo-pic.loading, .ki .ki-ai-wait .bar,
@@ -145,7 +134,6 @@
 	-stencil-particles: none;
 	background: none;
 }
-/* Keep the existing working and zoom rims; remove their bloom and orbit. */
 :root:not(#mini) .tn-glow .tn-glow-bloom,
 :root:not(#mini) .tn-glow .tn-glow-band,
 :root:not(#mini) .tn-zoomring::after { display: none; animation: none; }
@@ -156,12 +144,10 @@
 :root:not(#mini) .tn-signin-mark.live::after,
 :root:not(#mini) .tn-hello .hl-ring::before,
 :root:not(#mini) .tn-hello .hl-ring::after { animation: none; }
-/* Custom text FX are independent of CSS animation. No font changes. */
 :root:not(#mini) :is([data-role='omp.hud.activity'] .sf-text,
 	.tn-git .n, .tn-git .ab, .tn-find-n, .sl-run .sl-say, .tn-ib-pip,
 	.tn-ib-n, .pr-m.cpu .pr-mv, .pr-m.gpu .pr-mv, .pr-count,
 	.tn-cmp-n, .tn-up.arrive .lbl, .tn-kick.arrive .lbl) { -stencil-text-effect: none; }
-/* Carly's ID-scoped stock rules need the same ID, not an important reset. */
 :root:not(#mini) #carly.tn-carly :is(.cy-glow, .cy-orb) { background: none; filter: none; animation: none; }
 :root:not(#mini) #carly.tn-carly .cy-blob,
 :root:not(#mini) .tn-cy-block .cb-avatar .cy-blob { animation: none; }
@@ -174,7 +160,6 @@
 :root:not(#mini) .tn-cy-block :is(.cb-avatar, .cb-tag, .cb-field) { box-shadow: 0 0 0 1px var(--l2); }
 :root:not(#mini) .tn-cy-block .cb-avatar { background: var(--raise); }
 :root:not(#mini) .tn-cy-block .cb-mic[aria-pressed='true']::before { filter: none; animation: none; }
-/* Loading glyphs retain their border, dot, tone, and occupied space. */
 :root:not(#mini) .mdl-go.busy::after,
 :root:not(#mini) .tn-hd-stp.act .mk::after,
 :root:not(#mini) .sdot.live::after,
@@ -208,7 +193,6 @@
 	background-image: none;
 	color: var(--accent-ink);
 }
-/* Indeterminate progress is a stationary partial segment, never 100%. */
 :root:not(#mini) .sf-attachment .att-bar.indeterminate > i,
 :root:not(#mini) .tn-prog.ind {
 	animation: none;
@@ -219,14 +203,12 @@
 	animation: none;
 	background: none;
 }
-/* Keep Carly's phase icons and live audio-level geometry, not idle loops. */
 :root:not(#mini) #carly.tn-carly .cy-tick,
 :root:not(#mini) :is(.cy-steps-head.run, .cy-step.run) .ic .ico,
 :root:not(#mini) .tn-cy-block .in .cb-typing span,
 :root:not(#mini) .tn-cy-block .cb-mic[aria-pressed='true'] .cb-wave span {
 	animation: none;
 }
-/* The traced welcome logo must stay drawn after removing its entrance. */
 :root:not(#mini) :is([data-role='omp.welcome.logo'],
 	[data-role='omp.welcome.mark'], [data-role='omp.welcome.tip']),
 :root:not(#mini) [data-role='omp.welcome.logo'] :is(.trace, .mark, .s0, .s1, .s2) {
