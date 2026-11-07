@@ -1,3 +1,6 @@
+:root:not(#oz):not(#ob) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	background: var(--oz-pink);
+}
 :root:not(#oz) :where([data-role='omp.bot.you']) .sf-card[data-role^='omp.user'] > .sf-card-body {
 	--tv-fg: var(--oz-plum);
 	--t1: var(--oz-plum);

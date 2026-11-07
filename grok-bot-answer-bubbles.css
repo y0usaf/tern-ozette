@@ -1,4 +1,4 @@
-:root:not(#grok) [data-role='omp.bot.reply'] > [data-role^='omp.assistant'] {
+:root:not(#grok) [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
 	align-self: flex-start;
 	width: auto;
 	max-width: min(80%, 560px, 100% - 82px);
