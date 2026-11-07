@@ -786,7 +786,10 @@ html.tn-themed {
 	flex-direction: column-reverse;
 }
 :root:not(#grok) .tn-bn-card {
-	padding: 9px 36px 9px 12px;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0;
+	padding: 9px 34px 9px 44px;
 }
 :root:not(#grok) .tn-bn-card :is(.tn-bn-t, .tn-bn-b) {
 	font-size: 12.5px;
@@ -802,16 +805,82 @@ html.tn-themed {
 :root:not(#grok) .tn-bn-card :is(.tn-bn-s, .tn-bn-b) {
 	color: var(--t2);
 }
-:root:not(#grok) .tn-bn-card .tn-bn-ic {
-	width: 24px;
-	height: 24px;
+:root:not(#grok) .tn-bn-card :is(.tn-bn-ic, .tn-bn-k, .tn-bn-tx, .tn-bn-hd) {
+	display: contents;
 }
 :root:not(#grok) .tn-bn-card .tn-bn-ic > .tn-dk {
 	--dk: 26px;
-	left: -1px;
-	top: -1px;
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	margin-top: -13px;
 }
-:root:not(#grok) .tn-bn-k:is(.bell, .waiting) {
+:root:not(#grok) .tn-bn-card .tn-bn-t {
+	order: 1;
+	display: block;
+	flex: 0 1 auto;
+}
+:root:not(#grok) .tn-bn-card .tn-bn-s {
+	order: 2;
+	display: block;
+	flex: none;
+	margin-left: 6px;
+}
+:root:not(#grok) .tn-bn-k::after {
+	order: 3;
+	display: block;
+	flex: none;
+	font-size: 12.5px;
+	line-height: 16px;
+	font-weight: 500;
+	letter-spacing: 0;
+	color: var(--t2);
+	white-space: pre;
+}
+:root:not(#grok) .tn-bn-k.waiting::after {
+	content: ' is waiting for you';
+}
+:root:not(#grok) .tn-bn-k.done::after {
+	content: ' finished working';
+}
+:root:not(#grok) .tn-bn-k.failed::after {
+	content: ' stopped';
+}
+:root:not(#grok) .tn-bn-card .tn-bn-b {
+	order: 4;
+	display: block;
+	flex: 0 0 100%;
+}
+:root:not(#grok) .tn-bn-k::before {
+	content: '';
+	position: absolute;
+	left: 25px;
+	top: calc(50% + 5px);
+	width: 9px;
+	height: 9px;
+	padding: 3px;
+	border-radius: 50%;
+	background: var(--t3);
+	box-shadow: 0 0.5px 2px rgb(0 0 0 / 35%);
+}
+:root:not(#grok) .tn-bn-k:is(.bell, .waiting)::before {
+	background: var(--accent-fill);
+}
+:root:not(#grok) .tn-bn-k.done::before {
+	background: var(--ok-fill);
+}
+:root:not(#grok) .tn-bn-k.failed::before {
+	background: var(--bad-fill);
+}
+:root:not(#grok) .tn-bn-k > .ico {
+	position: absolute;
+	left: 28px;
+	top: calc(50% + 8px);
+	width: 9px;
+	height: 9px;
+	color: #fff;
+}
+:root:not(#grok) .tn-bn-k:is(.bell, .waiting) > .ico {
 	color: var(--grok-page);
 }
 :root:not(#grok) .tn-bn-card .tn-bn-x {
