@@ -8,6 +8,10 @@ html.tn-themed {
 	--grok-line: light-dark(#1c1c1c14, #f5f5f51a);
 	--grok-soft: light-dark(#1c1c1c0f, #f5f5f50a);
 	--grok-user: light-dark(#1c1c1c, #f5f5f52e);
+	--frost-you-fill: color-mix(in srgb, var(--grok-user) 72%, transparent);
+	--frost-you-ink: light-dark(#ffffff, #f5f5f5);
+	--frost-reply-fill: var(--grok-soft);
+	--frost-reply-ink: var(--grok-ink);
 	--page: rgb(from var(--grok-page) r g b / var(--surface-a, 1)) !important;
 	--panel: rgb(from var(--grok-page) r g b / var(--surface-a, 1)) !important;
 	--card: var(--grok-chrome);

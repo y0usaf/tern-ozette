@@ -1,6 +1,9 @@
 :root:not(#oz) {
 	--oz-lav: oklch(from var(--accent) 0.78 0.11 h);
 	--oz-pink: oklch(from var(--bad) 0.79 0.12 h);
+	--frost-you-fill: color-mix(in srgb, var(--oz-pink) 72%, transparent);
+	--frost-you-ink: var(--oz-plum);
+	--frost-reply-fill: color-mix(in srgb, var(--card) 40%, transparent);
 	--oz-mustard: oklch(from var(--warn) 0.83 0.15 h);
 	--oz-lime: oklch(from var(--ok) 0.87 0.15 h);
 	--oz-plum: oklch(from var(--accent) 0.28 0.06 h);

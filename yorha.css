@@ -11,6 +11,9 @@
 	--pop-bg: var(--card) !important;
 	--modal-bg: var(--card);
 	--ink: light-dark(#000000, #c4c2bb) !important;
+	--frost-you-fill: color-mix(in srgb, var(--ink) 72%, transparent);
+	--frost-you-ink: var(--yh-ground);
+	--frost-reply-fill: color-mix(in srgb, var(--card) 40%, transparent);
 	--t1: light-dark(#000000, #c4c2bb) !important;
 	--t2: rgb(from var(--ink) r g b / 72%) !important;
 	--t3: rgb(from var(--ink) r g b / 52%) !important;
