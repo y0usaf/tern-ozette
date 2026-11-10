@@ -96,6 +96,9 @@ html.tn-themed {
 	margin-top: 6px;
 	margin-bottom: 6px;
 }
+:root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.user'] {
+	padding-bottom: 14px;
+}
 :root:not(#grok) .sf-chat-reader :is([data-role^='omp.assistant'], [data-role^='omp.user']) .md {
 	font: 400 15px/22px var(--sans);
 	letter-spacing: 0.15px;

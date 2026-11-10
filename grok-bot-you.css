@@ -36,3 +36,7 @@
 :root:not(#grok) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
 	color: var(--t1);
 }
+:root:not(#grok) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > [data-role='omp.user.tools'] {
+	left: auto;
+	right: 0;
+}
