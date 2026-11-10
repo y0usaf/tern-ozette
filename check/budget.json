@@ -2,7 +2,10 @@
  "base": {
   "important": 0,
   "vars": 2,
-  "infinite": 0
+  "infinite": 0,
+  "unknown": [
+   "^\\.sb-(grp|sp)$"
+  ]
  },
  "none": {
   "important": 0,
