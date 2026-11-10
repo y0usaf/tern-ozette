@@ -3,6 +3,7 @@ html.tn-status footer#statusline {
 	padding: 32px 20px;
 	font-family: var(--mono);
 	line-height: 1.5;
+	justify-content: flex-start;
 	text-align: left;
 	white-space: pre;
 	color: var(--t3);
@@ -21,11 +22,11 @@ html.side-collapsed footer#statusline {
 }
 
 html.tn-status footer#statusline > *,
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin {
 	white-space: pre;
 }
 
-html.tn-status footer#statusline > span.tn-git {
+html.tn-status footer#statusline .tn-git {
 	font-size: 10.5px;
 	letter-spacing: 0.12em;
 	line-height: 1.7;
@@ -33,13 +34,34 @@ html.tn-status footer#statusline > span.tn-git {
 	justify-content: center;
 }
 
-html.tn-status footer#statusline > span.sl-plugins {
+html.tn-status footer#statusline .sb-grp {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
 	gap: 0;
+	min-width: 0;
+}
+
+html.tn-status footer#statusline .sb-sp {
+	display: none;
+}
+
+html.tn-status footer#statusline :is(.sl-cwd, .sl-n, .sl-run, .tb-sp) {
+	display: none;
+}
+
+html.tn-status footer#statusline .sl-plugins {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+	min-width: 0;
 	font-size: 15px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck'],
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='deck'],
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
 	position: relative;
 	display: block;
 	align-self: center;
@@ -58,8 +80,8 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='d
 	border-radius: 6px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck'] svg.ico,
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] svg.ico {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='deck'] svg.ico,
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='deck-busy'] svg.ico {
 	display: inline-block;
 	width: 11px;
 	height: 11px;
@@ -68,12 +90,12 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='d
 	opacity: 0.75;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='deck-busy'] {
 	padding-right: 24px;
 	color: var(--warn);
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='deck-busy']::after {
 	content: "";
 	position: absolute;
 	top: 50%;
@@ -85,7 +107,7 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='d
 	background: currentColor;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='time'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='time'] {
 	font-size: 2.3em;
 	line-height: 1.05;
 	letter-spacing: 0.05em;
@@ -95,7 +117,7 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='t
 	padding-top: 22px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='date'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone='date'] {
 	font-size: 11px;
 	letter-spacing: 0.22em;
 	line-height: 1.6;
@@ -104,12 +126,12 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone='d
 	padding: 7px 0 26px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-cpu'] {
 	border-top: 1px solid var(--l2);
 	padding-top: 18px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-'] {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
@@ -122,7 +144,7 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='
 	padding-bottom: 2px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='spark-'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='spark-'] {
 	display: block;
 	width: 100%;
 	height: 40px;
@@ -134,53 +156,53 @@ html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='
 	margin: 6px 0 18px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-']::before {
 	font-size: 11px;
 	letter-spacing: 0.14em;
 	color: var(--t3);
 	padding-bottom: 4px;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-cpu']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-cpu']::before {
 	content: "CPU";
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-mem']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-mem']::before {
 	content: "MEM";
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-gpu']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-gpu']::before {
 	content: "GPU";
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-vram']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-vram']::before {
 	content: "VRAM";
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-net']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-net']::before {
 	content: "NET";
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load']::before {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-load']::before {
 	content: "LOAD";
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-warm'] {
 	color: var(--warn);
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-'][data-tone*='-hot'] {
 	color: var(--bad);
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-net'],
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-load'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-net'],
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-load'] {
 	font-size: 12.5px;
 	color: var(--t2);
 	padding: 4px 0 0;
 }
 
-html.tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-net'] {
+html.tn-status footer#statusline .sl-plugins > span.sl-plugin[data-tone^='m-net'] {
 	padding-top: 12px;
 	border-top: 1px solid var(--l2);
 }
