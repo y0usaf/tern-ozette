@@ -15,15 +15,28 @@
 	box-shadow: none;
 }
 
-:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
 	align-self: stretch;
 	position: relative;
+	box-sizing: border-box;
 	width: auto;
 	max-width: none;
 	margin-left: 0;
 	padding: 10px 12px 10px 30px;
 	border-bottom: 1px dashed rgb(from var(--phs-select-ink) r g b / 45%);
 	background: var(--phs-select);
+	box-shadow: none;
+	color: var(--phs-select-ink);
+	overflow-wrap: anywhere;
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	align-self: stretch;
+	width: auto;
+	max-width: none;
+	margin-left: 0;
+	padding: 0;
+	background: none;
 	box-shadow: none;
 	color: var(--phs-select-ink);
 	overflow-wrap: anywhere;

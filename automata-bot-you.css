@@ -7,13 +7,20 @@
 }
 
 :root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	position: relative;
 	align-self: stretch;
 	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
-	padding: 0;
-	background: none;
+	padding: 23px 16px 14px;
+	background-color: var(--at-invert);
+	background-image: linear-gradient(rgb(from var(--at-invert-ink) r g b / 34%), rgb(from var(--at-invert-ink) r g b / 34%));
+	background-size: 100% 1px;
+	background-position: 0 16px;
+	background-repeat: no-repeat;
 	box-shadow: none;
+	color: var(--at-invert-ink);
+	overflow-wrap: anywhere;
 }
 
 :root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
@@ -38,24 +45,19 @@
 	--omp-mdListBullet: var(--at-invert-ink);
 	--accent: var(--at-invert-ink);
 	--accent-ink: var(--at-invert-ink);
-	position: relative;
 	align-self: stretch;
 	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
 	margin-left: 0;
-	padding: 23px 16px 14px;
-	background-color: var(--at-invert);
-	background-image: linear-gradient(rgb(from var(--at-invert-ink) r g b / 34%), rgb(from var(--at-invert-ink) r g b / 34%));
-	background-size: 100% 1px;
-	background-position: 0 16px;
-	background-repeat: no-repeat;
+	padding: 0;
+	background: none;
 	box-shadow: none;
 	color: var(--at-invert-ink);
 	overflow-wrap: anywhere;
 }
 
-:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
 	content: "YOU / NOTE";
 	position: absolute;
 	top: 6px;

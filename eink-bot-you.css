@@ -5,13 +5,15 @@
 	max-width: 100%;
 }
 
-:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	align-items: flex-end;
+:root:not(#eik) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-items: stretch;
 	max-width: min(480px, 100%);
 	margin-left: auto;
-	padding: 0;
-	border: 0;
-	background: transparent;
+	padding: 10px 14px;
+	border: 1px solid var(--eik-ink);
+	border-radius: 0;
+	background: var(--eik-ink);
+	color: var(--eik-paper);
 }
 
 :root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
@@ -26,14 +28,14 @@
 	--accent-fill: var(--eik-paper);
 	--l1: rgb(255 255 255 / 10%);
 	--l2: rgb(255 255 255 / 16%);
-	align-self: flex-end;
+	align-self: stretch;
 	width: auto;
 	max-width: 100%;
-	margin-left: auto;
-	padding: 10px 14px;
-	border: 1px solid var(--eik-ink);
+	margin-left: 0;
+	padding: 0;
+	border: 0;
 	border-radius: 0;
-	background: var(--eik-ink);
+	background: none;
 	color: var(--eik-paper);
 	box-shadow: none;
 	overflow-wrap: anywhere;

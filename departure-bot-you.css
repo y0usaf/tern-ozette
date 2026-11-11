@@ -7,13 +7,19 @@
 }
 
 :root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	align-items: flex-end;
+	position: relative;
+	align-self: flex-end;
+	align-items: stretch;
+	box-sizing: border-box;
 	width: auto;
-	max-width: 100%;
-	padding: 0;
-	background: none;
+	max-width: min(86%, 580px);
+	margin-left: auto;
+	padding: 22px 14px 12px;
+	background: var(--dep-ink);
 	border: 0;
 	box-shadow: none;
+	color: var(--dep-ground);
+	overflow-wrap: anywhere;
 }
 
 :root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
@@ -21,15 +27,14 @@
 }
 
 :root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
-	position: relative;
 	box-sizing: border-box;
-	align-self: flex-end;
+	align-self: stretch;
 	width: auto;
-	max-width: min(86%, 580px);
-	margin-left: auto;
-	padding: 22px 14px 12px;
+	max-width: 100%;
+	margin-left: 0;
+	padding: 0;
 	color: var(--dep-ground);
-	background: var(--dep-ink);
+	background: none;
 	border: 0;
 	box-shadow: none;
 	overflow-wrap: anywhere;
@@ -56,7 +61,7 @@
 	--l3: var(--dep-hair);
 }
 
-:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
 	content: 'YOU';
 	position: absolute;
 	top: 0;

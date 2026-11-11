@@ -7,13 +7,22 @@
 }
 
 :root:not(#bnl) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	position: relative;
 	align-self: stretch;
 	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
-	padding: 0;
-	background: none;
-	box-shadow: none;
+	padding: 24px 16px 14px;
+	background-color: light-dark(#e7e6d0, #232b1a);
+	background-image: linear-gradient(var(--bn-hair), var(--bn-hair));
+	background-size: 100% 1px;
+	background-position: 0 18px;
+	background-repeat: no-repeat;
+	box-shadow:
+		4px 4px 0 var(--bn-off),
+		inset 0 0 0 1px var(--bn-off-deep);
+	color: var(--bn-ink);
+	overflow-wrap: anywhere;
 }
 
 :root:not(#bnl) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
@@ -32,26 +41,19 @@
 	--omp-userMessageText: var(--bn-ink);
 	--omp-mdHeading: var(--bn-ink);
 	--omp-mdListBullet: var(--bn-moss);
-	position: relative;
 	align-self: stretch;
 	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
 	margin-left: 0;
-	padding: 24px 16px 14px;
-	background-color: light-dark(#e7e6d0, #232b1a);
-	background-image: linear-gradient(var(--bn-hair), var(--bn-hair));
-	background-size: 100% 1px;
-	background-position: 0 18px;
-	background-repeat: no-repeat;
-	box-shadow:
-		4px 4px 0 var(--bn-off),
-		inset 0 0 0 1px var(--bn-off-deep);
+	padding: 0;
+	background: none;
+	box-shadow: none;
 	color: var(--bn-ink);
 	overflow-wrap: anywhere;
 }
 
-:root:not(#bnl) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+:root:not(#bnl) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
 	content: "you";
 	position: absolute;
 	top: 6px;
