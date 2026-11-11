@@ -1,0 +1,62 @@
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: stretch;
+	width: auto;
+	max-width: 100%;
+	margin-left: 0;
+}
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-self: stretch;
+	align-items: flex-end;
+	width: auto;
+	max-width: 100%;
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	box-sizing: border-box;
+	align-self: flex-end;
+	width: auto;
+	max-width: min(84%, 720px, 100% - 82px);
+	margin-left: auto;
+	padding: 9px 13px 10px 15px;
+	border-radius: 4px;
+	background: var(--brn-card);
+	box-shadow:
+		inset 2px 0 0 var(--brn-accent),
+		inset 0 1px 0 light-dark(rgb(255 255 255 / 65%), rgb(255 255 255 / 8%)),
+		inset 0 -1px 0 light-dark(rgb(0 0 0 / 9%), rgb(0 0 0 / 45%)),
+		0 0 0 1px var(--brn-line);
+	color: var(--brn-ink);
+	--t1: var(--brn-ink);
+	--t2: light-dark(#3f3f3e, #c3c3c0);
+	--t3: var(--brn-muted);
+	--t4: var(--brn-dim);
+	--ink: var(--brn-ink);
+	--tv-fg: var(--brn-ink);
+	--omp-userMessageText: var(--brn-ink);
+	--omp-mdHeading: var(--brn-ink);
+	overflow-wrap: anywhere;
+}
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
+	font: 400 15px/22px var(--sans);
+	color: var(--brn-ink);
+}
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md > :first-child {
+	margin-top: 0;
+}
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md > :last-child {
+	margin-bottom: 0;
+}
+
+:root:not(#brn) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > [data-role='omp.user.tools'] {
+	left: auto;
+	right: 0;
+}

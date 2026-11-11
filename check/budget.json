@@ -37,5 +37,69 @@
   "important": 2,
   "vars": 69,
   "infinite": 3
+ },
+ "departure": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "automata": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "botanical": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "braun": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "folio": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "blueprint": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "eink": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
+ },
+ "phosphor": {
+  "important": 40,
+  "vars": 150,
+  "infinite": 2,
+  "unknown": [
+   "^\\.cm-"
+  ]
  }
 }

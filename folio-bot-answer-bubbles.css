@@ -1,0 +1,48 @@
+
+:root:not(#flo) [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']),
+:root:not(#flo) [data-role^='omp.bot.answer.'] > .sf-md {
+	position: relative;
+	align-self: stretch;
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	overflow-wrap: anywhere;
+}
+
+:root:not(#flo) [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) > .sf-md {
+	font: 400 18px/27px var(--flo-serif);
+	color: var(--flo-ink);
+}
+
+:root:not(#flo) [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound'])::before,
+:root:not(#flo) [data-role^='omp.bot.answer.'] > .sf-md::before {
+	content: "Reply";
+	display: block;
+	margin-bottom: 8px;
+	font: 400 9px/1.5 var(--flo-mono);
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--flo-red);
+}
+
+:root:not(#flo) [data-role^='omp.bot.answer.'] > .sf-md > .md,
+:root:not(#flo) [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) .md {
+	font: 400 18px/27px var(--flo-serif);
+	color: var(--flo-ink);
+}
+
+:root:not(#flo).tn-phone [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']),
+:root:not(#flo).tn-phone [data-role^='omp.bot.answer.'] > .sf-md {
+	padding-top: 15px;
+}
+
+:root:not(#flo).tn-phone [data-role^='omp.bot.answer.'] > .sf-md > .md,
+:root:not(#flo).tn-phone [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) .md {
+	font-size: 17px;
+	line-height: 26px;
+}

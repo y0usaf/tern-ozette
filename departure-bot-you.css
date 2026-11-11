@@ -1,0 +1,97 @@
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: stretch;
+	width: auto;
+	max-width: 100%;
+	margin-left: 0;
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-items: flex-end;
+	width: auto;
+	max-width: 100%;
+	padding: 0;
+	background: none;
+	border: 0;
+	box-shadow: none;
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
+	content: none;
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	position: relative;
+	box-sizing: border-box;
+	align-self: flex-end;
+	width: auto;
+	max-width: min(86%, 580px);
+	margin-left: auto;
+	padding: 22px 14px 12px;
+	color: var(--dep-ground);
+	background: var(--dep-ink);
+	border: 0;
+	box-shadow: none;
+	overflow-wrap: anywhere;
+
+	--t1: var(--dep-ground);
+	--t2: color-mix(in srgb, var(--dep-ground) 82%, transparent);
+	--t3: color-mix(in srgb, var(--dep-ground) 68%, transparent);
+	--t4: color-mix(in srgb, var(--dep-ground) 52%, transparent);
+	--ink: var(--dep-ground);
+	--dep-hair: color-mix(in srgb, var(--dep-ground) 34%, transparent);
+	--dep-hair-soft: color-mix(in srgb, var(--dep-ground) 18%, transparent);
+	--omp-userMessageText: var(--dep-ground);
+	--omp-text: var(--dep-ground);
+	--omp-mdHeading: var(--dep-ground);
+	--omp-mdLink: var(--dep-ground);
+	--omp-mdCode: var(--dep-ground);
+	--omp-mdQuote: var(--t2);
+	--omp-mdQuoteBorder: var(--dep-ground);
+	--tv-fg: var(--dep-ground);
+	--accent: var(--dep-ground);
+	--accent-ink: var(--dep-ground);
+	--l1: var(--dep-hair-soft);
+	--l2: var(--dep-hair);
+	--l3: var(--dep-hair);
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+	content: 'YOU';
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 5px;
+	font: 8.5px/14px var(--mono);
+	letter-spacing: 0.2em;
+	color: var(--dep-ink);
+	background: var(--dep-amber-vivid);
+	pointer-events: none;
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
+	font: 13px/21px var(--mono);
+	color: var(--dep-ground);
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md a {
+	color: var(--dep-ground);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :not(pre) > code {
+	color: var(--dep-ground);
+	background: transparent;
+	box-shadow: inset 0 0 0 1px var(--dep-hair);
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :is(ul, ol) li::marker {
+	color: var(--dep-amber-vivid);
+}
+
+:root:not(#dep) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > [data-role='omp.user.tools'] {
+	left: auto;
+	right: 0;
+	color: var(--dep-t4);
+}

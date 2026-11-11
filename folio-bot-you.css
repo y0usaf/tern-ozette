@@ -1,0 +1,68 @@
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] {
+	align-self: stretch;
+	width: 100%;
+	max-width: none;
+	margin: 8px 0 8px 24px;
+	padding-left: 18px;
+	border-left: 1px solid var(--flo-red);
+}
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: stretch;
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-self: stretch;
+	width: 100%;
+	max-width: none;
+	padding: 1px 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+}
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .md {
+	font: italic 400 18px/27px var(--flo-serif);
+	color: var(--flo-ink);
+}
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .md a {
+	color: var(--flo-red);
+	text-decoration: none;
+	box-shadow: inset 0 -1px 0 var(--flo-red);
+}
+
+:root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .md :not(pre) > code {
+	font: 400 0.74em/1.5 var(--flo-mono);
+	background: var(--flo-tint);
+	box-shadow: none;
+	color: var(--flo-ink);
+}
+
+:root:not(#flo).tn-phone .sf-chat-reader [data-role='omp.bot.you'] {
+	margin-left: 16px;
+	padding-left: 14px;
+}
+
+:root:not(#flo).tn-phone .sf-chat-reader [data-role='omp.bot.you'] .md {
+	font-size: 17px;
+	line-height: 26px;
+}

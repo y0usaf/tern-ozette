@@ -1,0 +1,61 @@
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: stretch;
+	width: auto;
+	max-width: 100%;
+}
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-items: flex-end;
+	max-width: min(480px, 100%);
+	margin-left: auto;
+	padding: 0;
+	border: 0;
+	background: transparent;
+}
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	--t1: var(--eik-paper);
+	--t2: var(--eik-paper);
+	--t3: var(--eik-paper);
+	--t4: var(--eik-paper);
+	--tv-fg: var(--eik-paper);
+	--ink: var(--eik-paper);
+	--accent: var(--eik-paper);
+	--accent-ink: var(--eik-paper);
+	--accent-fill: var(--eik-paper);
+	--l1: rgb(255 255 255 / 10%);
+	--l2: rgb(255 255 255 / 16%);
+	align-self: flex-end;
+	width: auto;
+	max-width: 100%;
+	margin-left: auto;
+	padding: 10px 14px;
+	border: 1px solid var(--eik-ink);
+	border-radius: 0;
+	background: var(--eik-ink);
+	color: var(--eik-paper);
+	box-shadow: none;
+	overflow-wrap: anywhere;
+}
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
+	color: var(--eik-paper);
+}
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md a {
+	color: inherit;
+	text-decoration-color: var(--eik-paper);
+}
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :not(pre) > code {
+	border-color: rgb(255 255 255 / 34%);
+	background: transparent;
+	color: inherit;
+}
+
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] :is([data-role='omp.user.tools'], .sf-msg-acts) {
+	left: auto;
+	right: 0;
+	color: var(--eik-muted);
+}

@@ -1,0 +1,80 @@
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: stretch;
+	width: auto;
+	max-width: 100%;
+	margin-left: 0;
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-self: stretch;
+	max-width: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	box-shadow: none;
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	align-self: stretch;
+	position: relative;
+	width: auto;
+	max-width: none;
+	margin-left: 0;
+	padding: 10px 12px 10px 30px;
+	border-bottom: 1px dashed rgb(from var(--phs-select-ink) r g b / 45%);
+	background: var(--phs-select);
+	box-shadow: none;
+	color: var(--phs-select-ink);
+	overflow-wrap: anywhere;
+
+	--phs-ink: var(--phs-select-ink);
+	--phs-body: var(--phs-select-ink);
+	--phs-muted: rgb(from var(--phs-select-ink) r g b / 82%);
+	--phs-dim: rgb(from var(--phs-select-ink) r g b / 66%);
+	--phs-mark: var(--phs-select-ink);
+	--phs-rule: rgb(from var(--phs-select-ink) r g b / 40%);
+	--phs-well: rgb(from var(--phs-select-ink) r g b / 12%);
+	--phs-glow: none;
+	--t1: var(--phs-select-ink);
+	--t2: var(--phs-select-ink);
+	--t3: rgb(from var(--phs-select-ink) r g b / 82%);
+	--t4: rgb(from var(--phs-select-ink) r g b / 66%);
+	--accent: var(--phs-select-ink);
+	--accent-ink: var(--phs-select-ink);
+	--accent-fill: var(--phs-select-ink);
+	--tv-fg: var(--phs-select-ink);
+	--code-bg: var(--phs-well);
+	--chip-bg: var(--phs-well);
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+	content: ">";
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	font: 400 13px/20px var(--sans);
+	color: var(--phs-select-ink);
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
+	color: var(--phs-select-ink);
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :is(h1, h2, h3, h4) {
+	border-bottom-color: var(--phs-rule);
+	color: var(--phs-select-ink);
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md a {
+	color: var(--phs-select-ink);
+	box-shadow: inset 0 -1px 0 var(--phs-select-ink);
+}
+
+:root:not(#phs) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > [data-role='omp.user.tools'] {
+	left: auto;
+	right: 0;
+	border-top-color: var(--phs-rule);
+	color: var(--phs-select-ink);
+	opacity: 0.7;
+}

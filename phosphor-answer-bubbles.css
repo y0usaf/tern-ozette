@@ -1,0 +1,36 @@
+
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.assistant'] {
+	margin-bottom: 14px;
+}
+
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.assistant'] > .sf-md,
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.chat.msg'] > [data-role='omp.assistant'] > .sf-md {
+	align-self: flex-start;
+	width: auto;
+	max-width: min(760px, 100%);
+	margin: 2px 0 0;
+	padding: 12px 14px 12px 30px;
+	border: 1px dashed var(--phs-rule);
+	background: light-dark(#efe9d7, #0b0905);
+	box-shadow: none;
+	overflow-wrap: anywhere;
+}
+
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.assistant'] > .sf-md::before,
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.chat.msg'] > [data-role='omp.assistant'] > .sf-md::before {
+	content: "▌";
+	position: absolute;
+	left: 10px;
+	top: 12px;
+	font: 400 13px/20px var(--sans);
+	color: var(--phs-mark);
+	text-shadow: var(--phs-glow);
+}
+
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.assistant'] > .sf-md + .sf-md {
+	border-top: 0;
+}
+
+:root:not(#phs) .sf-chat-reader.sf-main > [data-role='omp.assistant'] > .sf-md > .md:last-child {
+	margin-bottom: 0;
+}

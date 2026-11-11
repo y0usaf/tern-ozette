@@ -1,0 +1,140 @@
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: stretch;
+	width: auto;
+	max-width: 100%;
+	margin-left: 0;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-self: stretch;
+	box-sizing: border-box;
+	width: auto;
+	max-width: 100%;
+	padding: 0;
+	background: none;
+	box-shadow: none;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	--at-ink: var(--at-invert-ink);
+	--at-t2: rgb(from var(--at-invert-ink) r g b / 80%);
+	--at-t3: rgb(from var(--at-invert-ink) r g b / 68%);
+	--at-t4: rgb(from var(--at-invert-ink) r g b / 58%);
+	--at-rule: rgb(from var(--at-invert-ink) r g b / 42%);
+	--at-hair: rgb(from var(--at-invert-ink) r g b / 26%);
+	--at-soft: rgb(from var(--at-invert-ink) r g b / 10%);
+	--at-ox: light-dark(#cf8062, #8a3526);
+	--t1: var(--at-invert-ink);
+	--t2: rgb(from var(--at-invert-ink) r g b / 80%);
+	--t3: rgb(from var(--at-invert-ink) r g b / 68%);
+	--t4: rgb(from var(--at-invert-ink) r g b / 58%);
+	--l1: rgb(from var(--at-invert-ink) r g b / 10%);
+	--l2: rgb(from var(--at-invert-ink) r g b / 18%);
+	--l3: rgb(from var(--at-invert-ink) r g b / 34%);
+	--tv-fg: var(--at-invert-ink);
+	--omp-userMessageText: var(--at-invert-ink);
+	--omp-mdHeading: var(--at-invert-ink);
+	--omp-mdListBullet: var(--at-invert-ink);
+	--accent: var(--at-invert-ink);
+	--accent-ink: var(--at-invert-ink);
+	position: relative;
+	align-self: stretch;
+	box-sizing: border-box;
+	width: auto;
+	max-width: 100%;
+	margin-left: 0;
+	padding: 23px 16px 14px;
+	background-color: var(--at-invert);
+	background-image: linear-gradient(rgb(from var(--at-invert-ink) r g b / 34%), rgb(from var(--at-invert-ink) r g b / 34%));
+	background-size: 100% 1px;
+	background-position: 0 16px;
+	background-repeat: no-repeat;
+	box-shadow: none;
+	color: var(--at-invert-ink);
+	overflow-wrap: anywhere;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+	content: "YOU / NOTE";
+	position: absolute;
+	top: 6px;
+	left: 16px;
+	color: rgb(from var(--at-invert-ink) r g b / 62%);
+	font: 400 8px/1 var(--at-mono);
+	letter-spacing: 0.2em;
+	pointer-events: none;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
+	color: var(--at-invert-ink);
+	font: 400 15px/23px var(--at-sans);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md > :first-child {
+	margin-top: 0;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md > :last-child {
+	margin-bottom: 0;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :is(h1, h2, h3, h4) {
+	margin-top: 0;
+	color: var(--at-invert-ink);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md a {
+	color: var(--at-ox);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :not(pre) > code {
+	background: rgb(from var(--at-invert-ink) r g b / 12%);
+	box-shadow: inset 0 0 0 1px rgb(from var(--at-invert-ink) r g b / 26%);
+	color: var(--at-invert-ink);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md blockquote {
+	box-shadow: inset 2px 0 0 rgb(from var(--at-invert-ink) r g b / 50%);
+	color: var(--at-invert-ink);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > [data-role='omp.user.tools'] {
+	left: auto;
+	right: 0;
+	padding-top: 4px;
+	color: rgb(from var(--at-invert-ink) r g b / 62%);
+	font-family: var(--at-mono);
+	font-size: 9px;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md .code {
+	background: rgb(from var(--at-invert-ink) r g b / 8%);
+	box-shadow: inset 0 0 0 1px rgb(from var(--at-invert-ink) r g b / 26%);
+	color: var(--at-invert-ink);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md .code-head {
+	background: rgb(from var(--at-invert-ink) r g b / 12%);
+	box-shadow: inset 0 -1px 0 rgb(from var(--at-invert-ink) r g b / 42%);
+	color: rgb(from var(--at-invert-ink) r g b / 70%);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md .code pre {
+	background: transparent;
+	color: var(--at-invert-ink);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md .code :is(.tk-keyword, .tk-macro) {
+	color: var(--at-ox);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md .code :is(.tk-string, .tk-function, .tk-type, .tk-number, .tk-constant, .tk-variable, .tk-property) {
+	color: var(--at-invert-ink);
+}
+
+:root:not(#aut) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md .code :is(.tk-comment, .tk-punct, .tk-operator) {
+	color: rgb(from var(--at-invert-ink) r g b / 68%);
+}
