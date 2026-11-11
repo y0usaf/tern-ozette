@@ -73,9 +73,9 @@
 	--r-ctl: 0px;
 	--r-card: 0px;
 	--r-panel: 0px;
-	--frost-you-fill: var(--dep-ink);
+	--frost-you-fill: color-mix(in srgb, var(--dep-ink) 74%, transparent);
 	--frost-you-ink: var(--dep-ground);
-	--frost-reply-fill: var(--dep-panel);
+	--frost-reply-fill: color-mix(in srgb, var(--dep-panel) 62%, transparent);
 	--frost-reply-ink: var(--dep-ink);
 	--omp-user-bg: var(--dep-ink);
 	--omp-user-radius: 0;
@@ -83,11 +83,20 @@
 	--omp-user-edge: none;
 	--omp-user-max: 560px;
 	--omp-user-ink: var(--dep-ground);
-	--omp-reply-bg: transparent;
-	--omp-reply-radius: 0;
-	--omp-reply-pad: 10px 0;
-	--omp-reply-edge: none;
-	--omp-reply-max: 100%;
+	--omp-answer-max: 88%;
+	--omp-answer-pad: 10px 14px;
+	--omp-answer-radius: 0;
+	--omp-answer-bg: var(--dep-panel);
+	--omp-answer-edge: inset 3px 0 0 var(--dep-amber-vivid), inset 0 0 0 1px var(--dep-hair-soft);
+	--omp-answer-user-edge: var(--omp-user-edge);
+	--omp-bot-answer-bg: var(--dep-panel);
+	--omp-bot-answer-edge: inset 3px 0 0 var(--dep-amber-vivid), inset 0 0 0 1px var(--dep-hair-soft);
+	--omp-you-max: 560px;
+	--omp-you-pad: 9px 12px 10px;
+	--omp-you-radius: 0;
+	--omp-you-bg: var(--dep-ink);
+	--omp-you-edge: inset 0 0 0 2px var(--dep-amber-vivid);
+	--frost-edge: inset 0 1px 0 rgb(255 255 255 / 6%), 0 0 0 1px var(--dep-amber-vivid);
 	--code-bg: var(--dep-inset);
 
 	caret-color: var(--dep-amber);
@@ -280,6 +289,32 @@
 	background: var(--dep-ink);
 	box-shadow: none;
 }
+
+:root:not(#dep) #tabbar .tt[data-tc] {
+	border-radius: 0 !important;
+}
+
+:root:not(#dep) #tabbar .tt[data-tc].on {
+	background: var(--dep-ink) !important;
+	box-shadow: inset 0 0 0 1px var(--dep-amber-vivid);
+	color: var(--dep-ground);
+}
+:root:not(#dep) #tabbar .tt[data-tc].on.working .nm {
+	color: var(--dep-ground);
+	background: none;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	animation: none;
+}
+
+:root:not(#dep) #tabbar .tt[data-tc].on.working {
+	--pill: var(--dep-ground);
+}
+
+:root:not(#dep) #tabbar .tt[data-tc].on .sub {
+	opacity: 1;
+}
+
 
 :root:not(#dep) #tabbar .tt.on .nm,
 :root:not(#dep) #tabbar .tt.on .tn-face,
@@ -996,6 +1031,29 @@
 :root:not(#dep) .sf-chat-reader :is([data-role='omp.composer.send'], [data-role='omp.composer.stop']):focus-visible {
 	outline: 1px solid var(--dep-amber-vivid);
 	outline-offset: 2px;
+}
+
+:root:not(#dep) .sf-chat-reader :is(.sf-row[data-role='omp.composer.model'], .sf-row[data-role='omp.composer.effort']) {
+	align-items: center;
+}
+
+:root:not(#dep) .sf-chat-reader [data-role='omp.composer.model'] > .sf-text {
+	line-height: 1;
+}
+
+:root:not(#dep) .sf-chat-reader [data-role='omp.composer.stop'] {
+	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: auto;
+	min-width: 0;
+	overflow: visible;
+	white-space: pre;
+}
+
+:root:not(#dep) .sf-chat-reader [data-role='omp.composer.stop']::before {
+	content: none;
 }
 
 :root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.composer.chip'] {

@@ -13,13 +13,24 @@
 	--omp-user-edge: inset 2px 0 0 var(--brn-accent), var(--brn-raised);
 	--omp-user-max: 560px;
 	--omp-user-ink: var(--brn-ink);
-	--frost-you-fill: var(--brn-card);
+	--frost-you-fill: color-mix(in srgb, var(--brn-card) 58%, transparent);
 	--frost-you-ink: var(--brn-ink);
-	--omp-reply-bg: transparent;
-	--omp-reply-radius: 0;
-	--omp-reply-pad: 8px 0;
-	--omp-reply-edge: none;
-	--omp-reply-max: 100%;
+	--frost-reply-fill: color-mix(in srgb, var(--brn-card) 58%, transparent);
+	--frost-reply-ink: var(--brn-ink);
+	--frost-edge: var(--brn-catch), 0 0 0 1px var(--brn-accent);
+	--omp-answer-max: 90%;
+	--omp-answer-pad: 9px 13px;
+	--omp-answer-radius: 3px;
+	--omp-answer-bg: var(--brn-card);
+	--omp-answer-edge: inset 2px 0 0 var(--brn-accent), var(--brn-raised);
+	--omp-answer-user-edge: var(--omp-user-edge);
+	--omp-bot-answer-bg: var(--brn-card);
+	--omp-bot-answer-edge: inset 2px 0 0 var(--brn-accent), var(--brn-raised);
+	--omp-you-max: 560px;
+	--omp-you-pad: 9px 13px;
+	--omp-you-radius: 3px;
+	--omp-you-bg: var(--brn-well);
+	--omp-you-edge: inset 2px 0 0 var(--brn-accent), 0 0 0 1px var(--brn-line);
 }
 :root:not(#brn) {
 	--page: rgb(from var(--brn-page) r g b / var(--surface-a, 1)) !important; --panel: rgb(from var(--brn-panel) r g b / var(--surface-a, 1)) !important; --card: var(--brn-card) !important;
@@ -88,6 +99,10 @@
 	padding-left: 16px; background: var(--brn-card); box-shadow: var(--brn-raised);
 	color: var(--brn-ink);
 }
+:root:not(#brn) #tabbar .tt[data-tc] { border-radius: 2px !important; }
+:root:not(#brn) #tabbar .tt[data-tc].on { background: var(--brn-card) !important; }
+:root:not(#brn) #tabbar .tt[data-tc].on.working { --pill: var(--brn-ink); }
+:root:not(#brn) #tabbar .tt[data-tc].on .sub { opacity: 1; }
 :root:not(#brn) #tabbar .tt.on::before {
 	content: ""; position: absolute; left: 6px;
 	top: 50%; width: var(--brn-dot); height: var(--brn-dot);
@@ -429,13 +444,23 @@
 :root:not(#brn) .sf-chat-reader [data-role='omp.composer.send']:is([disabled], [aria-disabled='true'], .disabled) .kbd {
 	color: var(--brn-dim); background: var(--brn-well); box-shadow: 0 0 0 1px var(--brn-line);
 }
+:root:not(#brn) .sf-chat-reader [data-role='omp.composer.model'] > .sf-text,
+:root:not(#brn) .sf-chat-reader [data-role='omp.composer.effort'] > .sf-text {
+	line-height: 1;
+}
+:root:not(#brn) .sf-chat-reader .sf-row[data-role='omp.composer.model'], :root:not(#brn) .sf-chat-reader .sf-row[data-role='omp.composer.effort'] {
+	align-items: center; height: 24px; padding: 0 7px;
+}
 :root:not(#brn) .sf-chat-reader [data-role='omp.composer.stop'] {
-	border-radius: 3px; font: 500 10px/1.6 var(--brn-mono); letter-spacing: 0.08em;
+	box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+	width: auto; min-width: 0; overflow: visible; white-space: pre;
+	height: 24px; padding: 0 8px; gap: 6px;
+	border-radius: 3px; font: 500 10px/1 var(--brn-mono); letter-spacing: 0.08em;
 	text-transform: uppercase; color: var(--brn-ink); background: var(--brn-well);
 	box-shadow: 0 0 0 1px var(--brn-line);
 }
 :root:not(#brn) .sf-chat-reader [data-role='omp.composer.stop']::before {
-	content: ""; width: 6px; height: 6px;
+	content: ""; position: static; flex: none; width: 6px; height: 6px;
 	border-radius: 1px; background: var(--brn-accent);
 }
 :root:not(#brn) .sf-chat-reader :is([data-role='omp.composer.send'], [data-role='omp.composer.stop'], .sf-editor.focused):focus-visible {

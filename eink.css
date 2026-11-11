@@ -17,13 +17,24 @@ html.tn-themed {
 	--omp-user-edge: inset 0 0 0 1px var(--eik-line);
 	--omp-user-max: 540px;
 	--omp-user-ink: var(--eik-ink);
-	--frost-you-fill: var(--eik-wash);
+	--frost-you-fill: color-mix(in srgb, var(--eik-panel) 55%, transparent);
 	--frost-you-ink: var(--eik-ink);
-	--omp-reply-bg: transparent;
-	--omp-reply-radius: 0;
-	--omp-reply-pad: 8px 0;
-	--omp-reply-edge: none;
-	--omp-reply-max: 100%;
+	--frost-reply-fill: color-mix(in srgb, var(--eik-panel) 55%, transparent);
+	--frost-reply-ink: var(--eik-ink);
+	--frost-edge: inset 0 1px 0 light-dark(rgb(255 255 255 / 45%), rgb(255 255 255 / 5%)), 0 0 0 1px var(--eik-ink);
+	--omp-answer-max: 90%;
+	--omp-answer-pad: 10px 14px;
+	--omp-answer-radius: 0;
+	--omp-answer-bg: var(--eik-wash);
+	--omp-answer-edge: inset 0 0 0 1px var(--eik-line);
+	--omp-answer-user-edge: var(--omp-user-edge);
+	--omp-bot-answer-bg: var(--eik-wash);
+	--omp-bot-answer-edge: inset 0 0 0 1px var(--eik-line);
+	--omp-you-max: 540px;
+	--omp-you-pad: 10px 14px;
+	--omp-you-radius: 0;
+	--omp-you-bg: var(--eik-faint);
+	--omp-you-edge: inset 0 0 0 2px var(--eik-ink);
 
 	--page: rgb(from var(--eik-paper) r g b / var(--surface-a, 1)) !important;
 	--panel: rgb(from var(--eik-panel) r g b / var(--surface-a, 1)) !important;
@@ -219,6 +230,30 @@ html.tn-themed {
 	border-color: var(--eik-ink);
 	color: var(--eik-paper);
 }
+:root:not(#eik) #tabbar .tt[data-tc] {
+	border-radius: 0 !important;
+}
+:root:not(#eik) #tabbar .tt[data-tc].on {
+	background: var(--eik-ink) !important;
+	border-color: var(--eik-ink);
+	color: var(--eik-paper);
+}
+:root:not(#eik) #tabbar .tt[data-tc].on.working .nm {
+	color: var(--eik-paper);
+	background: none;
+	-webkit-background-clip: border-box;
+	background-clip: border-box;
+	animation: none;
+}
+
+:root:not(#eik) #tabbar .tt[data-tc].on.working {
+	--pill: var(--eik-paper);
+}
+
+:root:not(#eik) #tabbar .tt[data-tc].on .sub {
+	opacity: 1;
+}
+
 :root:not(#eik) #tabbar .tt.on :is(.tn-face, .ico, .tn-tx, .tx, .nm, .sub) {
 	color: inherit;
 	stroke: currentColor;
@@ -824,10 +859,14 @@ html.tn-themed {
 	color: var(--eik-ink) !important;
 }
 :root:not(#eik) :is([data-role='omp.composer.model'], [data-role='omp.composer.effort']) {
+	align-items: center;
 	color: var(--eik-muted);
 	font: 400 10.5px/1 var(--eik-mono);
 	letter-spacing: 0.08em;
 	text-transform: uppercase;
+}
+:root:not(#eik) :is([data-role='omp.composer.model'], [data-role='omp.composer.effort']) > .sf-text {
+	line-height: 1;
 }
 :root:not(#eik) :is([data-role='omp.composer.model'], [data-role='omp.composer.effort']):hover {
 	color: var(--eik-ink);
@@ -888,6 +927,9 @@ html.tn-themed {
 }
 :root:not(#eik) .sf-chat-reader [data-role='omp.composer.stop'] {
 	box-sizing: border-box;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	width: 26px;
 	height: 26px;
 	padding: 0;
@@ -895,6 +937,15 @@ html.tn-themed {
 	border-radius: 0;
 	background: transparent;
 	color: var(--eik-ink);
+	overflow: hidden;
+}
+:root:not(#eik) .sf-chat-reader [data-role='omp.composer.stop']::before {
+	content: "";
+	position: static;
+	width: 9px;
+	height: 9px;
+	border-radius: 0;
+	background: var(--eik-ink);
 }
 :root:not(#eik) .sf-chat-reader [data-role='omp.composer.stop']:hover {
 	background: var(--eik-wash);
