@@ -592,6 +592,13 @@ html.tn-themed {
 }
 
 
+
+:root:not(#blp) .sf-chat-reader .sf-card[data-role='omp.user'] .md a {
+	color: var(--bp-ink);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	box-shadow: none;
+}
 :root:not(#blp) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	color: var(--bp-ink);
 }

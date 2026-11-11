@@ -352,6 +352,13 @@
 	--code-bg: color-mix(in srgb, var(--dep-ground) 10%, transparent);
 }
 
+
+:root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] .md a {
+	color: var(--dep-ground);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	box-shadow: none;
+}
 :root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	font: 14px/22px var(--mono);
 	letter-spacing: 0;

@@ -601,6 +601,13 @@ html.tn-themed {
 
 
 
+
+:root:not(#aut) .sf-chat-reader .sf-card[data-role='omp.user'] .md a {
+	color: var(--at-ink);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	box-shadow: none;
+}
 :root:not(#aut) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	color: var(--at-ink);
 }

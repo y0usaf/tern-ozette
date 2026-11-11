@@ -1,0 +1,18 @@
+.sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
+	max-width: var(--omp-user-max, 540px);
+	padding: var(--omp-user-pad, 10px 16px);
+	border-radius: var(--omp-user-radius, 18px 18px 6px 18px);
+	background: var(--omp-user-bg, var(--l2));
+	color: var(--omp-user-ink, currentColor);
+	box-shadow: var(--omp-user-edge, 0 0 0 1px var(--l1), 0 10px 26px -16px light-dark(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.65)), inset 0 1px 0 var(--glass-hi));
+}
+
+.sf-chat-reader:not(#omp-bubbles) [data-role='omp.bot.reply']:not(#omp-bubbles) > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
+	background: var(--omp-reply-bg, transparent);
+	box-shadow: var(--omp-reply-edge, none);
+}
+
+.sf-chat-reader > .sf-tool {
+	position: static;
+	margin: 4px 0 18px;
+}

@@ -209,6 +209,13 @@
 :root:not(#brn) .sf-chat-reader .md > :last-child, :root:not(#brn) .sf-chat-reader .md li > p:last-child {
 	margin-bottom: 0;
 }
+
+:root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.user'] .md a {
+	color: var(--brn-ink);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	box-shadow: none;
+}
 :root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.user'] .sf-md .md {
 	font: 400 15px/22px var(--brn-sans); color: var(--brn-ink);
 }

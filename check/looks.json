@@ -16,7 +16,8 @@
  ],
  "base": [
   "rail.css",
-  "settings.css"
+  "settings.css",
+  "bubbles.css"
  ],
  "transparent": "@transparent.css",
  "looks": {

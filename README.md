@@ -15,7 +15,7 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 
 | Sheet | Loaded when |
 | --- | --- |
-| `rail.css`, `settings.css` | always: right-rail base and native picker sizing |
+| `rail.css`, `settings.css`, `bubbles.css` | always: right-rail base, native picker sizing and the user-message frame every look reads its variables from |
 | `ozette.css`, `motion.css`, `cmus.css` | Ozette is selected |
 | `ozette-answer-bubbles.css`, `ozette-bot-you.css` | Ozette plus answer bubbles / your-message bubbles |
 | `yorha.css` | YoRHa is selected |
