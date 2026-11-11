@@ -16,3 +16,7 @@
 	position: static;
 	margin: 4px 0 18px;
 }
+
+[data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	margin-top: 16px;
+}
