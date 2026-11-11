@@ -26,7 +26,7 @@ html.tn-themed {
 	--omp-user-bg: var(--bn-card);
 	--omp-user-radius: 0;
 	--omp-user-pad: 11px 15px 10px;
-	--omp-user-edge: 4px 4px 0 var(--bn-off), inset 0 0 0 1px var(--bn-ink);
+	--omp-user-edge: -4px 4px 0 var(--bn-off), inset 0 0 0 1px var(--bn-ink);
 	--omp-user-max: 580px;
 	--omp-user-ink: var(--bn-ink);
 	--frost-you-fill: var(--bn-card);
