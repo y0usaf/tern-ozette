@@ -77,6 +77,17 @@
 	--frost-you-ink: var(--dep-ground);
 	--frost-reply-fill: var(--dep-panel);
 	--frost-reply-ink: var(--dep-ink);
+	--omp-user-bg: var(--dep-ink);
+	--omp-user-radius: 0;
+	--omp-user-pad: 9px 12px 10px;
+	--omp-user-edge: none;
+	--omp-user-max: 560px;
+	--omp-user-ink: var(--dep-ground);
+	--omp-reply-bg: transparent;
+	--omp-reply-radius: 0;
+	--omp-reply-pad: 10px 0;
+	--omp-reply-edge: none;
+	--omp-reply-max: 100%;
 	--code-bg: var(--dep-inset);
 
 	caret-color: var(--dep-amber);
@@ -329,31 +340,22 @@
 }
 
 :root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
-	position: relative;
-	max-width: 620px;
-	padding: 19px 14px 11px;
-	background: var(--dep-panel);
-	border: 1px solid var(--dep-hair);
-	box-shadow: none;
-}
-
-:root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body::before {
-	content: 'YOU';
-	position: absolute;
-	top: 0;
-	left: 0;
-	padding: 0 5px;
-	font: 9px/15px var(--mono);
-	letter-spacing: 0.18em;
 	color: var(--dep-ground);
-	background: var(--dep-ink);
-	pointer-events: none;
+	--t1: var(--dep-ground);
+	--t2: color-mix(in srgb, var(--dep-ground) 82%, transparent);
+	--t3: color-mix(in srgb, var(--dep-ground) 68%, transparent);
+	--t4: color-mix(in srgb, var(--dep-ground) 52%, transparent);
+	--tv-fg: var(--dep-ground);
+	--omp-userMessageText: var(--dep-ground);
+	--omp-mdHeading: var(--dep-ground);
+	--omp-mdListBullet: var(--dep-ground);
+	--code-bg: color-mix(in srgb, var(--dep-ground) 10%, transparent);
 }
 
 :root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	font: 14px/22px var(--mono);
 	letter-spacing: 0;
-	color: var(--dep-ink);
+	color: var(--dep-ground);
 }
 
 :root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] .md p {
@@ -364,26 +366,6 @@
 	margin-bottom: 0;
 }
 
-:root:not(#dep) .sf-chat-reader [data-role^='omp.assistant'] {
-	position: relative;
-	width: 100%;
-	padding: 20px 16px 15px;
-	background: transparent;
-	border: 1px solid var(--dep-hair);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role^='omp.assistant']::before {
-	content: 'ASSISTANT';
-	position: absolute;
-	top: -6px;
-	left: 12px;
-	padding: 0 6px;
-	font: 8.5px/12px var(--mono);
-	letter-spacing: 0.22em;
-	color: var(--dep-t3);
-	background: var(--dep-page);
-	pointer-events: none;
-}
 
 :root:not(#dep) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md {
 	gap: 10px;
@@ -2092,8 +2074,6 @@
 }
 
 :root:not(#dep) .sf-chat-reader [data-role^='omp.bot.answer.'] {
-	width: min(100%, 620px);
-	margin: 6px 0;
 	font: 13px/21px var(--mono);
 	color: var(--dep-ink);
 }
@@ -2465,13 +2445,6 @@ html.tn-phone:not(#dep) .sf-chat-reader.sf-folded .sf-row[data-role='omp.compose
 	pointer-events: auto;
 }
 
-html.tn-phone:not(#dep) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
-	max-width: 100%;
-}
-
-html.tn-phone:not(#dep) .sf-chat-reader [data-role^='omp.assistant'] {
-	padding: 18px 12px 12px;
-}
 
 html.tn-phone:not(#dep) #tn-drawer {
 	background: var(--dep-panel);

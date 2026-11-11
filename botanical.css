@@ -23,6 +23,19 @@ html.tn-themed {
 	--bn-ground: radial-gradient(circle at 1px 1px, var(--bn-dot) 1px, transparent 1.4px) 0 0 / 22px 22px;
 	--bn-serif: "Crimson Pro", "Spectral", Georgia, serif;
 	--bn-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+	--omp-user-bg: var(--bn-card);
+	--omp-user-radius: 0;
+	--omp-user-pad: 11px 15px 10px;
+	--omp-user-edge: 4px 4px 0 var(--bn-off), inset 0 0 0 1px var(--bn-ink);
+	--omp-user-max: 580px;
+	--omp-user-ink: var(--bn-ink);
+	--frost-you-fill: var(--bn-card);
+	--frost-you-ink: var(--bn-ink);
+	--omp-reply-bg: transparent;
+	--omp-reply-radius: 0;
+	--omp-reply-pad: 8px 0;
+	--omp-reply-edge: none;
+	--omp-reply-max: 100%;
 }
 
 :root:not(#bnl) {
@@ -601,41 +614,6 @@ html.tn-themed {
 	font-style: italic;
 }
 
-:root:not(#bnl) .sf-chat-reader.sf-main > [data-role^='omp.assistant'] {
-	position: relative;
-	box-sizing: border-box;
-	padding: 0 0 2px;
-	background: none;
-	box-shadow: none;
-}
-
-:root:not(#bnl) .sf-chat-reader.sf-main > [data-role^='omp.assistant']::before {
-	content: "field note";
-	display: block;
-	margin: 0 0 3px;
-	padding-left: 8px;
-	border-left: 2px solid var(--bn-moss);
-	color: var(--bn-t3);
-	font: 400 9px/1.6 var(--bn-mono);
-	letter-spacing: 0.18em;
-	text-transform: uppercase;
-}
-
-:root:not(#bnl) .sf-chat-reader .sf-card[data-role='omp.user'] {
-	background: none;
-	box-shadow: none;
-}
-
-:root:not(#bnl) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
-	box-sizing: border-box;
-	max-width: 580px;
-	padding: 11px 15px 10px;
-	background-color: var(--bn-card);
-	box-shadow:
-		4px 4px 0 var(--bn-off),
-		inset 0 0 0 1px var(--bn-ink);
-	color: var(--bn-ink);
-}
 
 :root:not(#bnl) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	color: var(--bn-ink);
@@ -1189,10 +1167,6 @@ html.tn-themed {
 	background: var(--bn-wash);
 }
 
-:root:not(#bnl) .sf-chat-reader [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
-	padding-left: 14px;
-	box-shadow: inset 1px 0 0 var(--bn-rule);
-}
 
 :root:not(#bnl) .sf-chat-reader.sf-main > [data-role^='omp.bot.time.'] {
 	margin: 8px 0 2px;
@@ -1215,12 +1189,6 @@ html.tn-themed {
 	text-transform: uppercase;
 }
 
-:root:not(#bnl) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	max-width: 560px;
-	padding: 7px 0 7px 14px;
-	background: none;
-	box-shadow: inset 2px 0 0 var(--bn-moss);
-}
 
 :root:not(#bnl) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
 	box-sizing: border-box;

@@ -15,6 +15,19 @@ html.tn-themed:not(#phs) {
 	--phs-halo: light-dark(rgb(138 90 0 / 35%), rgb(255 176 0 / 50%));
 	--phs-select: light-dark(#2a2318, #ffb000);
 	--phs-select-ink: light-dark(#efe9d7, #080706);
+	--omp-user-bg: var(--phs-select);
+	--omp-user-radius: 0;
+	--omp-user-pad: 10px 12px 10px 28px;
+	--omp-user-edge: none;
+	--omp-user-max: 620px;
+	--omp-user-ink: var(--phs-select-ink);
+	--frost-you-fill: var(--phs-select);
+	--frost-you-ink: var(--phs-select-ink);
+	--omp-reply-bg: transparent;
+	--omp-reply-radius: 0;
+	--omp-reply-pad: 6px 0;
+	--omp-reply-edge: none;
+	--omp-reply-max: 100%;
 	--phs-glow: light-dark(none, 0 0 6px rgb(255 176 0 / 40%));
 
 	--page: rgb(from var(--phs-tape) r g b / var(--surface-a, 1));
@@ -280,66 +293,50 @@ html.tn-themed:not(#phs) {
 	background-position: 8px 0;
 }
 
-:root:not(#phs) .sf-chat-reader.sf-main > :is([data-role='omp.user'], [data-role='omp.assistant'], [data-role='omp.chat.msg'], [data-role='omp.bot.reply'], [data-role='omp.error'], .sf-work-head, .sf-work) {
-	width: 100%;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-:root:not(#phs) .sf-chat-reader .sf-card[data-role='omp.user'],
-:root:not(#phs) .sf-chat-reader .sf-card[data-role^='omp.user'] {
-	align-items: stretch;
-	background: none;
-	box-shadow: none;
-	border-radius: 0;
-}
 
 :root:not(#phs) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
 	position: relative;
-	align-self: stretch;
-	max-width: none;
-	margin: 18px 0 0;
-	padding: 10px 12px 10px 30px;
-	border-top: 1px dashed var(--phs-rule);
-	background: none;
-	box-shadow: none;
+	color: var(--phs-select-ink);
+	--phs-ink: var(--phs-select-ink);
+	--phs-body: var(--phs-select-ink);
+	--phs-muted: rgb(from var(--phs-select-ink) r g b / 82%);
+	--phs-dim: rgb(from var(--phs-select-ink) r g b / 66%);
+	--phs-mark: var(--phs-select-ink);
+	--phs-rule: rgb(from var(--phs-select-ink) r g b / 40%);
+	--phs-well: rgb(from var(--phs-select-ink) r g b / 12%);
+	--phs-glow: none;
+	--t1: var(--phs-select-ink);
+	--t2: var(--phs-select-ink);
+	--t3: rgb(from var(--phs-select-ink) r g b / 82%);
+	--t4: rgb(from var(--phs-select-ink) r g b / 66%);
+	--accent: var(--phs-select-ink);
+	--accent-ink: var(--phs-select-ink);
+	--accent-fill: var(--phs-select-ink);
+	--tv-fg: var(--phs-select-ink);
+	--code-bg: var(--phs-well);
+	--chip-bg: var(--phs-well);
 }
 
 :root:not(#phs) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body::before {
 	content: ">";
 	position: absolute;
-	left: 8px;
+	left: 10px;
 	top: 10px;
 	font: 400 13px/20px var(--sans);
-	color: var(--phs-mark);
+	color: var(--phs-select-ink);
 }
 
 :root:not(#phs) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	font: 400 13px/20px var(--sans);
-	color: var(--phs-ink);
+	color: var(--phs-select-ink);
 }
 
-:root:not(#phs) .sf-chat-reader [data-role^='omp.assistant'] {
-	padding: 0;
-	gap: 8px;
-}
 
 :root:not(#phs) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md {
 	position: relative;
-	padding: 18px 0 0 30px;
 	gap: 10px;
 	font: 400 13px/20px var(--sans);
 	color: var(--phs-body);
-}
-
-:root:not(#phs) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md::before {
-	content: "▌";
-	position: absolute;
-	left: 8px;
-	top: 18px;
-	font: 400 13px/20px var(--sans);
-	color: var(--phs-mark);
-	text-shadow: var(--phs-glow);
 }
 
 :root:not(#phs) .sf-chat-reader .md {
@@ -957,26 +954,12 @@ html.tn-themed:not(#phs) {
 	color: var(--phs-select-ink);
 }
 
-:root:not(#phs) .sf-chat-reader [data-role^='omp.bot.answer.'] {
-	border-left: 1px dashed var(--phs-rule);
-	padding-left: 12px;
-}
 
 :root:not(#phs) .sf-chat-reader [data-role^='omp.bot.time.'] {
 	font: 400 10px/16px var(--sans);
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
 	color: var(--phs-dim);
-}
-
-:root:not(#phs) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	border-top: 0;
-	padding-top: 8px;
-}
-
-:root:not(#phs) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
-	content: "›";
-	color: var(--phs-mark);
 }
 
 :root:not(#phs) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {

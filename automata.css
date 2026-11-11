@@ -24,6 +24,19 @@ html.tn-themed {
 	--at-shadow: light-dark(rgb(38 34 26 / 14%), rgb(0 0 0 / 45%));
 	--at-invert: light-dark(#26221a, #e7dfcb);
 	--at-invert-ink: light-dark(#e8e0cd, #171814);
+	--omp-user-bg: var(--at-card);
+	--omp-user-radius: 0;
+	--omp-user-pad: 12px 16px 11px;
+	--omp-user-edge: inset 0 0 0 1px var(--at-rule);
+	--omp-user-max: 620px;
+	--omp-user-ink: var(--at-ink);
+	--frost-you-fill: var(--at-card);
+	--frost-you-ink: var(--at-ink);
+	--omp-reply-bg: transparent;
+	--omp-reply-radius: 0;
+	--omp-reply-pad: 8px 0;
+	--omp-reply-edge: none;
+	--omp-reply-max: 100%;
 }
 
 :root:not(#aut) {
@@ -586,39 +599,7 @@ html.tn-themed {
 	color: var(--at-ink);
 }
 
-:root:not(#aut) .sf-chat-reader.sf-main > [data-role^='omp.assistant'] {
-	position: relative;
-	box-sizing: border-box;
-	padding: 18px 20px 15px;
-	background-color: var(--at-card);
-	background-image:
-		linear-gradient(var(--at-ink), var(--at-ink)),
-		linear-gradient(var(--at-ink), var(--at-ink)),
-		var(--at-fibre);
-	background-size: 100% 2px, 100% 1px, auto;
-	background-position: 0 0, 0 5px, 0 0;
-	background-repeat: no-repeat, no-repeat, repeat;
-	box-shadow: inset 0 0 0 1px var(--at-hair);
-}
 
-:root:not(#aut) .sf-chat-reader.sf-main > [data-role^='omp.assistant']::after {
-	content: "";
-	position: absolute;
-	top: 9px;
-	right: 10px;
-	width: 6px;
-	height: 6px;
-	background: var(--at-ox);
-	pointer-events: none;
-}
-
-:root:not(#aut) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
-	max-width: 560px;
-	padding: 6px 0 6px 15px;
-	background: transparent;
-	box-shadow: inset 1px 0 0 var(--at-rule);
-	color: var(--at-ink);
-}
 
 :root:not(#aut) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	color: var(--at-ink);
@@ -1169,10 +1150,6 @@ html.tn-themed {
 	background: var(--at-soft);
 }
 
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
-	padding-left: 14px;
-	box-shadow: inset 1px 0 0 var(--at-rule);
-}
 
 :root:not(#aut) .sf-chat-reader.sf-main > [data-role^='omp.bot.time.'] {
 	margin: 6px 0 2px;
@@ -1195,11 +1172,6 @@ html.tn-themed {
 	text-transform: uppercase;
 }
 
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	padding: 6px 0 6px 15px;
-	background: transparent;
-	box-shadow: inset 1px 0 0 var(--at-rule);
-}
 
 :root:not(#aut) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
 	padding: 16px 14px 12px;

@@ -24,6 +24,8 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 | `grok-*-bubbles.css`, `grok-bot-you.css` | Grok plus the matching bubble option |
 | `mini.css` | Mini is selected |
 
+Ozette, YoRHa and Grok still ship their own bubble sheets. Departure, Automata, Botanical, Braun, Folio, Blueprint, Eink and Phosphor do not: their `--omp-user-*` and `--omp-reply-*` variables in the look sheet feed the shared UI Menu bubble snippets, so every bubble option keeps the same stock message grammar.
+
 `plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
 Bot avatars are not part of any look: omp-bot's Tern plugin draws them under every look. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
@@ -35,6 +37,7 @@ Light/dark following is Tern's own **Appearance → System** setting (`"theme": 
 ## Rules for editing
 
 - Use Tern's stock selectors and variables; add look-only variables only for colour transforms Tern has no variable for.
+- Never give a reply its own frame: the user message is the framed element, replies are plain text. Set `--omp-user-*` and `--omp-reply-*` instead of drawing boxes.
 - Never set `--tv-bg` or another surface colour to `transparent`. Tern measures terminal text contrast against it, so pale text becomes unreadable. For glass, make the element's `background` transparent and tint the canvas behind it instead.
 - Never use `!important` on fonts; looks must not override configured UI or terminal fonts.
 - Ekko (the rail plugin) owns the rail's layout and data; looks restyle only its visuals, and leave Tern's phone shell to its stock layout.

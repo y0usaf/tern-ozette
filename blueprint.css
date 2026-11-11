@@ -28,6 +28,19 @@ html.tn-themed {
 		repeating-linear-gradient(0deg, light-dark(rgb(22 40 58 / 6%), rgb(219 232 244 / 7%)) 0 1px, transparent 1px 120px),
 		repeating-linear-gradient(90deg, light-dark(rgb(22 40 58 / 6%), rgb(219 232 244 / 7%)) 0 1px, transparent 1px 120px);
 	--bp-slab: "Iosevka Term Slab Compact", "Iosevka Term Slab", "Iosevka Term", ui-monospace, "SF Mono", monospace;
+	--omp-user-bg: var(--bp-card);
+	--omp-user-radius: 0;
+	--omp-user-pad: 9px 13px;
+	--omp-user-edge: inset 0 0 0 1px var(--bp-acc-line);
+	--omp-user-max: 560px;
+	--omp-user-ink: var(--bp-ink);
+	--frost-you-fill: var(--bp-card);
+	--frost-you-ink: var(--bp-ink);
+	--omp-reply-bg: transparent;
+	--omp-reply-radius: 0;
+	--omp-reply-pad: 8px 0;
+	--omp-reply-edge: none;
+	--omp-reply-max: 100%;
 	--bp-mono: var(--bp-slab);
 	--bp-dim: 1px dashed var(--bp-rule);
 }
@@ -578,58 +591,6 @@ html.tn-themed {
 	color: var(--bp-ink);
 }
 
-:root:not(#blp) .sf-chat-reader.sf-main > [data-role^='omp.assistant'] {
-	position: relative;
-	box-sizing: border-box;
-	padding: 27px 20px 15px;
-	background-color: var(--bp-card);
-	background-image:
-		linear-gradient(var(--bp-accent), var(--bp-accent)),
-		linear-gradient(var(--bp-accent), var(--bp-accent)),
-		linear-gradient(var(--bp-panel), var(--bp-panel)),
-		linear-gradient(var(--bp-rule), var(--bp-rule)),
-		var(--bp-grid);
-	background-size: 14px 2px, 2px 14px, 100% 19px, 100% 1px, auto;
-	background-position: 0 0, 0 0, 0 0, 0 19px, 0 0;
-	background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
-	box-shadow: inset 0 0 0 1px var(--bp-acc-line);
-}
-
-:root:not(#blp) .sf-chat-reader.sf-main > [data-role^='omp.assistant']::before {
-	content: "DRAFT / SHEET";
-	position: absolute;
-	top: 0;
-	left: 18px;
-	right: 14px;
-	color: var(--bp-t3);
-	font: 400 8.5px/19px var(--bp-slab);
-	letter-spacing: 0.18em;
-	overflow: hidden;
-	white-space: nowrap;
-	pointer-events: none;
-}
-
-:root:not(#blp) .sf-chat-reader.sf-main > [data-role^='omp.assistant']::after {
-	content: "";
-	position: absolute;
-	right: -1px;
-	bottom: -1px;
-	width: 10px;
-	height: 10px;
-	border-right: 1px solid var(--bp-ink);
-	border-bottom: 1px solid var(--bp-ink);
-	pointer-events: none;
-}
-
-:root:not(#blp) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
-	box-sizing: border-box;
-	max-width: 560px;
-	padding: 9px 13px;
-	background-color: var(--bp-wash);
-	background-image: var(--bp-grid);
-	box-shadow: inset 0 0 0 1px var(--bp-acc-line);
-	color: var(--bp-ink);
-}
 
 :root:not(#blp) .sf-chat-reader .sf-card[data-role='omp.user'] .md {
 	color: var(--bp-ink);
@@ -1214,18 +1175,6 @@ html.tn-themed {
 	background: var(--bp-wash);
 }
 
-:root:not(#blp) .sf-chat-reader [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
-	box-sizing: border-box;
-	padding: 13px 15px 11px;
-	background-color: var(--bp-card);
-	background-image:
-		linear-gradient(var(--bp-accent), var(--bp-accent)),
-		var(--bp-grid);
-	background-size: 100% 2px, auto, auto, auto, auto;
-	background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
-	background-repeat: no-repeat, repeat, repeat, repeat, repeat;
-	box-shadow: inset 0 0 0 1px var(--bp-rule);
-}
 
 :root:not(#blp) .sf-chat-reader.sf-main > [data-role^='omp.bot.time.'] {
 	margin: 5px 0 2px;
@@ -1248,22 +1197,6 @@ html.tn-themed {
 	text-transform: uppercase;
 }
 
-:root:not(#blp) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	position: relative;
-	box-sizing: border-box;
-	padding: 24px 16px 14px;
-	background-color: var(--bp-card);
-	background-image:
-		linear-gradient(var(--bp-wash), var(--bp-wash)),
-		linear-gradient(var(--bp-accent), var(--bp-accent)),
-		repeating-linear-gradient(90deg, var(--bp-acc-line) 0 5px, transparent 5px 10px),
-		var(--bp-grid);
-	background-size: auto, 14px 2px, 100% 1px, auto, auto, auto, auto;
-	background-position: 0 0, 0 0, 0 17px, 0 0, 0 0, 0 0, 0 0;
-	background-repeat: repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat;
-	box-shadow: inset 0 0 0 1px var(--bp-accent);
-	overflow-wrap: anywhere;
-}
 
 :root:not(#blp) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
 	padding: 18px 14px 12px;

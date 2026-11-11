@@ -46,52 +46,28 @@
    "grok-bot-you": "grok-bot-you.css"
   },
   "departure": {
-   "departure": "departure.css",
-   "departure-answer-bubbles": "departure-answer-bubbles.css",
-   "departure-bot-answer-bubbles": "departure-bot-answer-bubbles.css",
-   "departure-bot-you": "departure-bot-you.css"
+   "departure": "departure.css"
   },
   "automata": {
-   "automata": "automata.css",
-   "automata-answer-bubbles": "automata-answer-bubbles.css",
-   "automata-bot-answer-bubbles": "automata-bot-answer-bubbles.css",
-   "automata-bot-you": "automata-bot-you.css"
+   "automata": "automata.css"
   },
   "botanical": {
-   "botanical": "botanical.css",
-   "botanical-answer-bubbles": "botanical-answer-bubbles.css",
-   "botanical-bot-answer-bubbles": "botanical-bot-answer-bubbles.css",
-   "botanical-bot-you": "botanical-bot-you.css"
+   "botanical": "botanical.css"
   },
   "braun": {
-   "braun": "braun.css",
-   "braun-answer-bubbles": "braun-answer-bubbles.css",
-   "braun-bot-answer-bubbles": "braun-bot-answer-bubbles.css",
-   "braun-bot-you": "braun-bot-you.css"
+   "braun": "braun.css"
   },
   "folio": {
-   "folio": "folio.css",
-   "folio-answer-bubbles": "folio-answer-bubbles.css",
-   "folio-bot-answer-bubbles": "folio-bot-answer-bubbles.css",
-   "folio-bot-you": "folio-bot-you.css"
+   "folio": "folio.css"
   },
   "blueprint": {
-   "blueprint": "blueprint.css",
-   "blueprint-answer-bubbles": "blueprint-answer-bubbles.css",
-   "blueprint-bot-answer-bubbles": "blueprint-bot-answer-bubbles.css",
-   "blueprint-bot-you": "blueprint-bot-you.css"
+   "blueprint": "blueprint.css"
   },
   "eink": {
-   "eink": "eink.css",
-   "eink-answer-bubbles": "eink-answer-bubbles.css",
-   "eink-bot-answer-bubbles": "eink-bot-answer-bubbles.css",
-   "eink-bot-you": "eink-bot-you.css"
+   "eink": "eink.css"
   },
   "phosphor": {
-   "phosphor": "phosphor.css",
-   "phosphor-answer-bubbles": "phosphor-answer-bubbles.css",
-   "phosphor-bot-answer-bubbles": "phosphor-bot-answer-bubbles.css",
-   "phosphor-bot-you": "phosphor-bot-you.css"
+   "phosphor": "phosphor.css"
   }
  },
  "tweaks": {
