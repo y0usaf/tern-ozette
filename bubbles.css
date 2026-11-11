@@ -7,7 +7,51 @@
 	box-shadow: var(--omp-user-edge, 0 0 0 1px var(--l1), 0 10px 26px -16px light-dark(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.65)), inset 0 1px 0 var(--glass-hi));
 }
 
-.sf-chat-reader:not(#omp-bubbles) [data-role='omp.bot.reply']:not(#omp-bubbles) > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
+:root:not(#omp-bot):not(#omp-bubbles) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-self: flex-end;
+	width: auto;
+	max-width: var(--omp-user-max, min(80%, 560px));
+	margin: 16px 0 16px auto;
+}
+
+:root:not(#omp-bot):not(#omp-bubbles) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
+	align-self: flex-end;
+	align-items: flex-start;
+	width: auto;
+	max-width: 100%;
+	margin: 0;
+	padding: var(--omp-user-pad, 7px 12px);
+	border: 0;
+	border-radius: var(--omp-user-radius, var(--r-card));
+	background: var(--omp-user-bg, var(--l2));
+	color: var(--omp-user-ink, currentColor);
+	box-shadow: var(--omp-user-edge, none);
+}
+
+:root:not(#omp-bot):not(#omp-bubbles) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+	width: auto;
+	max-width: 100%;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: none;
+	color: inherit;
+	box-shadow: none;
+}
+
+:root:not(#omp-bubbles):not(#omp-carbons) .sf-chat-reader.sf-main > [data-role='omp.assistant'] > .sf-md,
+:root:not(#omp-bubbles):not(#omp-carbons) .sf-chat-reader.sf-main > [data-role='omp.chat.msg'] > [data-role='omp.assistant'] > .sf-md {
+	max-width: var(--omp-reply-max, 100%);
+	padding: var(--omp-reply-pad, 8px 0);
+	border-radius: var(--omp-reply-radius, 0);
+	background: var(--omp-reply-bg, transparent);
+	box-shadow: var(--omp-reply-edge, none);
+}
+
+:root:not(#omp-bubbles):not(#omp-carbons) [data-role='omp.bot.reply'] > :is([data-role='omp.assistant'], [data-role='omp.assistant.rewound']) {
+	max-width: var(--omp-reply-max, 100%);
+	padding: var(--omp-reply-pad, 8px 0);
+	border-radius: var(--omp-reply-radius, 0);
 	background: var(--omp-reply-bg, transparent);
 	box-shadow: var(--omp-reply-edge, none);
 }
@@ -15,8 +59,4 @@
 .sf-chat-reader > .sf-tool {
 	position: static;
 	margin: 4px 0 18px;
-}
-
-[data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
-	margin: 16px 0;
 }

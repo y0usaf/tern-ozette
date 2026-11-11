@@ -16,8 +16,7 @@
  ],
  "base": [
   "rail.css",
-  "settings.css",
-  "bubbles.css"
+  "settings.css"
  ],
  "transparent": "@transparent.css",
  "looks": {
@@ -47,28 +46,36 @@
    "grok-bot-you": "grok-bot-you.css"
   },
   "departure": {
-   "departure": "departure.css"
+   "departure": "departure.css",
+   "bubbles": "bubbles.css"
   },
   "automata": {
-   "automata": "automata.css"
+   "automata": "automata.css",
+   "bubbles": "bubbles.css"
   },
   "botanical": {
-   "botanical": "botanical.css"
+   "botanical": "botanical.css",
+   "bubbles": "bubbles.css"
   },
   "braun": {
-   "braun": "braun.css"
+   "braun": "braun.css",
+   "bubbles": "bubbles.css"
   },
   "folio": {
-   "folio": "folio.css"
+   "folio": "folio.css",
+   "bubbles": "bubbles.css"
   },
   "blueprint": {
-   "blueprint": "blueprint.css"
+   "blueprint": "blueprint.css",
+   "bubbles": "bubbles.css"
   },
   "eink": {
-   "eink": "eink.css"
+   "eink": "eink.css",
+   "bubbles": "bubbles.css"
   },
   "phosphor": {
-   "phosphor": "phosphor.css"
+   "phosphor": "phosphor.css",
+   "bubbles": "bubbles.css"
   }
  },
  "tweaks": {

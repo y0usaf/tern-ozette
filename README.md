@@ -15,7 +15,7 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 
 | Sheet | Loaded when |
 | --- | --- |
-| `rail.css`, `settings.css`, `bubbles.css` | always: right-rail base, native picker sizing and the user-message frame every look reads its variables from |
+| `rail.css`, `settings.css` | always: right-rail base and native picker sizing |
 | `ozette.css`, `motion.css`, `cmus.css` | Ozette is selected |
 | `ozette-answer-bubbles.css`, `ozette-bot-you.css` | Ozette plus answer bubbles / your-message bubbles |
 | `yorha.css` | YoRHa is selected |
@@ -24,7 +24,7 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 | `grok-*-bubbles.css`, `grok-bot-you.css` | Grok plus the matching bubble option |
 | `mini.css` | Mini is selected |
 
-Ozette, YoRHa and Grok still ship their own bubble sheets. Departure, Automata, Botanical, Braun, Folio, Blueprint, Eink and Phosphor do not: their `--omp-user-*` and `--omp-reply-*` variables in the look sheet feed the shared UI Menu bubble snippets, so every bubble option keeps the same stock message grammar.
+Ozette, YoRHa and Grok still ship their own bubble sheets. Departure, Automata, Botanical, Braun, Folio, Blueprint, Eink and Phosphor do not: their `--omp-user-*` and `--omp-reply-*` variables in the look sheet feed `bubbles.css`, a look layer the UI Menu loads only while one of those eight is selected. It draws the user frame and keeps replies plain; every other look keeps the stock bubble snippets untouched.
 
 `plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
