@@ -1,16 +1,15 @@
 
 :root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] {
 	align-self: stretch;
-	width: 100%;
 	max-width: none;
-	margin: 8px 0 8px 24px;
+	margin: 8px 0;
 	padding-left: 18px;
 	border-left: 1px solid var(--flo-red);
 }
 
 :root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] {
+	align-items: stretch;
 	align-self: stretch;
-	width: 100%;
 	max-width: none;
 	margin: 0;
 	padding: 0;
@@ -21,7 +20,6 @@
 
 :root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
 	align-self: stretch;
-	width: 100%;
 	max-width: none;
 	padding: 1px 0;
 	border: 0;

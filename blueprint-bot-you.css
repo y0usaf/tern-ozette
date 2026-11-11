@@ -31,29 +31,19 @@
 	--accent: var(--bp-accent);
 	--accent-ink: var(--bp-accent);
 	--accent-fill: var(--bp-accent);
-	position: relative;
 	align-self: stretch;
 	box-sizing: border-box;
 	width: auto;
 	max-width: 100%;
 	margin-left: 0;
-	padding: 24px 16px 14px;
-	background-color: var(--bp-card);
-	background-image:
-		linear-gradient(var(--bp-wash), var(--bp-wash)),
-		linear-gradient(var(--bp-accent), var(--bp-accent)),
-		linear-gradient(var(--bp-accent), var(--bp-accent)),
-		repeating-linear-gradient(90deg, var(--bp-acc-line) 0 5px, transparent 5px 10px),
-		var(--bp-grid);
-	background-size: auto, 2px 12px, 14px 2px, 100% 1px, auto, auto, auto, auto;
-	background-position: 0 0, 0 0, 0 0, 0 17px, 0 0, 0 0, 0 0, 0 0;
-	background-repeat: repeat, no-repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat;
-	box-shadow: inset 0 0 0 1px var(--bp-accent);
+	padding: 0;
+	background: none;
+	box-shadow: none;
 	color: var(--bp-ink);
 	overflow-wrap: anywhere;
 }
 
-:root:not(#blp) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
+:root:not(#blp) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body::before {
 	content: "YOU / FIELD";
 	position: absolute;
 	top: 0;

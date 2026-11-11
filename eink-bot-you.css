@@ -39,16 +39,16 @@
 	overflow-wrap: anywhere;
 }
 
-:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md {
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md .md {
 	color: var(--eik-paper);
 }
 
-:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md a {
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md .md a {
 	color: inherit;
 	text-decoration-color: var(--eik-paper);
 }
 
-:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] .md :not(pre) > code {
+:root:not(#eik) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md .md :not(pre) > code {
 	border-color: rgb(255 255 255 / 34%);
 	background: transparent;
 	color: inherit;

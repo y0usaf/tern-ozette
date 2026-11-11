@@ -1243,7 +1243,7 @@ html.tn-themed {
 }
 
 :root:not(#flo) .sf-chat-reader [data-role='omp.bot.you'] {
-	margin-left: 24px;
+	margin: 8px 0;
 	padding-left: 18px;
 	border-left: 1px solid var(--flo-red);
 }

@@ -196,7 +196,7 @@
 :root:not(#brn) .sf-chat-reader .md > :last-child, :root:not(#brn) .sf-chat-reader .md li > p:last-child {
 	margin-bottom: 0;
 }
-:root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body, :root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body > .sf-md {
+:root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body {
 	border-radius: 4px; background: var(--brn-well); box-shadow: var(--brn-recess), inset 0 -1px 0 light-dark(rgb(255 255 255 / 30%), rgb(255 255 255 / 3%)), inset 0 0 0 1px var(--brn-line-soft);
 }
 :root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.user'] > .sf-card-body { padding: 10px 14px; }
@@ -460,7 +460,7 @@
 	font: 500 10px/1.6 var(--brn-mono); letter-spacing: 0.08em; text-transform: uppercase;
 	color: var(--brn-muted);
 }
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body, :root:not(#brn) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
+:root:not(#brn) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
 	border-radius: 4px; background: var(--brn-well); box-shadow: var(--brn-recess);
 }
 :root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {

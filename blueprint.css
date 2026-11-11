@@ -1249,10 +1249,20 @@ html.tn-themed {
 }
 
 :root:not(#blp) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body {
-	padding: 8px 13px;
-	background-color: var(--bp-wash);
-	background-image: var(--bp-grid);
-	box-shadow: inset 0 0 0 1px var(--bp-acc-line);
+	position: relative;
+	box-sizing: border-box;
+	padding: 24px 16px 14px;
+	background-color: var(--bp-card);
+	background-image:
+		linear-gradient(var(--bp-wash), var(--bp-wash)),
+		linear-gradient(var(--bp-accent), var(--bp-accent)),
+		repeating-linear-gradient(90deg, var(--bp-acc-line) 0 5px, transparent 5px 10px),
+		var(--bp-grid);
+	background-size: auto, 14px 2px, 100% 1px, auto, auto, auto, auto;
+	background-position: 0 0, 0 0, 0 17px, 0 0, 0 0, 0 0, 0 0;
+	background-repeat: repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat;
+	box-shadow: inset 0 0 0 1px var(--bp-accent);
+	overflow-wrap: anywhere;
 }
 
 :root:not(#blp) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {

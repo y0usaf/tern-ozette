@@ -46,6 +46,7 @@
 
 :root:not(#aut) [data-role='omp.bot.reply'] > [data-role='omp.assistant'] > .sf-md .md > :first-child {
 	margin-top: 0;
+	padding-right: 46px;
 }
 
 :root:not(#aut) [data-role='omp.bot.reply'] > [data-role='omp.assistant'] > .sf-md .md > :last-child {

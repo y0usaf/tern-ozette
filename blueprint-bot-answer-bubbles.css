@@ -1,6 +1,6 @@
 
-:root:not(#blp) [data-role='omp.bot.reply'] > [data-role='omp.assistant'],
-:root:not(#blp) [data-role='omp.bot.reply'] > [data-role='omp.assistant.rewound'] {
+:root:not(#blp) .sf-chat-reader [data-role='omp.bot.reply'] > [data-role='omp.assistant'],
+:root:not(#blp) .sf-chat-reader [data-role='omp.bot.reply'] > [data-role='omp.assistant.rewound'] {
 	padding: 0;
 	background: none;
 	box-shadow: none;
@@ -12,6 +12,7 @@
 	align-self: flex-start;
 	box-sizing: border-box;
 	width: auto;
+	max-width: 88%;
 	max-width: min(88%, 660px);
 	padding: 14px 17px 12px;
 	background-color: var(--bp-card);
