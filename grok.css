@@ -1,23 +1,21 @@
 :root,
 html.tn-themed {
-	--grok-page: light-dark(#fcfcfc, #121212);
-	--grok-chrome: light-dark(#ffffff, #1f1f1f);
-	--grok-side: light-dark(#f5f5f5, #0e0e0e);
-	--grok-ink: light-dark(#1c1c1c, #f5f5f5);
-	--grok-muted: light-dark(#1c1c1c8f, #f5f5f58a);
-	--grok-line: light-dark(#1c1c1c14, #f5f5f51a);
-	--grok-soft: light-dark(#1c1c1c0f, #f5f5f50a);
-	--grok-user: light-dark(#1c1c1c, #f5f5f52e);
+	--grok-page: var(--tn-page);
+	--grok-chrome: var(--tbl-head);
+	--grok-side: oklch(from var(--tn-page) calc(l * 0.97) c h);
+	--grok-ink: light-dark(oklch(from var(--tn-page) 0.2 0.003 h), oklch(from var(--tn-page) 0.96 0.004 h));
+	--grok-muted: color-mix(in srgb, var(--t3) 60%, var(--grok-ink));
+	--grok-line: color-mix(in srgb, var(--grok-ink) 8%, transparent);
+	--grok-soft: color-mix(in srgb, var(--grok-ink) 6%, transparent);
+	--grok-user: light-dark(var(--grok-ink), color-mix(in srgb, var(--grok-ink) 18%, transparent));
 	--frost-you-fill: color-mix(in srgb, var(--grok-user) 72%, transparent);
-	--frost-you-ink: light-dark(#ffffff, #f5f5f5);
+	--frost-you-ink: oklch(from var(--grok-ink) 0.97 0 0);
 	--frost-reply-fill: var(--grok-soft);
 	--frost-reply-ink: var(--grok-ink);
 	--page: rgb(from var(--grok-page) r g b / var(--surface-a, 1)) !important;
 	--panel: rgb(from var(--grok-page) r g b / var(--surface-a, 1)) !important;
 	--card: var(--grok-chrome);
 	--pop-bg: var(--grok-chrome);
-	--tn-page: var(--grok-page);
-	--tn-pop: var(--grok-chrome);
 	--modal-bg: var(--grok-chrome);
 	--modal-filter: none;
 	--modal-dim: light-dark(rgb(0 0 0 / 50%), rgb(0 0 0 / 70%));
@@ -32,14 +30,11 @@ html.tn-themed {
 	--accent-ink: var(--grok-ink);
 	--accent-fill: var(--grok-ink);
 	--t1: var(--grok-ink);
-	--t2: light-dark(#1c1c1cad, #f5f5f5a8);
-	--t3: var(--grok-muted);
-	--t4: var(--grok-muted);
 	--l1: var(--grok-line);
 	--l2: var(--grok-soft);
-	--l3: light-dark(#1c1c1c26, #ffffff26);
+	--l3: color-mix(in srgb, var(--grok-ink) 15%, transparent);
 	--accent: var(--grok-ink);
-	--code-bg: light-dark(#f5f5f5, #1c1c1c);
+	--code-bg: var(--grok-side);
 	--r-card: 16px;
 	--r-ctl: 10px;
 }
@@ -65,7 +60,7 @@ html.tn-themed {
 	background: var(--pop-bg);
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
-	box-shadow: 0 10px 20px -3px light-dark(rgb(28 28 28 / 10%), transparent), 0 4px 6px -4px light-dark(rgb(28 28 28 / 10%), transparent), inset 0 0 0 0.5px light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+	box-shadow: 0 10px 20px -3px color-mix(in srgb, var(--grok-ink) calc(10% * 0.6), transparent), 0 4px 6px -4px color-mix(in srgb, var(--grok-ink) calc(10% * 0.6), transparent), inset 0 0 0 0.5px color-mix(in srgb, var(--grok-ink) 12%, transparent);
 }
 :root:not(#grok) :is(.pop:not(:is(.cp, .tn-ql, .gb-peek, .kit-web-sugg, .mde-bubble)), .sf-menu-pop, .tn-ib, .tn-hp, :where(.sf-overlay:not(.modal)) > .sf-ov-card, .sf-hovercard, #cmp, .tn-clist, .tn-crumbs, .sf-date-pop, .sf-nav-pop, .sf-ck-pop, .sq-pop, :where(.pp.float) .pp-pop, .sf-col[data-role^='omp.overlay.']) {
 	border-radius: 16px;
@@ -80,7 +75,7 @@ html.tn-themed {
 	background: var(--modal-bg);
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
-	box-shadow: 0 0 0 1px light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+	box-shadow: 0 0 0 1px color-mix(in srgb, var(--grok-ink) 12%, transparent);
 }
 :root:not(#grok) :is(.mdl-layer, .tn-hd-back, .tn-signin) {
 	background: var(--modal-dim);
@@ -189,10 +184,10 @@ html.tn-themed {
  align-items: center;
 }
 :root:not(#grok) .sf-chat-reader:not(.sf-chat-spine) .sf-col[data-role='omp.editor'] {
- box-shadow: 0 2px 8px -1px #0000000d, 0 1px 2px #00000008, 0 0 0 1px #e4e4e40a;
+ box-shadow: 0 2px 8px -1px rgb(0 0 0 / 5%), 0 1px 2px rgb(0 0 0 / 3%), 0 0 0 1px var(--grok-line);
 }
 :root:not(#grok) .sf-chat-reader:not(.sf-chat-spine) .sf-col:is([data-role='omp.editor'], [data-role='omp.editor.bash'], [data-role='omp.editor.python']):is(:hover, :focus-within) {
- border-color: light-dark(#1c1c1c3d, #f5f5f529);
+ border-color: color-mix(in srgb, var(--grok-ink) 24%, transparent);
 }
 :root:not(#grok) .sf-chat-reader:not(.sf-chat-spine) .sf-col:is([data-role='omp.editor'], [data-role='omp.editor.bash'], [data-role='omp.editor.python'])::before,
 :root:not(#grok) .sf-chat-reader:not(.sf-chat-spine) .sf-col:is([data-role='omp.editor'], [data-role='omp.editor.bash'], [data-role='omp.editor.python'])::after {
@@ -262,13 +257,13 @@ html.tn-themed {
  outline-offset: -2px;
 }
 :root:not(#grok) .sf-chat-reader [data-role='omp.composer.stop']:is([disabled], [aria-disabled='true'], .disabled) {
- color: var(--t4);
+ color: color-mix(in srgb, var(--t4) 55%, var(--grok-ink));
  background: transparent;
  transform: none;
  cursor: default;
 }
 :root:not(#grok) .sf-chat-reader [data-role='omp.composer.send']:is([disabled], [aria-disabled='true'], .disabled) .kbd {
- color: var(--t4);
+ color: color-mix(in srgb, var(--t4) 55%, var(--grok-ink));
  background: var(--l1);
  transform: none;
  cursor: default;
@@ -376,7 +371,7 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
 	border-radius: 24px;
 	background: var(--grok-chrome);
-	box-shadow: 0 0 0 1px var(--grok-soft), 0 2px 8px light-dark(rgb(28 28 28 / 3.5%), transparent);
+	box-shadow: 0 0 0 1px var(--grok-soft), 0 2px 8px color-mix(in srgb, var(--grok-ink) calc(3.5% * 0.6), transparent);
 }
 :root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] > .sf-card-body {
 	gap: 0;
@@ -411,14 +406,14 @@ html.tn-themed {
 :root:not(#grok) #tabbar .tn-ib-pip { color: var(--grok-page); }
 
 :root:not(#grok) :is(#pal, #thm, #pick) {
-	--t1: light-dark(#1c1c1c, #f5f5f5);
-	--t2: light-dark(rgb(28 28 28 / 68%), rgb(245 245 245 / 66%));
-	--t3: light-dark(rgb(28 28 28 / 56%), rgb(245 245 245 / 54%));
+	--t1: var(--grok-ink);
+	--t2: color-mix(in srgb, var(--grok-ink) 67%, transparent);
+	--t3: color-mix(in srgb, var(--grok-ink) 55%, transparent);
 	--t4: var(--t3);
 	--accent: var(--t1);
 	--accent-ink: var(--t1);
-	--l1: light-dark(rgb(28 28 28 / 8%), rgb(245 245 245 / 6%));
-	--l2: light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+	--l1: color-mix(in srgb, var(--grok-ink) 7%, transparent);
+	--l2: color-mix(in srgb, var(--grok-ink) 11%, transparent);
 	background: light-dark(rgb(0 0 0 / 50%), rgb(0 0 0 / 69.7%));
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
@@ -527,11 +522,11 @@ html.tn-themed {
 	transition: none;
 }
 :root:not(#grok) :is(#pal, #thm, #pick) .ck-item:not([aria-selected='true']):hover {
-	background: light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 4%));
+	background: color-mix(in srgb, var(--grok-ink) 6%, transparent);
 }
 :root:not(#grok) :is(#pal, #thm, #pick) .ck-item[aria-selected='true'],
 :root:not(#grok) :is(#pal, #thm, #pick) .ck-item[aria-selected='true']:hover {
-	background: light-dark(rgb(28 28 28 / 8%), rgb(245 245 245 / 8%));
+	background: color-mix(in srgb, var(--grok-ink) 8%, transparent);
 	color: var(--t1);
 	box-shadow: none;
 }
@@ -620,7 +615,7 @@ html.tn-themed {
 }
 :root:not(#grok) #pal .tn-pl-more.link:hover {
 	color: var(--t1);
-	background: light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 4%));
+	background: color-mix(in srgb, var(--grok-ink) 6%, transparent);
 }
 :root:not(#grok) #pal .tn-pl-dot {
 	box-shadow: none;
@@ -707,7 +702,7 @@ html.tn-themed {
 	background: var(--grok-soft);
 }
 :root:not(#grok) :is(.sf-menu-pop .sf-menu-item, .pop .mi):active:not(.dis, .danger) {
-	background: light-dark(#1c1c1c2e, #ffffff2e);
+	background: color-mix(in srgb, var(--grok-ink) 18%, transparent);
 }
 :root:not(#grok) :is(.sf-menu-pop .sf-menu-item, .pop .mi).danger {
 	color: var(--bad);
@@ -725,7 +720,7 @@ html.tn-themed {
 }
 :root:not(#grok) :is(.sf-menu-pop .sf-menu-sep, .pop .sep) {
 	margin: 4px 14px;
-	background: light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+	background: color-mix(in srgb, var(--grok-ink) 12%, transparent);
 }
 :root:not(#grok) .pop .mi .sub {
 	font: 400 13px/18px var(--sans);
@@ -751,7 +746,7 @@ html.tn-themed {
 	border-radius: 6px;
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
-	box-shadow: 0 4px 12px -1px light-dark(rgb(28 28 28 / 8%), transparent), 0 2px 4px -2px light-dark(rgb(28 28 28 / 6%), transparent), inset 0 0 0 0.5px light-dark(rgb(28 28 28 / 12%), rgb(245 245 245 / 10%));
+	box-shadow: 0 4px 12px -1px color-mix(in srgb, var(--grok-ink) calc(8% * 0.6), transparent), 0 2px 4px -2px color-mix(in srgb, var(--grok-ink) calc(6% * 0.6), transparent), inset 0 0 0 0.5px color-mix(in srgb, var(--grok-ink) 12%, transparent);
 	font-size: 12px;
 	line-height: 16px;
 	animation: grok-menu-enter 100ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -759,15 +754,15 @@ html.tn-themed {
 :root:not(#grok) .kbd {
 	padding: 0 4px;
 	border-radius: 4px;
-	background: light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 4%));
-	box-shadow: inset 0 0 0 1px light-dark(rgb(28 28 28 / 6%), rgb(245 245 245 / 6%));
+	background: color-mix(in srgb, var(--grok-ink) 6%, transparent);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--grok-ink) 6%, transparent);
 	color: var(--t2);
 	font-family: var(--sans);
 	font-weight: 400;
 	letter-spacing: 0.11px;
 }
 :root:not(#grok) :is(.mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)) .kbd {
-	background: light-dark(rgb(255 255 255 / 16%), rgb(0 0 0 / 12%));
+	background: rgb(255 255 255 / 16%);
 	box-shadow: none;
 	color: inherit;
 }
@@ -783,7 +778,7 @@ html.tn-themed {
 	line-height: 18px;
 }
 :root:not(#grok) .toast.err {
-	box-shadow: 0 10px 20px -3px light-dark(rgb(28 28 28 / 10%), transparent), 0 4px 6px -4px light-dark(rgb(28 28 28 / 10%), transparent), inset 0 0 0 1px rgb(from var(--bad) r g b / 40%);
+	box-shadow: 0 10px 20px -3px color-mix(in srgb, var(--grok-ink) calc(10% * 0.6), transparent), 0 4px 6px -4px color-mix(in srgb, var(--grok-ink) calc(10% * 0.6), transparent), inset 0 0 0 1px rgb(from var(--bad) r g b / 40%);
 }
 :root:not(#grok):not(.tn-phone) #banners.tn-bn-stack {
 	top: auto;
@@ -885,7 +880,7 @@ html.tn-themed {
 	top: calc(50% + 8px);
 	width: 9px;
 	height: 9px;
-	color: #fff;
+	color: var(--grok-page);
 }
 :root:not(#grok) .tn-bn-k:is(.bell, .waiting) > .ico {
 	color: var(--grok-page);
@@ -1039,13 +1034,13 @@ html.tn-themed {
 	transition: background-color 120ms ease-out, color 120ms ease-out;
 }
 :root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
-	background: light-dark(#1c1c1c1a, #ffffff1a);
+	background: color-mix(in srgb, var(--grok-ink) 10%, transparent);
 	color: var(--t1);
 	box-shadow: none;
 }
 :root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):active:not(.disabled, .dis, .busy, :disabled) {
 	transform: none;
-	background: light-dark(#1c1c1c2e, #ffffff2e);
+	background: color-mix(in srgb, var(--grok-ink) 18%, transparent);
 }
 :root:not(#grok) :is(.sf-button[data-variant='quiet'], .btn.quiet, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):not(:hover, .on) {
 	background: transparent;
@@ -1055,7 +1050,7 @@ html.tn-themed {
 	color: var(--grok-page);
 }
 :root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
-	background: light-dark(#363636, #d6d6d6);
+	background: color-mix(in srgb, var(--grok-ink) 80%, var(--grok-page));
 	color: var(--grok-page);
 }
 :root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
@@ -1068,7 +1063,7 @@ html.tn-themed {
 }
 :root:not(#grok) :is(.sf-button.on, .btn.on):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
 	color: var(--t1);
-	background: light-dark(#1c1c1c1a, #ffffff1a);
+	background: color-mix(in srgb, var(--grok-ink) 10%, transparent);
 }
 :root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):is(.disabled, .dis, :disabled) {
 	opacity: 0.5;
@@ -1097,7 +1092,7 @@ html.tn-themed {
 }
 :root:not(#grok) .sf-scroll.can > .sf-scroll-bar:is(:hover, .held) .sf-scroll-thumb {
 	width: 6px;
-	background: light-dark(#1c1c1c29, #ffffff29);
+	background: color-mix(in srgb, var(--grok-ink) 16%, transparent);
 }
 :root:not(#grok) :is(.pop.scroll, .pop.sel-menu, .pop.combo-list, .sf-menu-pop) {
 	scrollbar-width: thin;
@@ -1117,7 +1112,7 @@ html.tn-themed {
 :root:not(#grok) .sf-skeleton :is(.sk-bar, .sk-name) {
 	height: 12px;
 	border-radius: 6px;
-	background: light-dark(#1c1c1c0a, #ffffff0a);
+	background: color-mix(in srgb, var(--grok-ink) 4%, transparent);
 }
 :root:not(#grok) .sf-paused :is(.sf-button, .btn, .icon-btn) {
 	transition: none;
@@ -1563,7 +1558,7 @@ html.tn-themed {
  color: var(--t3);
 }
 :root:not(#grok) :is([data-role^='omp.bot.chat.'], [data-role='omp.working'], [data-role='omp.thinking.live']) .sf-fx-shimmer {
- --sh-lo: light-dark(rgb(28 28 28 / 40%), rgb(245 245 245 / 40%));
+ --sh-lo: color-mix(in srgb, var(--grok-ink) 40%, transparent);
  animation-duration: 2.2s;
 }
 :root:not(#grok) .sf-skeleton .sk-b::after { animation: none; background-image: none; }
@@ -1705,4 +1700,10 @@ html.tn-phone:not(#grok) #pal .tn-pl-acts .icon-btn,
 html.tn-phone:not(#grok) :is(div.pop[role='menu'] .mi:not(.bare), .sf-menu-pop .sf-menu-item:not(.rich)) {
 	min-width: 40px;
 	min-height: 40px;
+}
+:root:not(#grok) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--grok-page) !important;
+}
+:root:not(#grok) .sf-chat-reader :is(.sf-t-dim, .sf-t-muted) {
+	color: var(--t2);
 }

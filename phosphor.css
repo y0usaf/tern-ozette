@@ -1,20 +1,20 @@
 
 :root:not(#phs),
 html.tn-themed:not(#phs) {
-	--phs-tape: light-dark(#efe9d7, #080706);
-	--phs-panel: light-dark(#f6f1e2, #0d0c08);
-	--phs-ink: light-dark(#2a2318, #ffb000);
-	--phs-body: light-dark(#3a3126, #f0a400);
-	--phs-muted: light-dark(#6b6252, #c98500);
-	--phs-dim: light-dark(#6b6252, #b07a00);
-	--phs-rule: light-dark(#b7ab90, #5a4210);
-	--phs-mark: light-dark(#8a5a00, #ffb000);
-	--phs-well: light-dark(#e7dfc9, #050403);
-	--phs-tick: light-dark(#8a5a00, #c98500);
-	--phs-dot: light-dark(rgb(183 171 144 / 60%), rgb(90 66 16 / 70%));
-	--phs-halo: light-dark(rgb(138 90 0 / 35%), rgb(255 176 0 / 50%));
-	--phs-select: light-dark(#2a2318, #ffb000);
-	--phs-select-ink: light-dark(#efe9d7, #080706);
+	--phs-mark: light-dark(oklch(from var(--ansi3) 0.51 0.11 h), oklch(from var(--ansi3) 0.81 0.17 h));
+	--phs-tape: color-mix(in oklab, var(--tn-page) 96%, var(--phs-mark) 4%);
+	--phs-panel: color-mix(in oklab, var(--tbl-head) 95%, var(--phs-mark) 5%);
+	--phs-ink: light-dark(oklch(from var(--ansi3) 0.24 0.02 h), oklch(from var(--ansi3) 0.87 0.15 h));
+	--phs-body: color-mix(in srgb, var(--t2) 55%, var(--phs-ink));
+	--phs-muted: color-mix(in srgb, var(--t3) 60%, var(--phs-ink));
+	--phs-dim: color-mix(in srgb, var(--t4) 40%, var(--phs-ink));
+	--phs-rule: light-dark(color-mix(in srgb, var(--phs-ink) 38%, transparent), color-mix(in srgb, var(--phs-ink) 28%, transparent));
+	--phs-well: oklch(from var(--tn-page) calc(l * 0.94) c h);
+	--phs-tick: light-dark(oklch(from var(--ansi3) 0.51 0.10 h), oklch(from var(--ansi3) 0.66 0.13 h));
+	--phs-dot: color-mix(in srgb, var(--phs-rule) 60%, transparent);
+	--phs-halo: color-mix(in srgb, var(--phs-mark) 40%, transparent);
+	--phs-select: var(--phs-ink);
+	--phs-select-ink: var(--phs-tape);
 	--omp-user-bg: var(--phs-select);
 	--omp-user-radius: 0;
 	--omp-user-pad: 10px 12px 10px 28px;
@@ -39,18 +39,16 @@ html.tn-themed:not(#phs) {
 	--omp-you-radius: 0;
 	--omp-you-bg: var(--phs-select);
 	--omp-you-edge: inset 0 0 0 1px var(--phs-select-ink);
-	--phs-glow: light-dark(none, 0 0 6px rgb(255 176 0 / 40%));
+	--phs-glow: light-dark(none, 0 0 6px var(--phs-halo));
 
 	--page: rgb(from var(--phs-tape) r g b / var(--surface-a, 1));
 	--panel: rgb(from var(--phs-panel) r g b / var(--surface-a, 1));
 	--card: var(--phs-panel);
 	--raise: var(--phs-panel);
 	--pop-bg: var(--phs-panel);
-	--tn-page: var(--phs-tape);
-	--tn-pop: var(--phs-panel);
 	--modal-bg: var(--phs-panel);
 	--modal-filter: none;
-	--modal-dim: light-dark(rgb(42 35 24 / 32%), rgb(0 0 0 / 78%));
+	--modal-dim: light-dark(color-mix(in srgb, var(--phs-ink) 32%, transparent), rgb(0 0 0 / 78%));
 	--modal-dim-filter: none;
 	--glass-hi: transparent;
 	--well: var(--phs-well);
@@ -64,13 +62,10 @@ html.tn-themed:not(#phs) {
 	--ink3: var(--phs-muted);
 	--ink4: var(--phs-dim);
 	--t1: var(--phs-ink);
-	--t2: var(--phs-body);
-	--t3: var(--phs-muted);
-	--t4: var(--phs-dim);
-	--l1: light-dark(rgb(42 35 24 / 7%), rgb(255 176 0 / 8%));
-	--l2: light-dark(rgb(42 35 24 / 13%), rgb(255 176 0 / 14%));
-	--l3: light-dark(rgb(42 35 24 / 22%), rgb(255 176 0 / 24%));
-	--l4: light-dark(rgb(42 35 24 / 34%), rgb(255 176 0 / 36%));
+	--l1: color-mix(in srgb, var(--phs-ink) 7%, transparent);
+	--l2: color-mix(in srgb, var(--phs-ink) 13%, transparent);
+	--l3: color-mix(in srgb, var(--phs-ink) 22%, transparent);
+	--l4: color-mix(in srgb, var(--phs-ink) 34%, transparent);
 	--accent: var(--phs-mark);
 	--accent-ink: var(--phs-mark);
 	--accent-fill: var(--phs-mark);
@@ -89,7 +84,7 @@ html.tn-themed:not(#phs) {
 	--tv-fg: var(--phs-ink);
 	--tv-cur: var(--phs-mark);
 	--tv-cur-ink: var(--phs-tape);
-	--tv-sel: light-dark(rgb(138 90 0 / 20%), rgb(255 176 0 / 22%));
+	--tv-sel: color-mix(in srgb, var(--phs-mark) 21%, transparent);
 
 
 	--r-chip: 0px;
@@ -234,7 +229,7 @@ html.tn-themed:not(#phs) {
 
 :root:not(#phs) #tabbar .tt.on {
 	border-color: var(--phs-ink);
-	background: var(--phs-ink);
+	background: var(--phs-ink) !important;
 	color: var(--phs-select-ink);
 	--t1: var(--phs-select-ink);
 	--t2: var(--phs-select-ink);
@@ -1470,7 +1465,7 @@ html.tn-themed:not(#phs) {
 :root:not(#phs) #pal,
 :root:not(#phs) #thm,
 :root:not(#phs) #pick {
-	background: light-dark(rgb(42 35 24 / 28%), rgb(0 0 0 / 78%));
+	background: light-dark(color-mix(in srgb, var(--phs-ink) 28%, transparent), rgb(0 0 0 / 78%));
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
 }
@@ -2219,4 +2214,11 @@ html.tn-phone:not(#phs) :is(#pal, #thm, #pick) .cmdk {
 
 html.tn-phone:not(#phs) :is(.toast, .tn-bn-card) {
 	font: 400 11px/16px var(--sans);
+}
+
+:root:not(#phs) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--phs-ink) !important;
+}
+:root:not(#phs) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--phs-select-ink) !important;
 }

@@ -20,7 +20,7 @@
 :root:not(#oz) :is(.cm-art, .cm-d-art, .cm-np-cover, .cm-tile .cm-cv, .cm-hero .cm-cv, .cm-topcard .cm-cv) { box-shadow: 3px 3px 0 var(--oz-plum); border: 1px solid var(--oz-plum) }
 :root:not(#oz) .cm-np-cover { box-shadow: 6px 6px 0 var(--oz-plum) }
 :root:not(#oz) .cm-tag { background: var(--oz-lime); color: var(--oz-plum); border: 1px solid var(--oz-plum) }
-:root:not(#oz) .cm-pp { background: var(--oz-plum); color: #fff; box-shadow: 2px 2px 0 var(--oz-pink) }
+:root:not(#oz) .cm-pp { background: var(--oz-plum); color: var(--oz-lav); box-shadow: 2px 2px 0 var(--oz-pink) }
 :root:not(#oz) .cm-pp:hover { background: var(--oz-plum); transform: none }
 :root:not(#oz) .cm-ib.cm-on { color: var(--oz-plum); background: var(--oz-lav) }
 :root:not(#oz) .cm-dot { background: var(--oz-plum) }
@@ -43,7 +43,7 @@
 :root:not(#oz) .cm-row { border-bottom: 1px solid var(--l4) }
 :root:not(#oz) .cm-row.cm-cur { background: color-mix(in srgb, var(--oz-lime) 28%, var(--card)); box-shadow: inset 3px 0 0 var(--ok) }
 :root:not(#oz) .cm-row.cm-cur.cm-sel { background: var(--oz-sel); box-shadow: inset 3px 0 0 var(--oz-plum), inset 6px 0 0 var(--ok) }
-:root:not(#oz) :is(.cm-ts, .cm-cy, .cm-cd, .cm-d-artist, .cm-tm, .cm-pct, .cm-pager, .cm-ph .cm-c, .cm-np-meta, .cm-nv .cm-n) { color: #655a74 }
+:root:not(#oz) :is(.cm-ts, .cm-cy, .cm-cd, .cm-d-artist, .cm-tm, .cm-pct, .cm-pager, .cm-ph .cm-c, .cm-np-meta, .cm-nv .cm-n) { color: var(--t3) }
 :root:not(#oz) .cm-tile .cm-fab { top: 16px; right: 16px; bottom: auto; width: 32px; height: 32px }
 :root:not(#oz) .cm-vs { background: var(--page); border: 1px solid var(--oz-plum) }
 :root:not(#oz) .cm-np-text { gap: 10px }

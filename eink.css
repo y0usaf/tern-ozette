@@ -1,14 +1,14 @@
 
 :root,
 html.tn-themed {
-	--eik-paper: light-dark(#f2f0e9, #101010);
-	--eik-panel: light-dark(#f8f6ef, #151515);
-	--eik-ink: light-dark(#121212, #e9e7e0);
-	--eik-muted: light-dark(#555550, #a9a7a0);
-	--eik-line: light-dark(rgb(18 18 18 / 16%), rgb(233 231 224 / 18%));
-	--eik-faint: light-dark(rgb(18 18 18 / 7%), rgb(233 231 224 / 8%));
-	--eik-wash: light-dark(#00000006, #ffffff08);
-	--eik-err: light-dark(#a33a32, #d4736a);
+	--eik-paper: var(--tn-page);
+	--eik-panel: var(--tbl-head);
+	--eik-ink: light-dark(oklch(from var(--tn-page) 0.18 0.003 h), oklch(from var(--tn-page) 0.94 0.005 h));
+	--eik-muted: color-mix(in srgb, var(--t3) 60%, var(--eik-ink));
+	--eik-line: color-mix(in srgb, var(--eik-ink) 17%, transparent);
+	--eik-faint: color-mix(in srgb, var(--eik-ink) 7%, transparent);
+	--eik-wash: color-mix(in srgb, var(--eik-ink) 3%, transparent);
+	--eik-err: light-dark(oklch(from var(--ansi1) 0.5 0.14 h), oklch(from var(--ansi1) 0.72 0.12 h));
 	--eik-serif: "Spectral", Georgia, "Times New Roman", serif;
 	--eik-mono: "Atkinson Hyperlegible Mono Sonic", ui-monospace, "SF Mono", monospace;
 	--omp-user-bg: var(--eik-wash);
@@ -38,8 +38,6 @@ html.tn-themed {
 
 	--page: rgb(from var(--eik-paper) r g b / var(--surface-a, 1)) !important;
 	--panel: rgb(from var(--eik-panel) r g b / var(--surface-a, 1)) !important;
-	--tn-page: var(--eik-paper);
-	--tn-pop: var(--eik-panel);
 	--card: var(--eik-panel);
 	--raise: var(--eik-panel);
 	--pop-bg: var(--eik-panel);
@@ -58,7 +56,7 @@ html.tn-themed {
 	--omp-accent: var(--eik-ink);
 	--omp-mdHeading: var(--eik-ink);
 	--omp-muted: var(--eik-muted);
-	--omp-dim: var(--t4);
+	--omp-dim: color-mix(in srgb, var(--t4) 55%, var(--eik-ink));
 	--omp-success: var(--eik-ink);
 	--omp-warning: var(--eik-muted);
 	--omp-error: var(--eik-err);
@@ -75,13 +73,10 @@ html.tn-themed {
 	--accent-fill: var(--eik-ink);
 	--grad-ink: var(--eik-paper);
 	--t1: var(--eik-ink);
-	--t2: light-dark(#3b3b38, #c9c7c0);
-	--t3: var(--eik-muted);
-	--t4: light-dark(#5f5f59, #a29f98);
 	--l1: var(--eik-faint);
 	--l2: var(--eik-line);
-	--l3: light-dark(rgb(18 18 18 / 26%), rgb(233 231 224 / 28%));
-	--l4: light-dark(rgb(18 18 18 / 42%), rgb(233 231 224 / 42%));
+	--l3: color-mix(in srgb, var(--eik-ink) 27%, transparent);
+	--l4: color-mix(in srgb, var(--eik-ink) 42%, transparent);
 	--sf-sel: var(--eik-ink);
 	--ok: var(--eik-ink);
 	--warn: var(--eik-muted);
@@ -89,7 +84,7 @@ html.tn-themed {
 	--bad: var(--eik-err);
 	--bad-fill: var(--eik-err);
 	--modal-filter: none;
-	--modal-dim: light-dark(rgb(18 18 18 / 24%), rgb(0 0 0 / 62%));
+	--modal-dim: light-dark(color-mix(in srgb, var(--eik-ink) 24%, transparent), rgb(0 0 0 / 62%));
 	--modal-dim-filter: none;
 	--topbar-bg: transparent;
 
@@ -226,7 +221,7 @@ html.tn-themed {
 	color: var(--eik-ink);
 }
 :root:not(#eik) #tabbar .tt.on {
-	background: var(--eik-ink);
+	background: var(--eik-ink) !important;
 	border-color: var(--eik-ink);
 	color: var(--eik-paper);
 }
@@ -684,7 +679,7 @@ html.tn-themed {
 	font: 400 11.5px/1.35 var(--eik-mono);
 }
 :root:not(#eik) .sf-chat-reader :is(.sf-tool-meta, .sf-tool-time) {
-	color: var(--t4);
+	color: color-mix(in srgb, var(--t4) 55%, var(--eik-ink));
 	font: 400 10.5px/1 var(--eik-mono);
 	letter-spacing: 0.06em;
 }
@@ -1140,7 +1135,7 @@ html.tn-themed {
 	color: var(--eik-paper);
 }
 :root:not(#eik) :is(.pop .mi, .sf-menu-pop .sf-menu-item).dis {
-	color: var(--t4);
+	color: color-mix(in srgb, var(--t4) 55%, var(--eik-ink));
 	opacity: 1;
 	background: transparent;
 }
@@ -1872,7 +1867,7 @@ html.tn-themed {
 	color: var(--eik-err);
 }
 :root:not(#eik) :is(.sf-button, .btn, .icon-btn):is(.disabled, .dis, :disabled) {
-	color: var(--t4);
+	color: color-mix(in srgb, var(--t4) 55%, var(--eik-ink));
 	opacity: 1;
 }
 :root:not(#eik) :is(.sf-button, .btn, .icon-btn):focus-visible,
@@ -2233,4 +2228,14 @@ html.tn-phone:not(#eik) :is(#pal, #thm, #pick) .ck-item {
 }
 html.tn-phone:not(#eik) :is(#pal, #thm, #pick) .ck-item .ck-label {
 	font-size: 13px;
+}
+
+:root:not(#eik) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--eik-ink) !important;
+}
+:root:not(#eik) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--eik-paper) !important;
+}
+:root:not(#eik) .sf-chat-reader :is(.sf-t-dim, .sf-t-muted) {
+	color: var(--eik-muted);
 }

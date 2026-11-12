@@ -1,32 +1,32 @@
 
 :root,
 html.tn-themed {
-	--bp-vellum: light-dark(#e9eef2, #0c2238);
-	--bp-panel: light-dark(#f2f6f8, #0f2a45);
-	--bp-card: light-dark(#eef3f7, #102c47);
-	--bp-well: light-dark(#e3e9ee, #0a2036);
-	--bp-code: light-dark(#ecf1f5, #091d31);
-	--bp-ink: light-dark(#16283a, #dbe8f4);
-	--bp-t2: light-dark(#435767, #9db4c9);
-	--bp-t3: light-dark(#3d5060, #8ea6bc);
-	--bp-t4: light-dark(#4c6071, #7d96ad);
-	--bp-rule: light-dark(rgb(22 40 58 / 46%), rgb(219 232 244 / 40%));
-	--bp-hair: light-dark(rgb(22 40 58 / 22%), rgb(219 232 244 / 18%));
-	--bp-soft: light-dark(rgb(22 40 58 / 5%), rgb(219 232 244 / 6%));
-	--bp-accent: light-dark(#1e57b8, #7cb4ff);
-	--bp-wash: light-dark(rgb(30 87 184 / 9%), rgb(124 180 255 / 14%));
-	--bp-acc-line: light-dark(rgb(30 87 184 / 55%), rgb(124 180 255 / 52%));
-	--bp-acc-ink: light-dark(#f2f6f8, #0c2238);
+	--bp-accent: light-dark(oklch(from var(--ansi4) 0.48 0.16 h), oklch(from var(--ansi4) 0.76 0.12 h));
+	--bp-vellum: color-mix(in oklab, var(--tn-page) 96%, var(--bp-accent) 4%);
+	--bp-panel: color-mix(in oklab, var(--tbl-head) 94%, var(--bp-accent) 6%);
+	--bp-card: color-mix(in oklab, var(--tbl-head) 95%, var(--bp-accent) 5%);
+	--bp-well: oklch(from var(--tn-page) calc(l * 0.95) c h);
+	--bp-code: var(--tbl-head);
+	--bp-ink: light-dark(oklch(from var(--ansi4) 0.28 0.02 h), oklch(from var(--ansi4) 0.91 0.016 h));
+	--bp-t2: color-mix(in srgb, var(--t2) 55%, var(--bp-ink));
+	--bp-t3: color-mix(in srgb, var(--t3) 45%, var(--bp-ink));
+	--bp-t4: color-mix(in srgb, var(--t4) 40%, var(--bp-ink));
+	--bp-rule: color-mix(in srgb, var(--bp-ink) 46%, transparent);
+	--bp-hair: color-mix(in srgb, var(--bp-ink) 22%, transparent);
+	--bp-soft: color-mix(in srgb, var(--bp-ink) 5%, transparent);
+	--bp-wash: color-mix(in srgb, var(--bp-accent) 10%, transparent);
+	--bp-acc-line: color-mix(in srgb, var(--bp-accent) 55%, transparent);
+	--bp-acc-ink: light-dark(oklch(from var(--ansi4) 0.97 0.01 h), oklch(from var(--ansi4) 0.15 0.01 h));
 	--bp-grid:
-		repeating-linear-gradient(0deg, light-dark(rgb(22 40 58 / 2.4%), rgb(219 232 244 / 2.8%)) 0 1px, transparent 1px 24px),
-		repeating-linear-gradient(90deg, light-dark(rgb(22 40 58 / 2.4%), rgb(219 232 244 / 2.8%)) 0 1px, transparent 1px 24px),
-		repeating-linear-gradient(0deg, light-dark(rgb(22 40 58 / 3.6%), rgb(219 232 244 / 4%)) 0 1px, transparent 1px 120px),
-		repeating-linear-gradient(90deg, light-dark(rgb(22 40 58 / 3.6%), rgb(219 232 244 / 4%)) 0 1px, transparent 1px 120px);
+		repeating-linear-gradient(0deg, color-mix(in srgb, var(--bp-ink) 2.4%, transparent) 0 1px, transparent 1px 24px),
+		repeating-linear-gradient(90deg, color-mix(in srgb, var(--bp-ink) 2.4%, transparent) 0 1px, transparent 1px 24px),
+		repeating-linear-gradient(0deg, color-mix(in srgb, var(--bp-ink) 3.6%, transparent) 0 1px, transparent 1px 120px),
+		repeating-linear-gradient(90deg, color-mix(in srgb, var(--bp-ink) 3.6%, transparent) 0 1px, transparent 1px 120px);
 	--bp-sheet:
-		repeating-linear-gradient(0deg, light-dark(rgb(22 40 58 / 3.4%), rgb(219 232 244 / 4.2%)) 0 1px, transparent 1px 24px),
-		repeating-linear-gradient(90deg, light-dark(rgb(22 40 58 / 3.4%), rgb(219 232 244 / 4.2%)) 0 1px, transparent 1px 24px),
-		repeating-linear-gradient(0deg, light-dark(rgb(22 40 58 / 6%), rgb(219 232 244 / 7%)) 0 1px, transparent 1px 120px),
-		repeating-linear-gradient(90deg, light-dark(rgb(22 40 58 / 6%), rgb(219 232 244 / 7%)) 0 1px, transparent 1px 120px);
+		repeating-linear-gradient(0deg, color-mix(in srgb, var(--bp-ink) 3.4%, transparent) 0 1px, transparent 1px 24px),
+		repeating-linear-gradient(90deg, color-mix(in srgb, var(--bp-ink) 3.4%, transparent) 0 1px, transparent 1px 24px),
+		repeating-linear-gradient(0deg, color-mix(in srgb, var(--bp-ink) 6%, transparent) 0 1px, transparent 1px 120px),
+		repeating-linear-gradient(90deg, color-mix(in srgb, var(--bp-ink) 6%, transparent) 0 1px, transparent 1px 120px);
 	--bp-slab: "Iosevka Term Slab Compact", "Iosevka Term Slab", "Iosevka Term", ui-monospace, "SF Mono", monospace;
 	--omp-user-bg: var(--bp-card);
 	--omp-user-radius: 0;
@@ -64,20 +64,15 @@ html.tn-themed {
 	--well: var(--bp-well);
 	--pop-bg: var(--bp-panel);
 	--modal-bg: var(--bp-panel);
-	--modal-dim: light-dark(rgb(22 40 58 / 34%), rgb(0 0 0 / 64%));
+	--modal-dim: light-dark(color-mix(in srgb, var(--bp-ink) 34%, transparent), rgb(0 0 0 / 64%));
 	--modal-filter: none;
 	--glass-hi: transparent;
-	--tn-page: var(--bp-vellum);
-	--tn-pop: var(--bp-panel);
-	--tv-bg: light-dark(#e9eef2, #0c2238);
-	--tv-fg: light-dark(#16283a, #dbe8f4);
+	--tv-bg: var(--bp-vellum);
+	--tv-fg: var(--bp-ink);
 	--tv-cur: var(--bp-accent);
 	--tv-cur-ink: var(--bp-acc-ink);
 	--ink: var(--bp-ink);
 	--t1: var(--bp-ink);
-	--t2: var(--bp-t2);
-	--t3: var(--bp-t3);
-	--t4: var(--bp-t4);
 	--l1: var(--bp-soft);
 	--l2: var(--bp-hair);
 	--l3: var(--bp-rule);
@@ -88,9 +83,9 @@ html.tn-themed {
 	--grad: var(--bp-accent);
 	--grad-ink: var(--bp-acc-ink);
 	--live: var(--bp-accent);
-	--ok: light-dark(#2c5d47, #8fd0ad);
-	--warn: light-dark(#6a4a12, #e0bd76);
-	--bad: light-dark(#8c2f28, #f0a094);
+	--ok: light-dark(oklch(from var(--ansi2) 0.45 0.08 h), oklch(from var(--ansi2) 0.78 0.09 h));
+	--warn: light-dark(oklch(from var(--ansi3) 0.44 0.09 h), oklch(from var(--ansi3) 0.80 0.1 h));
+	--bad: light-dark(oklch(from var(--ansi1) 0.44 0.14 h), oklch(from var(--ansi1) 0.76 0.11 h));
 	--omp-text: var(--bp-ink);
 	--omp-accent: var(--bp-accent);
 	--omp-mdHeading: var(--bp-ink);
@@ -352,7 +347,7 @@ html.tn-themed {
 
 :root:not(#blp) #tabbar .tt.on,
 :root:not(#blp) #tabbar .tt[data-tc].on {
-	background: var(--bp-wash);
+	background: var(--bp-wash) !important;
 	box-shadow: inset 2px 0 0 var(--bp-accent), inset 0 0 0 1px var(--bp-acc-line);
 	color: var(--bp-ink);
 }
@@ -834,9 +829,9 @@ html.tn-themed {
 :root:not(#blp) .sf-chat-reader .sf-code,
 :root:not(#blp) .sf-chat-reader .sf-ansi {
 	--tk-keyword: var(--bp-accent);
-	--tk-string: light-dark(#1f5a46, #9fd7bd);
-	--tk-function: light-dark(#6a4a12, #e6c283);
-	--tk-type: light-dark(#2c4a70, #a9c6e8);
+	--tk-string: light-dark(oklch(from var(--ansi2) 0.42 0.07 h), oklch(from var(--ansi2) 0.80 0.07 h));
+	--tk-function: light-dark(oklch(from var(--ansi3) 0.44 0.09 h), oklch(from var(--ansi3) 0.82 0.09 h));
+	--tk-type: light-dark(oklch(from var(--ansi4) 0.36 0.08 h), oklch(from var(--ansi4) 0.80 0.07 h));
 	--tk-number: var(--tk-function);
 	--tk-variable: var(--bp-ink);
 	--tk-punct: var(--bp-t2);
@@ -1546,7 +1541,7 @@ html.tn-themed {
 :root:not(#blp) .pop .mi-row .tn-tc-sw::after {
 	width: 12px;
 	height: 12px;
-	box-shadow: inset 0 0 0 1px rgb(0 0 0 / 20%);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bp-ink) 20%, transparent);
 }
 
 :root:not(#blp) .pop .mi-row .tn-tc-sw.on {
@@ -1678,14 +1673,11 @@ html.tn-themed {
 
 :root:not(#blp) :is(#pal, #thm, #pick) {
 	--t1: var(--bp-ink);
-	--t2: var(--bp-t2);
-	--t3: var(--bp-t3);
-	--t4: var(--bp-t3);
 	--l1: var(--bp-soft);
 	--l2: var(--bp-hair);
 	--accent: var(--bp-accent);
 	--accent-ink: var(--bp-accent);
-	background: light-dark(rgb(22 40 58 / 30%), rgb(0 0 0 / 62%));
+	background: light-dark(color-mix(in srgb, var(--bp-ink) 30%, transparent), rgb(0 0 0 / 62%));
 }
 
 :root:not(#blp) :is(.cmdk, .mdl, .dlg-card, .pk-sheet, .tn-hd, :where(.sf-overlay.modal) > .sf-ov-card, :where(.sf-prefs .pf-editor) > .sf-col) {
@@ -1839,8 +1831,6 @@ html.tn-themed {
 	box-shadow: inset 2px 0 0 var(--bp-accent), inset 0 0 0 1px var(--bp-acc-line);
 	color: var(--bp-ink);
 	--t1: var(--bp-ink);
-	--t2: var(--bp-t2);
-	--t3: var(--bp-t3);
 }
 
 :root:not(#blp) :is(#pal, #thm, #pick) .ck-item[aria-selected='true']::before {
@@ -2567,7 +2557,7 @@ html.tn-phone:not(#blp) #tn-ph-edge {
 }
 
 html.tn-phone:not(#blp) #tn-ph-scrim {
-	background: light-dark(rgb(22 40 58 / 18%), rgb(0 0 0 / 48%));
+	background: light-dark(color-mix(in srgb, var(--bp-ink) 18%, transparent), rgb(0 0 0 / 48%));
 }
 
 :root:not(#blp) :focus-visible {
@@ -2618,4 +2608,8 @@ html.tn-phone:not(#blp) #tn-ph-scrim {
 
 :root:not(#blp) .sf-fx-shimmer {
 	color: var(--bp-t3);
+}
+
+:root:not(#blp) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--bp-ink) !important;
 }

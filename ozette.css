@@ -1,11 +1,11 @@
 :root:not(#oz) {
 	--oz-lav: oklch(from var(--accent) 0.78 0.11 h);
-	--oz-pink: oklch(from var(--bad) 0.79 0.12 h);
+	--oz-pink: oklch(from var(--ansi1) 0.79 0.12 h);
 	--frost-you-fill: color-mix(in srgb, var(--oz-pink) 72%, transparent);
 	--frost-you-ink: var(--oz-plum);
 	--frost-reply-fill: color-mix(in srgb, var(--card) 40%, transparent);
-	--oz-mustard: oklch(from var(--warn) 0.83 0.15 h);
-	--oz-lime: oklch(from var(--ok) 0.87 0.15 h);
+	--oz-mustard: oklch(from var(--ansi3) 0.83 0.15 h);
+	--oz-lime: oklch(from var(--ansi2) 0.87 0.15 h);
 	--oz-plum: oklch(from var(--accent) 0.28 0.06 h);
 	--oz-forest: oklch(from var(--oz-lime) 0.3 0.035 h);
 	--oz-sel: light-dark(rgb(from var(--oz-lav) r g b / 42%), rgb(from var(--oz-lav) r g b / 22%));
@@ -99,7 +99,7 @@
 }
 :root:not(#oz) :is(.pk-btn.primary, .btn.accent, .toast-act) {
 	background: light-dark(var(--oz-plum), var(--oz-lime));
-	color: light-dark(#ffffff, var(--oz-forest));
+	color: light-dark(var(--oz-lav), var(--oz-forest));
 	box-shadow: none;
 }
 :root:not(#oz) :is(.tn-cmdk, .cmdk, .pk-sheet, .tn-hd, .pop, .sf-ov-card, .tn-ib, .pf.sheet) :is(.kbd, .sf-badge) {
@@ -149,7 +149,7 @@
 	height: 48px;
 	min-height: 48px;
 	margin: 0 10px 6px 12px;
-	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	background: light-dark(color-mix(in srgb, var(--oz-lav) 55%, transparent), rgb(255 255 255 / 4%));
 	box-shadow: none;
 	overflow: visible;
 }
@@ -526,7 +526,7 @@
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin[data-tone^='m-'] {
 	padding: 10px 12px 4px;
-	background: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	background: light-dark(color-mix(in srgb, var(--oz-lav) 55%, transparent), rgb(255 255 255 / 4%));
 	font: 400 22px/1.3 var(--oz-serif);
 	font-variant-numeric: tabular-nums;
 }
@@ -544,7 +544,7 @@
 	height: 50px;
 	margin: 0 0 10px;
 	padding: 0 12px 10px;
-	background-color: light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 4%));
+	background-color: light-dark(color-mix(in srgb, var(--oz-lav) 55%, transparent), rgb(255 255 255 / 4%));
 	background-origin: content-box;
 }
 :root:not(#oz).tn-status footer#statusline > span.sl-plugins > span.sl-plugin:is([data-tone^='m-net'], [data-tone^='m-load']) {

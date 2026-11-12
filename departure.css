@@ -1,21 +1,21 @@
 
 :root:not(#dep) {
-	--dep-page: light-dark(#e9e4d6, #0b0c0e);
-	--dep-panel: light-dark(#f3efe3, #121417);
-	--dep-inset: light-dark(#e0dac9, #07080a);
-	--dep-ink: light-dark(#141414, #e8e4da);
-	--dep-ground: light-dark(#e9e4d6, #0b0c0e);
-	--dep-t2: light-dark(#3f3d37, #c2bdb2);
-	--dep-t3: light-dark(#55534b, #a09b91);
-	--dep-t4: light-dark(#5a574d, #979289);
+	--dep-amber: light-dark(oklch(from var(--ansi3) 0.49 0.11 h), oklch(from var(--ansi3) 0.81 0.15 h));
+	--dep-amber-vivid: light-dark(oklch(from var(--ansi3) 0.6 0.13 h), oklch(from var(--ansi3) 0.82 0.17 h));
+	--dep-amber-ink: oklch(from var(--ansi3) 0.15 0.02 h);
+	--dep-page: color-mix(in oklab, var(--tn-page) 96%, var(--dep-amber) 4%);
+	--dep-panel: color-mix(in oklab, var(--tbl-head) 92%, var(--dep-amber) 8%);
+	--dep-inset: oklch(from var(--tn-page) calc(l * 0.95) c h);
+	--dep-ink: light-dark(oklch(from var(--ansi3) 0.19 0.004 h), oklch(from var(--ansi3) 0.94 0.012 h));
+	--dep-ground: var(--dep-page);
+	--dep-t2: color-mix(in srgb, var(--t2) 55%, var(--dep-ink));
+	--dep-t3: color-mix(in srgb, var(--t3) 60%, var(--dep-ink));
+	--dep-t4: color-mix(in srgb, var(--t4) 40%, var(--dep-ink));
 	--dep-hair: color-mix(in srgb, var(--dep-ink) 30%, transparent);
 	--dep-hair-soft: color-mix(in srgb, var(--dep-ink) 15%, transparent);
 	--dep-hair-hard: color-mix(in srgb, var(--dep-ink) 52%, transparent);
-	--dep-amber: light-dark(#8a5200, #ffb020);
-	--dep-amber-vivid: light-dark(#b06f00, #ffb020);
-	--dep-amber-ink: light-dark(#141414, #0b0c0e);
-	--dep-bad: light-dark(#9b1c16, #ff6b5e);
-	--dep-dim: light-dark(rgb(20 20 20 / 46%), rgb(0 0 0 / 64%));
+	--dep-bad: light-dark(oklch(from var(--ansi1) 0.45 0.16 h), oklch(from var(--ansi1) 0.72 0.16 h));
+	--dep-dim: light-dark(color-mix(in srgb, var(--dep-ink) 46%, transparent), rgb(0 0 0 / 64%));
 
 	--page: rgb(from var(--dep-page) r g b / var(--surface-a, 1)) !important;
 	--panel: rgb(from var(--dep-panel) r g b / var(--surface-a, 1)) !important;
@@ -32,9 +32,6 @@
 	--chip-bg: transparent;
 	--ink: var(--dep-ink) !important;
 	--t1: var(--dep-ink) !important;
-	--t2: var(--dep-t2);
-	--t3: var(--dep-t3);
-	--t4: var(--dep-t4);
 	--l1: var(--dep-hair-soft);
 	--l2: var(--dep-hair);
 	--l3: var(--dep-hair-hard);
@@ -45,7 +42,7 @@
 	--grad: var(--dep-ink);
 	--grad-ink: var(--dep-ground);
 	--live: var(--dep-amber-vivid);
-	--ok: light-dark(#1f6b4a, #54c98c);
+	--ok: light-dark(oklch(from var(--ansi2) 0.46 0.09 h), oklch(from var(--ansi2) 0.75 0.11 h));
 	--warn: var(--dep-amber);
 	--bad: var(--dep-bad);
 	--tv-bg: var(--dep-page) !important;
@@ -286,7 +283,7 @@
 
 :root:not(#dep) #tabbar .tt.on {
 	color: var(--dep-ground);
-	background: var(--dep-ink);
+	background: var(--dep-ink) !important;
 	box-shadow: none;
 }
 
@@ -1342,9 +1339,6 @@
 
 :root:not(#dep) :is(#pal, #thm, #pick) {
 	--t1: var(--dep-ink);
-	--t2: var(--dep-t2);
-	--t3: var(--dep-t3);
-	--t4: var(--dep-t4);
 	--accent: var(--dep-amber);
 	--accent-ink: var(--dep-amber);
 	--l1: var(--dep-hair-soft);
@@ -2659,4 +2653,14 @@ html.tn-phone:not(#dep) .tn-cmdk {
 	border: 1px solid var(--dep-ink);
 	border-radius: 0;
 	box-shadow: none;
+}
+
+:root:not(#dep) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--dep-ink) !important;
+}
+:root:not(#dep) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--dep-ground) !important;
+}
+:root:not(#dep) .sf-chat-reader :is(.sf-t-dim, .sf-t-muted) {
+	color: var(--dep-t2);
 }

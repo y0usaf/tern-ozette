@@ -1,15 +1,15 @@
 
 :root,
 html.tn-themed {
-	--flo-paper: light-dark(#f5f1e7, #141311);
-	--flo-panel: light-dark(#faf7ee, #1b1916);
-	--flo-ink: light-dark(#211d18, #e9e2d3);
-	--flo-muted: light-dark(#6a6459, #a49c8c);
-	--flo-rule: light-dark(rgb(33 29 24 / 22%), rgb(233 226 211 / 22%));
-	--flo-rule-soft: light-dark(rgb(33 29 24 / 10%), rgb(233 226 211 / 11%));
-	--flo-tint: light-dark(rgb(33 29 24 / 4%), rgb(233 226 211 / 5%));
-	--flo-red: light-dark(#9c2f22, #eb9077);
-	--flo-red-soft: light-dark(rgb(176 57 43 / 10%), rgb(224 121 95 / 12%));
+	--flo-red: light-dark(oklch(from var(--ansi1) 0.47 0.15 h), oklch(from var(--ansi1) 0.84 0.09 h));
+	--flo-paper: color-mix(in oklab, var(--tn-page) 97%, var(--flo-red) 3%);
+	--flo-panel: color-mix(in oklab, var(--tbl-head) 95%, var(--flo-red) 5%);
+	--flo-ink: light-dark(oklch(from var(--ansi1) 0.24 0.008 h), oklch(from var(--ansi1) 0.92 0.012 h));
+	--flo-muted: color-mix(in srgb, var(--t3) 48%, var(--flo-ink));
+	--flo-rule: color-mix(in srgb, var(--flo-ink) 22%, transparent);
+	--flo-rule-soft: color-mix(in srgb, var(--flo-ink) 10%, transparent);
+	--flo-tint: color-mix(in srgb, var(--flo-ink) 4%, transparent);
+	--flo-red-soft: color-mix(in srgb, var(--flo-red) 11%, transparent);
 	--flo-serif: "EB Garamond", Georgia, "Times New Roman", serif;
 	--flo-mono: "CommitMono 275", "CommitMono", ui-monospace, monospace;
 	--flo-prose: 18px/27px var(--flo-serif);
@@ -47,7 +47,7 @@ html.tn-themed {
 	--pop-bg: var(--flo-panel);
 	--modal-bg: var(--flo-panel);
 	--code-bg: var(--flo-panel);
-	--modal-dim: light-dark(rgb(33 29 24 / 30%), rgb(0 0 0 / 62%));
+	--modal-dim: light-dark(color-mix(in srgb, var(--flo-ink) 30%, transparent), rgb(0 0 0 / 62%));
 	--modal-dim-filter: none;
 	--modal-filter: none;
 	--glass-hi: transparent;
@@ -55,9 +55,6 @@ html.tn-themed {
 	--tv-fg: var(--flo-ink);
 	--ink: var(--flo-ink);
 	--t1: var(--flo-ink);
-	--t2: var(--flo-muted);
-	--t3: var(--flo-muted);
-	--t4: var(--flo-muted);
 	--l1: var(--flo-rule-soft);
 	--l2: var(--flo-rule);
 	--l3: var(--flo-rule);
@@ -1756,7 +1753,7 @@ html.tn-themed {
 }
 
 :root:not(#flo) :is(#pal, #thm, #pick) {
-	background: light-dark(rgb(33 29 24 / 52%), rgb(0 0 0 / 84%));
+	background: light-dark(color-mix(in srgb, var(--flo-ink) 52%, transparent), rgb(0 0 0 / 84%));
 	-webkit-backdrop-filter: none;
 	backdrop-filter: none;
 }
@@ -2842,4 +2839,11 @@ html.tn-themed {
 	border-radius: 0;
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--flo-rule-soft);
+}
+
+:root:not(#flo) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--flo-ink) !important;
+}
+:root:not(#flo) .sf-chat-reader :is(.sf-t-dim, .sf-t-muted) {
+	color: var(--flo-muted);
 }

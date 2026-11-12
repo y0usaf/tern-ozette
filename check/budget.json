@@ -26,16 +26,16 @@
   ]
  },
  "yorha": {
-  "important": 28,
-  "vars": 111,
+  "important": 29,
+  "vars": 117,
   "infinite": 2,
   "unknown": [
    "^\\.cm-"
   ]
  },
  "grok": {
-  "important": 2,
-  "vars": 69,
+  "important": 3,
+  "vars": 71,
   "infinite": 3
  },
  "departure": {

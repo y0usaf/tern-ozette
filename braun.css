@@ -1,9 +1,14 @@
 :root, html.tn-themed {
-	--brn-page: light-dark(#d8d8d5, #151515); --brn-panel: light-dark(#ececeb, #1d1d1d); --brn-card: light-dark(#f5f5f4, #252525);
-	--brn-raise: light-dark(#fafaf9, #2b2b2b); --brn-rail: light-dark(#d2d2cf, #111111); --brn-well: light-dark(#dededb, #191919);
-	--brn-ink: light-dark(#1d1d1d, #ededeb); --brn-muted: light-dark(#3b3b39, #a3a3a0); --brn-dim: light-dark(#535351, #9a9a97);
-	--brn-line: light-dark(rgb(29 29 29 / 15%), rgb(237 237 235 / 15%)); --brn-line-soft: light-dark(rgb(29 29 29 / 8%), rgb(237 237 235 / 8%)); --brn-line-hard: light-dark(rgb(29 29 29 / 30%), rgb(237 237 235 / 26%));
-	--brn-accent: light-dark(#c94b18, #ff6a2b); --brn-accent-ink: light-dark(#a83c12, #ff6a2b); --brn-bad: light-dark(#8f1f1f, #e05252);
+	--brn-page: var(--tn-page); --brn-panel: color-mix(in oklab, var(--tbl-head) 92%, var(--tn-page) 8%); --brn-card: var(--tbl-head);
+	--brn-raise: oklch(from var(--tn-page) calc(l + (1 - l) * 0.6) c h); --brn-rail: oklch(from var(--tn-page) calc(l * 0.94) c h); --brn-well: oklch(from var(--tn-page) calc(l * 0.95) c h);
+	--brn-ink: light-dark(oklch(from var(--ansi3) 0.23 0.003 h), oklch(from var(--ansi3) 0.93 0.004 h)); --brn-muted: color-mix(in srgb, var(--t3) 60%, var(--brn-ink)); --brn-dim: color-mix(in srgb, var(--t4) 40%, var(--brn-ink));
+	--brn-line: color-mix(in srgb, var(--brn-ink) 15%, transparent); --brn-line-soft: color-mix(in srgb, var(--brn-ink) 8%, transparent); --brn-line-hard: color-mix(in srgb, var(--brn-ink) 30%, transparent);
+	--brn-accent: light-dark(oklch(from var(--ansi3) 0.58 0.17 h), oklch(from var(--ansi3) 0.70 0.19 h)); --brn-accent-ink: light-dark(oklch(from var(--ansi3) 0.50 0.16 h), oklch(from var(--ansi3) 0.76 0.15 h)); --brn-fill: light-dark(oklch(from var(--ansi3) 0.44 0.13 h), oklch(from var(--ansi3) 0.78 0.15 h)); --brn-on-accent: light-dark(oklch(from var(--ansi3) 0.98 0.01 h), oklch(from var(--ansi3) 0.15 0.01 h)); --brn-bad: light-dark(oklch(from var(--ansi1) 0.44 0.16 h), oklch(from var(--ansi1) 0.72 0.15 h));
+	--brn-t2: color-mix(in srgb, var(--t2) 55%, var(--brn-ink));
+	--brn-syn-green: light-dark(oklch(from var(--ansi2) clamp(0.3, l, 0.46) max(c, 0.05) h), oklch(from var(--ansi2) clamp(0.74, l, 0.88) max(c, 0.05) h));
+	--brn-syn-amber: light-dark(oklch(from var(--ansi3) clamp(0.34, l, 0.5) max(c, 0.06) h), oklch(from var(--ansi3) clamp(0.76, l, 0.88) max(c, 0.06) h));
+	--brn-syn-blue: light-dark(oklch(from var(--ansi4) clamp(0.32, l, 0.48) max(c, 0.05) h), oklch(from var(--ansi4) clamp(0.74, l, 0.88) max(c, 0.05) h));
+	--brn-syn-red: light-dark(oklch(from var(--ansi1) clamp(0.34, l, 0.5) max(c, 0.06) h), oklch(from var(--ansi1) clamp(0.72, l, 0.86) max(c, 0.06) h));
 	--brn-catch: inset 0 1px 0 light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 7%)); --brn-shade: inset 0 -1px 0 light-dark(rgb(0 0 0 / 9%), rgb(0 0 0 / 45%)); --brn-recess: inset 0 1px 2px light-dark(rgb(0 0 0 / 16%), rgb(0 0 0 / 50%)), inset 0 0 0 1px light-dark(rgb(255 255 255 / 40%), rgb(255 255 255 / 4%));
 	--brn-raised: inset 0 1px 0 light-dark(rgb(255 255 255 / 55%), rgb(255 255 255 / 7%)), inset 0 -1px 0 light-dark(rgb(0 0 0 / 8%), rgb(0 0 0 / 42%)), 0 0 0 1px var(--brn-line); --brn-dot: 6px; --brn-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 	--brn-sans: "IBM Plex Sans", -apple-system, "SF Pro Text", system-ui, sans-serif;
@@ -37,23 +42,23 @@
 	--raise: var(--brn-raise) !important; --pop-bg: var(--brn-raise) !important; --modal-bg: var(--brn-raise) !important;
 	--modal-filter: none; --modal-dim: light-dark(rgb(0 0 0 / 28%), rgb(0 0 0 / 55%)); --modal-dim-filter: none;
 	--glass-hi: light-dark(#fff, rgb(255 255 255 / 5%)); --ink: var(--brn-ink) !important; --t1: var(--brn-ink) !important;
-	--t2: light-dark(#3f3f3e, #c3c3c0) !important; --t3: var(--brn-muted) !important; --t4: var(--brn-dim) !important;
+	
 	--l1: var(--brn-line-soft) !important; --l2: var(--brn-line) !important; --l3: var(--brn-line-hard) !important;
 	--l4: var(--brn-line-hard) !important; --accent: var(--brn-accent) !important; --accent-ink: var(--brn-accent-ink) !important;
-	--accent-fill: var(--brn-accent) !important; --ok: light-dark(#2c6b4a, #79c79a) !important; --warn: light-dark(#6f4a00, #e2b04a) !important;
-	--bad: var(--brn-bad) !important; --ok-fill: light-dark(#2c6b4a, #2f7d55) !important; --bad-fill: light-dark(#8f1f1f, #a12c2c) !important;
+	--accent-fill: var(--brn-accent) !important; --ok: light-dark(oklch(from var(--ansi2) 0.46 0.09 h), oklch(from var(--ansi2) 0.75 0.10 h)) !important; --warn: light-dark(oklch(from var(--ansi3) 0.42 0.09 h), oklch(from var(--ansi3) 0.78 0.11 h)) !important;
+	--bad: var(--brn-bad) !important; --ok-fill: light-dark(oklch(from var(--ansi2) 0.44 0.09 h), oklch(from var(--ansi2) 0.55 0.10 h)) !important; --bad-fill: light-dark(oklch(from var(--ansi1) 0.42 0.16 h), oklch(from var(--ansi1) 0.50 0.16 h)) !important;
 	--live: var(--brn-muted) !important; --tv-bg: var(--brn-panel) !important; --tv-fg: var(--brn-ink) !important;
 	--code-bg: var(--brn-well) !important; --r-card: 3px !important; --r-ctl: 3px !important;
 	--r-chip: 2px; --r-panel: 4px !important; --ink-pen: var(--brn-accent-ink) !important;
-	--omp-accent: var(--brn-accent-ink) !important; --omp-success: light-dark(#1f5a3c, #79c79a) !important; --omp-error: var(--brn-bad) !important;
-	--omp-muted: var(--brn-muted) !important; --omp-dim: var(--brn-dim) !important; --omp-syntaxType: light-dark(#3a4a5c, #b9c9da) !important;
-	--omp-mdLink: var(--brn-accent-ink) !important; --sf-info: light-dark(#3a4a5c, #b9c9da) !important; --tk-comment: var(--brn-muted);
+	--omp-accent: var(--brn-accent-ink) !important; --omp-success: light-dark(oklch(from var(--ansi2) 0.44 0.09 h), oklch(from var(--ansi2) 0.75 0.10 h)) !important; --omp-error: var(--brn-bad) !important;
+	--omp-muted: var(--brn-muted) !important; --omp-dim: var(--brn-dim) !important; --omp-syntaxType: var(--brn-syn-blue) !important;
+	--omp-mdLink: var(--brn-accent-ink) !important; --sf-info: var(--brn-syn-blue) !important; --tk-comment: var(--brn-t2);
 	--tk-doc: var(--brn-muted); --tk-keyword: var(--brn-ink); --tk-function: var(--brn-ink);
 	--tk-macro: var(--brn-ink); --tk-variable: var(--brn-ink); --tk-property: var(--brn-muted);
-	--tk-string: light-dark(#2f5d3f, #a9d6b6); --tk-escape: light-dark(#2f5d3f, #a9d6b6); --tk-number: light-dark(#575754, #c9c9c6);
-	--tk-constant: var(--brn-muted); --tk-type: light-dark(#3a4a5c, #b9c9da); --tk-tag: light-dark(#7a2f24, #e5a493);
-	--tk-heading: var(--brn-ink); --tk-link: var(--brn-accent-ink); --tk-operator: var(--brn-muted);
-	--tk-punct: var(--brn-muted); --tk-inserted: light-dark(#1f5a3c, #79c79a); --tk-deleted: var(--brn-bad);
+	--tk-string: var(--brn-syn-green); --tk-escape: var(--brn-syn-green); --tk-number: var(--brn-muted);
+	--tk-constant: var(--brn-muted); --tk-type: var(--brn-syn-blue); --tk-tag: var(--brn-syn-red);
+	--tk-heading: var(--brn-ink); --tk-link: var(--brn-accent-ink); --tk-operator: var(--brn-t2);
+	--tk-punct: var(--brn-t2); --tk-inserted: var(--ok); --tk-deleted: var(--brn-bad);
 }
 :root:not(#brn) body {
 	background: var(--brn-page); color: var(--brn-ink); font-family: var(--brn-sans);
@@ -94,7 +99,7 @@
 	padding: 0 10px; border-radius: 2px; background: var(--brn-well);
 	box-shadow: inset 0 1px 2px light-dark(rgb(0 0 0 / 12%), rgb(0 0 0 / 42%)), inset 0 -1px 0 light-dark(rgb(255 255 255 / 35%), rgb(255 255 255 / 4%)); color: var(--brn-muted); transition: background-color 90ms linear, color 90ms linear;
 }
-:root:not(#brn) #tabbar .tt:not(.on):hover { background: light-dark(#e3e3e0, #1e1e1e); color: var(--brn-ink); }
+:root:not(#brn) #tabbar .tt:not(.on):hover { background: var(--brn-raise); color: var(--brn-ink); }
 :root:not(#brn) #tabbar .tt.on, :root:not(#brn) #tabbar .tt[data-tc].on {
 	padding-left: 16px; background: var(--brn-card); box-shadow: var(--brn-raised);
 	color: var(--brn-ink);
@@ -284,15 +289,15 @@
 	box-shadow: 0 0 0 1px var(--brn-line);
 }
 :root:not(#brn) .sf-t-accent { color: var(--brn-accent-ink); }
-:root:not(#brn) .sf-t-success { color: light-dark(#1f5a3c, #79c79a); }
+:root:not(#brn) .sf-t-success { color: var(--brn-syn-green); }
 :root:not(#brn) .sf-caption { color: var(--brn-ink); }
 :root:not(#brn) .sf-caption-name { color: var(--brn-ink) !important; }
 :root:not(#brn) :is(.tk-comment, .tk-doc) { color: var(--brn-muted); }
 :root:not(#brn) :is(.tk-keyword, .tk-function, .tk-macro, .tk-variable, .tk-heading) { color: var(--brn-ink); }
 :root:not(#brn) :is(.tk-property, .tk-constant, .tk-punct, .tk-operator) { color: var(--brn-muted); }
-:root:not(#brn) :is(.tk-string, .tk-escape) { color: light-dark(#1f5a3c, #79c79a); }
-:root:not(#brn) .tk-number { color: light-dark(#575754, #c9c9c6); }
-:root:not(#brn) .tk-type { color: light-dark(#3a4a5c, #b9c9da); }
+:root:not(#brn) :is(.tk-string, .tk-escape) { color: var(--brn-syn-green); }
+:root:not(#brn) .tk-number { color: var(--brn-muted); }
+:root:not(#brn) .tk-type { color: var(--brn-syn-blue); }
 :root:not(#brn) :is(.tk-tag, .tk-deleted) { color: var(--brn-bad); }
 :root:not(#brn) .tk-link { color: var(--brn-accent-ink); }
 :root:not(#brn) .sf-chat-reader.sf-main > .sf-work-head {
@@ -427,13 +432,13 @@
 }
 :root:not(#brn) .sf-chat-reader .sf-row[data-role='omp.composer.bar'] [data-role='omp.composer.model'], :root:not(#brn) .sf-chat-reader .sf-row[data-role='omp.composer.bar'] [data-role='omp.composer.effort'], :root:not(#brn) .sf-chat-reader [data-role='omp.composer.model'], :root:not(#brn) .sf-chat-reader [data-role='omp.composer.effort'] {
 	font: 500 10px/1.6 var(--brn-mono); letter-spacing: 0.06em; color: var(--brn-muted);
-	background: light-dark(#ffffff, var(--brn-raise)); box-shadow: var(--brn-catch), 0 0 0 1px var(--brn-line); border-radius: 2px;
+	background: var(--brn-card); box-shadow: var(--brn-catch), 0 0 0 1px var(--brn-line); border-radius: 2px;
 	padding: 0 6px;
 }
 :root:not(#brn) .sf-chat-reader [data-role='omp.composer.send'] .kbd {
 	width: 30px; min-width: 30px; height: 30px;
 	padding: 0; border-radius: 3px; font-size: 0;
-	color: light-dark(#fff, #1d1d1d); background: var(--brn-accent); box-shadow: inset 0 1px 0 light-dark(rgb(255 255 255 / 40%), rgb(255 255 255 / 18%)), inset 0 -1px 0 rgb(0 0 0 / 20%), 0 0 0 1px light-dark(rgb(0 0 0 / 12%), rgb(0 0 0 / 40%));
+	color: var(--brn-on-accent); background: var(--brn-fill); box-shadow: inset 0 1px 0 light-dark(rgb(255 255 255 / 40%), rgb(255 255 255 / 18%)), inset 0 -1px 0 rgb(0 0 0 / 20%), 0 0 0 1px light-dark(rgb(0 0 0 / 12%), rgb(0 0 0 / 40%));
 }
 :root:not(#brn) .sf-chat-reader [data-role='omp.composer.send'] .kbd::before {
 	content: "↑"; font: 500 17px/1 var(--brn-sans);
@@ -535,7 +540,7 @@
 	color: var(--brn-ink);
 }
 :root:not(#brn) .sf-list[data-role='omp.ask.options'] .sf-item:not(.sel):hover {
-	background: light-dark(#e6e6e3, #242424); box-shadow: 0 0 0 1px var(--brn-line-hard);
+	background: var(--brn-raise); box-shadow: 0 0 0 1px var(--brn-line-hard);
 }
 :root:not(#brn) .sf-list[data-role='omp.ask.options'] .sf-item .sf-item-label {
 	font: 400 14px/20px var(--brn-sans); color: var(--brn-ink);
@@ -570,9 +575,9 @@
 	text-transform: uppercase; color: var(--brn-ink); background: var(--brn-well);
 	box-shadow: 0 0 0 1px var(--brn-line);
 }
-:root:not(#brn) .sf-col[data-role='omp.editor.ask'] .sf-act:hover { background: light-dark(#e6e6e3, #242424); }
+:root:not(#brn) .sf-col[data-role='omp.editor.ask'] .sf-act:hover { background: var(--brn-raise); }
 :root:not(#brn) .sf-col[data-role='omp.editor.ask'] .sf-act:last-child {
-	color: light-dark(#fff, #1d1d1d); background: var(--brn-ink); box-shadow: none;
+	color: var(--brn-page); background: var(--brn-ink); box-shadow: none;
 }
 :root:not(#brn) .sf-overlay[data-role='omp.overlay.ask'] > .sf-ov-card {
 	border-radius: 4px; background: var(--brn-raise); box-shadow: var(--brn-raised);
@@ -650,8 +655,7 @@
 :root:not(#brn) :is(.mdl-body, .dlg-body) { font: 400 14px/21px var(--brn-sans); color: var(--brn-ink); }
 :root:not(#brn) :is(.mdl-foot, .dlg-foot, .tn-hd-foot) { box-shadow: inset 0 1px 0 var(--brn-line); }
 :root:not(#brn) :is(#pal, #thm, #pick) {
-	--t1: var(--brn-ink); --t2: var(--brn-muted); --t3: var(--brn-muted);
-	--t4: var(--brn-dim); --accent: var(--brn-accent); --accent-ink: var(--brn-accent-ink);
+	--accent: var(--brn-accent); --accent-ink: var(--brn-accent-ink);
 	--l1: var(--brn-line-soft); --l2: var(--brn-line); background: var(--modal-dim);
 	-webkit-backdrop-filter: none; backdrop-filter: none;
 }
@@ -780,7 +784,7 @@
 :root:not(#brn) .pf-row { box-shadow: inset 0 -1px 0 var(--brn-line-soft); border-radius: 0; }
 :root:not(#brn) .pf-row:last-child { box-shadow: none; }
 :root:not(#brn) .pf-row:is(:hover, .focus, :focus-within) {
-	background: light-dark(#efefed, #2a2a2a); box-shadow: inset 2px 0 0 var(--brn-accent), inset 0 -1px 0 var(--brn-line-soft);
+	background: var(--brn-raise); box-shadow: inset 2px 0 0 var(--brn-accent), inset 0 -1px 0 var(--brn-line-soft);
 }
 :root:not(#brn) .pf-lbl {
 	font: 500 10.5px/1.5 var(--brn-mono); letter-spacing: 0.05em; color: var(--brn-ink);
@@ -943,3 +947,13 @@ html.tn-phone:not(#brn) #tn-ph-edge { background: linear-gradient(90deg, rgb(0 0
 }
 :root:not(#brn) :is(.pop, .sf-menu-pop, .toast, .tn-bn-card) { animation: brn-in 90ms linear backwards; }
 :root:not(#brn) :is(.sf-still, .sf-paused) * { animation: none; }
+
+:root:not(#brn) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--brn-ink) !important;
+}
+:root:not(#brn) .sf-chat-reader :is(.sf-t-dim, .sf-t-muted) {
+	color: var(--brn-t2);
+}
+:root:not(#brn) #tabbar :is(.mk.keys, .kbd) {
+	color: var(--brn-t2);
+}

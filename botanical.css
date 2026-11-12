@@ -1,26 +1,29 @@
 
 :root,
 html.tn-themed {
-	--bn-paper: light-dark(#f3efe0, #14170f);
-	--bn-panel: light-dark(#faf6e9, #1b1f16);
-	--bn-card: light-dark(#faf6e9, #1e2318);
-	--bn-well: light-dark(#ece7d5, #10130c);
-	--bn-code: light-dark(#f0ebdb, #0e110a);
-	--bn-ink: light-dark(#23281e, #ece6d3);
-	--bn-t2: light-dark(#3f4739, #c9c3ae);
-	--bn-t3: light-dark(#5b6352, #a6ad97);
-	--bn-rule: light-dark(rgb(35 40 30 / 46%), rgb(236 230 211 / 38%));
-	--bn-hair: light-dark(rgb(35 40 30 / 19%), rgb(236 230 211 / 19%));
-	--bn-soft: light-dark(rgb(35 40 30 / 5%), rgb(236 230 211 / 6%));
-	--bn-moss: light-dark(#4d5f37, #a8c078);
-	--bn-moss-ink: light-dark(#f3efe0, #14170f);
-	--bn-forest: light-dark(#2c3a22, #0b0e07);
-	--bn-off: light-dark(#4d5f37, #3f4f2e);
-	--bn-off-deep: light-dark(#2c3a22, #52683b);
-	--bn-wash: light-dark(rgb(77 95 55 / 12%), rgb(168 192 120 / 14%));
-	--bn-danger: light-dark(#8a3a2a, #e0a08c);
-	--bn-dot: light-dark(rgb(35 40 30 / 12%), rgb(236 230 211 / 10%));
+	--bn-moss: light-dark(oklch(from var(--ansi2) 0.46 0.07 h), oklch(from var(--ansi2) 0.77 0.10 h));
+	--bn-paper: color-mix(in oklab, var(--tn-page) 96%, var(--bn-moss) 4%);
+	--bn-panel: color-mix(in oklab, var(--tbl-head) 94%, var(--bn-moss) 6%);
+	--bn-card: color-mix(in oklab, var(--tbl-head) 95%, var(--bn-moss) 5%);
+	--bn-well: oklch(from var(--tn-page) calc(l * 0.95) c h);
+	--bn-code: var(--tbl-head);
+	--bn-ink: light-dark(oklch(from var(--ansi2) 0.27 0.014 h), oklch(from var(--ansi2) 0.92 0.014 h));
+	--bn-t2: color-mix(in srgb, var(--t2) 55%, var(--bn-ink));
+	--bn-t3: color-mix(in srgb, var(--t3) 60%, var(--bn-ink));
+	--bn-rule: color-mix(in srgb, var(--bn-ink) 46%, transparent);
+	--bn-hair: color-mix(in srgb, var(--bn-ink) 19%, transparent);
+	--bn-soft: color-mix(in srgb, var(--bn-ink) 5%, transparent);
+	--bn-moss-ink: light-dark(oklch(from var(--ansi2) 0.97 0.01 h), oklch(from var(--ansi2) 0.16 0.01 h));
+	--bn-forest: light-dark(oklch(from var(--ansi2) 0.30 0.045 h), oklch(from var(--ansi2) 0.12 0.02 h));
+	--bn-off: light-dark(oklch(from var(--ansi2) 0.46 0.06 h), oklch(from var(--ansi2) 0.34 0.05 h));
+	--bn-off-deep: light-dark(oklch(from var(--ansi2) 0.30 0.045 h), oklch(from var(--ansi2) 0.50 0.06 h));
+	--bn-wash: color-mix(in srgb, var(--bn-moss) 13%, transparent);
+	--bn-danger: light-dark(oklch(from var(--ansi1) 0.44 0.14 h), oklch(from var(--ansi1) 0.72 0.13 h));
+	--bn-dot: color-mix(in srgb, var(--bn-ink) 12%, transparent);
 	--bn-ground: radial-gradient(circle at 1px 1px, var(--bn-dot) 1px, transparent 1.4px) 0 0 / 22px 22px;
+	--bn-syn-green: light-dark(oklch(from var(--ansi2) clamp(0.3, l, 0.46) max(c, 0.06) h), oklch(from var(--ansi2) clamp(0.74, l, 0.88) max(c, 0.05) h));
+	--bn-syn-amber: light-dark(oklch(from var(--ansi3) clamp(0.34, l, 0.5) max(c, 0.06) h), oklch(from var(--ansi3) clamp(0.76, l, 0.88) max(c, 0.06) h));
+	--bn-syn-blue: light-dark(oklch(from var(--ansi4) clamp(0.32, l, 0.48) max(c, 0.05) h), oklch(from var(--ansi4) clamp(0.74, l, 0.88) max(c, 0.05) h));
 	--bn-serif: "Crimson Pro", "Spectral", Georgia, serif;
 	--bn-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
 	--omp-user-bg: var(--bn-card);
@@ -57,20 +60,15 @@ html.tn-themed {
 	--well: var(--bn-well);
 	--pop-bg: var(--bn-panel) !important;
 	--modal-bg: var(--bn-panel) !important;
-	--modal-dim: light-dark(rgb(35 40 30 / 30%), rgb(0 0 0 / 64%));
+	--modal-dim: light-dark(color-mix(in srgb, var(--bn-ink) 30%, transparent), rgb(0 0 0 / 64%));
 	--modal-filter: none;
 	--glass-hi: transparent;
-	--tn-page: var(--bn-paper);
-	--tn-pop: var(--bn-panel);
-	--tv-bg: light-dark(#f3efe0, #14170f);
-	--tv-fg: light-dark(#23281e, #ece6d3);
+	--tv-bg: var(--bn-paper);
+	--tv-fg: var(--bn-ink);
 	--tv-cur: var(--bn-moss);
 	--tv-cur-ink: var(--bn-moss-ink);
 	--ink: var(--bn-ink);
 	--t1: var(--bn-ink);
-	--t2: var(--bn-t2);
-	--t3: var(--bn-t3);
-	--t4: var(--bn-t3);
 	--l1: var(--bn-soft);
 	--l2: var(--bn-hair);
 	--l3: var(--bn-rule);
@@ -81,19 +79,19 @@ html.tn-themed {
 	--grad: var(--bn-moss);
 	--grad-ink: var(--bn-moss-ink);
 	--live: var(--bn-moss);
-	--ok: light-dark(#3f5a2f, #a8c078);
-	--warn: light-dark(#6f531f, #d9b069);
+	--ok: var(--bn-syn-green);
+	--warn: var(--bn-syn-amber);
 	--bad: var(--bn-danger);
 	--omp-text: var(--bn-ink);
 	--omp-accent: var(--bn-moss);
 	--omp-mdHeading: var(--bn-ink);
 	--omp-mdListBullet: var(--bn-moss);
 	--omp-userMessageText: var(--bn-ink);
-	--omp-syntaxKeyword: light-dark(#43552f, #a8c078);
-	--omp-syntaxString: light-dark(#3f5a2f, #b6cf8e);
-	--omp-syntaxFunction: light-dark(#6b4a12, #e2b978);
-	--omp-syntaxType: light-dark(#33495c, #a9c1d8);
-	--omp-syntaxNumber: light-dark(#6b4a12, #e2b978);
+	--omp-syntaxKeyword: var(--bn-syn-green);
+	--omp-syntaxString: var(--bn-syn-green);
+	--omp-syntaxFunction: var(--bn-syn-amber);
+	--omp-syntaxType: var(--bn-syn-blue);
+	--omp-syntaxNumber: var(--bn-syn-amber);
 	--omp-syntaxComment: var(--bn-t3);
 	--omp-dim: var(--bn-t3);
 	--omp-muted: var(--bn-t3);
@@ -365,7 +363,7 @@ html.tn-themed {
 
 :root:not(#bnl) #tabbar .tt.on,
 :root:not(#bnl) #tabbar .tt[data-tc].on {
-	background: var(--bn-moss);
+	background: var(--bn-moss) !important;
 	box-shadow: none;
 	color: var(--bn-moss-ink);
 }
@@ -832,18 +830,18 @@ html.tn-themed {
 :root:not(#bnl) .sf-chat-reader .md .code,
 :root:not(#bnl) .sf-chat-reader .sf-code,
 :root:not(#bnl) .sf-chat-reader .sf-ansi {
-	--tk-keyword: light-dark(#43552f, #a8c078);
-	--tk-string: light-dark(#3f5a2f, #b6cf8e);
-	--tk-function: light-dark(#6b4a12, #e2b978);
-	--tk-type: light-dark(#33495c, #a9c1d8);
-	--tk-number: light-dark(#6b4a12, #e2b978);
+	--tk-keyword: var(--bn-syn-green);
+	--tk-string: var(--bn-syn-green);
+	--tk-function: var(--bn-syn-amber);
+	--tk-type: var(--bn-syn-blue);
+	--tk-number: var(--bn-syn-amber);
 	--tk-variable: var(--bn-ink);
 	--tk-punct: var(--bn-t2);
-	--tk-operator: light-dark(#33495c, #a9c1d8);
-	--tk-macro: light-dark(#43552f, #a8c078);
+	--tk-operator: var(--bn-syn-blue);
+	--tk-macro: var(--bn-syn-green);
 	--tk-comment: var(--bn-t3);
 	--tk-property: var(--bn-t2);
-	--tk-constant: light-dark(#6b4a12, #e2b978);
+	--tk-constant: var(--bn-syn-amber);
 	--omp-syntaxKeyword: var(--tk-keyword);
 	--omp-syntaxString: var(--tk-string);
 	--omp-syntaxFunction: var(--tk-function);
@@ -1527,7 +1525,7 @@ html.tn-themed {
 	width: 12px;
 	height: 12px;
 	border-radius: 0;
-	box-shadow: inset 0 0 0 1px rgb(0 0 0 / 22%);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bn-ink) 22%, transparent);
 }
 
 :root:not(#bnl) .pop .mi-row .tn-tc-sw.on {
@@ -1663,18 +1661,15 @@ html.tn-themed {
 
 :root:not(#bnl) :is(#pal, #thm, #pick) {
 	--t1: var(--bn-ink);
-	--t2: var(--bn-t2);
-	--t3: var(--bn-t3);
-	--t4: var(--bn-t3);
 	--l1: var(--bn-soft);
 	--l2: var(--bn-hair);
 	--accent: var(--bn-moss);
 	--accent-ink: var(--bn-moss);
-	background: light-dark(rgb(35 40 30 / 26%), rgb(0 0 0 / 62%));
+	background: light-dark(color-mix(in srgb, var(--bn-ink) 26%, transparent), rgb(0 0 0 / 62%));
 }
 
 :root:not(#bnl) #pal {
-	background: light-dark(rgb(35 40 30 / 26%), rgb(0 0 0 / 62%));
+	background: light-dark(color-mix(in srgb, var(--bn-ink) 26%, transparent), rgb(0 0 0 / 62%));
 }
 
 :root:not(#bnl) :is(.cmdk, .mdl, .dlg-card, .pk-sheet, .tn-hd, :where(.sf-overlay.modal) > .sf-ov-card, :where(.sf-prefs .pf-editor) > .sf-col) {
@@ -1803,8 +1798,6 @@ html.tn-themed {
 	box-shadow: inset 0 0 0 1px var(--bn-moss);
 	color: var(--bn-ink);
 	--t1: var(--bn-ink);
-	--t2: var(--bn-t2);
-	--t3: var(--bn-t3);
 }
 
 :root:not(#bnl) :is(#pal, #thm, #pick) .ck-item[aria-selected='true']::before {
@@ -2586,7 +2579,7 @@ html.tn-phone:not(#bnl) #tn-ph-edge {
 }
 
 html.tn-phone:not(#bnl) #tn-ph-scrim {
-	background: light-dark(rgb(35 40 30 / 16%), rgb(0 0 0 / 46%));
+	background: light-dark(color-mix(in srgb, var(--bn-ink) 16%, transparent), rgb(0 0 0 / 46%));
 }
 
 :root:not(#bnl) :focus-visible {
@@ -2683,4 +2676,11 @@ html.tn-phone:not(#bnl) #tn-ph-scrim {
 	:root:not(#bnl).tn-status footer#statusline .sl-plugin[data-tone^='m-'] {
 		font-size: 11px;
 	}
+}
+
+:root:not(#bnl) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--bn-ink) !important;
+}
+:root:not(#bnl) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--bn-moss-ink) !important;
 }

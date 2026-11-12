@@ -1,20 +1,23 @@
 :root:not(#yh) {
-	--yh-ground: light-dark(#ffffff, #000000);
+	--yh-ground: var(--tn-page);
+	--yh-ink: light-dark(oklch(from var(--tn-page) 0.04 0.003 h), oklch(from var(--tn-page) 0.93 0.006 h));
+	--yh-card: color-mix(in oklab, var(--tn-page) 94%, var(--yh-ink) 6%);
+	--yh-alert: light-dark(oklch(from var(--ansi1) 0.52 0.2 h), oklch(from var(--ansi1) 0.66 0.2 h));
 	--yh-snap: cubic-bezier(0.15, 0.79, 0, 1);
 	--yh-ease: cubic-bezier(0.2, 0, 0, 1);
 	--yh-t: 1;
 
 	--page: rgb(from var(--yh-ground) r g b / var(--surface-a, 1)) !important;
 	--panel: rgb(from var(--yh-ground) r g b / var(--surface-a, 1)) !important;
-	--card: color-mix(in srgb, light-dark(#ffffff, #000000) 95%, light-dark(#000000, #c4c2bb)) !important;
+	--card: var(--yh-card) !important;
 	--raise: var(--card) !important;
 	--pop-bg: var(--card) !important;
 	--modal-bg: var(--card);
-	--ink: light-dark(#000000, #c4c2bb) !important;
+	--ink: var(--yh-ink) !important;
 	--frost-you-fill: color-mix(in srgb, var(--ink) 72%, transparent);
 	--frost-you-ink: var(--yh-ground);
 	--frost-reply-fill: color-mix(in srgb, var(--card) 40%, transparent);
-	--t1: light-dark(#000000, #c4c2bb) !important;
+	--t1: var(--yh-ink) !important;
 	--t2: rgb(from var(--ink) r g b / 72%) !important;
 	--t3: rgb(from var(--ink) r g b / 52%) !important;
 	--t4: var(--l3) !important;
@@ -30,7 +33,7 @@
 	--live: var(--ink) !important;
 	--ok: var(--ink);
 	--warn: var(--ink) !important;
-	--bad: light-dark(#d4001f, #ff4255) !important;
+	--bad: var(--yh-alert) !important;
 	--omp-mdListBullet: var(--ink);
 	--tv-bg: var(--card) !important;
 	--tv-fg: var(--ink) !important;
@@ -754,10 +757,10 @@
 	--tk-type: var(--t2);
 	--tk-number: var(--t1);
 	--tk-variable: var(--t1);
-	--tk-punct: var(--t3);
+	--tk-punct: var(--t2);
 	--tk-operator: var(--t2);
 	--tk-macro: var(--bad);
-	--tk-comment: var(--t3);
+	--tk-comment: var(--t2);
 	--tk-property: var(--t2);
 	--tk-constant: var(--t1);
 	--omp-syntaxKeyword: var(--t1);
@@ -1509,7 +1512,7 @@
 }
 :root:not(#yh) .cm-pp {
 	background: var(--ink);
-	color: #fff;
+	color: var(--yh-ground);
 	box-shadow: 2px 2px 0 var(--ink);
 }
 :root:not(#yh) .cm-pp:hover {
@@ -1599,7 +1602,7 @@
 	box-shadow: inset 3px 0 0 var(--ink), inset 6px 0 0 var(--ink);
 }
 :root:not(#yh) :is(.cm-ts, .cm-cy, .cm-cd, .cm-d-artist, .cm-tm, .cm-pct, .cm-pager, .cm-ph .cm-c, .cm-np-meta, .cm-nv .cm-n) {
-	color: #655a74;
+	color: color-mix(in srgb, var(--yh-ink) 62%, var(--yh-ground));
 }
 :root:not(#yh) .cm-tile .cm-fab {
 	top: 16px;
@@ -1712,4 +1715,7 @@
 @keyframes yh-blink {
 	0% { opacity: 1; }
 	50% { opacity: 0; }
+}
+:root:not(#yh) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--yh-ground) !important;
 }

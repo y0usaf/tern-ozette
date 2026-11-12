@@ -37,6 +37,7 @@ Light/dark following is Tern's own **Appearance → System** setting (`"theme": 
 ## Rules for editing
 
 - Use Tern's stock selectors and variables; add look-only variables only for colour transforms Tern has no variable for.
+- Every colour comes from the active theme: surfaces from `--tn-page`, `--tbl-head` and `--code-bg`, ink from `--t1` with a look lightness, muted text from `--t2`/`--t3` mixed toward the look's ink, and each look's own hue from an ANSI slot of that hue (`--ansi1` red, `--ansi2` green, `--ansi3` amber, `--ansi4` blue). Bodies carry no colour literals; only achromatic shadow, scrim and glass-highlight alphas stay black or white.
 - Never give a reply its own frame: the user message is the framed element, replies are plain text. Set `--omp-user-*` and `--omp-reply-*` instead of drawing boxes.
 - Never set `--tv-bg` or another surface colour to `transparent`. Tern measures terminal text contrast against it, so pale text becomes unreadable. For glass, make the element's `background` transparent and tint the canvas behind it instead.
 - Never use `!important` on fonts; looks must not override configured UI or terminal fonts.

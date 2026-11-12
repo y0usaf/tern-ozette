@@ -1,29 +1,29 @@
 
 :root,
 html.tn-themed {
-	--at-paper: light-dark(#e8e0cd, #171814);
-	--at-panel: light-dark(#f1ebdb, #1e201a);
-	--at-card: light-dark(#f6f0e0, #23251d);
-	--at-well: light-dark(#e3dbc7, #1a1c16);
-	--at-code: light-dark(#efe8d6, #14150f);
-	--at-ink: light-dark(#26221a, #e7dfcb);
-	--at-t2: light-dark(#4a4437, #c0b8a2);
-	--at-t3: light-dark(#5d5647, #a39c88);
-	--at-t4: light-dark(#6b6352, #8f8875);
-	--at-rule: light-dark(rgb(38 34 26 / 55%), rgb(231 223 203 / 52%));
-	--at-hair: light-dark(rgb(38 34 26 / 22%), rgb(231 223 203 / 22%));
-	--at-soft: light-dark(rgb(38 34 26 / 6%), rgb(231 223 203 / 6%));
-	--at-ox: light-dark(#8a3526, #cf8062);
-	--at-ox-ink: light-dark(#f6f0e0, #171814);
+	--at-ox: light-dark(oklch(from var(--ansi1) 0.45 0.12 h), oklch(from var(--ansi1) 0.68 0.11 h));
+	--at-paper: color-mix(in oklab, var(--tn-page) 96%, var(--at-ox) 4%);
+	--at-panel: color-mix(in oklab, var(--tbl-head) 94%, var(--at-ox) 6%);
+	--at-card: color-mix(in oklab, var(--tbl-head) 95%, var(--at-ox) 5%);
+	--at-well: oklch(from var(--tn-page) calc(l * 0.95) c h);
+	--at-code: var(--tbl-head);
+	--at-ink: light-dark(oklch(from var(--ansi1) 0.25 0.01 h), oklch(from var(--ansi1) 0.92 0.012 h));
+	--at-t2: color-mix(in srgb, var(--t2) 55%, var(--at-ink));
+	--at-t3: color-mix(in srgb, var(--t3) 60%, var(--at-ink));
+	--at-t4: color-mix(in srgb, var(--t4) 40%, var(--at-ink));
+	--at-rule: color-mix(in srgb, var(--at-ink) 55%, transparent);
+	--at-hair: color-mix(in srgb, var(--at-ink) 22%, transparent);
+	--at-soft: color-mix(in srgb, var(--at-ink) 6%, transparent);
+	--at-ox-ink: light-dark(oklch(from var(--ansi1) 0.97 0.01 h), oklch(from var(--ansi1) 0.15 0.01 h));
 	--at-fibre:
-		repeating-linear-gradient(0deg, light-dark(rgb(38 34 26 / 3%), rgb(231 223 203 / 2.4%)) 0 1px, transparent 1px 4px),
-		repeating-linear-gradient(90deg, light-dark(rgb(38 34 26 / 2.2%), rgb(231 223 203 / 1.8%)) 0 1px, transparent 1px 7px);
+		repeating-linear-gradient(0deg, color-mix(in srgb, var(--at-ink) 3%, transparent) 0 1px, transparent 1px 4px),
+		repeating-linear-gradient(90deg, color-mix(in srgb, var(--at-ink) 2.2%, transparent) 0 1px, transparent 1px 7px);
 	--at-sans: "IBM Plex Sans", "Geist", system-ui, sans-serif;
 	--at-mono: "Departure Mono", ui-monospace, "SF Mono", monospace;
 	--at-code-font: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
-	--at-shadow: light-dark(rgb(38 34 26 / 14%), rgb(0 0 0 / 45%));
-	--at-invert: light-dark(#26221a, #e7dfcb);
-	--at-invert-ink: light-dark(#e8e0cd, #171814);
+	--at-shadow: color-mix(in srgb, var(--at-ink) 14%, transparent);
+	--at-invert: var(--at-ink);
+	--at-invert-ink: var(--at-paper);
 	--omp-user-bg: var(--at-card);
 	--omp-user-radius: 0;
 	--omp-user-pad: 12px 16px 11px;
@@ -58,20 +58,15 @@ html.tn-themed {
 	--well: var(--at-well);
 	--pop-bg: var(--at-panel) !important;
 	--modal-bg: var(--at-panel) !important;
-	--modal-dim: light-dark(rgb(38 34 26 / 32%), rgb(0 0 0 / 66%));
+	--modal-dim: light-dark(color-mix(in srgb, var(--at-ink) 32%, transparent), rgb(0 0 0 / 66%));
 	--modal-filter: none;
 	--glass-hi: transparent;
-	--tn-page: var(--at-paper);
-	--tn-pop: var(--at-panel);
-	--tv-bg: light-dark(#e8e0cd, #171814);
-	--tv-fg: light-dark(#26221a, #e7dfcb);
+	--tv-bg: var(--at-paper);
+	--tv-fg: var(--at-ink);
 	--tv-cur: var(--at-ox);
 	--tv-cur-ink: var(--at-ox-ink);
 	--ink: var(--at-ink);
 	--t1: var(--at-ink);
-	--t2: var(--at-t2);
-	--t3: var(--at-t3);
-	--t4: var(--at-t4);
 	--l1: var(--at-soft);
 	--l2: var(--at-hair);
 	--l3: var(--at-rule);
@@ -82,8 +77,8 @@ html.tn-themed {
 	--grad: var(--at-ink);
 	--grad-ink: var(--at-paper);
 	--live: var(--at-ox);
-	--ok: light-dark(#4b5b34, #a8ba79);
-	--warn: light-dark(#77551c, #d3a95f);
+	--ok: light-dark(oklch(from var(--ansi2) 0.46 0.09 h), oklch(from var(--ansi2) 0.76 0.1 h));
+	--warn: light-dark(oklch(from var(--ansi3) 0.46 0.1 h), oklch(from var(--ansi3) 0.8 0.11 h));
 	--bad: var(--at-ox);
 	--omp-text: var(--at-ink);
 	--omp-accent: var(--at-ox);
@@ -358,7 +353,7 @@ html.tn-themed {
 
 :root:not(#aut) #tabbar .tt.on,
 :root:not(#aut) #tabbar .tt[data-tc].on {
-	background: var(--at-ink);
+	background: var(--at-ink) !important;
 	box-shadow: none;
 	color: var(--at-paper);
 }
@@ -821,9 +816,9 @@ html.tn-themed {
 :root:not(#aut) .sf-chat-reader .sf-code,
 :root:not(#aut) .sf-chat-reader .sf-ansi {
 	--tk-keyword: var(--at-ox);
-	--tk-string: light-dark(#3f5a2f, #a8ba79);
-	--tk-function: light-dark(#6b4a12, #d3a95f);
-	--tk-type: light-dark(#37485a, #a9bdd4);
+	--tk-string: light-dark(oklch(from var(--ansi2) clamp(0.32, l, 0.48) max(c, 0.05) h), oklch(from var(--ansi2) clamp(0.72, l, 0.86) max(c, 0.05) h));
+	--tk-function: light-dark(oklch(from var(--ansi3) clamp(0.34, l, 0.5) max(c, 0.06) h), oklch(from var(--ansi3) clamp(0.74, l, 0.87) max(c, 0.06) h));
+	--tk-type: light-dark(oklch(from var(--ansi4) clamp(0.32, l, 0.48) max(c, 0.05) h), oklch(from var(--ansi4) clamp(0.74, l, 0.88) max(c, 0.05) h));
 	--tk-number: var(--tk-function);
 	--tk-variable: var(--at-ink);
 	--tk-punct: var(--at-t2);
@@ -1527,7 +1522,7 @@ html.tn-themed {
 	width: 12px;
 	height: 12px;
 	border-radius: 0;
-	box-shadow: inset 0 0 0 1px rgb(0 0 0 / 22%);
+	box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--at-ink) 22%, transparent);
 }
 
 :root:not(#aut) .pop .mi-row .tn-tc-sw.on {
@@ -1659,18 +1654,15 @@ html.tn-themed {
 
 :root:not(#aut) :is(#pal, #thm, #pick) {
 	--t1: var(--at-ink);
-	--t2: var(--at-t2);
-	--t3: var(--at-t3);
-	--t4: var(--at-t3);
 	--l1: var(--at-soft);
 	--l2: var(--at-hair);
 	--accent: var(--at-ox);
 	--accent-ink: var(--at-ox);
-	background: light-dark(rgb(38 34 26 / 28%), rgb(0 0 0 / 62%));
+	background: light-dark(color-mix(in srgb, var(--at-ink) 28%, transparent), rgb(0 0 0 / 62%));
 }
 
 :root:not(#aut) #pal {
-	background: light-dark(rgb(38 34 26 / 28%), rgb(0 0 0 / 62%));
+	background: light-dark(color-mix(in srgb, var(--at-ink) 28%, transparent), rgb(0 0 0 / 62%));
 }
 
 :root:not(#aut) :is(.cmdk, .mdl, .dlg-card, .pk-sheet, .tn-hd, :where(.sf-overlay.modal) > .sf-ov-card, :where(.sf-prefs .pf-editor) > .sf-col) {
@@ -2514,7 +2506,7 @@ html.tn-phone:not(#aut) #tn-ph-edge {
 }
 
 html.tn-phone:not(#aut) #tn-ph-scrim {
-	background: light-dark(rgb(38 34 26 / 18%), rgb(0 0 0 / 46%));
+	background: light-dark(color-mix(in srgb, var(--at-ink) 18%, transparent), rgb(0 0 0 / 46%));
 }
 
 :root:not(#aut) :focus-visible {
@@ -2611,4 +2603,11 @@ html.tn-phone:not(#aut) #tn-ph-scrim {
 	:root:not(#aut).tn-status footer#statusline .sl-plugin[data-tone^='m-'] {
 		font-size: 11px;
 	}
+}
+
+:root:not(#aut) :is(.sf-img-card, .sf-img-frame) :is(.sf-img-alt, .sf-img-ic) {
+	color: var(--at-ink) !important;
+}
+:root:not(#aut) #tabbar .tt.on :is(.nm, .sub, .tn-tx, .mk.keys, .kbd, .tn-num, .ico, svg) {
+	color: var(--at-paper) !important;
 }
