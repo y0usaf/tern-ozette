@@ -804,7 +804,7 @@ html.tn-themed {
 :root:not(#aut) .sf-chat-reader .sf-tool > .sf-tool-body {
 	padding: 10px 12px;
 	background: transparent;
-	color: var(--at-t1);
+	color: var(--at-ink);
 }
 
 :root:not(#aut) .sf-chat-reader :is(.sf-col[data-role='omp.editor.bash'], .sf-col[data-role='omp.editor.python']) {

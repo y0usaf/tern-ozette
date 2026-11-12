@@ -41,7 +41,7 @@
 	--page: rgb(from var(--brn-page) r g b / var(--surface-a, 1)) !important; --panel: rgb(from var(--brn-panel) r g b / var(--surface-a, 1)) !important; --card: var(--brn-card) !important;
 	--raise: var(--brn-raise) !important; --pop-bg: var(--brn-raise) !important; --modal-bg: var(--brn-raise) !important;
 	--modal-filter: none; --modal-dim: light-dark(rgb(0 0 0 / 28%), rgb(0 0 0 / 55%)); --modal-dim-filter: none;
-	--glass-hi: light-dark(#fff, rgb(255 255 255 / 5%)); --ink: var(--brn-ink) !important; --t1: var(--brn-ink) !important;
+	--glass-hi: light-dark(rgb(255 255 255), rgb(255 255 255 / 5%)); --ink: var(--brn-ink) !important; --t1: var(--brn-ink) !important;
 	
 	--l1: var(--brn-line-soft) !important; --l2: var(--brn-line) !important; --l3: var(--brn-line-hard) !important;
 	--l4: var(--brn-line-hard) !important; --accent: var(--brn-accent) !important; --accent-ink: var(--brn-accent-ink) !important;
