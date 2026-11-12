@@ -935,6 +935,11 @@ html.tn-themed {
 	color: var(--bn-ink);
 }
 
+:root:not(#bnl) .sf-chat-reader .sf-section[data-role^='omp.notice.'] > .sf-section-head {
+	padding: 0;
+	box-shadow: none;
+}
+
 :root:not(#bnl) .sf-chat-reader .sf-chev {
 	color: var(--bn-t3);
 }

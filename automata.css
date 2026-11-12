@@ -919,6 +919,11 @@ html.tn-themed {
 	color: var(--at-ink);
 }
 
+:root:not(#aut) .sf-chat-reader .sf-section[data-role^='omp.notice.'] > .sf-section-head {
+	padding: 0;
+	box-shadow: none;
+}
+
 :root:not(#aut) .sf-chat-reader .sf-chev {
 	color: var(--at-t3);
 }

@@ -824,6 +824,10 @@
 	background: transparent;
 }
 
+:root:not(#dep) .sf-section[data-role^='omp.notice.'] > .sf-section-head {
+	border-bottom: 0;
+}
+
 :root:not(#dep) .sf-section > .sf-section-body {
 	margin-left: 0;
 	padding: 6px 0 6px 12px;
