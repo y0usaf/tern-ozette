@@ -835,19 +835,6 @@
 	font: 400 16.5px/24px var(--sans);
 	box-shadow: none;
 }
-:root:not(#yh) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md {
-	position: relative;
-	padding-left: 18px;
-}
-:root:not(#yh) [data-role='omp.bot.you'] .sf-card[data-role^='omp.user'] > .sf-card-body > .sf-md::before {
-	content: "";
-	position: absolute;
-	left: 0;
-	top: 8px;
-	width: 7px;
-	height: 7px;
-	background: var(--t1);
-}
 :root:not(#yh):not(#yb) .sf-chat-reader.sf-main > .sf-card[data-role^='omp.user'] > .sf-card-body {
 	--l3: rgb(from var(--yh-ground) r g b / 24%);
 	--l2: rgb(from var(--yh-ground) r g b / 10%);

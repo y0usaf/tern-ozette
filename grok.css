@@ -87,10 +87,6 @@ html.tn-themed {
 	gap: 0;
 	padding: 24px 16px 20px;
 }
-:root:not(#grok) .sf-chat-reader.sf-main > :is([data-role='omp.user'], [data-role='omp.assistant'], [data-role='omp.chat.msg'], [data-role='omp.bot.you'], [data-role='omp.bot.reply']) {
-	margin-top: 6px;
-	margin-bottom: 6px;
-}
 :root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.user'] {
 	padding-bottom: 14px;
 }
@@ -108,16 +104,6 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader :is([data-role^='omp.assistant'], [data-role^='omp.user']) .md > :last-child,
 :root:not(#grok) .sf-chat-reader :is([data-role^='omp.assistant'], [data-role^='omp.user']) .md li > p:last-child {
 	margin-bottom: 0;
-}
-:root:not(#grok) .sf-chat-reader.sf-main > [data-role^='omp.bot.time.'] {
-	margin: 8px 0 4px;
-	text-align: start;
-}
-:root:not(#grok) .sf-chat-reader.sf-main > [data-role='omp.bot.time.you'] {
-	text-align: end;
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.more'] + [data-role='omp.bot.reply'] {
-	margin-top: 2px;
 }
 :root:not(#grok) .sf-chat-reader .md :is(h1, h2, h3, h4) {
 	font-family: var(--sans);
@@ -337,66 +323,6 @@ html.tn-themed {
 }
 :root:not(#grok) #sidebar .tn-vt-find:focus-within {
 	box-shadow: inset 0 0 0 0.5px var(--l3);
-}
-:root:not(#grok) .sf-chat-reader :is([data-role^='omp.bot.top.'], [data-role^='omp.bot.chat.']) {
-	box-sizing: border-box;
-	min-height: 54px;
-	gap: 8px;
-	padding: 8px 0;
-}
-:root:not(#grok) .sf-chat-reader [data-role^='omp.bot.top.'] {
-	box-shadow: none;
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.name'] {
-	margin-left: 0;
-	font-weight: 500;
-	color: var(--t1);
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.say'] {
-	color: var(--t3);
-	opacity: 1;
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.event.row'] {
-	gap: 8px;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	color: var(--t3);
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.event.row']:hover {
-	color: var(--t2);
-}
-:root:not(#grok) .sf-chat-reader :is([data-role='omp.bot.event.action'], [data-role='omp.bot.event.more']) {
-	transition: background-color 0.15s ease, color 0.15s ease;
-}
-:root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
-	border-radius: 24px;
-	background: var(--grok-chrome);
-	box-shadow: 0 0 0 1px var(--grok-soft), 0 2px 8px color-mix(in srgb, var(--grok-ink) calc(3.5% * 0.6), transparent);
-}
-:root:not(#grok) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] > .sf-card-body {
-	gap: 0;
-	padding: 14px 8px 8px;
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.asked.q'] {
-	padding: 0 8px 4px;
-	font: 600 15px/22px var(--sans);
-	color: var(--grok-muted);
-}
-:root:not(#grok) .sf-chat-reader :is([data-role='omp.bot.asked.pick'], [data-role='omp.bot.asked.note']) {
-	padding: 8px;
-	font: 400 14px/20px var(--sans);
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.asked.pick'] {
-	gap: 12px;
-	color: var(--grok-ink);
-}
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.asked.pick'] > .sf-badge {
-	width: 24px;
-	min-width: 24px;
-	height: 24px;
-	padding: 0;
-	border-radius: 8px;
-	font: 500 12px/1 var(--sans);
 }
 :root:not(#grok).lay-rail.tabs-h #tabbar .tt.on::before,
 :root:not(#grok).lay-rail.tabs-h #tabbar .tt.on::after { content: none; }
@@ -1026,53 +952,53 @@ html.tn-themed {
 	font-weight: 400;
 	letter-spacing: -0.08px;
 }
-:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	border-radius: 8px;
 	background: var(--grok-soft);
 	color: var(--t2);
 	box-shadow: none;
 	transition: background-color 120ms ease-out, color 120ms ease-out;
 }
-:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	background: color-mix(in srgb, var(--grok-ink) 10%, transparent);
 	color: var(--t1);
 	box-shadow: none;
 }
-:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):active:not(.disabled, .dis, .busy, :disabled) {
+:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):active:not(.disabled, .dis, .busy, :disabled) {
 	transform: none;
 	background: color-mix(in srgb, var(--grok-ink) 18%, transparent);
 }
-:root:not(#grok) :is(.sf-button[data-variant='quiet'], .btn.quiet, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):not(:hover, .on) {
+:root:not(#grok) :is(.sf-button[data-variant='quiet'], .btn.quiet, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):not(:hover, .on) {
 	background: transparent;
 }
-:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	background: var(--t1);
 	color: var(--grok-page);
 }
-:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#grok) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	background: color-mix(in srgb, var(--grok-ink) 80%, var(--grok-page));
 	color: var(--grok-page);
 }
-:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	background: rgb(from var(--bad) r g b / 10%);
 	color: var(--bad);
 }
-:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#grok) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	background: rgb(from var(--bad) r g b / 18%);
 	color: var(--bad);
 }
-:root:not(#grok) :is(.sf-button.on, .btn.on):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button.on, .btn.on):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	color: var(--t1);
 	background: color-mix(in srgb, var(--grok-ink) 10%, transparent);
 }
-:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):is(.disabled, .dis, :disabled) {
+:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):is(.disabled, .dis, :disabled) {
 	opacity: 0.5;
 	transform: none;
 }
-:root:not(#grok) :is(.sf-button.only-ic, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button.only-ic, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	border-radius: 6px;
 }
-:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):focus-visible {
+:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 1px;
 }
@@ -1133,9 +1059,6 @@ html.tn-themed {
 @keyframes grok-menu-enter {
 	from { opacity: 0; transform: scale(0.98); }
 	to { opacity: 1; transform: none; }
-}
-:root:not(#grok) .sf-chat-reader.sf-main > :is([data-role='omp.user'], [data-role='omp.assistant'], [data-role='omp.error'], [data-role='omp.chat.msg'], [data-role='omp.bot.reply']) {
-	animation: grok-row-enter 240ms cubic-bezier(0.23, 1, 0.32, 1) backwards;
 }
 :root:not(#grok) .sf-chat-reader [data-role='omp.working'] {
 	animation: grok-activity-enter 180ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
@@ -1337,7 +1260,7 @@ html.tn-themed {
  transition: opacity 150ms cubic-bezier(0.2, 0, 0, 1), transform 150ms cubic-bezier(0.2, 0, 0, 1), background-color 120ms ease, color 120ms ease;
 }
 :root:not(#grok) .sf-scroll > .sf-scroll-dock > .sf-scroll-jump.on { transform: none; }
-:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(#pal *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(#pal *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
  transition: color 100ms ease, background-color 100ms ease, transform 50ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 :root:not(#grok) .sf-switch-track {
@@ -1503,7 +1426,6 @@ html.tn-themed {
 }
 :root:not(#grok) .sf-chat-reader .sf-message > .sf-msg-body,
 :root:not(#grok) .sf-chat-reader.sf-main > .sf-card[data-role='omp.user'] > .sf-card-body,
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role='omp.user'] > .sf-card-body,
 :root:not(#grok) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md {
  transform-origin: 50% 100%;
  animation: grok-polish-body-enter 320ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
@@ -1552,15 +1474,6 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader .sf-message .sf-msg-act:not(:disabled, .dis, [aria-disabled='true']):active,
 :root:not(#grok) .sf-chat-reader .sf-button:not([data-role^='omp.composer.'], .disabled, .dis, :disabled, [aria-disabled='true']):active { transform: scale(0.94); transition-duration: 80ms; }
 :root:not(#grok) .sf-fx-pulse { animation: none; }
-:root:not(#grok) .sf-fx-shimmer:not(:is([data-role^='omp.bot.chat.'], [data-role='omp.working'], [data-role='omp.thinking.live']) *) {
- animation: none;
- background-image: none;
- color: var(--t3);
-}
-:root:not(#grok) :is([data-role^='omp.bot.chat.'], [data-role='omp.working'], [data-role='omp.thinking.live']) .sf-fx-shimmer {
- --sh-lo: color-mix(in srgb, var(--grok-ink) 40%, transparent);
- animation-duration: 2.2s;
-}
 :root:not(#grok) .sf-skeleton .sk-b::after { animation: none; background-image: none; }
 :root:not(#grok) .sf-chat-reader :is([data-role='omp.thinking.spin'], [data-role='omp.working']) .sf-dots > i,
 :root:not(#grok) .sf-chat-reader :is([data-role='omp.thinking.spin'], [data-role='omp.working']) .sf-spin .strip,
@@ -1575,10 +1488,9 @@ html.tn-themed {
 	:root:not(#grok).lay-rail.tabs-h #tabbar .tt {
 		transition-duration: 0s;
 	}
-	:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+	:root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 		transition-duration: 0.01ms;
 	}
- :root:not(#grok) .sf-chat-reader.sf-main > :is([data-role='omp.user'], [data-role='omp.assistant'], [data-role='omp.error'], [data-role='omp.chat.msg'], [data-role='omp.bot.reply']),
  :root:not(#grok) .sf-chat-reader [data-role='omp.working'],
  :root:not(#grok) .sf-chat-reader [data-role='omp.working.label'] { animation: grok-fade-in 120ms ease-out backwards; }
  :root:not(#grok) .sf-chat-reader [data-role='omp.hud.activity'] [data-role='omp.working.label'] { animation: grok-phrase-enter 100ms cubic-bezier(0.1, 0.9, 0.2, 1) 0ms backwards; }
@@ -1594,7 +1506,7 @@ html.tn-themed {
  :root:not(#grok) .sf-spinner .sf-orbit,
  :root:not(#grok) .mdl-go.busy::after { animation: none; }
  :root:not(#grok) .sf-scroll > .sf-scroll-dock > .sf-scroll-jump { transition: none; transform: none; }
- :root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(#pal *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']),
+ :root:not(#grok) :is(.sf-button, .btn, .icon-btn):not(#pal *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']),
  :root:not(#grok) :is(.sf-switch-track, .sf-switch-thumb, .sf-input):not(#pal *) { transition-duration: 0.01ms; }
  :root:not(#grok) .sf-message { animation: grok-fade-in 120ms ease-out backwards; }
  :root:not(#grok) :is(.sf-menu-pop, div.pop) { animation-duration: 0.01ms; }
@@ -1604,7 +1516,6 @@ html.tn-themed {
 :root:not(#grok) .sf-chat-reader .sf-editor.focused,
 :root:not(#grok) .sf-chat-reader .sf-message > :is(.sf-msg-body, .sf-msg-av),
 :root:not(#grok) .sf-chat-reader.sf-main > .sf-card[data-role='omp.user'] > .sf-card-body,
-:root:not(#grok) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role='omp.user'] > .sf-card-body,
 :root:not(#grok) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md,
 :root:not(#grok) .sf-chat-reader [data-role='omp.composer.send'] .kbd,
 :root:not(#grok) .sf-chat-reader [data-role='omp.composer.stop'],
@@ -1627,20 +1538,18 @@ html.tn-themed {
 :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader.sf-main > .sf-card[data-role='omp.user'] > .sf-card-body,
 :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader [data-role='omp.composer.send'] .kbd,
 :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader [data-role='omp.composer.stop'],
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-message > :is(.sf-msg-body, .sf-msg-av),
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered).sf-main > .sf-card[data-role='omp.user'] > .sf-card-body,
- :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader [data-role='omp.bot.you'] .sf-card[data-role='omp.user'] > .sf-card-body,
- :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role='omp.bot.you'] .sf-card[data-role='omp.user'] > .sf-card-body,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role^='omp.assistant'] > .sf-md,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role='omp.composer.send'] .kbd,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role='omp.composer.stop'],
- :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader .sf-editor.focused,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-editor.focused,
- :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader .sf-menu-pop,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-menu-pop,
- :root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader .sf-overlay:is(.at-node, .at-caret) > .sf-ov-card,
- :root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-overlay:is(.at-node, .at-caret) > .sf-ov-card { animation: none; }
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-message > :is(.sf-msg-body, .sf-msg-av),
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered).sf-main > .sf-card[data-role='omp.user'] > .sf-card-body,
+:root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader [data-role^='omp.assistant'] > .sf-md,
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role^='omp.assistant'] > .sf-md,
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role='omp.composer.send'] .kbd,
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) [data-role='omp.composer.stop'],
+:root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader .sf-editor.focused,
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-editor.focused,
+:root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader .sf-menu-pop,
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-menu-pop,
+:root:not(#grok) :is(.sf-still, .sf-paused, .sf-covered) .sf-chat-reader .sf-overlay:is(.at-node, .at-caret) > .sf-ov-card,
+:root:not(#grok) .sf-chat-reader:is(.sf-still, .sf-paused, .sf-covered) .sf-overlay:is(.at-node, .at-caret) > .sf-ov-card { animation: none; }
 
 html.tn-phone:not(#grok) .sf-chat-reader.sf-main {
 	padding: 16px 8px;

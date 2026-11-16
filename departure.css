@@ -1620,7 +1620,7 @@
 	box-shadow: inset 0 0 0 1px var(--dep-hair);
 }
 
-:root:not(#dep) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#dep) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	border-radius: 0;
 	font-family: var(--mono);
 	letter-spacing: 0.1em;
@@ -1631,36 +1631,36 @@
 	transition: none;
 }
 
-:root:not(#dep) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#dep) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	color: var(--dep-ground);
 	background: var(--dep-ink);
 	box-shadow: none;
 }
 
-:root:not(#dep) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):is(.disabled, .dis, :disabled) {
+:root:not(#dep) :is(.sf-button, .btn, .icon-btn):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):is(.disabled, .dis, :disabled) {
 	color: var(--dep-t4);
 	box-shadow: inset 0 0 0 1px var(--dep-hair-soft);
 	opacity: 1;
 }
 
-:root:not(#dep) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#dep) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	color: var(--dep-ground);
 	background: var(--dep-ink);
 	box-shadow: none;
 }
 
-:root:not(#dep) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#dep) :is(.sf-button[data-variant='primary'], .btn.accent, .mdl-go:not(.bad), :where(.tn-hd-foot) .btn:not(.quiet)):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	color: var(--dep-amber-ink);
 	background: var(--dep-amber-vivid);
 }
 
-:root:not(#dep) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#dep) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	color: var(--dep-bad);
 	background: transparent;
 	box-shadow: inset 0 0 0 1px var(--dep-bad);
 }
 
-:root:not(#dep) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#dep) :is(.sf-button[data-variant='danger'], .btn.danger, .mdl-go.bad):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	color: var(--dep-ground);
 	background: var(--dep-bad);
 }
@@ -2068,142 +2068,6 @@
 
 :root:not(#dep) .tn-pg-t.other :is(.tn-pg-sw, .tn-pg-n) {
 	opacity: 0.45;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role^='omp.bot.top.'] {
-	min-height: 40px;
-	padding: 8px 0;
-	gap: 8px;
-	box-shadow: inset 0 -1px 0 var(--dep-hair);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.name'] {
-	font: 10.5px/16px var(--mono);
-	letter-spacing: 0.18em;
-	text-transform: uppercase;
-	color: var(--dep-ink);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.say'] {
-	font: 9px/14px var(--mono);
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-	color: var(--dep-t3);
-	opacity: 1;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.event.row'] {
-	padding: 7px 0;
-	gap: 8px;
-	font: 9px/14px var(--mono);
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-	color: var(--dep-t3);
-	border-top: 1px solid var(--dep-hair-soft);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.event.row']:hover {
-	color: var(--dep-ink);
-}
-
-:root:not(#dep) .sf-chat-reader :is([data-role='omp.bot.event.action'], [data-role='omp.bot.event.more']) {
-	color: var(--dep-amber);
-	text-decoration: underline;
-	text-underline-offset: 3px;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role^='omp.bot.time.'] {
-	display: inline-block;
-	align-self: flex-start;
-	width: max-content;
-	margin: 6px 0 2px;
-	padding: 2px 5px;
-	font: 8.5px/12px var(--mono);
-	letter-spacing: 0.16em;
-	text-transform: uppercase;
-	color: var(--dep-ground);
-	background: var(--dep-ink);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.time.you'] {
-	align-self: flex-end;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.more'] {
-	font: 9px/14px var(--mono);
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-	color: var(--dep-amber);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role^='omp.bot.answer.'] {
-	font: 13px/21px var(--mono);
-	color: var(--dep-ink);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.reply'] {
-	color: var(--dep-ink);
-}
-
-:root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
-	background: var(--dep-panel);
-	border: 1px solid var(--dep-hair);
-	box-shadow: none;
-}
-
-:root:not(#dep) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] > .sf-card-body {
-	gap: 0;
-	padding: 10px 12px 8px;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.asked.q'] {
-	padding: 0 0 6px;
-	font: 9px/14px var(--mono);
-	letter-spacing: 0.16em;
-	text-transform: uppercase;
-	color: var(--dep-t3);
-	border-bottom: 1px solid var(--dep-hair-soft);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.asked.q']::before {
-	content: 'ASKED';
-	margin-right: 8px;
-	padding: 1px 4px;
-	font: 8px/11px var(--mono);
-	letter-spacing: 0.18em;
-	color: var(--dep-ground);
-	background: var(--dep-ink);
-}
-
-:root:not(#dep) .sf-chat-reader :is([data-role='omp.bot.asked.pick'], [data-role='omp.bot.asked.note']) {
-	padding: 6px 0;
-	font: 10.5px/16px var(--mono);
-	letter-spacing: 0.04em;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.asked.pick'] {
-	gap: 10px;
-	color: var(--dep-ink);
-	border-bottom: 1px solid var(--dep-hair-soft);
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.asked.pick'] > .sf-badge {
-	justify-content: center;
-	min-width: 18px;
-	width: 18px;
-	height: 18px;
-	padding: 0;
-	font: 9px/1 var(--mono);
-	color: var(--dep-ground);
-	background: var(--dep-ink);
-	box-shadow: none;
-}
-
-:root:not(#dep) .sf-chat-reader [data-role='omp.bot.asked.note'] {
-	font-size: 9.5px;
-	letter-spacing: 0.06em;
-	text-transform: uppercase;
-	color: var(--dep-t4);
 }
 
 :root:not(#dep) .sf-col[data-role='omp.editor.ask'] {

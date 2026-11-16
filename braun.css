@@ -475,55 +475,6 @@
 	font-family: var(--brn-mono); font-size: 10px; font-variant-numeric: tabular-nums;
 	color: var(--brn-dim);
 }
-:root:not(#brn) .sf-chat-reader :is([data-role^='omp.bot.top.'], [data-role^='omp.bot.chat.']) {
-	min-height: 50px; gap: 8px; padding: 7px 0;
-	box-shadow: none;
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.name'] {
-	font: 500 11px/1.5 var(--brn-mono); letter-spacing: 0.08em; text-transform: uppercase;
-	color: var(--brn-ink);
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.say'] {
-	font: 400 12.5px/1.5 var(--brn-sans); color: var(--brn-muted); opacity: 1;
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.event.row'] {
-	gap: 8px; padding: 7px 0; font-family: var(--brn-mono);
-	font-size: 11px; font-variant-numeric: tabular-nums; color: var(--brn-muted);
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.event.row']:hover { color: var(--brn-ink); }
-:root:not(#brn) .sf-chat-reader :is([data-role='omp.bot.event.action'], [data-role='omp.bot.event.more']) {
-	font: 500 9.5px/1.6 var(--brn-mono); letter-spacing: 0.08em; text-transform: uppercase;
-	color: var(--brn-accent-ink); background: none; box-shadow: none;
-}
-:root:not(#brn) .sf-chat-reader [data-role^='omp.bot.answer.'] {
-	font: 400 15px/22px var(--brn-sans); color: var(--brn-ink);
-}
-:root:not(#brn) .sf-chat-reader :is([data-role='omp.bot.time.you'], [data-role='omp.bot.time.bot'], [data-role^='omp.bot.time.']) {
-	font: 400 9.5px/1.6 var(--brn-mono); letter-spacing: 0.09em; font-variant-numeric: tabular-nums;
-	color: var(--brn-dim);
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.more'] {
-	font: 500 10px/1.6 var(--brn-mono); letter-spacing: 0.08em; text-transform: uppercase;
-	color: var(--brn-muted);
-}
-:root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
-	border-radius: 3px; background: var(--brn-card); box-shadow: var(--brn-raised);
-}
-:root:not(#brn) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] > .sf-card-body { gap: 0; padding: 12px 12px 8px; }
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.asked.q'] {
-	padding: 0 2px 6px; font: 400 14px/21px var(--brn-sans); color: var(--brn-ink);
-}
-:root:not(#brn) .sf-chat-reader :is([data-role='omp.bot.asked.pick'], [data-role='omp.bot.asked.note']) {
-	padding: 7px 6px; font: 400 13px/19px var(--brn-sans); color: var(--brn-ink);
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.asked.note'] {
-	font-family: var(--brn-mono); font-size: 11px; color: var(--brn-muted);
-}
-:root:not(#brn) .sf-chat-reader [data-role='omp.bot.asked.pick'] > .sf-badge {
-	width: 22px; min-width: 22px; height: 22px;
-	padding: 0; border-radius: 2px; font: 500 10px/1 var(--brn-mono);
-	color: var(--brn-muted); background: var(--brn-well); box-shadow: 0 0 0 1px var(--brn-line);
-}
 :root:not(#brn) .sf-col[data-role='omp.editor.ask'] {
 	position: relative; padding: 16px 14px 12px; border-radius: 4px;
 	background: var(--brn-card); box-shadow: var(--brn-raised);
@@ -941,9 +892,6 @@ html.tn-phone:not(#brn) #tn-ph-edge { background: linear-gradient(90deg, rgb(0 0
 		opacity: 0;
 		transform: translateY(2px);
 	}
-}
-:root:not(#brn) .sf-chat-reader.sf-main > :is([data-role='omp.user'], [data-role='omp.assistant'], [data-role='omp.chat.msg'], [data-role='omp.bot.reply']) {
-	animation: brn-in 140ms linear backwards;
 }
 :root:not(#brn) :is(.pop, .sf-menu-pop, .toast, .tn-bn-card) { animation: brn-in 90ms linear backwards; }
 :root:not(#brn) :is(.sf-still, .sf-paused) * { animation: none; }

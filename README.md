@@ -8,7 +8,7 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 
 - **Ozette**: square paper surfaces with offset shadows, serif chat, code cards, label tabs and a dot-grid canvas.
 - **YoRHa**: two-tone menus after NieR: Automata's YoRHa screens: light paper or dark ink.
-- **Grok**: a standalone look after the Grok Bot app: neutral surfaces, rounded code, a centred 960px composer, and Grok Bot's own menus, dialogs, keycaps, bottom-right notification toasts that say what the bot is doing ("CU-Bot is waiting for you", "CU-Bot finished working"), answered question cards and shimmering working phrase. It hides the composer's model and effort selectors; `/model` still works.
+- **Grok**: a standalone look after the Grok Bot app: neutral surfaces, rounded code, a centred 960px composer, and Grok Bot's own menus, dialogs, keycaps, bottom-right notification toasts that say what the bot is doing ("CU-Bot is waiting for you", "CU-Bot finished working") and a shimmering working phrase. It hides the composer's model and effort selectors; `/model` still works.
 - **Mini**: stock layout with small radii, short transitions, flat borders and no decorative animation. It sets no colours or fonts.
 
 ## Sheets
@@ -17,18 +17,18 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 | --- | --- |
 | `rail.css`, `settings.css` | always: right-rail base and native picker sizing |
 | `ozette.css`, `motion.css`, `cmus.css` | Ozette is selected |
-| `ozette-answer-bubbles.css`, `ozette-bot-you.css` | Ozette plus answer bubbles / your-message bubbles |
+| `ozette-answer-bubbles.css` | Ozette plus answer bubbles |
 | `yorha.css` | YoRHa is selected |
-| `yorha-answer-bubbles.css`, `yorha-bot-answer-bubbles.css`, `yorha-bot-you.css` | YoRHa plus the matching bubble option |
+| `yorha-answer-bubbles.css` | YoRHa plus answer bubbles |
 | `grok.css` | Grok is selected |
-| `grok-*-bubbles.css`, `grok-bot-you.css` | Grok plus the matching bubble option |
+| `grok-answer-bubbles.css`, `grok-user-bubbles.css` | Grok plus answer bubbles / always with Grok |
 | `mini.css` | Mini is selected |
 
 Ozette, YoRHa and Grok still ship their own bubble sheets. Departure, Automata, Botanical, Braun, Folio, Blueprint, Eink and Phosphor do not: their `--omp-user-*` and `--omp-reply-*` variables in the look sheet feed `bubbles.css`, a look layer the UI Menu loads only while one of those eight is selected. It draws the user frame and keeps replies plain; every other look keeps the stock bubble snippets untouched.
 
 `plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
-Bot avatars are not part of any look: omp-bot's Tern plugin draws them under every look. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
+Bot chats are not part of any look: finix's UI Menu `bot-view.css` resets an omp-bot chat and styles it alone, and omp-bot's Tern plugin draws the avatars, so no sheet here styles `omp.bot.*` roles. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
 
 ## Light and dark
 

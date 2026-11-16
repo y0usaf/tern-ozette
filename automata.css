@@ -1165,128 +1165,6 @@ html.tn-themed {
 	box-shadow: inset 0 0 0 1px var(--at-rule);
 }
 
-:root:not(#aut) .sf-chat-reader :is([data-role^='omp.bot.top.'], [data-role^='omp.bot.chat.']) {
-	box-sizing: border-box;
-	padding: 9px 0;
-	box-shadow: inset 0 -1px 0 var(--at-hair);
-}
-
-:root:not(#aut) .sf-chat-reader [data-role^='omp.bot.top.'] {
-	background: none;
-	box-shadow: inset 0 -1px 0 var(--at-hair);
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.name'] {
-	margin-left: 0;
-	color: var(--at-ink);
-	font: 400 11px/1.4 var(--at-mono);
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.say'] {
-	color: var(--at-t3);
-	font: 400 11px/1.4 var(--at-mono);
-	letter-spacing: 0.02em;
-	opacity: 1;
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.event.row'] {
-	gap: 8px;
-	padding: 7px 0;
-	color: var(--at-t3);
-	font-family: var(--at-mono);
-	font-size: 10px;
-	letter-spacing: 0.08em;
-	text-transform: uppercase;
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.event.row']:hover {
-	color: var(--at-t2);
-}
-
-:root:not(#aut) .sf-chat-reader :is([data-role='omp.bot.event.action'], [data-role='omp.bot.event.more']) {
-	color: var(--at-ox);
-	font-family: var(--at-mono);
-	font-size: 10px;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
-}
-
-:root:not(#aut) .sf-chat-reader :is([data-role='omp.bot.event.action'], [data-role='omp.bot.event.more']):hover {
-	background: var(--at-soft);
-}
-
-
-:root:not(#aut) .sf-chat-reader.sf-main > [data-role^='omp.bot.time.'] {
-	margin: 6px 0 2px;
-	padding: 0;
-	text-align: start;
-	color: var(--at-t3);
-	font: 400 9px/1.5 var(--at-mono);
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-}
-
-:root:not(#aut) .sf-chat-reader.sf-main > [data-role='omp.bot.time.you'] {
-	text-align: end;
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.more'] {
-	color: var(--at-t3);
-	font: 400 9.5px/1.5 var(--at-mono);
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-}
-
-
-:root:not(#aut) .sf-chat-reader .sf-card[data-role='omp.bot.asked'] {
-	padding: 16px 14px 12px;
-	background-color: var(--at-card);
-	background-image:
-		linear-gradient(var(--at-ink), var(--at-ink)),
-		linear-gradient(var(--at-ink), var(--at-ink)),
-		var(--at-fibre);
-	background-size: 100% 2px, 100% 1px, auto;
-	background-position: 0 0, 0 5px, 0 0;
-	background-repeat: no-repeat, no-repeat, repeat;
-	box-shadow: inset 0 0 0 1px var(--at-rule);
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.asked.q'] {
-	padding: 0 0 6px;
-	color: var(--at-ink);
-	font: 400 14px/1.45 var(--at-sans);
-}
-
-:root:not(#aut) .sf-chat-reader :is([data-role='omp.bot.asked.pick'], [data-role='omp.bot.asked.note']) {
-	padding: 6px 0;
-	color: var(--at-t2);
-	font: 400 13px/1.5 var(--at-sans);
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.asked.pick'] {
-	gap: 10px;
-	border-top: 1px solid var(--at-hair);
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.asked.pick'] > .sf-badge {
-	width: 20px;
-	min-width: 20px;
-	height: 20px;
-	padding: 0;
-	background: none;
-	box-shadow: inset 0 0 0 1px var(--at-ink);
-	color: var(--at-ink);
-	font: 400 10px/19px var(--at-mono);
-}
-
-:root:not(#aut) .sf-chat-reader [data-role='omp.bot.asked.pick'].sel > .sf-badge {
-	background: var(--at-ox);
-	box-shadow: none;
-	color: var(--at-ox-ink);
-}
-
 :root:not(#aut) .sf-col[data-role='omp.editor.ask'] {
 	position: relative;
 	padding: 20px 18px 14px;
@@ -1960,7 +1838,7 @@ html.tn-themed {
 	padding: 10px 14px;
 }
 
-:root:not(#aut) :is(.btn, .icon-btn, .sf-button):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']) {
+:root:not(#aut) :is(.btn, .icon-btn, .sf-button):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']) {
 	background: none;
 	box-shadow: inset 0 0 0 1px var(--at-rule);
 	color: var(--at-t2);
@@ -1971,7 +1849,7 @@ html.tn-themed {
 	transition: none;
 }
 
-:root:not(#aut) :is(.btn, .icon-btn, .sf-button):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role='omp.bot.dock'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
+:root:not(#aut) :is(.btn, .icon-btn, .sf-button):not(.cmdk *):not([data-role^='omp.editor'] *):not([data-role^='omp.composer.']):hover:not(.disabled, .dis, :disabled) {
 	background: var(--at-ink);
 	color: var(--at-paper);
 }
