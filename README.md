@@ -21,14 +21,14 @@ A look restyles stock Tern through its own selectors and variables; colour alway
 | `yorha.css` | YoRHa is selected |
 | `yorha-answer-bubbles.css` | YoRHa plus answer bubbles |
 | `grok.css` | Grok is selected |
-| `grok-answer-bubbles.css`, `grok-user-bubbles.css` | Grok plus answer bubbles / always with Grok |
+| `grok-answer-bubbles.css`, `grok-user-bubbles.css` | always with Grok: the reply and your-message bubbles of a plain omp chat and of an omp-bot chat |
 | `mini.css` | Mini is selected |
 
 Ozette, YoRHa and Grok still ship their own bubble sheets. Departure, Automata, Botanical, Braun, Folio, Blueprint, Eink and Phosphor do not: their `--omp-user-*` and `--omp-reply-*` variables in the look sheet feed `bubbles.css`, a look layer the UI Menu loads only while one of those eight is selected. It draws the user frame and keeps replies plain; every other look keeps the stock bubble snippets untouched.
 
 `plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
-No sheet here styles `omp.bot.*` roles: bot-only chat pieces belong to Dawn, the OMP chat look in finix's UI Menu (`dawn.css`, built against the installed Tern; it wears `grok.css` underneath as its chrome, retinted through the `--grok-*` tokens), and omp-bot's Tern plugin draws the avatars under every look. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
+Only the Grok bubble sheets touch `omp.bot.*`, styling the two wrappers omp-bot puts round a bot's own message (`omp.bot.you`) and a reply (`omp.bot.reply`); the rest of a bot chat's chrome belongs to Dawn, the OMP chat look in finix's UI Menu (`dawn.css`, built against the installed Tern; it wears `grok.css` underneath as its chrome, retinted through the `--grok-*` tokens), and omp-bot's Tern plugin draws the avatars under every look. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
 
 ## Light and dark
 
