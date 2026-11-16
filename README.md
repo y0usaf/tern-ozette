@@ -28,7 +28,7 @@ Ozette, YoRHa and Grok still ship their own bubble sheets. Departure, Automata, 
 
 `plugin.toml` also makes the repo a plain Ozette plugin (`ozette.css`, `motion.css`, `cmus.css`) for a Tern without the UI Menu.
 
-Bot chats are not part of any look: finix's UI Menu `bot-view.css` resets an omp-bot chat and styles it alone, and omp-bot's Tern plugin draws the avatars, so no sheet here styles `omp.bot.*` roles. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
+No sheet here styles `omp.bot.*` roles: bot-only chat pieces belong to Dawn, the OMP chat look in finix's UI Menu (`dawn.css`, built against the installed Tern), and omp-bot's Tern plugin draws the avatars under every look. `grok-motion.json` maps the Grok app's animations to Tern surfaces; it is reference only and nothing loads it.
 
 ## Light and dark
 
